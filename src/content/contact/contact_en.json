@@ -1,0 +1,18 @@
+{
+  "slug": "/contact-us",
+  "title": "Contact Us",
+  "photo": "/images/logo_symbole.png",
+  "emails": [
+    {
+      "name": "General Email",
+      "email": "info@pourlartpourafrique.com"
+    }
+  ],
+  "subtitle": "Press",
+  "files": [
+    {
+      "name": "Visuals",
+      "file": "/images/central-residence-google.pdf"
+    }
+  ]
+}
