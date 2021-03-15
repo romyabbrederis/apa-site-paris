@@ -18,12 +18,20 @@ export type ProgrammeContent = {
   readonly galleries: string[];
 };
 
-let postCache: PostContent[];
+export type CalendarContent = {
+  readonly title: string;
+  readonly month: string;
+  readonly year: string;
+  readonly date: string;
+  readonly galleries: string[];
+};
+
+let programmeCache: PostContent[];
 
 export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
   console.log("locale", locale)
-  if (postCache) {
-    return postCache;
+  if (programmeCache) {
+    return programmeCache;
   }
 
   let directory;
@@ -74,12 +82,31 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
     });
     console.log('allPostsData', allPostsData)
 
-    postCache = allPostsData.sort((a, b) => {
+    programmeCache = allPostsData.sort((a, b) => {
       if (a.date < b.date) {
         return 1;
       } else {
         return -1;
       }
     });
-    return postCache;
+    return programmeCache;
 }
+
+// let calendarCache: CalendarContent[];
+
+// export function findCalendarContent(programmes: ProgrammeContent[]): CalendarContent[] {
+//   console.log('findCalendarContent', programmes) 
+  
+//   programmes.map(item => {
+//     const result = {
+//       title: item.title,
+//       month: item.month,
+//       year: item.year,
+//       start: item.start,
+//       galleries: item.galleries
+//     }
+//     calendarCache.push(result)
+//   })
+
+//   return calendarCache
+// }
