@@ -6,7 +6,10 @@ backend:
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
-
+i18n:
+  structure: multiple_folders
+  locales: [fr, en]
+  default_locale: fr
 collections:
   - name: "config"
     label: "Config"
@@ -89,4 +92,45 @@ collections:
                 name: "name"
                 widget: "string"
                 hint: "Tag name for displaying on the site"
+
+  - name: "general"
+    label: "General"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "galleries"
+        label: "Galleries"
+        file: "meta/galleries.yml"
+        description: "Galleries"
+        fields:
+          - name: galleries
+            label: Galleries
+            widget: list
+            fields:
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "The part of a URL identifies the gallery"
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Gallery name"
+              - label: "Address"
+                name: "address"
+                widget: "markdown"
+                hint: "Gallery complete address"
+              - label: "Phone"
+                name: "phone"
+                widget: "string"
+                hint: "Gallery Phone with country code (+33)"
+              - label: "Email"
+                name: "email"
+                widget: "string"
+                hint: "Gallery Email"
+              - label: "Location"
+                name: "location"
+                widget: "map"
+                hint: "Place the pin at the exact location of the Gallery"
+
 
