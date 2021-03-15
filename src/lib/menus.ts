@@ -7,8 +7,8 @@ export type MenuContent = {
 
 let menu: MenuContent[]
 
-export function getMenu(language: string): any {
-  if (menu === "en") {
+export function getMenu(language: string): MenuContent[] {
+  if (language === "en") {
     menu = menu_fr.items
   } else {
     menu = menu_fr.items
