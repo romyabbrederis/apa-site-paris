@@ -14,16 +14,16 @@ import styles from "../../public/styles/content.module.css";
 // import { getAuthor } from "../lib/authors";
 // import { getTag } from "../lib/tags";
 
-// type Props = {
-//   title: string;
-//   date: Date;
-//   slug: string;
-//   description: string;
-//   tags: string[];
-//   author: string;
-// };
+type Props = {
+  title: string;
+  // date: Date;
+  // slug: string;
+  // description: string;
+  // tags: string[];
+  // author: string;
+};
 export default function Index({
-  // title,
+  title,
   // date,
   // slug,
   // author,
