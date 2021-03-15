@@ -9,7 +9,7 @@ export type GalleryContent = {
   readonly email: string;
 }
 
-const galleryMap: { [key: string]: AuthorContent } = generateGalleryMap();
+const galleryMap: { [key: string]: GalleryContent } = generateGalleryMap();
 
 function generateGalleryMap(): { [key: string]: GalleryContent } {
   console.log('galleries', galleries)
