@@ -57,11 +57,11 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
         },
       });
       const matterData = matterResult.data as {
-         slug: string;
+        slug: string;
         title: string;
         month: string;
         year: string;
-        date: string;
+        start: string;
         description: string;
         type: string;
         file: string;
