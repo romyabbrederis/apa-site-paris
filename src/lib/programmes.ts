@@ -26,7 +26,7 @@ export type CalendarContent = {
   readonly galleries: string[];
 };
 
-let programmeCache: PostContent[];
+let programmeCache: ProgrammeContent[];
 
 export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
   console.log("locale", locale)
@@ -45,14 +45,12 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
   const fileNames = fs.readdirSync(directory);
   console.log('filenames', fileNames)
 
-  const allPostsData = fileNames
+  const allProgData = fileNames
     .filter((it) => it.endsWith(".mdx"))
     .map((fileName) => {
-      // Read markdown file as string
       const fullPath = path.join(directory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
 
-      // Use gray-matter to parse the post metadata section
       const matterResult = matter(fileContents, {
         engines: {
           yaml: (s) => yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
@@ -70,8 +68,6 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
         galleries: string[];
       };
       const slug = fileName.replace(/\.mdx$/, "");
-
-      // Validate slug string
       if (matterData.slug !== slug) {
         throw new Error(
           "slug field not match with the path of its content source"
@@ -80,9 +76,9 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
 
       return matterData;
     });
-    console.log('allPostsData', allPostsData)
+    console.log('allProgData', allProgData)
 
-    programmeCache = allPostsData.sort((a, b) => {
+    programmeCache = allProgData.sort((a, b) => {
       if (a.date < b.date) {
         return 1;
       } else {
