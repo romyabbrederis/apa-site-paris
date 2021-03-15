@@ -1,0 +1,12 @@
+galleries:
+  - slug: gallery-du-marais
+    name: Galerie du Marais - Paule France Luciani
+    address: |-
+      21 Place des Vosges
+
+      75003 Paris
+
+      France
+    phone: +33 1 42 78 92 93
+    location: '{"type":"Point","coordinates":[2.3667793,48.8561023]}'
+    email: "-"
