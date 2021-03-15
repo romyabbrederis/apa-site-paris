@@ -91,7 +91,7 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
 
 let calendarCache: CalendarContent[];
 
-export function findCalendarContent({ programmes }: ProgrammeContent[]): CalendarContent[] {
+export function findCalendarContent(programmes : ProgrammeContent[]): CalendarContent[] {
   console.log('findCalendarContent', programmes) 
   
   calendarCache  = programmeCache.map(item => {
