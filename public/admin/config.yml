@@ -218,6 +218,7 @@ collections:
       - label: "Type"
         name: "type"
         widget: "select"
+        i18n: duplicate
         options: ["now", "upcoming", "past"]
       - label: "Programme PDF"
         name: "file"
