@@ -1,16 +1,6 @@
-import { format, formatISO } from "date-fns";
 
 export default function Menu() {
   return (
-    <time dateTime={formatISO(date)}>
-      <span>{format(date, "LLLL d, yyyy")}</span>
-      <style jsx>
-        {`
-          span {
-            color: #9b9b9b;
-          }
-        `}
-      </style>
-    </time>
+    <div></div>
   );
 }
