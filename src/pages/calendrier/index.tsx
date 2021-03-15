@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-// import Layout from "../../../components/Layout";
+import Layout from "../../layouts/index";
 import BasicMeta from "../../components/meta/BasicMeta";
 import OpenGraphMeta from "../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../components/meta/TwitterCardMeta";
@@ -19,12 +19,10 @@ export default function Index({ events, language }: Props) {
 
   console.log("events", events, language)
   return (
-    <div>
-      <Head>
-        <BasicMeta url={url} title={title} />
-        <OpenGraphMeta url={url} title={title} />
-        <TwitterCardMeta url={url} title={title} />
-      </Head>
+    <div>        
+      <BasicMeta url={url} title={title} />
+      <OpenGraphMeta url={url} title={title} />
+      <TwitterCardMeta url={url} title={title} />
       <CalendarList events={events} />
     </div>
   );

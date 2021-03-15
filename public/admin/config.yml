@@ -142,8 +142,8 @@ collections:
         file: "meta/menu_fr.yml"
         description: "Menu en francais"
         fields:
-        - name: Menu Items
-          label: items
+        - name: items
+          label: Menu Items
           widget: list
           file: "meta/menu_fr.yml"
           fields:
@@ -162,8 +162,8 @@ collections:
         file: "meta/menu_en.yml"
         description: "Menu in englisch"
         fields:
-        - name: Menu Items
-          label: items
+        - name: items
+          label: Menu Items
           widget: list
           file: "meta/menu_en.yml"
           fields:
