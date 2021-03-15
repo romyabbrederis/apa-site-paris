@@ -232,7 +232,7 @@ collections:
       - label: "Galleries"
         name: "galleries"
         widget: list
-        i18n: duplicate
+        i18n: true
         summary: "{{fields.galleries}}"
         field:
           label: "Galleries"
