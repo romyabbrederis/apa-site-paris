@@ -4,7 +4,6 @@ import styles from "../../public/styles/content.module.css";
 import Date from "../components/Date";
 // import Layout from "../components/Layout";
 import BasicMeta from "../components/meta/BasicMeta";
-import JsonLdMeta from "../components/meta/JsonLdMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 
@@ -38,13 +37,6 @@ export default function Index({
         <OpenGraphMeta
           url={`/posts/${slug}`}
           title={title}
-          description={description}
-        />
-        <JsonLdMeta
-          url={`/posts/${slug}`}
-          title={title}
-          date={date}
-          author={"Pour l'Art pour l'Afrique"}
           description={description}
         />
         </Head>
