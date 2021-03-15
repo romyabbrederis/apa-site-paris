@@ -4,8 +4,8 @@ import path from "path";
 import yaml from "js-yaml";
 import { getGalleryInfos } from "./galleries"
 
-const programmesDirectoryEN = path.join(process.cwd(), "src/pages/programme/en");
-const programmesDirectoryFR = path.join(process.cwd(), "src/pages/programme/fr");
+const programmesDirectoryEN = path.join(process.cwd(), "src/content/programme/en");
+const programmesDirectoryFR = path.join(process.cwd(), "src/content/programme/fr");
 
 export type ProgrammeContent = {
   readonly slug: string;

@@ -181,7 +181,7 @@ collections:
   - name: "programme"
     i18n: true
     label: "Programme"
-    folder: "src/pages/programme"
+    folder: "src/content/programme"
     extension: "mdx"
     format: "frontmatter"
     create: true
@@ -192,6 +192,7 @@ collections:
       - label: "Slug"
         name: "slug"
         widget: "string"
+        i18n: duplicate
       - label: "Title"
         name: "title"
         widget: "string"
@@ -231,6 +232,7 @@ collections:
       - label: "Galleries"
         name: "galleries"
         widget: list
+        i18n: duplicate
         summary: "{{fields.galleries}}"
         field:
           label: "Galleries"
