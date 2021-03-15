@@ -23,7 +23,7 @@ export type CalendarContent = {
   readonly title: string;
   readonly month: string;
   readonly year: string;
-  readonly date: string;
+  readonly start: string;
   readonly galleries: string[];
 };
 
