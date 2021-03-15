@@ -250,7 +250,7 @@ collections:
     files:
       - name: "aboutFR"
         label: "About FR"
-        file: "content/about/about_fr.json"
+        file: "src/content/about/about_fr.json"
         description: "A propos"
         fields:
           - label: "Slug"
@@ -283,7 +283,7 @@ collections:
                 hint: "Logos du partenaire ex. Ile de France"
       - name: "aboutEN"
         label: "About EN"
-        file: "content/about/about_en.json"
+        file: "src/content/about/about_en.json"
         description: "A propos"
         fields:
           - label: "Slug"
@@ -314,3 +314,4 @@ collections:
                 name: "partner"
                 widget: "image"
                 hint: "Logo of partner ex. Ile de France"
+  

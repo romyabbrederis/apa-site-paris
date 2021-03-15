@@ -6,6 +6,7 @@ module.exports = {
     locales: ['en', 'fr'],
     defaultLocale: 'fr',  
   },
+  exportTrailingSlash: true,
 }
 
 module.exports = withMdxEnhanced({

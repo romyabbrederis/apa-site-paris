@@ -7,7 +7,9 @@ export default function Menu() {
   return (
     <div className={"container"}>
       {menus.map((item, i) => (
-        <Link href={item.slug}>{item.name}</Link>
+        <Link href={item.slug} key={i}>
+          <a>{item.name}</a>
+        </Link>
       ))}
     <style jsx>{`
         .container {
