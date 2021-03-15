@@ -1,18 +1,18 @@
 import Head from "next/head";
 import React from "react";
 import styles from "../../public/styles/content.module.css";
-import Author from "../components/Author";
-import Copyright from "../components/Copyright";
-import Date from "../components/Date";
-import Layout from "../components/Layout";
-import BasicMeta from "../components/meta/BasicMeta";
-import JsonLdMeta from "../components/meta/JsonLdMeta";
-import OpenGraphMeta from "../components/meta/OpenGraphMeta";
-import TwitterCardMeta from "../components/meta/TwitterCardMeta";
-import { SocialList } from "../components/SocialList";
-import TagButton from "../components/TagButton";
-import { getAuthor } from "../lib/authors";
-import { getTag } from "../lib/tags";
+// import Author from "../components/Author";
+// import Copyright from "../components/Copyright";
+// import Date from "../components/Date";
+// import Layout from "../components/Layout";
+// import BasicMeta from "../components/meta/BasicMeta";
+// import JsonLdMeta from "../components/meta/JsonLdMeta";
+// import OpenGraphMeta from "../components/meta/OpenGraphMeta";
+// import TwitterCardMeta from "../components/meta/TwitterCardMeta";
+// import { SocialList } from "../components/SocialList";
+// import TagButton from "../components/TagButton";
+// import { getAuthor } from "../lib/authors";
+// import { getTag } from "../lib/tags";
 
 type Props = {
   title: string;
@@ -60,7 +60,7 @@ export default function Index({
           description={description}
         />
         <div className={"container"}>
-          <article>
+          {/* <article>
             <header>
               <h1>{title}</h1>
               <div className={"metadata"}>
@@ -86,7 +86,7 @@ export default function Index({
               <SocialList />
             </div>
             <Copyright />
-          </footer>
+          </footer> */}
         </div>
         <style jsx>
           {`
