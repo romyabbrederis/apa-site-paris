@@ -229,6 +229,7 @@ collections:
         media_library:
           config:
             multiple: true
+            max_file_size: 500000
       - label: "Galleries"
         name: "galleries"
         widget: list
@@ -262,6 +263,9 @@ collections:
           - label: "Logo"
             name: "logo"
             widget: "image"
+            media_library:
+              config:
+                max_file_size: 400000
           - label: "Text"
             name: "text"
             widget: "markdown"
@@ -280,6 +284,9 @@ collections:
               - label: "partner"
                 name: "partner"
                 widget: "image"
+                media_library:
+                config:
+                  max_file_size: 100000
                 hint: "Logos du partenaire ex. Ile de France"
       - name: "aboutEN"
         label: "About EN"
@@ -295,6 +302,9 @@ collections:
           - label: "Logo"
             name: "logo"
             widget: "image"
+            media_library:
+              config:
+                max_file_size: 100000
           - label: "Text"
             name: "text"
             widget: "markdown"
@@ -313,5 +323,110 @@ collections:
               - label: "partner"
                 name: "partner"
                 widget: "image"
+                media_library:
+                config:
+                  max_file_size: 100000
                 hint: "Logo of partner ex. Ile de France"
+
+  - name: "contact"
+    label: "Contact"
+    delete: false
+    files:
+      - name: "contactFR"
+        label: "Contact FR"
+        file: "src/content/contact/contact_fr.json"
+        description: "Page Contact en francais"
+        fields:
+          - label: "Slug"
+            name: "slug"
+            widget: "string"
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Photo"
+            name: "photo"
+            widget: "image"
+            media_library:
+              config:
+                max_file_size: 200000
+            hint: "Photo d'equipe"
+          - name: emails
+            label: Emails
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Email Name ex. General Email or Grigori Michel"
+              - label: "email"
+                name: "email"
+                widget: "string"
+                hint: "Email ex. info@pourlartpourafrique.com"
+          - label: "subtitle"
+            name: "subtitle"
+            widget: "string"
+            hint: "Ex. Presse ou Telechargements"
+          - name: files
+            label: Files
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Ex. Telechargements des visuelles"
+              - label: "file"
+                name: "file"
+                widget: "file"
+                media_library:
+                  config:
+                    max_file_size: 500000
+      - name: "contactEN"
+        label: "Contact EN"
+        file: "src/content/contact/contact_en.json"
+        description: "Contact Page in English"
+        fields:
+          - label: "Slug"
+            name: "slug"
+            widget: "string"
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Photo"
+            name: "photo"
+            widget: "image"
+            hint: "Team photo"
+            media_library:
+              config:
+                max_file_size: 200000
+          - name: emails
+            label: Emails
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Email Name ex. General Email or Grigori Michel"
+              - label: "email"
+                name: "email"
+                widget: "string"
+                hint: "Email ex. info@pourlartpourafrique.com"
+          - label: "subtitle"
+            name: "subtitle"
+            widget: "string"
+            hint: "Ex. Presse ou Telechargements"
+          - name: files
+            label: Files
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Ex. Download visuals"
+              - label: "file"
+                name: "file"
+                widget: "file"
+                media_library:
+                  config:
+                    max_file_size: 500000
+              
   
