@@ -1,22 +1,19 @@
-import galleries from "../../meta/galleries.yml"
+import galleries from "../../meta/galleries.yml";
 
 export type GalleryContent = {
   readonly slug: string;
   readonly name: string;
   readonly address: string;
   readonly phone: string;
-  readonly location: object;
+  readonly location: string;
   readonly email: string;
-}
+};
 
-const galleryMap: { [key: string]: GalleryContent } = generateGalleryMap();
-
-function generateGalleryMap(): { [key: string]: GalleryContent } {
-  console.log('galleries', galleries)
-  return galleries;
-}
-
-function getGalleryContent(slug: string) {
-  console.log('galleries', slug)
-  return  galleryMap[slug]
+export function getGalleryInfos(gals: string[]): GalleryContent[] {
+  const galleryInfo = gals.map(el => {
+    const findGallery = galleries.galleries.find(item => item.name === el)
+    return findGallery
+  })
+  console.log('galleryInfo', galleryInfo)
+  return galleryInfo
 } 

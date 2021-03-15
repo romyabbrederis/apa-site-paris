@@ -2,6 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import yaml from "js-yaml";
+import { getGalleryInfos } from "./galleries"
 
 const programmesDirectoryEN = path.join(process.cwd(), "src/pages/programme/en");
 const programmesDirectoryFR = path.join(process.cwd(), "src/pages/programme/fr");
@@ -88,21 +89,23 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
     return programmeCache;
 }
 
-// let calendarCache: CalendarContent[];
+let calendarCache: CalendarContent[];
 
-// export function findCalendarContent(programmes: ProgrammeContent[]): CalendarContent[] {
-//   console.log('findCalendarContent', programmes) 
+export function findCalendarContent({ programmes }: ProgrammeContent[]): CalendarContent[] {
+  console.log('findCalendarContent', programmes) 
   
-//   programmes.map(item => {
-//     const result = {
-//       title: item.title,
-//       month: item.month,
-//       year: item.year,
-//       start: item.start,
-//       galleries: item.galleries
-//     }
-//     calendarCache.push(result)
-//   })
+  calendarCache  = programmeCache.map(item => {
+    console.log('item', item.galleries)
+    getGalleryInfos(item.galleries)
+    const result = {
+      title: item.title,
+      month: item.month,
+      year: item.year,
+      start: item.start,
+      galleries: item.galleries
+    }
 
-//   return calendarCache
-// }
+    return result
+  })
+  return calendarCache
+}
