@@ -1,6 +1,5 @@
 backend:
-    # name: test-repo
-
+  # name: test-repo
   name: git-gateway
   branch: master
 media_folder: public/images
@@ -133,4 +132,65 @@ collections:
                 widget: "map"
                 hint: "Place the pin at the exact location of the Gallery"
 
-
+  - name: "programme"
+    i18n: true
+    label: "Programme"
+    folder: "src/pages/programme"
+    extension: "mdx"
+    format: "frontmatter"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    fields:
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+      - label: "Month"
+        name: "month"
+        widget: "string"
+        i18n: duplicate
+        hint: "Ex: 6-16 Mai"
+      - label: "Year"
+        name: "year"
+        widget: "string"
+        i18n: duplicate
+        hint: "Ex: 2021"
+      - label: "Start Date"
+        name: "start"
+        widget: "date"
+        i18n: duplicate
+        hint: "Choose the start date of event. This serves only internally to arrange the events."
+      - label: "Description"
+        name: "description"
+        widget: "markdown"
+        i18n: true
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options: ["now", "upcoming", "past"]
+      - label: "Programme PDF"
+        name: "file"
+        widget: "file"
+        default: "/uploads/programme_pdf.pdf"
+        i18n: true
+        media_library:
+          config:
+            multiple: true
+      - label: "Galleries"
+        name: "galleries"
+        widget: list
+        summary: "{{fields.galleries}}"
+        field:
+          label: "Galleries"
+          name: "galleries"
+          widget: "relation"
+          collection: "general"
+          file: "galleries"
+          search_fields: ["galleries.*.name"]
+          value_field: "galleries.*.name"
+          display_fields: ["galleries.*.name"]
