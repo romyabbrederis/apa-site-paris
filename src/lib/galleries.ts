@@ -13,7 +13,7 @@ const galleryMap: { [key: string]: GalleryContent } = generateGalleryMap();
 
 function generateGalleryMap(): { [key: string]: GalleryContent } {
   console.log('galleries', galleries)
-  // return result;
+  return galleries;
 }
 
 function getGalleryContent(slug: string) {
