@@ -5,7 +5,7 @@ type Props = {
   programmes: ProgrammeContent[];
 };
 
-export default function ProgrammesList({ programmes }:  ProgrammeContent[]): any {
+export default function ProgrammesList({ programmes }:  Props): any {
   console.log('programmes', programmes)
   return (
     <div className={"container"}>
