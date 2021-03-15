@@ -1,5 +1,3 @@
-import { ItemListOrderType } from "schema-dts";
-import config from "../../lib/config";
 import { getMenu } from "../lib/menus";
 import Link from "next/link";
 
