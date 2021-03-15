@@ -24,7 +24,7 @@ export type CalendarContent = {
   readonly month: string;
   readonly year: string;
   readonly start: string;
-  readonly galleries: string[];
+  readonly galleries: object[];
 };
 
 let programmeCache: ProgrammeContent[];
@@ -91,7 +91,7 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
 
 let calendarCache: CalendarContent[];
 
-export function findCalendarContent(programmes : ProgrammeContent[]): CalendarContent[] {
+export function findCalendarContent(programmes: ProgrammeContent[]): CalendarContent[] {
   console.log('findCalendarContent', programmes) 
   calendarCache  = programmeCache.map(item => {
     const result = {
