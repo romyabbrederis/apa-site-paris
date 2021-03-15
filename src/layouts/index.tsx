@@ -14,13 +14,11 @@ type Props = {
   date: Date;
   slug: string;
   description: string;
-  author: string;
 };
 export default function Index({
   title,
   date,
   slug,
-  author,
   description,
 }: Props) {
   return ({ children: content }) => {
@@ -46,7 +44,7 @@ export default function Index({
           url={`/posts/${slug}`}
           title={title}
           date={date}
-          author={authorName}
+          author={"Pour l'Art pour l'Afrique"}
           description={description}
         />
         </Head>
