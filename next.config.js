@@ -9,7 +9,7 @@ module.exports = {
 }
 
 module.exports = withMdxEnhanced({
-  // layoutPath: "src/layouts",
+  layoutPath: "src/layouts",
   locales: ['en', 'fr'],
   defaultLocale: 'fr',
   defaultLayout: true,
