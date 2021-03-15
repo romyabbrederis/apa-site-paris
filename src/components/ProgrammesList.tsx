@@ -2,10 +2,10 @@ import React from "react";
 import { ProgrammeContent } from "../lib/programmes";
 
 type Props = {
-  programme: ProgrammeContent[];
+  programmes: ProgrammeContent[];
 
 };
-export default function ProgrammesList(programmes: ProgrammeContent[]): Props {
+export default function ProgrammesList(programmes: ProgrammeContent[]): any {
   console.log('programmes', programmes)
   return (
     <div className={"container"}>
