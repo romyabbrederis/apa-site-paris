@@ -6,10 +6,10 @@ import OpenGraphMeta from "../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../components/meta/TwitterCardMeta";
 import ProgrammesList from "../../components/ProgrammesList";
 import config from "../../lib/config";
-import { ProgrammeContent, fetchProgrammeContent, findCalendarContent } from "../../lib/programmes";
+import { CalendarContent, fetchProgrammeContent, findCalendarContent } from "../../lib/programmes";
 
 type Props = {
-  programmes: ProgrammeContent[];
+  calendar: CalendarContent[];
   language: any;
 };
 
