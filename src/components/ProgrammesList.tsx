@@ -3,9 +3,9 @@ import { ProgrammeContent } from "../lib/programmes";
 
 type Props = {
   programmes: ProgrammeContent[];
-
 };
-export default function ProgrammesList(programmes: ProgrammeContent[]): any {
+
+export default function ProgrammesList({ programmes }:  ProgrammeContent[]): any {
   console.log('programmes', programmes)
   return (
     <div className={"container"}>
