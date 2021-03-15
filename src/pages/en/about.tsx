@@ -4,6 +4,7 @@ import BasicMeta from "../../components/meta/BasicMeta";
 import OpenGraphMeta from "../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../components/meta/TwitterCardMeta";
 import { AboutContent, getAboutPage } from "../../lib/abouts";
+import About from "../../components/pages/About"
 
 type Props = {
   data: AboutContent;
@@ -20,7 +21,7 @@ export default function Index({ data, language }: Props) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <h1>About</h1>
+      <About title={title} data={data} />
     </div>
   );
 }
