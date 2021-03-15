@@ -243,3 +243,74 @@ collections:
           search_fields: ["galleries.*.name"]
           value_field: "galleries.*.name"
           display_fields: ["galleries.*.name"]
+
+  - name: "about"
+    label: "A propos"
+    delete: false
+    files:
+      - name: "aboutFR"
+        label: "About FR"
+        file: "content/about/about_fr.json"
+        description: "A propos"
+        fields:
+          - label: "Slug"
+            name: "slug"
+            widget: "string"
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Logo"
+            name: "logo"
+            widget: "image"
+          - label: "Text"
+            name: "text"
+            widget: "markdown"
+          - name: partners
+            label: Partners
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Partenaire nom"
+              - label: "Link"
+                name: "link"
+                widget: "string"
+                hint: "Partenaire lien site officielle ex. https://www.iledefrance.fr/"
+              - label: "partner"
+                name: "partner"
+                widget: "image"
+                hint: "Logos du partenaire ex. Ile de France"
+      - name: "aboutEN"
+        label: "About EN"
+        file: "content/about/about_en.json"
+        description: "A propos"
+        fields:
+          - label: "Slug"
+            name: "slug"
+            widget: "string"
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Logo"
+            name: "logo"
+            widget: "image"
+          - label: "Text"
+            name: "text"
+            widget: "markdown"
+          - name: partners
+            label: Partners
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Partenaire nom"
+              - label: "Link"
+                name: "link"
+                widget: "string"
+                hint: "Partner link of official site ex. https://www.iledefrance.fr/"
+              - label: "partner"
+                name: "partner"
+                widget: "image"
+                hint: "Logo of partner ex. Ile de France"
