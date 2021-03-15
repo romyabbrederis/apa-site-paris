@@ -79,7 +79,7 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
     console.log('allProgData', allProgData)
 
     programmeCache = allProgData.sort((a, b) => {
-      if (a.date < b.date) {
+      if (a.start < b.start) {
         return 1;
       } else {
         return -1;
