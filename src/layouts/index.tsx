@@ -14,28 +14,28 @@ import styles from "../../public/styles/content.module.css";
 // import { getAuthor } from "../lib/authors";
 // import { getTag } from "../lib/tags";
 
-type Props = {
-  title: string;
-  date: Date;
-  slug: string;
-  description: string;
-  tags: string[];
-  author: string;
-};
+// type Props = {
+//   title: string;
+//   date: Date;
+//   slug: string;
+//   description: string;
+//   tags: string[];
+//   author: string;
+// };
 export default function Index({
-  title,
-  date,
-  slug,
-  author,
-  tags,
-  description,
+  // title,
+  // date,
+  // slug,
+  // author,
+  // tags,
+  // description,
 }: Props) {
-  const keywords = tags.map((it) => getTag(it).name);
-  const authorName = getAuthor(author).name;
+  // const keywords = tags.map((it) => getTag(it).name);
+  // const authorName = getAuthor(author).name;
   return ({ children: content }) => {
     return (
       <div>
-        <BasicMeta
+        {/* <BasicMeta
           url={`/posts/${slug}`}
           title={title}
           keywords={keywords}
@@ -58,7 +58,7 @@ export default function Index({
           date={date}
           author={authorName}
           description={description}
-        />
+        /> */}
         <div className={"container"}>
           {/* <article>
             <header>
