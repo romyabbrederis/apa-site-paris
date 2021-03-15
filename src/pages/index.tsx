@@ -6,7 +6,7 @@ import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 
 export default function Index() {
   return (
-    <Layout>
+    <div>
       <BasicMeta url={"/"} />
       <OpenGraphMeta url={"/"} />
       <TwitterCardMeta url={"/"} />
@@ -17,7 +17,7 @@ export default function Index() {
           </h1>
           <span className="handle">@nextjs-netlify-blog</span>
           <h2>A blog template with Next.js and Netlify.</h2>
-          <SocialList />
+          {/* <SocialList /> */}
         </div>
       </div>
       <style jsx>{`
@@ -57,6 +57,6 @@ export default function Index() {
           }
         }
       `}</style>
-    </Layout>
+    </div>
   );
 }
