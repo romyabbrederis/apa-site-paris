@@ -14,15 +14,17 @@ type Props = {
 };
 
 export default function Index({ events, language }: Props) {
-  const url = "/programme";
-  const title = "Programme";
+  const url = "/calendrier";
+  const title = "Calendrier";
 
   console.log("events", events, language)
   return (
     <div>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
+      <Head>
+        <BasicMeta url={url} title={title} />
+        <OpenGraphMeta url={url} title={title} />
+        <TwitterCardMeta url={url} title={title} />
+      </Head>
       <CalendarList events={events} />
     </div>
   );

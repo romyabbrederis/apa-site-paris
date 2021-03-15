@@ -1,18 +1,18 @@
 {
-  "base_url": "https://wutali-nextjs-netlify-blog.netlify.app",
-  "site_title": "Next.js Netlify Blog",
-  "site_description": "Next.js blog template for Netlify",
+  "base_url": "www.example.com",
+  "site_title": "Pour l'Art pour l'Afrique",
+  "site_description": "Pour l'Art pour l'Afrique",
   "site_keywords": [
     {
-      "keyword": "Next.js"
+      "keyword": "Pour l'art pour l'Afrique"
     },
     {
-      "keyword": "Netlify"
+      "keyword": "Gallery Paris"
     },
     {
-      "keyword": "React"
+      "keyword": "Paris"
     }
   ],
-  "twitter_account": "@my-account",
-  "github_account": "wutali"
+  "twitter_account": "",
+  "github_account": "romyabbrederis"
 }
