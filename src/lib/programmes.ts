@@ -93,18 +93,14 @@ let calendarCache: CalendarContent[];
 
 export function findCalendarContent(programmes : ProgrammeContent[]): CalendarContent[] {
   console.log('findCalendarContent', programmes) 
-  
   calendarCache  = programmeCache.map(item => {
-    console.log('item', item.galleries)
-    getGalleryInfos(item.galleries)
     const result = {
       title: item.title,
       month: item.month,
       year: item.year,
       start: item.start,
-      galleries: item.galleries
+      galleries: getGalleryInfos(item.galleries)
     }
-
     return result
   })
   return calendarCache
