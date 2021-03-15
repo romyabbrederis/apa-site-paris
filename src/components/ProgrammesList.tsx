@@ -1,5 +1,5 @@
 import React from "react";
-import { ProgrammeContent } from "../lib/posts";
+import { ProgrammeContent } from "../lib/programmes";
 
 type Props = {
   programme: ProgrammeContent[];
