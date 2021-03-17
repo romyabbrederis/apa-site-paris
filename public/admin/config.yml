@@ -474,7 +474,7 @@ collections:
         i18n: true
       - label: "Images"
         name: "images"
-        widget: "images"
+        widget: "image"
         i18n: duplicate
         hint: "Plus d'image pour l'article"
         required: false
