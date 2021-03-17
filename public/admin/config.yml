@@ -151,7 +151,7 @@ collections:
               name: "slug"
               i18n: true
               widget: "string"
-              hint: "The part of a URL identifies the menu ex. /programme or /programme/fr"
+              hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/fr"
             - label: "Name"
               name: "name"
               i18n: true
@@ -171,7 +171,7 @@ collections:
               name: "slug"
               i18n: true
               widget: "string"
-              hint: "The part of a URL identifies the menu ex. /programme or /programme/en"
+              hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/en"
             - label: "Name"
               name: "name"
               i18n: true
@@ -444,7 +444,7 @@ collections:
         name: "slug"
         widget: "string"
         i18n: true
-        hint: "Ex: /qui-est-romuald en anglais le meme ou /who-is-romuald"
+        hint: "No '/' au debut! | Ex: qui-est-romuald en anglais le meme ou who-is-romuald"
       - label: "Title"
         name: "title"
         widget: "string"
