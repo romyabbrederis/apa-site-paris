@@ -428,5 +428,78 @@ collections:
                 media_library:
                   config:
                     max_file_size: 500000
+
+  - name: "article"
+    i18n: true
+    label: "Actualites"
+    folder: "src/content/article"
+    extension: "mdx"
+    format: "frontmatter"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    fields:
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        i18n: true
+        hint: "Ex: /traversees-africaines en anglais le meme ou /crossing-africaines"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+      - label: "date"
+        name: "date"
+        widget: "string"
+        i18n: true
+        hint: "Ex: 06.05.2021 - 11.11.2021"
+      - label: "order"
+        name: "order"
+        widget: "data"
+        i18n: true
+        hint: "Ex: Selectionnez la date pour donner une ordre aux articles"
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        i18n: duplicate
+        hint: "Image principale / titre de l'article"
+        media_library:
+          config:
+            multiple: true
+            max_file_size: 400000
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        i18n: true
+      - label: "Images"
+        name: "images"
+        widget: "images"
+        i18n: duplicate
+        hint: "Plus d'image pour l'article"
+        required: false
+        media_library:
+          config:
+            multiple: true
+            max_file_size: 300000
+      - label: "Programme Relation"
+        name: "programme"
+        widget: "relation"
+        collection: "programme"
+        i18n: duplicate
+        search_fields: ["programme.*.title"]
+        value_field: "programme.*.title"
+        display_fields: ["programme.*.title"]
+        hint: "La relation de l'article et un des programmes"
+      - label: "Show Programme"
+        name: "show"
+        widget: "boolean"
+        i18n: duplicate
+        default: true
+        hint: "Si false l'article montre pas le programme a la fin de la page"
+
+                
+          
+
               
   
