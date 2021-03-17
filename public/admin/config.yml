@@ -475,7 +475,7 @@ collections:
       - label: "Gallery"
         name: "galleryImages"
         widget: "list"
-        i18n: duplicate
+        i18n: true
         hint: "Plus d'image pour l'article"
         field: 
           label: Image 
