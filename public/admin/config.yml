@@ -475,13 +475,11 @@ collections:
       - label: "Gallery"
         name: "galleryImages"
         widget: "list"
-        i18n: true
-        required: false
-        hint: "Plus d'image pour l'article"
+        summary: "{{fields.image}}"
         field: 
-          label: Image 
-          name: image
-          widget: image
+          label: "Image" 
+          name: "image" 
+          widget: "image"
           media_library:
           config:
             max_file_size: 300000
