@@ -472,17 +472,7 @@ collections:
         name: "body"
         widget: "markdown"
         i18n: true
-      - label: "Gallery"
-        name: "galleryImages"
-        widget: "list"
-        summary: "{{fields.image}}"
-        field: 
-          label: "Image" 
-          name: "image" 
-          widget: "image"
-          media_library:
-          config:
-            max_file_size: 300000
+
 
                 
           
