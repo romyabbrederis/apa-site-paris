@@ -476,15 +476,14 @@ collections:
         name: "galleryImages"
         widget: "list"
         i18n: true
+        required: false
         hint: "Plus d'image pour l'article"
         field: 
           label: Image 
           name: image
           widget: image
-          required: false
           media_library:
           config:
-            multiple: true
             max_file_size: 300000
 
                 
