@@ -478,10 +478,10 @@ collections:
         i18n: duplicate
         hint: "Plus d'image pour l'article"
         field: 
-          label: Image, 
-          name: image, 
-          widget: image,
-          required: false,
+          label: Image 
+          name: image
+          widget: image
+          required: false
           media_library:
           config:
             multiple: true
