@@ -444,7 +444,7 @@ collections:
         name: "slug"
         widget: "string"
         i18n: true
-        hint: "Ex: /traversees-africaines en anglais le meme ou /crossing-africaines"
+        hint: "Ex: /qui-est-romuald en anglais le meme ou /who-is-romuald"
       - label: "Title"
         name: "title"
         widget: "string"
@@ -456,7 +456,7 @@ collections:
         hint: "Ex: 06.05.2021 - 11.11.2021"
       - label: "order"
         name: "order"
-        widget: "data"
+        widget: "date"
         i18n: true
         hint: "Ex: Selectionnez la date pour donner une ordre aux articles"
       - label: "Image"
