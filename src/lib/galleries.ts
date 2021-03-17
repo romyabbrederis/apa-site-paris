@@ -10,10 +10,14 @@ export type GalleryContent = {
 };
 
 export function getGalleryInfos(gals: string[]): GalleryContent[] {
-  const galleryInfo = gals.map(el => {
-    const findGallery = galleries.galleries.find(item => item.name === el)
-    return findGallery
-  })
-  console.log('galleryInfo', galleryInfo)
-  return galleryInfo
+  if(gals.length) {
+    const galleryInfo = gals.map(el => {
+      const findGallery = galleries.galleries.find(item => item.name === el)
+      return findGallery
+    })
+    console.log('galleryInfo', galleryInfo)
+    return galleryInfo
+  } else {
+    return []
+  }
 } 

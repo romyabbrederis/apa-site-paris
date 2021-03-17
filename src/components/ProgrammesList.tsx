@@ -7,7 +7,7 @@ type Props = {
 
 export default function ProgrammesList({ programmes }:  Props): any {
   console.log('programmes', programmes)
-  return (
+  return programmes.length ? 
     <div className={"container"}>
       <div className={"programmes"}>
         <ul className={"programmes-list"}>
@@ -48,5 +48,5 @@ export default function ProgrammesList({ programmes }:  Props): any {
         }
       `}</style>
     </div>
-  );
+    : <h1>no programm</h1>
 }

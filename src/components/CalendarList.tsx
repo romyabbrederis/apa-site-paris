@@ -7,7 +7,7 @@ type Props = {
 
 export default function CalendarsList({ events }:  Props): any {
   console.log('events', events)
-  return (
+  return events.length ? 
     <div className={"container"}>
       <div className={"events"}>
         <h1>Calendrier</h1>
@@ -49,5 +49,5 @@ export default function CalendarsList({ events }:  Props): any {
         }
       `}</style>
     </div>
-  );
+  : <h1> no events </h1>
 }

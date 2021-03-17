@@ -37,6 +37,7 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
 
   let directory;
 
+
   if (locale === 'en') {
     directory = programmesDirectoryEN
   } else {
@@ -46,7 +47,8 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
   const fileNames = fs.readdirSync(directory);
   console.log('filenames', fileNames)
 
-  const allProgData = fileNames
+  if (fileNames.length) {
+    const allProgData = fileNames
     .filter((it) => it.endsWith(".mdx"))
     .map((fileName) => {
       const fullPath = path.join(directory, fileName);
@@ -87,21 +89,29 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
       }
     });
     return programmeCache;
+  } else {
+    return [];
+  }
 }
 
 let calendarCache: CalendarContent[];
 
 export function findCalendarContent(programmes: ProgrammeContent[]): CalendarContent[] {
   console.log('findCalendarContent', programmes) 
-  calendarCache  = programmeCache.map(item => {
-    const result = {
-      title: item.title,
-      month: item.month,
-      year: item.year,
-      start: item.start,
-      galleries: getGalleryInfos(item.galleries)
-    }
-    return result
-  })
-  return calendarCache
+
+  if(programmeCache) {
+    calendarCache  = programmeCache.map(item => {
+      const result = {
+        title: item.title,
+        month: item.month,
+        year: item.year,
+        start: item.start,
+        galleries: getGalleryInfos(item.galleries)
+      }
+      return result
+    })
+    return calendarCache
+  } else {
+    return []
+  }
 }
