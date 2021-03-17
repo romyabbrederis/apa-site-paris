@@ -47,7 +47,7 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
   const fileNames = fs.readdirSync(directory);
   console.log('filenames', fileNames)
 
-  if (fileNames.length) {
+  if (fileNames && fileNames.length) {
     const allProgData = fileNames
     .filter((it) => it.endsWith(".mdx"))
     .map((fileName) => {
@@ -79,8 +79,6 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
 
       return matterData;
     });
-    console.log('allProgData', allProgData)
-
     programmeCache = allProgData.sort((a, b) => {
       if (a.start < b.start) {
         return 1;
