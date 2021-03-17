@@ -472,13 +472,17 @@ collections:
         name: "body"
         widget: "markdown"
         i18n: true
-      - label: "Images"
-        name: "images"
-        widget: "image"
+      - label: "Gallery"
+        name: "galleryImages"
+        widget: "list"
         i18n: duplicate
         hint: "Plus d'image pour l'article"
-        required: false
-        media_library:
+        field: 
+          label: Image, 
+          name: image, 
+          widget: image,
+          required: false,
+          media_library:
           config:
             multiple: true
             max_file_size: 300000
