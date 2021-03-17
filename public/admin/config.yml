@@ -482,20 +482,23 @@ collections:
           config:
             multiple: true
             max_file_size: 300000
-      - label: "Programme Relation"
+      - label: "Programme"
         name: "programme"
         widget: "relation"
         collection: "programme"
+        file: "programme"
         i18n: duplicate
         search_fields: ["programme.*.title"]
         value_field: "programme.*.title"
         display_fields: ["programme.*.title"]
+        required: false
         hint: "La relation de l'article et un des programmes"
       - label: "Show Programme"
         name: "show"
         widget: "boolean"
         i18n: duplicate
         default: true
+        required: false
         hint: "Si false l'article montre pas le programme a la fin de la page"
 
                 
