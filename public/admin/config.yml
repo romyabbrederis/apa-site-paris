@@ -192,7 +192,7 @@ collections:
       - label: "Slug"
         name: "slug"
         widget: "string"
-        i18n: duplicate
+        i18n: true
       - label: "Title"
         name: "title"
         widget: "string"
@@ -200,7 +200,7 @@ collections:
       - label: "Month"
         name: "month"
         widget: "string"
-        i18n: duplicate
+        i18n: true
         hint: "Ex: 6-16 Mai"
       - label: "Year"
         name: "year"
