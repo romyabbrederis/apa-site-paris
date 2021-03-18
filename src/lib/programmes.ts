@@ -70,12 +70,12 @@ export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
         file: string;
         galleries: string[];
       };
-      const slug = fileName.replace(/\.mdx$/, "");
-      if (matterData.slug !== slug) {
-        throw new Error(
-          "slug field not match with the path of its content source"
-        );
-      }
+      // const slug = fileName.replace(/\.mdx$/, "");
+      // if (matterData.slug !== slug) {
+      //   throw new Error(
+      //     "slug field not match with the path of its content source"
+      //   );
+      // }
 
       return matterData;
     });
