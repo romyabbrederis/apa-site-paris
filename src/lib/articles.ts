@@ -13,6 +13,7 @@ export type ArticleContent = {
   readonly date: string;
   readonly order: string;
   readonly image: string;
+  readonly content: string;
 };
 
 
@@ -42,19 +43,22 @@ export function fetchArticlesContent(locale: string): ArticleContent[] {
     .map((fileName) => {
       const fullPath = path.join(directory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
-
+      console.log('filecontents', fileContents)
       const matterResult = matter(fileContents, {
         engines: {
           yaml: (s) => yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
         },
       });
-      const matterData = matterResult.data as {
-        slug: string;
-        title: string;
-        date: string;
-        order: string;
-        image: string;
+
+      const matterData = {
+        slug: matterResult.data.slug,
+        title: matterResult.data.title,
+        date: matterResult.data.date,
+        order: matterResult.data.order,
+        image: matterResult.data.image,
+        content: matterResult.content,
       };
+      console.log("matterData", matterData)
       return matterData;
     });
 
@@ -97,18 +101,19 @@ export function fetchArticleContent(slug: string, locale: string): ArticleConten
           yaml: (s) => yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
         },
       });
-      const matterData = matterResult.data as {
-        slug: string;
-        title: string;
-        date: string;
-        order: string;
-        image: string;
+      const matterData = {
+        slug: matterResult.data.slug,
+        title: matterResult.data.title,
+        date: matterResult.data.date,
+        order: matterResult.data.order,
+        image: matterResult.data.image,
+        content: matterResult.content,
       };
       if (matterData.slug === slug) {
         return matterData
       }
     })
-    return findArticle
+    return findArticle[0]
   } 
 }
 

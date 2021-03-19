@@ -18,7 +18,7 @@ export default function Index({ article, language, params }: Props) {
   const router = useRouter()
   const { path } = router.query
   const url = "/en/news" + path;
-  const title = path;
+  const title = "News";
 
 
   console.log("article", article, language, params)

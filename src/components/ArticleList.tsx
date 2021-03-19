@@ -1,29 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ArticleContent } from "../lib/articles";
-import Link from "next/link"
-import { useRouter } from 'next/router'
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Props = {
   articles: ArticleContent[];
 };
 
-export default function ArticlesList({ articles }:  Props): any {
-  const router = useRouter()
-  const {pathname} = router
+export default function ArticlesList({ articles }: Props): any {
+  const router = useRouter();
+  const { pathname } = router;
 
-  return articles.length ? 
+  return articles.length ? (
     <div className={"container"}>
       <div className={"articles"}>
         <ul className={"articles-list"}>
           {articles.map((item, i) => (
             <li key={i}>
-              <Link href={pathname + "/" + item.slug}>
-              {item.title}
-              </Link>
+              <Link href={pathname + "/" + item.slug}>{item.title}</Link>
             </li>
           ))}
         </ul>
-
       </div>
       <style jsx>{`
         .container {
@@ -54,5 +51,7 @@ export default function ArticlesList({ articles }:  Props): any {
         }
       `}</style>
     </div>
-    : <h1>no programm</h1>
+  ) : (
+    <h1>no programm</h1>
+  );
 }

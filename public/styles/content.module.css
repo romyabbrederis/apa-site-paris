@@ -8,62 +8,6 @@
   color: #9b9b9b;
 }
 
-.content p {
-  line-height: 1.5rem;
-  margin: 1.5rem 0 0 0;
-}
-
-.content a {
-  color: blue;
-  text-decoration: underline;
-}
-
-.content h1 {
-  margin: 2.5rem 0 0 0;
-}
-
-.content h2,
-.content h3,
-.content h4,
-.content h5 {
-  margin: 2rem 0 0 0;
-  line-height: 1.25em;
-}
-
-.content h2::before {
-  position: absolute;
-  margin-left: -1em;
-  font-weight: 300;
-  font-size: 1.5rem;
-  color: #9b9b9b;
-  display: none;
-  content: "#";
-}
-
-.content pre {
-  display: block;
-  background-color: rgba(27, 31, 35, 0.05);
-  line-height: 1.25rem;
-  padding: 1rem;
-  overflow: auto;
-  margin: 1.75rem 0 0 0;
-}
-
-.content pre code {
-  background-color: transparent;
-  font-size: 100%;
-  padding: 0;
-}
-
-.content code {
-  font-family: "Ubuntu Mono", monospace;
-  font-size: 85%;
-  padding: 0.2em 0.4em;
-  margin: 0;
-  background-color: rgba(27, 31, 35, 0.05);
-  border-radius: 3px;
-}
-
 .content blockquote {
   margin: 0 1rem;
 }

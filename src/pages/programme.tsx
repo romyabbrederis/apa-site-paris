@@ -16,13 +16,12 @@ export default function Index({ programmes, language }: Props) {
   const url = "/programme";
   const title = "Programme";
 
-  console.log("programmes", programmes, language)
+  console.log("programmes", programmes, language);
   return (
     <div>
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <h1>Programme</h1>
       <ProgrammesList programmes={programmes} />
     </div>
   );
@@ -31,12 +30,12 @@ export default function Index({ programmes, language }: Props) {
 export const getStaticProps = async (context) => {
   const { locale } = context;
 
-  const programmes = fetchProgrammeContent('fr')
+  const programmes = fetchProgrammeContent("fr");
   const language = locale || null;
   return {
     props: {
       programmes,
-      language
+      language,
     },
   };
 };

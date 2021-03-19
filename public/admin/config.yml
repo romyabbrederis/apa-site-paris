@@ -131,7 +131,7 @@ collections:
                 name: "location"
                 widget: "map"
                 hint: "Place the pin at the exact location of the Gallery"
-   
+
   - name: "menu"
     label: "Menu"
     editor:
@@ -142,42 +142,42 @@ collections:
         file: "meta/menu_fr.yml"
         description: "Menu en francais"
         fields:
-        - name: items
-          label: Menu Items
-          widget: list
-          file: "meta/menu_fr.yml"
-          fields:
-            - label: "Slug"
-              name: "slug"
-              i18n: true
-              widget: "string"
-              hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/fr"
-            - label: "Name"
-              name: "name"
-              i18n: true
-              widget: "string"
-              hint: "Menu name ex. A propos"
+          - name: items
+            label: Menu Items
+            widget: list
+            file: "meta/menu_fr.yml"
+            fields:
+              - label: "Slug"
+                name: "slug"
+                i18n: true
+                widget: "string"
+                hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/fr"
+              - label: "Name"
+                name: "name"
+                i18n: true
+                widget: "string"
+                hint: "Menu name ex. A propos"
       - name: "menuEN"
         label: "Menu EN"
         file: "meta/menu_en.yml"
         description: "Menu in englisch"
         fields:
-        - name: items
-          label: Menu Items
-          widget: list
-          file: "meta/menu_en.yml"
-          fields:
-            - label: "Slug"
-              name: "slug"
-              i18n: true
-              widget: "string"
-              hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/en"
-            - label: "Name"
-              name: "name"
-              i18n: true
-              widget: "string"
-              hint: "Menu name ex. About"
-            
+          - name: items
+            label: Menu Items
+            widget: list
+            file: "meta/menu_en.yml"
+            fields:
+              - label: "Slug"
+                name: "slug"
+                i18n: true
+                widget: "string"
+                hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/en"
+              - label: "Name"
+                name: "name"
+                i18n: true
+                widget: "string"
+                hint: "Menu name ex. About"
+
   - name: "programme"
     i18n: true
     label: "Programme"
@@ -472,10 +472,3 @@ collections:
         name: "body"
         widget: "markdown"
         i18n: true
-
-
-                
-          
-
-              
-  
