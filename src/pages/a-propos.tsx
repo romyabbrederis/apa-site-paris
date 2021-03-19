@@ -4,7 +4,7 @@ import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import { AboutContent, getAboutPage } from "../lib/abouts";
-import About from "../components/pages/About"
+import About from "../components/pages/About";
 
 type Props = {
   data: AboutContent;
@@ -13,27 +13,27 @@ type Props = {
 
 export default function Index({ data, language }: Props) {
   const url = "/a-propos";
-  const title = "A propos";
+  const title = data.title;
 
-  console.log("data", data, language)
+  console.log("data", data, language);
   return (
-    <div>        
+    <div>
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <About title={title} data={data}/>
+      <About data={data} />
     </div>
   );
 }
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const data = getAboutPage('en')
+  const data = getAboutPage("en");
   const language = locale || null;
   return {
     props: {
       data,
-      language
+      language,
     },
   };
 };

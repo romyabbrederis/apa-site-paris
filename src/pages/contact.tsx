@@ -4,7 +4,7 @@ import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import { ContactContent, getContactPage } from "../lib/contacts";
-import Contact from "../components/pages/Contact"
+import Contact from "../components/pages/Contact";
 
 type Props = {
   data: ContactContent;
@@ -13,27 +13,27 @@ type Props = {
 
 export default function Index({ data, language }: Props) {
   const url = "/contact";
-  const title = "Contact";
+  const title = data.title;
 
-  console.log("data", data, language)
+  console.log("data", data, language);
   return (
-    <div>        
+    <div>
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <Contact title={title} data={data}/>
+      <Contact data={data} />
     </div>
   );
 }
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const data = getContactPage('fr')
+  const data = getContactPage("fr");
   const language = locale || null;
   return {
     props: {
       data,
-      language
+      language,
     },
   };
 };

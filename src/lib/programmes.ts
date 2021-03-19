@@ -31,7 +31,7 @@ export type CalendarContent = {
   readonly year: string;
   readonly start: string;
   readonly type: string;
-  readonly galleries: object[];
+  readonly galleries: any;
 };
 
 let programmeCache: ProgrammeContent[];

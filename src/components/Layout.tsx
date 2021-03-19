@@ -23,14 +23,12 @@ export default function Layout({ children }: Props) {
         {`
           .root {
             display: block;
-            padding: 2em 0;
             box-sizing: border-box;
             height: 100%;
           }
           main {
             min-height: 100%;
           }
-          
         `}
       </style>
     </div>

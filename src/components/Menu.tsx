@@ -25,6 +25,7 @@ export default function Menu() {
 
   return (
     <div className={"container"}>
+      <img src={"./logo.png"} className={"logo"} />
       {width > 768 ? (
         menus.map((item, i) => (
           <Link href={item.slug} key={i} className={"menu"}>
@@ -47,7 +48,9 @@ export default function Menu() {
         .container {
           display: flex;
           justify-content: space-evenly;
+          align-items: center;
           margin: 0 auto;
+          padding: 10px 0;
           width: 100%;
         }
 
@@ -59,6 +62,10 @@ export default function Menu() {
             visibility: visible;
             width: 50px;
           }
+
+          .logo {
+            width: 150px;
+          }
         }
 
         @media (min-width: 769px) {
@@ -66,6 +73,10 @@ export default function Menu() {
             color: ${COLOR_YELLOW};
             border-bottom: 3px solid ${COLOR_YELLOW};
             padding-bottom: 3px;
+          }
+
+          .logo {
+            width: 150px;
           }
         }
       `}</style>

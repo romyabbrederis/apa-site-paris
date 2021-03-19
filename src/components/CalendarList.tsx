@@ -3,6 +3,7 @@ import { CalendarContent } from "../lib/programmes";
 import { COLOR_YELLOW } from "../../public/styles/general";
 import TimeButton from "./TimeButton";
 import { renderProgrammes } from "../utils/renderProgrammes";
+import CalendarSelected from "./CalendarSelected";
 
 type Props = {
   events: CalendarContent[];
@@ -11,6 +12,7 @@ type Props = {
 export default function CalendarsList({ events }: Props): any {
   const [type, setType] = useState("now");
   const [data, setData] = useState([]);
+  const [select, setSelect] = useState(undefined);
 
   const changeType = (value: string) => setType(value);
 
@@ -26,12 +28,15 @@ export default function CalendarsList({ events }: Props): any {
 
   console.log("events", events);
   return events.length ? (
-    <div className={"layout-container"}>
+    <div className={"layout-container"} style={{ backgroundColor: "#E5E5E5" }}>
       <div className={"inner-container"}>
         <TimeButton changeType={changeType} type={type} />
+        {select ? (
+          <CalendarSelected event={select} setSelect={setSelect} />
+        ) : null}
         <div className={"events"}>
           {data.map((item, i) => (
-            <div className={"events-list"}>
+            <div className={"events-list"} onClick={() => setSelect(item)}>
               <h3 key={i}>{item.month}</h3>
               <h3 key={i}>{item.year}</h3>
               <h3 key={i} className={"title"}>
@@ -56,6 +61,8 @@ export default function CalendarsList({ events }: Props): any {
 
         .events-list {
           border: 1px solid black;
+          background: white;
+          cursor: pointer;
           width: 200px;
           height: 200px;
           text-align: center;
