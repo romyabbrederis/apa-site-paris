@@ -16,13 +16,12 @@ export default function Index({ articles, language }: Props) {
   const url = "/actualites";
   const title = "Actualités";
 
-  console.log("articles", articles, language)
+  console.log("articles", articles, language);
   return (
     <div>
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <h1>{title}</h1>
       <ArticleList articles={articles} />
     </div>
   );
@@ -31,12 +30,12 @@ export default function Index({ articles, language }: Props) {
 export const getStaticProps = async (context) => {
   const { locale } = context;
 
-  const articles = fetchArticlesContent('fr')
+  const articles = fetchArticlesContent("fr");
   const language = locale || null;
   return {
     props: {
       articles,
-      language
+      language,
     },
   };
 };

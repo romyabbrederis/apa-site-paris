@@ -25,6 +25,7 @@ export default function Layout({ children }: Props) {
             display: block;
             box-sizing: border-box;
             height: 100%;
+            overflow: hidden;
           }
           main {
             min-height: 100%;

@@ -25,7 +25,7 @@ export default function Menu() {
 
   return (
     <div className={"container"}>
-      <img src={"./logo.png"} className={"logo"} />
+      <img src={"../../logo.png"} className={"logo"} />
       {width > 768 ? (
         menus.map((item, i) => (
           <Link href={item.slug} key={i} className={"menu"}>

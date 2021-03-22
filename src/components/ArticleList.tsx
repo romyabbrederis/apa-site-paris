@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { ArticleContent } from "../lib/articles";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { COLOR_YELLOW } from "../../public/styles/general";
 
 type Props = {
   articles: ArticleContent[];
@@ -12,46 +13,89 @@ export default function ArticlesList({ articles }: Props): any {
   const { pathname } = router;
 
   return articles.length ? (
-    <div className={"container"}>
-      <div className={"articles"}>
-        <ul className={"articles-list"}>
+    <div
+      className={"layout-container"}
+      style={{ backgroundColor: COLOR_YELLOW }}
+    >
+      <div className={"inner-container"}>
+        <div className={"articles-list"}>
+          <div />
           {articles.map((item, i) => (
-            <li key={i}>
-              <Link href={pathname + "/" + item.slug}>{item.title}</Link>
-            </li>
+            <Link href={pathname + "/" + item.slug}>
+              <div key={i} className={"article"}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className={"article-image"}
+                />
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.date}</p>
+                  <p className={"text"}>{item.content}</p>
+                </div>
+              </div>
+            </Link>
           ))}
-        </ul>
+          <div />
+        </div>
       </div>
       <style jsx>{`
-        .container {
-          display: flex;
-          margin: 0 auto;
-          max-width: 1200px;
-          width: 100%;
-          padding: 0 1.5rem;
+        @media (max-width: 769px) {
+          .articles-list {
+            display: grid;
+            grid-template-columns: auto 100% auto;
+            grid-gap: 10px;
+          }
+
+          .article {
+            background: white;
+            border: 1px solid black;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-gap: 5px;
+            padding: 10px;
+            height: 250px;
+            cursor: pointer;
+          }
+
+          .text {
+            text-overflow: ellipsis;
+            width: 100%;
+          }
         }
-        ul {
-          margin: 0;
-          padding: 0;
-        }
-        li {
-          list-style: none;
-        }
-        .articles {
-          display: flex;
-          flex-direction: column;
-          flex: 1 1 auto;
-        }
-        .articles li {
-          margin-bottom: 1.5rem;
-        }
-        .articles-list {
-          flex: 1 0 auto;
-        }
+
+        @media (min-width: 769px) {
+          .articles-list {
+            display: grid;
+            grid-template-columns: auto 500px 500px auto;
+            grid-gap: 10px;
+          }
+
+          .article {
+            background: white;
+            border: 1px solid black;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-gap: 5px;
+            padding: 10px;
+            height: 250px;
+            cursor: pointer;
+          }
+
+          .article-image {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+          }
+
+          .text {
+            text-overflow: ellipsis;
+            width: 100%;
+          }
         }
       `}</style>
     </div>
   ) : (
-    <h1>no programm</h1>
+    <h1>no articles</h1>
   );
 }
