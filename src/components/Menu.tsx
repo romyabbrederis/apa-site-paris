@@ -19,6 +19,7 @@ export default function Menu() {
 
   useEffect(() => {
     const windowSize = window.matchMedia("(max-width: 640px)");
+    setMobilDevice(windowSize.matches);
     window.addEventListener("resize", function () {
       setMobilDevice(windowSize.matches);
     });
