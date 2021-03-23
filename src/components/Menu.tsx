@@ -1,32 +1,36 @@
 import { getMenu } from "../lib/menus";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useWindowSize } from "../utils/useWindowSize";
 import { useRouter } from "next/router";
 import { COLOR_YELLOW } from "../../public/styles/general";
 
 export default function Menu() {
   const menus = getMenu("fr");
-  const size = useWindowSize();
   const router = useRouter();
   const { pathname } = router;
-  const [width, setWidth] = useState<number>();
+  const [mobileDevice, setMobilDevice] = useState<boolean>();
+
   const [page, setPage] = useState<string>();
-
-  console.log("size", size, page);
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-  }, []);
 
   useEffect(() => {
     setPage(pathname.substring(1));
   }, [pathname]);
 
+  useEffect(() => {
+    const windowSize = window.matchMedia("(max-width: 640px)");
+    window.addEventListener("resize", function () {
+      setMobilDevice(windowSize.matches);
+    });
+  }, []);
+
+  console.log("mobile", mobileDevice);
+
   return (
     <div className={"container"}>
       <img src={"../../logo.png"} className={"logo"} />
-      {width > 768 ? (
+      {mobileDevice ? (
+        <img className={"burger"} src="./icons/menu.png" />
+      ) : (
         menus.map((item, i) => (
           <Link href={item.slug} key={i} className={"menu"}>
             <a
@@ -40,8 +44,6 @@ export default function Menu() {
             </a>
           </Link>
         ))
-      ) : (
-        <img className={"burger"} src="./icons/menu.png" />
       )}
 
       <style jsx>{`
@@ -52,6 +54,7 @@ export default function Menu() {
           margin: 0 auto;
           padding: 10px 0;
           width: 100%;
+          height: 5vh;
         }
 
         @media (max-width: 769px) {
@@ -64,7 +67,10 @@ export default function Menu() {
           }
 
           .logo {
-            width: 150px;
+            width: 120px;
+            position: fixed;
+            left: 0;
+            top: 0;
           }
         }
 
