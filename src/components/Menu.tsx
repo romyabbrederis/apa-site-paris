@@ -9,6 +9,7 @@ export default function Menu() {
   const router = useRouter();
   const { pathname } = router;
   const [mobileDevice, setMobilDevice] = useState<boolean>();
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const [page, setPage] = useState<string>();
 
@@ -25,27 +26,81 @@ export default function Menu() {
 
   console.log("mobile", mobileDevice);
 
-  return (
-    <div className={"container"}>
-      <img src={"../../logo.png"} className={"logo"} />
-      {mobileDevice ? (
-        <img className={"burger"} src="./icons/menu.png" />
-      ) : (
-        menus.map((item, i) => (
-          <Link href={item.slug} key={i} className={"menu"}>
-            <a
-              className={
-                page === item.name.replace(/\s+/g, "-").toLowerCase()
-                  ? "current-menu"
-                  : ""
-              }
-            >
-              {item.name}
-            </a>
-          </Link>
-        ))
-      )}
+  const mobileMenu = (
+    <div className={"mobile-container"}>
+      <img
+        src="../../icons/close.png"
+        className={"close-icon"}
+        onClick={() => setMenuOpen(false)}
+      />
+      {menus.map((item, i) => (
+        <Link href={item.slug} key={i}>
+          <a className={"border-box"} onClick={() => setMenuOpen(false)}>
+            {item.name}
+          </a>
+        </Link>
+      ))}
+      <style jsx>{`
+        .mobile-container {
+          background: #ffd506;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 2;
+          height: 100vh;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
 
+        .border-box {
+          color: black;
+          border: 2px solid black;
+          padding: 30px 0;
+          text-align: center;
+          margin: 5px 0;
+        }
+
+        .close-icon {
+          width: 30px;
+          position: fixed;
+          top: 5px;
+          right: 5px;
+        }
+      `}</style>
+    </div>
+  );
+
+  return (
+    <div>
+      {menuOpen ? mobileMenu : null}
+      <div className={"container"}>
+        <img src={"../../logo.png"} className={"logo"} />
+        {mobileDevice ? (
+          <img
+            className={"burger"}
+            src="./icons/menu.png"
+            onClick={() => setMenuOpen(true)}
+          />
+        ) : (
+          menus.map((item, i) => (
+            <Link href={item.slug} key={i} className={"menu"}>
+              <a
+                className={
+                  page === item.name.replace(/\s+/g, "-").toLowerCase()
+                    ? "current-menu"
+                    : ""
+                }
+              >
+                {item.name}
+              </a>
+            </Link>
+          ))
+        )}
+      </div>
       <style jsx>{`
         .container {
           display: flex;
