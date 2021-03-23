@@ -473,7 +473,6 @@ collections:
         widget: "markdown"
         i18n: true
 
-
   - name: "home"
     label: "Home"
     delete: false
@@ -483,95 +482,93 @@ collections:
         file: "src/content/home/home_fr.json"
         description: "Page Home en francais"
         fields:
-        - label: "Haut Gauche titre"
-          name: "tl-title"
-          widget: "string"
-        - label: "Haut Gauche lien"
-          name: "tl-link"
-          widget: "string"
-          hint: "Ex: /programme"
-        - label: "Haut Gauche image"
-          name: "tl-image"
-          widget: "image"
-          hint: "Haut Gauche image de fond"
-          media_library:
-            config:
-              multiple: true
-              max_file_size: 400000
-        - label: "Bas Gauche titre"
-          name: "bl-title"
-          widget: "string"
-          hint: "Ex: A Propos"
-        - label: "Bas Gauche text"
-          name: "bl-text"
-          widget: "text"
-          hint: "Ex: Intro Text"
-        - label: "Bas Gauche lien"
-          name: "bl-link"
-          widget: "string"
-          hint: "Ex: /a-propos"
+          - label: "Haut Gauche titre"
+            name: "tl-title"
+            widget: "string"
+          - label: "Haut Gauche lien"
+            name: "tl-link"
+            widget: "string"
+            hint: "Ex: /programme"
+          - label: "Haut Gauche image"
+            name: "tl-image"
+            widget: "image"
+            hint: "Haut Gauche image de fond"
+            media_library:
+              config:
+                multiple: true
+                max_file_size: 400000
+          - label: "Bas Gauche titre"
+            name: "bl-title"
+            widget: "string"
+            hint: "Ex: A Propos"
+          - label: "Bas Gauche text"
+            name: "bl-text"
+            widget: "text"
+            hint: "Ex: Intro Text"
+          - label: "Bas Gauche lien"
+            name: "bl-link"
+            widget: "string"
+            hint: "Ex: /a-propos"
           - label: "Bas Droite titre"
-          name: "br-title"
-          widget: "string"
-        - label: "Bas Droite lien"
-          name: "br-link"
-          widget: "string"
-          hint: "Ex: /programme"
-        - label: "Bas Droite image"
-          name: "br-image"
-          widget: "image"
-          hint: "Bas Droite image de fond"
-          media_library:
-            config:
-              multiple: true
-              max_file_size: 400000
+            name: "br-title"
+            widget: "string"
+          - label: "Bas Droite lien"
+            name: "br-link"
+            widget: "string"
+            hint: "Ex: /programme"
+          - label: "Bas Droite image"
+            name: "br-image"
+            widget: "image"
+            hint: "Bas Droite image de fond"
+            media_library:
+              config:
+                multiple: true
+                max_file_size: 400000
 
-          
       - name: "homeEN"
         label: "Home EN"
         file: "src/content/home/home_en.json"
         description: "Page Home in english"
         fields:
-        - label: "Top Left Title"
-          name: "tl-title"
-          widget: "string"
-        - label: "Top Left Link"
-          name: "tl-link"
-          widget: "string"
-          hint: "Ex: /en/programme"
-        - label: "Top Left Image"
-          name: "tl-image"
-          widget: "image"
-          hint: "Top Left background image"
-          media_library:
-            config:
-              multiple: true
-              max_file_size: 400000
-        - label: "Bottom Left Title"
-          name: "bl-title"
-          widget: "string"
-          hint: "Ex: A Propos"
-        - label: "Bottom Left Text"
-          name: "bl-text"
-          widget: "text"
-          hint: "Ex: Intro Text"
-        - label: "Bottom Left Link"
-          name: "bl-link"
-          widget: "string"
-          hint: "Ex: /en/about"
+          - label: "Top Left Title"
+            name: "tl-title"
+            widget: "string"
+          - label: "Top Left Link"
+            name: "tl-link"
+            widget: "string"
+            hint: "Ex: /en/programme"
+          - label: "Top Left Image"
+            name: "tl-image"
+            widget: "image"
+            hint: "Top Left background image"
+            media_library:
+              config:
+                multiple: true
+                max_file_size: 400000
+          - label: "Bottom Left Title"
+            name: "bl-title"
+            widget: "string"
+            hint: "Ex: A Propos"
+          - label: "Bottom Left Text"
+            name: "bl-text"
+            widget: "text"
+            hint: "Ex: Intro Text"
+          - label: "Bottom Left Link"
+            name: "bl-link"
+            widget: "string"
+            hint: "Ex: /en/about"
           - label: "Bottom Right Title"
-          name: "br-title"
-          widget: "string"
-        - label: "Bottom Right Link"
-          name: "br-link"
-          widget: "string"
-          hint: "Ex: /en/programme"
-        - label: "Bottom Right Image"
-          name: "br-image"
-          widget: "image"
-          hint: "Bottom Right background image"
-          media_library:
-            config:
-              multiple: true
-              max_file_size: 400000
-         
+            name: "br-title"
+            widget: "string"
+          - label: "Bottom Right Link"
+            name: "br-link"
+            widget: "string"
+            hint: "Ex: /en/programme"
+          - label: "Bottom Right Image"
+            name: "br-image"
+            widget: "image"
+            hint: "Bottom Right background image"
+            media_library:
+              config:
+                multiple: true
+                max_file_size: 400000
