@@ -1,18 +1,10 @@
 const withMdxEnhanced = require("next-mdx-enhanced");
 const rehypePrism = require("@mapbox/rehype-prism");
 
-module.exports = {
-  i18n: {
-    locales: ['en', 'fr'],
-    defaultLocale: 'fr',  
-  },
-  exportTrailingSlash: true,
-}
-
 module.exports = withMdxEnhanced({
   layoutPath: "src/layouts",
-  locales: ['en', 'fr'],
-  defaultLocale: 'fr',
+  locales: ["en", "fr"],
+  defaultLocale: "fr",
   defaultLayout: true,
   rehypePlugins: [rehypePrism],
 })({
