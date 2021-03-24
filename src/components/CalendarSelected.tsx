@@ -7,7 +7,7 @@ type Props = {
 };
 
 const CalendarSelected = ({ event, setSelect }: Props): any => {
-  const { title, month, year, start, type, map, galleries } = event;
+  const { title, month, year, start, type, galleries } = event;
   const [galMap, setGalMap] = useState(galleries[0].map);
   return (
     <div className={"calendar-container"}>
