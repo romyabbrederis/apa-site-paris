@@ -10,4 +10,26 @@ galleries:
     phone: +33 1 42 78 92 93
     location: '{"type":"Point","coordinates":[2.3667793,48.8561023]}'
     email: "-"
-    map: '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10500.457278848771!2d2.3671463!3d48.8560304!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf19e86431e2e50c9!2sGalerie%20du%20Marais%20-%20Paule%20France%20Luciani!5e0!3m2!1sen!2sde!4v1616622377843!5m2!1sen!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>'
+    map: <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10500.457278848771!2d2.3671463!3d48.8560304!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf19e86431e2e50c9!2sGalerie%20du%20Marais%20-%20Paule%20France%20Luciani!5e0!3m2!1sen!2sde!4v1616622377843!5m2!1sen!2sde"
+      width="600" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
+    maps: <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10500.457278848771!2d2.3671463!3d48.8560304!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf19e86431e2e50c9!2sGalerie%20du%20Marais%20-%20Paule%20France%20Luciani!5e0!3m2!1sen!2sde!4v1616622377843!5m2!1sen!2sde"
+      width="600" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
+  - name: Galerie Charraudeau
+    slug: galerie-charraudeau
+    maps: <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10500.107565245118!2d2.3298971!3d48.8576976!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2796f03b1d%3A0xd423dd6c6d74418e!2sGalerie%20Charraudeau!5e0!3m2!1sen!2sde!4v1616624141105!5m2!1sen!2sde"
+      width="600" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
+    location: '{"type":"Point","coordinates":[2.3349938,48.8572157]}'
+    address: |-
+      3/4 Rue Bonaparte
+
+      75006 Paris
+
+      France
+    phone: "+33146335174"
+    email: "-"
