@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CalendarContent } from "../lib/programmes";
 
 type Props = {
@@ -8,7 +8,18 @@ type Props = {
 
 const CalendarSelected = ({ event, setSelect }: Props): any => {
   const { title, month, year, start, type, galleries } = event;
-  const [galMap, setGalMap] = useState(galleries[0].map);
+  const [galMap, setGalMap] = useState();
+
+  useEffect(() => {
+    extractLink(galleries[0].map);
+  }, []);
+
+  const extractLink = (value) => {
+    const firstSplit = value.split('src="');
+    const secondSplit = firstSplit[1].split('" width');
+    setGalMap(secondSplit[0]);
+  };
+
   return (
     <div className={"calendar-container"}>
       <img
@@ -27,7 +38,7 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
       <div className={"modal-container"}>
         {galleries
           ? galleries.map((item, i) => (
-              <div className={"frame"} onClick={() => setGalMap(item.map)}>
+              <div className={"frame"} onClick={() => extractLink(item.map)}>
                 <h4 className={"gallery-name"}>{item.name}</h4>
                 <p>{item.address}</p>
               </div>

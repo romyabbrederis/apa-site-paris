@@ -134,7 +134,7 @@ collections:
               - label: "Google Maps"
                 name: "maps"
                 widget: "string"
-                hint: "Extract only the link from the <frame> ex. https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10500.457278848771!2d2.3671463!3d48.8560304!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%......"
+                hint: "Add embed link from Google Location ex.  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10500.457278848771!2d2.3671463!3d48.8560304!3m2!1i1024!2i768!4f13.1!3m3!1m2" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>"
 
   - name: "menu"
     label: "Menu"
