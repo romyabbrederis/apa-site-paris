@@ -18,7 +18,7 @@ export default function Menu() {
   }, [pathname]);
 
   useEffect(() => {
-    const windowSize = window.matchMedia("(max-width: 640px)");
+    const windowSize = window.matchMedia("(max-width: 769px)");
     setMobilDevice(windowSize.matches);
     window.addEventListener("resize", function () {
       setMobilDevice(windowSize.matches);
@@ -79,7 +79,9 @@ export default function Menu() {
     <div>
       {menuOpen ? mobileMenu : null}
       <div className={"container"}>
-        <img src={"../../logo.png"} className={"logo"} />
+        <Link href="/">
+          <img src={"../../logo.png"} className={"logo"} />
+        </Link>
         {mobileDevice ? (
           <img
             className={"burger"}
@@ -103,16 +105,6 @@ export default function Menu() {
         )}
       </div>
       <style jsx>{`
-        .container {
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
-          margin: 0 auto;
-          padding: 10px 0;
-          width: 100%;
-          height: 5vh;
-        }
-
         @media (max-width: 769px) {
           .burger {
             position: fixed;
@@ -128,9 +120,41 @@ export default function Menu() {
             left: 0;
             top: 0;
           }
+
+          .container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 0 auto;
+            padding: 10px 0;
+            width: 100%;
+            height: 3vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: white;
+            z-index: 10;
+          }
         }
 
         @media (min-width: 769px) {
+          .container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 0 auto;
+            padding: 10px 0;
+            width: 100%;
+            height: 5vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: white;
+            z-index: 10;
+          }
+
           .current-menu {
             color: ${COLOR_YELLOW};
             border-bottom: 3px solid ${COLOR_YELLOW};

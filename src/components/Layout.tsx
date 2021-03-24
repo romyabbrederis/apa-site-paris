@@ -7,7 +7,7 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   return (
-    <div className="root">
+    <div>
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,14 +21,9 @@ export default function Layout({ children }: Props) {
       <main>{children}</main>
       <style jsx>
         {`
-          .root {
-            display: block;
-            box-sizing: border-box;
-            height: 100%;
-            overflow: hidden;
-          }
           main {
             min-height: 100%;
+            overflow: hidden;
           }
         `}
       </style>

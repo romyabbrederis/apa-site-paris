@@ -82,6 +82,7 @@ const Home = ({ data, programme }) => {
             grid-gap: 5px;
             wdith: 100%;
             height: 100vh;
+            margin-top: 3vh;
           }
 
           .left-top {
@@ -170,7 +171,9 @@ const Home = ({ data, programme }) => {
             grid-template-columns: 20% 20% 20% 20% 20%;
             grid-gap: 10px;
             wdith: 100%;
-            height: 100vh;
+            height: 93vh;
+            margin-top: 7vh;
+            overflow: hidden;
           }
 
           .left-top {
