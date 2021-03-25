@@ -8,18 +8,18 @@ type Props = {
   article: ArticleContent;
 };
 
-export default function Article({ article }: Props): any {
+export default function Article({ article, content }: Props): any {
   console.log("article", article);
   return article ? (
     <div className={"layout-container"} style={{ backgroundColor: COLOR_GREY }}>
-      <div className={"inner-container"}>
+      <div className={"inner-container"} style={{ overflow: "hidden" }}>
         <div className={"article"}>
           <div />
           <img src={article.image} className={"article-title-image"} />
           <div className={"article-text-container"}>
             <div className={"article-text-inner "}>
               <h2>{article.title}</h2>
-              <p>{article.content}</p>
+              <p>{content}</p>
             </div>
           </div>
           <div />
@@ -29,6 +29,7 @@ export default function Article({ article }: Props): any {
         @media (max-width: 769px) {
           .article {
             overflow: scroll;
+            height: 100vh;
           }
 
           .article-title-image {
@@ -38,14 +39,13 @@ export default function Article({ article }: Props): any {
 
           .article-text-container {
             background: white;
-
             border: 1px solid black;
             padding: 10px;
+            margin-bottom: 50px;
+            overflow: hidden;
           }
 
           .article-text-inner {
-            overflow: scroll;
-            height: 90vh;
             background: white;
           }
         }
@@ -53,9 +53,12 @@ export default function Article({ article }: Props): any {
         @media (min-width: 769px) {
           .article {
             display: grid;
-            grid-template-columns: auto 500px 500px auto;
+            grid-template-columns: auto 40% minmax(400px, 600px) auto;
             grid-gap: 10px;
             overflow: hidden;
+            height: 100vh;
+            position: fixed;
+            top: 100px;
           }
 
           .article-title-image {
@@ -67,15 +70,15 @@ export default function Article({ article }: Props): any {
 
           .article-text-container {
             overflow: hidden;
-            height: 90vh;
+            height: 80vh;
             background: white;
+            overflow: scroll;
             border: 1px solid black;
             padding: 10px;
           }
 
           .article-text-inner {
             overflow: scroll;
-            height: 90vh;
             background: white;
           }
         }

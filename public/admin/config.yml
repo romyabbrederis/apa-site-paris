@@ -186,7 +186,8 @@ collections:
     i18n: true
     label: "Programme"
     folder: "src/content/programme"
-    format: "json"
+    extension: "mdx"
+    format: "frontmatter"
     create: true
     slug: "{{slug}}"
     identifier_field: slug

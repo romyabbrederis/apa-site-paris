@@ -26,6 +26,7 @@ const Home = ({ data, programme }) => {
 
   useEffect(() => {
     const windowSize = window.matchMedia("(max-width: 640px)");
+    setMobilDevice(windowSize.matches);
     window.addEventListener("resize", function () {
       setMobilDevice(windowSize.matches);
     });
@@ -173,8 +174,8 @@ const Home = ({ data, programme }) => {
             grid-template-columns: 20% 20% 20% 20% 20%;
             grid-gap: 10px;
             wdith: 100%;
-            height: 90%;
-            margin-top: 7vh;
+            height: 93vh;
+            margin-top: 70px;
             overflow: hidden;
           }
 

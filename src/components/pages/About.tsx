@@ -3,9 +3,10 @@ import { COLOR_YELLOW } from "../../../public/styles/general";
 
 type Props = {
   data: AboutContent;
+  content: any;
 };
 
-export default function About({ data }: Props) {
+export default function About({ data, content }: Props) {
   const { title, text, logo, partners } = data;
 
   return (
@@ -18,7 +19,7 @@ export default function About({ data }: Props) {
           <h1 className={"extreme-title"}>{title}</h1>
           <img src={logo} className={"logo"} />
         </div>
-        <p>{text}</p>
+        <p>{content}</p>
 
         <h3 className={"partner-title"}>Partenaires</h3>
         <div className={"partners-container"}>

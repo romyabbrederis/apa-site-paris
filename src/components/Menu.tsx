@@ -114,7 +114,7 @@ export default function Menu() {
         {mobileDevice ? (
           <img
             className={"burger"}
-            src="./icons/menu.png"
+            src="../../icons/menu.png"
             onClick={() => setMenuOpen(true)}
           />
         ) : (

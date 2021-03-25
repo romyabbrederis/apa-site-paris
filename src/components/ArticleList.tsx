@@ -53,7 +53,6 @@ export default function ArticlesList({ articles }: Props): any {
           .articles-list {
             display: grid;
             grid-template-columns: auto 100% auto;
-            grid-gap: 10px;
           }
 
           .article {
@@ -65,6 +64,13 @@ export default function ArticlesList({ articles }: Props): any {
             padding: 10px;
             height: 250px;
             cursor: pointer;
+            line-height: 1em;
+          }
+
+          .article-image {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
           }
 
           .text {

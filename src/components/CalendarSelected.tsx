@@ -8,17 +8,20 @@ type Props = {
 
 const CalendarSelected = ({ event, setSelect }: Props): any => {
   const { title, month, year, start, type, galleries } = event;
-  const [galMap, setGalMap] = useState();
+  const [galMap, setGalMap] = useState({ map: "", name: "" });
 
   useEffect(() => {
-    extractLink(galleries[0].map);
+    extractLink(galleries[0].map, galleries[0].slug);
   }, []);
 
-  const extractLink = (value) => {
-    console.log("value", value);
-    const firstSplit = value.split('src="');
+  const extractLink = (map, name) => {
+    console.log("map", map, name);
+    const firstSplit = map.split('src="');
     const secondSplit = firstSplit[1].split('" width');
-    setGalMap(secondSplit[0]);
+    setGalMap({
+      map: secondSplit[0],
+      name: name,
+    });
   };
 
   return (
@@ -39,7 +42,12 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
       <div className={"modal-container"}>
         {galleries
           ? galleries.map((item, i) => (
-              <div className={"frame"} onClick={() => extractLink(item.maps)}>
+              <div
+                className={
+                  galMap.name === item.slug ? "frame-selected" : "frame"
+                }
+                onClick={() => extractLink(item.maps, item.slug)}
+              >
                 <h4 className={"gallery-name"}>{item.name}</h4>
                 <p>{item.address}</p>
               </div>
@@ -49,7 +57,7 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
 
       <div className={"modal-container"}>
         <iframe
-          src={galMap}
+          src={galMap.map}
           width="100%"
           height="450"
           style={{ border: "none", filter: "greyscale(100%)" }}
@@ -86,6 +94,14 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
           .frame {
             border: 1px solid black;
             padding: 0 10px 10px 10px;
+          }
+
+          .frame-selected {
+            border: 1px solid black;
+            background: black;
+            color: white;
+            padding: 0 10px 10px 10px;
+            cursor: pointer;
           }
         }
 
@@ -127,6 +143,14 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
 
           .frame {
             border: 1px solid black;
+            padding: 0 10px 10px 10px;
+            cursor: pointer;
+          }
+
+          .frame-selected {
+            border: 1px solid black;
+            background: black;
+            color: white;
             padding: 0 10px 10px 10px;
             cursor: pointer;
           }

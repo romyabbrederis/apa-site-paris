@@ -37,7 +37,7 @@ h3,
 h4,
 h5 {
   font-family: "Ubuntu", sans-serif;
-  line-height: 0.8em;
+  line-height: 1.2em;
 }
 
 h2::before {
@@ -105,7 +105,7 @@ code {
     flex-direction: column;
     margin: 0 auto;
     height: 100vh;
-    margin-top: 35px;
+    margin-top: 50px;
   }
   .inner-container {
     display: flex;
@@ -120,7 +120,7 @@ code {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    margin-top: 7vh;
+    margin-top: 70px;
   }
 
   .inner-container {
