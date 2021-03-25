@@ -12,18 +12,25 @@ import {
   fetchArticleContent,
 } from "../../../lib/articles";
 import { useEffect } from "react";
+import renderToString from "next-mdx-remote/render-to-string";
+import hydrate from "next-mdx-remote/hydrate";
 
 type Props = {
   article: ArticleContent;
+  mdxSource: any;
   language: any;
   params: any;
 };
 
-export default function Index({ article, language, params }: Props) {
+const components = { Article };
+
+export default function Index({ article, mdxSource, language, params }: Props) {
   const router = useRouter();
   const { path } = router.query;
   const url = "/en/news/" + path;
   const title = article.title;
+
+  const content = hydrate(mdxSource, { components });
 
   console.log("article", article, language, params, title);
   return (
@@ -31,7 +38,7 @@ export default function Index({ article, language, params }: Props) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      {article ? <Article article={article} /> : null}
+      {article ? <Article article={article} content={content} /> : null}
     </div>
   );
 }
@@ -46,10 +53,13 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async ({ params, locale }) => {
   const article = fetchArticleContent(params.path, "en");
+  const mdxSource = await renderToString(article.content, { components });
+
   const language = locale || null;
   return {
     props: {
       article,
+      mdxSource,
       language,
       params,
     },

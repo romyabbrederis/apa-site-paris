@@ -17,6 +17,7 @@ import hydrate from "next-mdx-remote/hydrate";
 
 type Props = {
   article: ArticleContent;
+  mdxSource: any;
   language: any;
   params: any;
 };

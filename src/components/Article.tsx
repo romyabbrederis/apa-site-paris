@@ -6,6 +6,7 @@ import { COLOR_GREY } from "../../public/styles/general";
 
 type Props = {
   article: ArticleContent;
+  content: any;
 };
 
 export default function Article({ article, content }: Props): any {

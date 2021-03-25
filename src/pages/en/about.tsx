@@ -5,15 +5,22 @@ import OpenGraphMeta from "../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../components/meta/TwitterCardMeta";
 import { AboutContent, getAboutPage } from "../../lib/abouts";
 import About from "../../components/pages/About";
+import renderToString from "next-mdx-remote/render-to-string";
+import hydrate from "next-mdx-remote/hydrate";
 
 type Props = {
   data: AboutContent;
+  mdxSource: any;
   language: any;
 };
 
-export default function Index({ data, language }: Props) {
+const components = { About };
+
+export default function Index({ data, mdxSource, language }: Props) {
   const url = "/en/about";
-  const title = "Aabout";
+  const title = "About";
+
+  const content = hydrate(mdxSource, { components });
 
   console.log("data", data, language);
   return (
@@ -21,7 +28,7 @@ export default function Index({ data, language }: Props) {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <About data={data} />
+      <About data={data} content={content} />
     </div>
   );
 }
@@ -29,10 +36,12 @@ export default function Index({ data, language }: Props) {
 export const getStaticProps = async (context) => {
   const { locale } = context;
   const data = getAboutPage("en");
+  const mdxSource = await renderToString(data.text, { components });
   const language = locale || null;
   return {
     props: {
       data,
+      mdxSource,
       language,
     },
   };
