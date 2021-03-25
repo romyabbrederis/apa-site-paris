@@ -582,7 +582,6 @@ collections:
     label: "Test"
     folder: "src/content/test"
     extension: "html"
-    format: "frontmatter"
     create: true
     slug: "{{slug}}"
     identifier_field: slug
