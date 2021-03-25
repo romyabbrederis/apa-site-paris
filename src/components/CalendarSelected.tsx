@@ -15,6 +15,7 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
   }, []);
 
   const extractLink = (value) => {
+    console.log("value", value);
     const firstSplit = value.split('src="');
     const secondSplit = firstSplit[1].split('" width');
     setGalMap(secondSplit[0]);
@@ -38,7 +39,7 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
       <div className={"modal-container"}>
         {galleries
           ? galleries.map((item, i) => (
-              <div className={"frame"} onClick={() => extractLink(item.map)}>
+              <div className={"frame"} onClick={() => extractLink(item.maps)}>
                 <h4 className={"gallery-name"}>{item.name}</h4>
                 <p>{item.address}</p>
               </div>
