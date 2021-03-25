@@ -581,7 +581,8 @@ collections:
     i18n: true
     label: "Test"
     folder: "src/content/test"
-    extension: "html"
+    extension: "json"
+    format: json
     create: true
     slug: "{{slug}}"
     identifier_field: slug
