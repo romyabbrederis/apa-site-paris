@@ -29,11 +29,21 @@ export default function Menu() {
 
   const mobileMenu = (
     <div className={"mobile-container"}>
-      <img
-        src="../../icons/close.png"
-        className={"close-icon"}
-        onClick={() => setMenuOpen(false)}
-      />
+      <div className={"top-part"}>
+        <Link href={"/"}>
+          <img
+            src={"../../logo.png"}
+            className={"mobile-logo-menu"}
+            onClick={() => setMenuOpen(false)}
+          />
+        </Link>
+        <img
+          src="../../icons/close.png"
+          className={"close-icon"}
+          onClick={() => setMenuOpen(false)}
+        />
+      </div>
+
       {menus.map((item, i) => (
         <Link href={item.slug} key={i}>
           <a className={"border-box"} onClick={() => setMenuOpen(false)}>
@@ -49,7 +59,7 @@ export default function Menu() {
           left: 0;
           right: 0;
           bottom: 0;
-          z-index: 2;
+          z-index: 11;
           height: 100vh;
           width: 100%;
           display: flex;
@@ -68,8 +78,27 @@ export default function Menu() {
         .close-icon {
           width: 30px;
           position: fixed;
-          top: 5px;
-          right: 5px;
+          top: 10px;
+          right: 10px;
+        }
+
+        .mobile-logo-menu {
+          position: fixed;
+          z-index: 13;
+          top: 0;
+          width: 120px;
+          background: white;
+        }
+
+        .top-part {
+          background: white;
+          position: fixed;
+          z-index: 13;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 60px;
+          width: 100%;
         }
       `}</style>
     </div>
@@ -128,7 +157,7 @@ export default function Menu() {
             margin: 0 auto;
             padding: 10px 0;
             width: 100%;
-            height: 3vh;
+            height: 35px;
             position: fixed;
             top: 0;
             right: 0;

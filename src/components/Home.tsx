@@ -60,7 +60,7 @@ const Home = ({ data, programme }) => {
         <Link href={bllink}>
           <div>
             <h1> {bltitle}</h1>
-            <p> {bltext}</p>
+            {mobileDevice ? null : <p> {bltext}</p>}
           </div>
         </Link>
       </div>
@@ -81,8 +81,8 @@ const Home = ({ data, programme }) => {
             grid-template-columns: 50% 50%;
             grid-gap: 5px;
             wdith: 100%;
-            height: 100vh;
-            margin-top: 3vh;
+            height: 96vh;
+            margin-top: 35px;
           }
 
           .left-top {
@@ -98,6 +98,7 @@ const Home = ({ data, programme }) => {
             padding: 10px;
             background-color: #f2f2f2;
             border: 1px solid black;
+            min-height: 20vh;
           }
 
           .left-bottom {
@@ -133,6 +134,7 @@ const Home = ({ data, programme }) => {
             background: white;
             border: 1px solid black;
             padding: 10px;
+            min-height: 10vh;
           }
 
           .programme-top {
@@ -171,7 +173,7 @@ const Home = ({ data, programme }) => {
             grid-template-columns: 20% 20% 20% 20% 20%;
             grid-gap: 10px;
             wdith: 100%;
-            height: 93vh;
+            height: 90%;
             margin-top: 7vh;
             overflow: hidden;
           }

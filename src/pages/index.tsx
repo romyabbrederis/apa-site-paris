@@ -7,6 +7,7 @@ import Home from "../components/Home";
 import config from "../lib/config";
 import { HomeContent, getHomePage } from "../lib/homes";
 import { ProgrammeContent, fetchProgrammeContent } from "../lib/programmes";
+import { useEffect } from "react";
 
 type Props = {
   data: HomeContent;
@@ -17,6 +18,32 @@ type Props = {
 export default function Index({ data, programme, language }: Props) {
   const url = "/";
   const title = "Home";
+
+  function minimumWaitingTime() {
+    const queries = [2, 1, 1, 1];
+
+    queries.sort((a, b) => a - b);
+
+    let totalTime = queries[0];
+    let adding = queries[0];
+
+    const newArray = queries.slice(1, queries.length);
+
+    newArray.map((item, index) => {
+      if (index === newArray.length - 1) {
+        totalTime += item;
+      } else {
+        let newTime = item + queries[0];
+        totalTime += newTime;
+      }
+    });
+    console.log(totalTime);
+    return totalTime;
+  }
+
+  useEffect(() => {
+    minimumWaitingTime();
+  }, []);
 
   console.log("data", data, programme, language);
   return (
