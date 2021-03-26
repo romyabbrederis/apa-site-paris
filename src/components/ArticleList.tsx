@@ -40,7 +40,7 @@ export default function ArticlesList({ articles }: Props): any {
                 <div>
                   <h3>{item.title}</h3>
                   <p>{item.date}</p>
-                  <p className={"text"}>{item.content}</p>
+                  {/* <p className={"text"}>{item.content}</p> */}
                 </div>
               </div>
             </Link>
@@ -52,7 +52,8 @@ export default function ArticlesList({ articles }: Props): any {
         @media (max-width: 769px) {
           .articles-list {
             display: grid;
-            grid-template-columns: auto 100% auto;
+            grid-template-columns: 100%;
+            grid-gap: 10px;
           }
 
           .article {
@@ -70,7 +71,7 @@ export default function ArticlesList({ articles }: Props): any {
           .article-image {
             width: 100%;
             object-fit: cover;
-            height: 100%;
+            height: 250px;
           }
 
           .text {
@@ -100,7 +101,7 @@ export default function ArticlesList({ articles }: Props): any {
           .article-image {
             width: 100%;
             object-fit: cover;
-            height: 100%;
+            height: 250px;
           }
 
           .text {
