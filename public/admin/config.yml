@@ -476,6 +476,21 @@ collections:
         name: "body"
         widget: "markdown"
         i18n: true
+      - name: Images
+        label: images
+        widget: list
+        required: false
+        i18n: duplicate
+        fields:
+          - label: "image"
+            name: "image"
+            widget: "image"
+            media_library:
+            config:
+              max_file_size: 400000
+          - label: "Credit Name"
+            name: "credit"
+            widget: "string"
 
   - name: "home"
     label: "Home"

@@ -13,6 +13,7 @@ export default function ProgrammesList({ programmes }: Props): any {
   const [type, setType] = useState("now");
   const [data, setData] = useState([]);
   const [select, setSelect] = useState("");
+  const [mobileDevice, setMobilDevice] = useState<boolean>();
 
   console.log("data", data, select);
 
@@ -29,6 +30,14 @@ export default function ProgrammesList({ programmes }: Props): any {
   useEffect(() => {
     console.log(select);
   }, [select]);
+
+  useEffect(() => {
+    const windowSize = window.matchMedia("(max-width: 769px)");
+    setMobilDevice(windowSize.matches);
+    window.addEventListener("resize", function () {
+      setMobilDevice(windowSize.matches);
+    });
+  }, []);
 
   const changeType = (value: string) => setType(value);
 
@@ -50,20 +59,35 @@ export default function ProgrammesList({ programmes }: Props): any {
                       : "programme-box"
                   }
                 >
-                  <div
-                    className={"programme-title-container"}
-                    onClick={() => setSelect(item.slug)}
-                  >
-                    <div className={"month-date"}>
-                      <h3>{item.month}</h3>
-                      <h3>{item.year}</h3>
+                  {mobileDevice ? (
+                    <div
+                      className={"programme-title-container"}
+                      onClick={() => setSelect(item.slug)}
+                    >
+                      <h4>
+                        {item.month} {item.year}
+                      </h4>
+                      <h4>{item.title}</h4>
                     </div>
-                    <h3>{item.title}</h3>
-                  </div>
+                  ) : (
+                    <div
+                      className={"programme-title-container"}
+                      onClick={() => setSelect(item.slug)}
+                    >
+                      <div className={"month-date"}>
+                        <h3>{item.month}</h3>
+                        <h3>{item.year}</h3>
+                      </div>
+                      <h3>{item.title}</h3>
+                    </div>
+                  )}
+
+                  <img src="../../icons/down.png" className={"down-icon"} />
+
                   {select === item.slug ? (
                     <img
                       className={"close-icon"}
-                      src="./icons/close.png"
+                      src="../../icons/close.png"
                       onClick={() => setSelect("hi")}
                     />
                   ) : null}
@@ -83,25 +107,11 @@ export default function ProgrammesList({ programmes }: Props): any {
             overflow: scroll;
           }
 
-          .programme-box {
-            cursor: pointer;
-            padding: 0 10px;
-            background: black;
-            color: white;
-          }
-
-          .programme-box-selected {
-            padding: 0 10px;
-            background: white;
-            color: black;
-          }
-
           @media (max-width: 769px) {
             .programme-title-container {
-              display: flex;
-              justify-content: space-between;
               width: 90%;
               position: relative;
+              height: 100%;
             }
 
             .close-icon {
@@ -110,6 +120,40 @@ export default function ProgrammesList({ programmes }: Props): any {
               right: 10px;
               width: 20px;
               cursor: pointer;
+            }
+
+            .month-date {
+              text-align: left;
+              margin-right: 5px;
+            }
+
+            .programme-box {
+              cursor: pointer;
+              background: black;
+              color: white;
+              border: 1px solid black;
+              height: 100%;
+              padding: 0 10px;
+            }
+
+            .programme-box-selected {
+              background: white;
+              border: 1px solid black;
+              color: black;
+              height: 100%;
+              padding: 0 10px;
+            }
+
+            .programmes-list {
+              flex: 0 0 auto;
+              position: relative;
+            }
+
+            .down-icon {
+              position: absolute;
+              right: 10px;
+              top: 10px;
+              width: 30px;
             }
           }
 
@@ -128,34 +172,39 @@ export default function ProgrammesList({ programmes }: Props): any {
               width: 30px;
               cursor: pointer;
             }
-          }
 
-          .month-date {
-            text-align: right;
-          }
-
-          .programmes {
-            display: flex;
-            flex-direction: column;
-            flex: 1 1 auto;
-          }
-
-          @media (max-width: 769px) {
-            .programmes-list {
-              flex: 0 0 auto;
-              background: white;
-              border: 1px solid black;
-              position: relative;
+            .month-date {
+              text-align: right;
             }
-          }
 
-          @media (min-width: 769px) {
+            .programme-box {
+              cursor: pointer;
+              padding: 0 10px;
+              background: black;
+              color: white;
+              height: 100%;
+            }
+
+            .programme-box-selected {
+              padding: 0 10px;
+              background: white;
+              color: black;
+              height: 100%;
+            }
+
             .programmes-list {
               flex: 0 0 auto;
               background: white;
               margin-right: 20px;
               border: 1px solid black;
               position: relative;
+            }
+
+            .down-icon {
+              position: absolute;
+              right: 45%;
+              bottom: 1px;
+              width: 30px;
             }
           }
         `}</style>

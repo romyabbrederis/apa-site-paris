@@ -42,6 +42,8 @@ export default function CalendarsList({ events }: Props): any {
               <h3 key={i} className={"title"}>
                 {item.title}
               </h3>
+
+              <img src="../../icons/down-arrow.png" className={"down-icon"} />
             </div>
           ))}
         </div>
@@ -75,7 +77,18 @@ export default function CalendarsList({ events }: Props): any {
           line-height: 0.8em;
         }
         .title {
-          color: ${COLOR_YELLOW}
+          color: ${COLOR_YELLOW};
+        }
+        .button {
+          background: ${COLOR_YELLOW};
+          color: black;
+          padding: 0 10px;
+          position: relative;
+        }
+
+        .down-icon {
+          width: 30px;
+          margin-top: -5px;
         }
         }
       `}</style>
