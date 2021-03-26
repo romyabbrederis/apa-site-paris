@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { COLOR_YELLOW } from "../../public/styles/general";
 
 const Home = ({ data, programme }) => {
   const {
@@ -37,7 +38,9 @@ const Home = ({ data, programme }) => {
     <div className={"container"}>
       <Link href={tllink}>
         <div className={"left-top"}>
-          <h1 className={"title"}>{tltitle}</h1>
+          <div className={"title"}>
+            <h1>{tltitle}</h1>
+          </div>
           <img src={tlimage} className={"image"} />
         </div>
       </Link>
@@ -61,14 +64,17 @@ const Home = ({ data, programme }) => {
 
       <Link href={bllink}>
         <div className={"left-bottom"}>
-          <h1> {bltitle}</h1>
-          {mobileDevice ? null : <p> {bltext}</p>}
+          <div className={"lb-title"}>
+            <h1> {bltitle}</h1>
+          </div>
         </div>
       </Link>
 
       <Link href={brlink}>
         <div className={"right-bottom"}>
-          <h1 className={"title"}> {brtitle}</h1>
+          <div className={"title"}>
+            <h1> {brtitle}</h1>
+          </div>
           <img src={brimage} className={"image"} />
         </div>
       </Link>
@@ -110,6 +116,23 @@ const Home = ({ data, programme }) => {
             text-overflow: ellipsis;
           }
 
+          .lb-title {
+            position: absolute;
+            color: black;
+            left: 20px;
+            top: 10px;
+            width: 50%;
+            background: white;
+            text-align: center;
+            font-size: 10px;
+            text-align: center;
+            border: 1px solid black;
+          }
+
+          .lb-title:hover {
+            background: #ffd506;
+          }
+
           .right-bottom {
             grid-column: 2 / 4;
             position: relative;
@@ -125,8 +148,19 @@ const Home = ({ data, programme }) => {
 
           .title {
             position: absolute;
-            left: 10%;
-            top: 10px;
+            color: black;
+            left: 20px;
+            bottom: 10px;
+            width: 50%;
+            background: white;
+            text-align: center;
+            font-size: 10px;
+            text-align: center;
+            border: 1px solid black;
+          }
+
+          .title:hover {
+            background: white;
           }
 
           .programme-container {
@@ -217,11 +251,41 @@ const Home = ({ data, programme }) => {
             object-fit: cover;
           }
 
+          .lb-title {
+            position: absolute;
+            color: black;
+            left: 20px;
+            top: 10px;
+            width: 50%;
+            background: white;
+            text-align: center;
+            font-size: 10px;
+            text-align: center;
+            border: 1px solid black;
+          }
+
+          .lb-title:hover {
+            background: #ffd506;
+          }
+
           .title {
             position: absolute;
-            left: 10%;
-            top: 10px;
-            font-size: 60px;
+            color: black;
+            left: 5px;
+            bottom: 10px;
+            width: 90%;
+            background: white;
+            text-align: center;
+            border: 1px solid black;
+            font-size: 15px;
+          }
+
+          .title:hover {
+            background: white;
+          }
+
+          h1:hover {
+            color: ${COLOR_YELLOW};
           }
 
           .programme-container {
