@@ -69,7 +69,7 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
           .calendar-container {
             background: white;
             border: 1px solid black;
-            min-height: 30vh;
+            height: fit-content;
             margin: 0 0 10px 0;
             position: relative;
           }

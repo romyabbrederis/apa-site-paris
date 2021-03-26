@@ -52,6 +52,8 @@ export default function CalendarsList({ events }: Props): any {
           max-width: 1200px;
           width: 100%;
           padding: 0 1.5rem;
+          height: 100vh;
+          overflow: scroll;
         }
         
         .events {

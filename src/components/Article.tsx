@@ -13,7 +13,7 @@ export default function Article({ article, content }: Props): any {
   console.log("article", article);
   return article ? (
     <div className={"layout-container"} style={{ backgroundColor: COLOR_GREY }}>
-      <div className={"inner-container"} style={{ overflow: "hidden" }}>
+      <div className={"inner-container"}>
         <div className={"article"}>
           <div />
           <img src={article.image} className={"article-title-image"} />
@@ -29,8 +29,6 @@ export default function Article({ article, content }: Props): any {
       <style jsx>{`
         @media (max-width: 769px) {
           .article {
-            overflow: scroll;
-            height: 100vh;
           }
 
           .article-title-image {
@@ -41,8 +39,7 @@ export default function Article({ article, content }: Props): any {
           .article-text-container {
             background: white;
             border: 1px solid black;
-            padding: 10px;
-            margin-bottom: 50px;
+            padding: 10px 10px 100px 10px;
             overflow: hidden;
           }
 

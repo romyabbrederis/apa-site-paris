@@ -54,6 +54,7 @@ export default function About({ data, content }: Props) {
             flex-direction: column;
             align-items: center;
             text-align: center;
+            height: max-content;
           }
         }
 
