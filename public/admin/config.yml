@@ -218,7 +218,7 @@ collections:
         hint: "Choose the start date of event. This serves only internally to arrange the events."
       - label: "Description"
         name: "description"
-        widget: "markdown"
+        widget: "text"
         i18n: true
       - label: "Type"
         name: "type"

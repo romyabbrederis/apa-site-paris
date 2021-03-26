@@ -6,12 +6,13 @@ type Props = {
 };
 
 export default function ProgrammeSelected({ programme }: Props): any {
+  console.log("programme", programme);
   return programme ? (
     <div className={"programme-selected-container"}>
       <p>{programme.description}</p>
-      {programme.galleries.map((item) => (
-        <h5>{item}</h5>
-      ))}
+      {programme.galleries
+        ? programme.galleries.map((item, index) => <h5 key={index}>{item}</h5>)
+        : null}
       <div className={"download-section"}>
         <a href={programme.file} download>
           Telechargement Flyer
