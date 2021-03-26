@@ -27,6 +27,7 @@ const TimeButton = ({ changeType, type }: Props): any => {
         .button {
           padding: 8px 20px;
           margin: 10px 10px 10px 0;
+          height: 20px;
           background: white;
           border: 1px solid black;
           cursor: pointer;

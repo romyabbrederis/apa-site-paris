@@ -80,6 +80,7 @@ export default function ProgrammesList({ programmes }: Props): any {
         <style jsx>{`
           .container {
             background: #e5e5e5;
+            overflow: scroll;
           }
 
           .programme-box {

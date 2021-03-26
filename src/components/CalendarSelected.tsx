@@ -11,17 +11,26 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
   const [galMap, setGalMap] = useState({ map: "", name: "" });
 
   useEffect(() => {
-    extractLink(galleries[0].map, galleries[0].slug);
-  }, []);
+    if (galleries.length) {
+      extractLink(galleries[0].map, galleries[0].slug);
+    }
+  }, [galleries]);
 
   const extractLink = (map, name) => {
     console.log("map", map, name);
-    const firstSplit = map.split('src="');
-    const secondSplit = firstSplit[1].split('" width');
-    setGalMap({
-      map: secondSplit[0],
-      name: name,
-    });
+    if (map) {
+      const firstSplit = map.split('src="');
+      const secondSplit = firstSplit[1].split('" width');
+      setGalMap({
+        map: secondSplit[0],
+        name: name,
+      });
+    } else {
+      setGalMap({
+        map: "",
+        name: name,
+      });
+    }
   };
 
   return (
