@@ -57,6 +57,7 @@ export default function CalendarsList({ events }: Props): any {
         .events {
           display: flex;
           justify-content: center;
+          margin-bottom: 50px;
         }
 
         .events-list {

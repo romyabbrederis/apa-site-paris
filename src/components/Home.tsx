@@ -35,10 +35,12 @@ const Home = ({ data, programme }) => {
   console.log("data");
   return (
     <div className={"container"}>
-      <div className={"left-top"}>
-        <h1 className={"title"}>{tltitle}</h1>
-        <img src={tlimage} className={"image"} />
-      </div>
+      <Link href={tllink}>
+        <div className={"left-top"}>
+          <h1 className={"title"}>{tltitle}</h1>
+          <img src={tlimage} className={"image"} />
+        </div>
+      </Link>
 
       <div className={"right-top"}>
         <div className={"programme-container"}>
@@ -57,23 +59,19 @@ const Home = ({ data, programme }) => {
         </Link>
       </div>
 
-      <div className={"left-bottom"}>
-        <Link href={bllink}>
-          <div>
-            <h1> {bltitle}</h1>
-            {mobileDevice ? null : <p> {bltext}</p>}
-          </div>
-        </Link>
-      </div>
+      <Link href={bllink}>
+        <div className={"left-bottom"}>
+          <h1> {bltitle}</h1>
+          {mobileDevice ? null : <p> {bltext}</p>}
+        </div>
+      </Link>
 
-      <div className={"right-bottom"}>
-        <Link href={brlink}>
-          <div>
-            <h1 className={"title"}> {brtitle}</h1>
-            <img src={brimage} className={"image"} />
-          </div>
-        </Link>
-      </div>
+      <Link href={brlink}>
+        <div className={"right-bottom"}>
+          <h1 className={"title"}> {brtitle}</h1>
+          <img src={brimage} className={"image"} />
+        </div>
+      </Link>
 
       <style jsx>{`
         @media (max-width: 769px) {
