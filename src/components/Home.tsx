@@ -122,15 +122,9 @@ const Home = ({ data, programme }) => {
             left: 20px;
             top: 10px;
             width: 50%;
-            background: white;
             text-align: center;
             font-size: 10px;
             text-align: center;
-            border: 1px solid black;
-          }
-
-          .lb-title:hover {
-            background: #ffd506;
           }
 
           .right-bottom {
@@ -257,15 +251,9 @@ const Home = ({ data, programme }) => {
             left: 20px;
             top: 10px;
             width: 50%;
-            background: white;
             text-align: center;
-            font-size: 10px;
+            font-size: 24px;
             text-align: center;
-            border: 1px solid black;
-          }
-
-          .lb-title:hover {
-            background: #ffd506;
           }
 
           .title {
