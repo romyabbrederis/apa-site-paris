@@ -80,6 +80,96 @@ const Home = ({ data, programme }) => {
       </Link>
 
       <style jsx>{`
+        @keyframes slide-in-top {
+          0% {
+            -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+            opacity: 0;
+          }
+          100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        @-webkit-keyframes slide-in-right {
+          0% {
+            -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+            opacity: 0;
+          }
+          100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+
+        @-webkit-keyframes slide-in-left {
+          0% {
+            -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+            opacity: 0;
+          }
+          100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+
+        @keyframes slide-in-left {
+          0% {
+            -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+            opacity: 0;
+          }
+          100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+
+        @keyframes slide-in-right {
+          0% {
+            -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+            opacity: 0;
+          }
+          100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+
+        @-webkit-keyframes slide-in-bottom {
+          0% {
+            -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+            opacity: 0;
+          }
+          100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+        @keyframes slide-in-bottom {
+          0% {
+            -webkit-transform: translateY(1000px);
+            transform: translateY(1000px);
+            opacity: 0;
+          }
+          100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
         @media (max-width: 769px) {
           .container {
             display: grid;
@@ -95,6 +185,10 @@ const Home = ({ data, programme }) => {
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            -webkit-animation: slide-in-top 0.7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+            animation: slide-in-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              0.2s both;
           }
 
           .right-top {
@@ -104,6 +198,10 @@ const Home = ({ data, programme }) => {
             background-color: #f2f2f2;
             border: 1px solid black;
             min-height: 20vh;
+            -webkit-animation: slide-in-right 0.7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+            animation: slide-in-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              0.3s both;
           }
 
           .left-bottom {
@@ -114,6 +212,10 @@ const Home = ({ data, programme }) => {
             background-color: #ffd506;
             max-height: 30vh;
             text-overflow: ellipsis;
+            -webkit-animation: slide-in-left 0.7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+            animation: slide-in-left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              0.4s both;
           }
 
           .lb-title {
@@ -132,6 +234,10 @@ const Home = ({ data, programme }) => {
             position: relative;
             cursor: pointer;
             max-height: 30vh;
+            -webkit-animation: slide-in-bottom 0.7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+            animation: slide-in-bottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              0.5s both;
           }
 
           .image {
@@ -210,6 +316,10 @@ const Home = ({ data, programme }) => {
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            -webkit-animation: slide-in-top 0.7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+            animation: slide-in-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              0.2s both;
           }
 
           .right-top {
@@ -219,6 +329,10 @@ const Home = ({ data, programme }) => {
             background-color: #f2f2f2;
             padding: 10px;
             width: 100%;
+            -webkit-animation: slide-in-right 0.7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+            animation: slide-in-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              0.3s both;
           }
 
           .left-bottom {
@@ -231,12 +345,20 @@ const Home = ({ data, programme }) => {
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
+            -webkit-animation: slide-in-left 0.7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+            animation: slide-in-left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              0.4s both;
           }
 
           .right-bottom {
             grid-column: 3 / 6;
             position: relative;
             cursor: pointer;
+            -webkit-animation: slide-in-bottom 0.7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
+            animation: slide-in-bottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              0.5s both;
           }
 
           .image {

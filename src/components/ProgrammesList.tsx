@@ -39,7 +39,10 @@ export default function ProgrammesList({ programmes }: Props): any {
     });
   }, []);
 
-  const changeType = (value: string) => setType(value);
+  const changeType = (value: string) => {
+    setType(value);
+    setSelect(undefined);
+  };
 
   console.log("data", data);
 

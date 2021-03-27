@@ -14,7 +14,10 @@ export default function CalendarsList({ events }: Props): any {
   const [data, setData] = useState([]);
   const [select, setSelect] = useState(undefined);
 
-  const changeType = (value: string) => setType(value);
+  const changeType = (value: string) => {
+    setType(value);
+    setSelect(undefined);
+  };
 
   useEffect(() => {
     const newData = renderProgrammes(events, type);
