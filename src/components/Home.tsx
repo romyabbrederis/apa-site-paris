@@ -41,7 +41,6 @@ const Home = ({ data, programme }) => {
           <div className={"title"}>
             <h1>{tltitle}</h1>
           </div>
-          <img src={tlimage} className={"image"} />
         </div>
       </Link>
 
@@ -64,7 +63,7 @@ const Home = ({ data, programme }) => {
 
       <Link href={bllink}>
         <div className={"left-bottom"}>
-          <div className={"lb-title"}>
+          <div className={"lb-name"}>
             <h1> {bltitle}</h1>
           </div>
         </div>
@@ -75,7 +74,7 @@ const Home = ({ data, programme }) => {
           <div className={"title"}>
             <h1> {brtitle}</h1>
           </div>
-          <img src={brimage} className={"image"} />
+          {/* <img className={"image"} /> */}
         </div>
       </Link>
 
@@ -170,6 +169,24 @@ const Home = ({ data, programme }) => {
           }
         }
 
+        @keyframes change-images {
+          0% {
+            background-size: 70px 70px;
+          }
+          100% {
+            background-size: cover;
+          }
+        }
+
+        @-webkit-keyframes change-images {
+          0% {
+            background-size: 70px 70px;
+          }
+          100% {
+            background-size: cover;
+          }
+        }
+
         @media (max-width: 769px) {
           .container {
             display: grid;
@@ -189,6 +206,19 @@ const Home = ({ data, programme }) => {
               cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
             animation: slide-in-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
               0.2s both;
+            background-image: url(${tlimage});
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 25%,
+                rgba(0, 0, 0, 0.45702030812324934) 90%,
+                rgba(0, 0, 0, 0.7973564425770308) 100%
+              ),
+              url(${tlimage});
+            min-height: 30vh;
+            -webkit-animation: change-images 7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+            animation: change-images 7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              infinite;
           }
 
           .right-top {
@@ -210,7 +240,7 @@ const Home = ({ data, programme }) => {
             padding: 10px;
             cursor: pointer;
             background-color: #ffd506;
-            max-height: 30vh;
+            min-height: 30vh;
             text-overflow: ellipsis;
             -webkit-animation: slide-in-left 0.7s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
@@ -218,26 +248,43 @@ const Home = ({ data, programme }) => {
               0.4s both;
           }
 
-          .lb-title {
+          .lb-name {
             position: absolute;
             color: black;
-            left: 20px;
-            top: 10px;
-            width: 50%;
+            left: 10px;
+            top: 0;
             text-align: center;
-            font-size: 10px;
             text-align: center;
+          }
+
+          .lb-name:hover {
+            color: white;
           }
 
           .right-bottom {
             grid-column: 2 / 4;
             position: relative;
             cursor: pointer;
-            max-height: 30vh;
             -webkit-animation: slide-in-bottom 0.7s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
             animation: slide-in-bottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
               0.5s both;
+            background: rgb(255, 255, 255);
+            background-image: url(${brimage});
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 25%,
+                rgba(0, 0, 0, 0.45702030812324934) 90%,
+                rgba(0, 0, 0, 0.7973564425770308) 100%
+              ),
+              url(${brimage});
+            object-fit: cover;
+            min-height: 30vh;
+            height: 100%;
+            -webkit-animation: change-images 10s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+            animation: change-images 10s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              infinite;
           }
 
           .image {
@@ -248,15 +295,10 @@ const Home = ({ data, programme }) => {
 
           .title {
             position: absolute;
-            color: black;
-            left: 20px;
-            bottom: 10px;
+            color: white;
+            left: 10px;
+            bottom: 0;
             width: 50%;
-            background: white;
-            text-align: center;
-            font-size: 10px;
-            text-align: center;
-            border: 1px solid black;
           }
 
           .title:hover {
@@ -320,6 +362,28 @@ const Home = ({ data, programme }) => {
               cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
             animation: slide-in-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
               0.2s both;
+            background-image: url(${tlimage});
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 25%,
+                rgba(0, 0, 0, 0.45702030812324934) 60%,
+                rgba(0, 0, 0, 0.7973564425770308) 100%
+              ),
+              url(${tlimage});
+            background-size: cover;
+            min-height: 30vh;
+          }
+
+          .left-top:hover {
+            background-image: url(${tlimage});
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 25%,
+                rgba(0, 0, 0, 0.45702030812324934) 90%,
+                rgba(0, 0, 0, 0.7973564425770308) 100%
+              ),
+              url(${tlimage});
+            background-size: repeat;
           }
 
           .right-top {
@@ -351,6 +415,22 @@ const Home = ({ data, programme }) => {
               0.4s both;
           }
 
+          .left-bottom:hover {
+            background: grey;
+          }
+
+          .left-top:hover {
+            background-image: url(${tlimage});
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 25%,
+                rgba(0, 0, 0, 0.45702030812324934) 90%,
+                rgba(0, 0, 0, 0.7973564425770308) 100%
+              ),
+              url(${tlimage});
+            background-size: repeat;
+          }
+
           .right-bottom {
             grid-column: 3 / 6;
             position: relative;
@@ -359,6 +439,29 @@ const Home = ({ data, programme }) => {
               cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
             animation: slide-in-bottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
               0.5s both;
+            background: rgb(255, 255, 255);
+            background-image: url(${brimage});
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 25%,
+                rgba(0, 0, 0, 0.45702030812324934) 60%,
+                rgba(0, 0, 0, 0.7973564425770308) 100%
+              ),
+              url(${brimage});
+            background-size: cover;
+            min-height: 30vh;
+          }
+
+          .right-bottom:hover {
+            background-image: url(${brimage});
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 25%,
+                rgba(0, 0, 0, 0.45702030812324934) 90%,
+                rgba(0, 0, 0, 0.7973564425770308) 100%
+              ),
+              url(${brimage});
+            background-size: repeat;
           }
 
           .image {
@@ -367,31 +470,31 @@ const Home = ({ data, programme }) => {
             object-fit: cover;
           }
 
-          .lb-title {
+          .lb-name {
             position: absolute;
             color: black;
             left: 20px;
             top: 10px;
-            width: 50%;
             text-align: center;
             font-size: 24px;
             text-align: center;
           }
 
+          .lb-name:hover {
+            color: white;
+          }
+
           .title {
             position: absolute;
-            color: black;
-            left: 5px;
+            color: white;
+            left: 20px;
             bottom: 10px;
             width: 90%;
-            background: white;
-            text-align: center;
-            border: 1px solid black;
-            font-size: 15px;
+            font-size: 34px;
           }
 
           .title:hover {
-            background: white;
+            color: ${COLOR_YELLOW};
           }
 
           h1:hover {
