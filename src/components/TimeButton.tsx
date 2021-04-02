@@ -22,6 +22,7 @@ const TimeButton = ({ changeType, type }: Props): any => {
       <style jsx>{`
         .button-container {
           display: flex;
+          font-weight: 500;
         }
 
         .button {

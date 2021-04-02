@@ -132,6 +132,10 @@ export default function Menu() {
             cubic-bezier(0.39, 0.575, 0.565, 1) 0.6s both;
           animation: fade-in-top 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) 0.6s
             both;
+          text-transform: uppercase;
+          color: black;
+          letter-spacing: 2px;
+          font-weight: 700;
         }
 
         .close-icon {
@@ -185,7 +189,7 @@ export default function Menu() {
                 className={
                   page === item.name.replace(/\s+/g, "-").toLowerCase()
                     ? "current-menu"
-                    : ""
+                    : "non-current-menu"
                 }
               >
                 {item.name}
@@ -227,6 +231,24 @@ export default function Menu() {
             background: white;
             z-index: 10;
           }
+
+          .current-menu {
+            color: ${COLOR_YELLOW};
+            border-bottom: 3px solid ${COLOR_YELLOW};
+            padding-bottom: 3px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            font-size: 14px;
+          }
+
+          .non-current-menu {
+            text-transform: uppercase;
+            color: black;
+            letter-spacing: 2px;
+            font-weight: 500;
+            font-size: 14px;
+          }
         }
 
         @media (min-width: 769px) {
@@ -250,6 +272,18 @@ export default function Menu() {
             color: ${COLOR_YELLOW};
             border-bottom: 3px solid ${COLOR_YELLOW};
             padding-bottom: 3px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            font-size: 14px;
+          }
+
+          .non-current-menu {
+            text-transform: uppercase;
+            color: black;
+            letter-spacing: 2px;
+            font-weight: 500;
+            font-size: 14px;
           }
 
           .logo {

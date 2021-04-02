@@ -1,5 +1,5 @@
 .content {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #222;
   font-weight: 200;
 }
@@ -16,7 +16,7 @@
   position: absolute;
   content: "\201C";
   font-size: 6em;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.5rem;
   margin-top: 0.1em;
   margin-left: -0.2em;
@@ -65,7 +65,7 @@
 }
 
 .content kbd {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .content img {
