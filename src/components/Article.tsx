@@ -21,8 +21,8 @@ export default function Article({ article, content }: Props): any {
             <div className={"article-text-inner "}>
               <h2>{article.title}</h2>
               <p>{content}</p>
-              {article.images
-                ? article.images.map((item) => (
+              {article.Images
+                ? article.Images.map((item) => (
                     <div className={"article-image"}>
                       <img src={item.articleImg} alt={item.credit} />
                       <p>{item.credit}</p>

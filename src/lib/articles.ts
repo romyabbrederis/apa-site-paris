@@ -14,7 +14,7 @@ export type ArticleContent = {
   readonly order: string;
   readonly image: string;
   readonly content: string;
-  readonly Images: ImgContent[];
+  readonly Images: any;
 };
 
 export type ImgContent = {
@@ -62,7 +62,7 @@ export function fetchArticlesContent(locale: string): ArticleContent[] {
           order: matterResult.data.order,
           image: matterResult.data.image,
           content: matterResult.content,
-          images: matterResult.data.Images,
+          Images: matterResult.data.Images,
         };
         console.log("matterData", matterData);
         return matterData;
@@ -116,7 +116,7 @@ export function fetchArticleContent(
           order: matterResult.data.order,
           image: matterResult.data.image,
           content: matterResult.content,
-          images: matterResult.data.Images,
+          Images: matterResult.data.Images,
         };
         if (matterData.slug === slug) {
           return matterData;
