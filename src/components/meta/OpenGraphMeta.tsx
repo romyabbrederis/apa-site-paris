@@ -29,6 +29,8 @@ export default function OpenGraphMeta({
         property="og:image"
         content={image ? image : config.base_url + "/og_image.png"}
       />
+      <meta property="og:image:width" content={"1200"} />
+      <meta property="og:image:height" content={"600"} />
       <meta property="og:type" content="article" />
     </Head>
   );
