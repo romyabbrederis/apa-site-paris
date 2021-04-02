@@ -484,12 +484,14 @@ collections:
           - label: "Article Images"
             name: "articleImg"
             widget: "image"
+            i18n: duplicate
             media_library:
               config:
-                max_file_size: 400000
+                max_file_size: 200000
           - label: "Image Credit Name"
             name: "credit"
             widget: "string"
+            i18n: duplicate
 
   - name: "home"
     label: "Home"
