@@ -479,7 +479,6 @@ collections:
       - name: "Images"
         label: "images"
         widget: "list"
-        required: false
         i18n: true
         fields:
           - label: "image"
