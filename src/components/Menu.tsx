@@ -168,7 +168,9 @@ export default function Menu() {
       {menuOpen ? mobileMenu : null}
       <div className={"container"}>
         <Link href="/">
-          <img src={"../../logo.png"} className={"logo"} />
+          <a>
+            <img src={"../../logo.png"} className={"logo"} />
+          </a>
         </Link>
         {mobileDevice ? (
           <img
@@ -207,6 +209,7 @@ export default function Menu() {
             position: fixed;
             left: 0;
             top: 0;
+            cursor: pointer;
           }
 
           .container {

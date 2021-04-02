@@ -476,11 +476,11 @@ collections:
         name: "body"
         widget: "markdown"
         i18n: true
-      - name: Images
-        label: images
-        widget: list
+      - name: "Images"
+        label: "images"
+        widget: "list"
         required: false
-        i18n: duplicate
+        i18n: true
         fields:
           - label: "image"
             name: "image"
@@ -488,9 +488,11 @@ collections:
             media_library:
             config:
               max_file_size: 400000
+            i18n: duplicate
           - label: "Credit Name"
             name: "credit"
             widget: "string"
+            i18n: duplicate
 
   - name: "home"
     label: "Home"
