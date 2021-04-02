@@ -2,7 +2,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import yaml from "js-yaml";
-import { getGalleryInfos } from "./galleries"
+import { getGalleryInfos } from "./galleries";
 
 const articlesDirectoryEN = path.join(process.cwd(), "src/content/article/en");
 const articlesDirectoryFR = path.join(process.cwd(), "src/content/article/fr");
@@ -14,53 +14,59 @@ export type ArticleContent = {
   readonly order: string;
   readonly image: string;
   readonly content: string;
+  readonly Images: ImgContent[];
 };
 
+export type ImgContent = {
+  readonly articleImg: string;
+  readonly credit: string;
+};
 
 let articleCache: ArticleContent[];
 
 export function fetchArticlesContent(locale: string): ArticleContent[] {
-  console.log("locale", locale)
+  console.log("locale", locale);
   if (articleCache) {
     return articleCache;
   }
 
   let directory;
 
-
-  if (locale === 'en') {
-    directory = articlesDirectoryEN
+  if (locale === "en") {
+    directory = articlesDirectoryEN;
   } else {
-    directory = articlesDirectoryFR
+    directory = articlesDirectoryFR;
   }
 
   const fileNames = fs.readdirSync(directory);
-  console.log('filenames', fileNames)
+  console.log("filenames", fileNames);
 
   if (fileNames && fileNames.length) {
     const allProgData = fileNames
-    .filter((it) => it.endsWith(".mdx"))
-    .map((fileName) => {
-      const fullPath = path.join(directory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      console.log('filecontents', fileContents)
-      const matterResult = matter(fileContents, {
-        engines: {
-          yaml: (s) => yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
-        },
-      });
+      .filter((it) => it.endsWith(".mdx"))
+      .map((fileName) => {
+        const fullPath = path.join(directory, fileName);
+        const fileContents = fs.readFileSync(fullPath, "utf8");
+        console.log("filecontents", fileContents);
+        const matterResult = matter(fileContents, {
+          engines: {
+            yaml: (s) =>
+              yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
+          },
+        });
 
-      const matterData = {
-        slug: matterResult.data.slug,
-        title: matterResult.data.title,
-        date: matterResult.data.date,
-        order: matterResult.data.order,
-        image: matterResult.data.image,
-        content: matterResult.content,
-      };
-      console.log("matterData", matterData)
-      return matterData;
-    });
+        const matterData = {
+          slug: matterResult.data.slug,
+          title: matterResult.data.title,
+          date: matterResult.data.date,
+          order: matterResult.data.order,
+          image: matterResult.data.image,
+          content: matterResult.content,
+          images: matterResult.data.Images,
+        };
+        console.log("matterData", matterData);
+        return matterData;
+      });
 
     articleCache = allProgData.sort((a, b) => {
       if (a.order < b.order) {
@@ -75,46 +81,47 @@ export function fetchArticlesContent(locale: string): ArticleContent[] {
   }
 }
 
-
-export function fetchArticleContent(slug: string, locale: string): ArticleContent {
-  console.log("slug", slug, locale)
+export function fetchArticleContent(
+  slug: string,
+  locale: string
+): ArticleContent {
+  console.log("slug", slug, locale);
 
   let directory;
 
-  if (locale === 'en') {
-    directory = articlesDirectoryEN
+  if (locale === "en") {
+    directory = articlesDirectoryEN;
   } else {
-    directory = articlesDirectoryFR
+    directory = articlesDirectoryFR;
   }
 
   const fileNames = fs.readdirSync(directory);
   if (fileNames && fileNames.length && slug) {
     const findArticle = fileNames
-    .filter((it) => it.endsWith(".mdx"))
-    .map((fileName) => {
-      const fullPath = path.join(directory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
+      .filter((it) => it.endsWith(".mdx"))
+      .map((fileName) => {
+        const fullPath = path.join(directory, fileName);
+        const fileContents = fs.readFileSync(fullPath, "utf8");
 
-
-      const matterResult = matter(fileContents, {
-        engines: {
-          yaml: (s) => yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
-        },
+        const matterResult = matter(fileContents, {
+          engines: {
+            yaml: (s) =>
+              yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
+          },
+        });
+        const matterData = {
+          slug: matterResult.data.slug,
+          title: matterResult.data.title,
+          date: matterResult.data.date,
+          order: matterResult.data.order,
+          image: matterResult.data.image,
+          content: matterResult.content,
+          images: matterResult.data.Images,
+        };
+        if (matterData.slug === slug) {
+          return matterData;
+        }
       });
-      const matterData = {
-        slug: matterResult.data.slug,
-        title: matterResult.data.title,
-        date: matterResult.data.date,
-        order: matterResult.data.order,
-        image: matterResult.data.image,
-        content: matterResult.content,
-      };
-      if (matterData.slug === slug) {
-        return matterData
-      }
-    })
-    return findArticle[0]
-  } 
+    return findArticle[0];
+  }
 }
-
-

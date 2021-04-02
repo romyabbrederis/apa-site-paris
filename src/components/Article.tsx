@@ -21,6 +21,14 @@ export default function Article({ article, content }: Props): any {
             <div className={"article-text-inner "}>
               <h2>{article.title}</h2>
               <p>{content}</p>
+              {article.images
+                ? article.images.map((item) => (
+                    <div className={"article-image"}>
+                      <img src={item.articleImg} alt={item.credit} />
+                      <p>{item.credit}</p>
+                    </div>
+                  ))
+                : null}
             </div>
           </div>
           <div />
@@ -45,6 +53,24 @@ export default function Article({ article, content }: Props): any {
 
           .article-text-inner {
             background: white;
+          }
+
+          .article-image {
+            width: 100%;
+            padding: 50px 0;
+            text-align: center;
+            display: block;
+          }
+
+          .article-image p {
+            line-height: 0em;
+            font-style: italic;
+            font-size: 14px;
+          }
+
+          .article-image img {
+            width: 90%;
+            object-fit: contain;
           }
         }
 
@@ -78,6 +104,24 @@ export default function Article({ article, content }: Props): any {
           .article-text-inner {
             overflow: scroll;
             background: white;
+          }
+
+          .article-image {
+            width: 100%;
+            padding: 50px 0;
+            text-align: center;
+            display: block;
+          }
+
+          .article-image p {
+            line-height: 0em;
+            font-style: italic;
+            font-size: 14px;
+          }
+
+          .article-image img {
+            object-fit: contain;
+            width: 80%;
           }
         }
       `}</style>

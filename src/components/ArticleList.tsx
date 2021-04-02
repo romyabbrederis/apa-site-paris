@@ -12,6 +12,8 @@ export default function ArticlesList({ articles }: Props): any {
   const router = useRouter();
   const { pathname } = router;
 
+  console.log("articles", articles);
+
   //  ** work-around
   const localeURL = pathname.split("/")[1];
   const link_en = "/en/news/";
