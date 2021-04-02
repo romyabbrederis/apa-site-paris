@@ -488,11 +488,9 @@ collections:
             media_library:
             config:
               max_file_size: 400000
-            i18n: duplicate
           - label: "Credit Name"
             name: "credit"
             widget: "string"
-            i18n: duplicate
 
   - name: "home"
     label: "Home"
