@@ -485,8 +485,8 @@ collections:
             name: "articleImg"
             widget: "image"
             media_library:
-            config:
-              max_file_size: 400000
+              config:
+                max_file_size: 400000
           - label: "Image Credit Name"
             name: "credit"
             widget: "string"

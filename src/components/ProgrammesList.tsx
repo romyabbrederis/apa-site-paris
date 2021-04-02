@@ -40,8 +40,8 @@ export default function ProgrammesList({ programmes }: Props): any {
   }, []);
 
   const changeType = (value: string) => {
-    setType(value);
     setSelect(undefined);
+    setType(value);
   };
 
   console.log("data", data);
@@ -121,7 +121,7 @@ export default function ProgrammesList({ programmes }: Props): any {
               position: absolute;
               top: 10px;
               right: 10px;
-              width: 20px;
+              width: 30px;
               cursor: pointer;
             }
 

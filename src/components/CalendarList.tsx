@@ -15,8 +15,8 @@ export default function CalendarsList({ events }: Props): any {
   const [select, setSelect] = useState(undefined);
 
   const changeType = (value: string) => {
-    setType(value);
     setSelect(undefined);
+    setType(value);
   };
 
   useEffect(() => {
@@ -78,6 +78,7 @@ export default function CalendarsList({ events }: Props): any {
           flex-direction: column;
           align-items: center;
           line-height: 0.8em;
+          position: relative;
         }
         .title {
           color: ${COLOR_YELLOW};
@@ -92,6 +93,8 @@ export default function CalendarsList({ events }: Props): any {
         .down-icon {
           width: 30px;
           margin-top: -5px;
+          position: absolute;
+          bottom: 0;
         }
         }
       `}</style>
