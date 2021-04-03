@@ -210,9 +210,9 @@ collections:
         widget: "relation"
         collection: "programmeList"
         file: "listing"
-        search_fields: ["listing.*.slug"]
-        value_field: "listing.*.slug"
-        display_fields: ["listing.*.slug"]
+        search_fields: ["programmes.*.slug"]
+        value_field: "programmes.*.slug"
+        display_fields: ["programmes.*.slug"]
         i18n: duplicate
       - label: "Title"
         name: "title"
