@@ -77,7 +77,7 @@ export function fetchArticlesContent(locale: string): any {
     });
     return articleCache;
   } else {
-    return [];
+    return;
   }
 }
 

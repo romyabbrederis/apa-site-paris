@@ -113,7 +113,5 @@ export default function ArticlesList({ articles }: Props): any {
         }
       `}</style>
     </div>
-  ) : (
-    <h1>no articles</h1>
-  );
+  ) : null;
 }

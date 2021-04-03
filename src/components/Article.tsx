@@ -11,7 +11,7 @@ type Props = {
 
 export default function Article({ article, content }: Props): any {
   console.log("article", article);
-  return article ? (
+  return article && article.title ? (
     <div className={"layout-container"} style={{ backgroundColor: COLOR_GREY }}>
       <div className={"inner-container"}>
         <div className={"article"}>
@@ -126,7 +126,5 @@ export default function Article({ article, content }: Props): any {
         }
       `}</style>
     </div>
-  ) : (
-    <h1>no article</h1>
-  );
+  ) : null;
 }

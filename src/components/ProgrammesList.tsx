@@ -100,9 +100,7 @@ export default function ProgrammesList({ programmes }: Props): any {
                 </div>
               ))}
             </div>
-          ) : (
-            <h1>no programm</h1>
-          )}
+          ) : null}
         </div>
         <style jsx>{`
           .container {
