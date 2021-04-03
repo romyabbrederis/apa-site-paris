@@ -223,6 +223,11 @@ collections:
         widget: "select"
         i18n: duplicate
         options: ["now", "upcoming", "past"]
+      - label: "Event Category"
+        name: "category"
+        widget: "select"
+        i18n: duplicate
+        options: ["Multiple Galleries", "Single Event", "Online", "Else"]
       - label: "Programme PDF"
         name: "file"
         widget: "file"
@@ -241,7 +246,7 @@ collections:
           - label: "Galleries"
             name: "galleries"
             widget: "relation"
-            collection: "general"
+            collection: "galleries"
             file: "galleries"
             search_fields: ["galleries.*.name"]
             value_field: "galleries.*.name"
@@ -365,7 +370,7 @@ collections:
           - label: "Galleries"
             name: "galleries"
             widget: "relation"
-            collection: "general"
+            collection: "galleries"
             file: "galleries"
             search_fields: ["galleries.*.name"]
             value_field: "galleries.*.name"
@@ -376,7 +381,7 @@ collections:
         i18n: true
         summary: "{{fields.programme}}"
         field:
-          label: "Pogramme"
+          label: "Progamme"
           name: "programme"
           widget: "relation"
           collection: "programme"
