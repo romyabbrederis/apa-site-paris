@@ -125,7 +125,7 @@ collections:
             label: Galleries
             widget: list
             fields:
-              - label: "Slug"
+              - label: "Slug / URL"
                 name: "slug"
                 widget: "string"
                 hint: "ex: galerie-charreadeau => The part of a URL identifies the gallery"
@@ -169,6 +169,31 @@ collections:
                 widget: "string"
                 hint: "Add embed link from Google Location ex. <iframe src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10500.457278848771!2d2.3671463!3d48.8560304!3m2!1i1024!2i768!4f13.1!3m3!1m2' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy'></iframe>"
 
+  - name: "programmeList"
+    label: "Programme List"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "listing"
+        label: "Listing"
+        file: "meta/listing.yml"
+        description: "Listing"
+        fields:
+          - name: "programmes"
+            label: "Programmes"
+            widget: list
+            fields:
+              - label: "Slug / URL"
+                name: "slug"
+                widget: "string"
+                hint: "ex: galerie-charreadeau => The part of a URL identifies the gallery"
+                pattern:
+                  [
+                    "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "A slug can have no spaces or special characters",
+                  ]
+
   - name: "programme"
     i18n: true
     label: "Programme"
@@ -180,15 +205,14 @@ collections:
     identifier_field: slug
     summary: "{{title}}"
     fields:
-      - label: "Slug"
+      - label: "Slug / URL"
         name: "slug"
-        widget: "string"
-        i18n: true
-        pattern:
-          [
-            "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-            "A slug can have no spaces or special characters",
-          ]
+        widget: "relation"
+        collection: "programmeList"
+        file: "listing"
+        search_fields: ["listing.*.slug"]
+        value_field: "listing.*.slug"
+        display_fields: ["listing.*.slug"]
       - label: "Title"
         name: "title"
         widget: "string"
@@ -302,7 +326,7 @@ collections:
     identifier_field: slug
     summary: "{{title}}"
     fields:
-      - label: "Slug"
+      - label: "Slug / URL"
         name: "slug"
         widget: "string"
         i18n: true
@@ -376,17 +400,12 @@ collections:
             display_fields: ["galleries.*.name", "galleries.*.slug"]
       - label: "Programme"
         name: "programme"
-        widget: list
-        i18n: true
-        summary: "{{fields.programme}}"
-        field:
-          label: "Progamme"
-          name: "programme"
-          widget: "relation"
-          collection: "programme"
-          search_fields: ["programme.*.name"]
-          value_field: "programme.*.name"
-          display_fields: ["programme.*.name", "programme.*.slug"]
+        widget: "relation"
+        collection: "programmeList"
+        file: "listing"
+        search_fields: ["listing.*.slug"]
+        value_field: "listing.*.slug"
+        display_fields: ["listing.*.slug"]
 
   - name: "about"
     label: "A propos"
@@ -612,7 +631,7 @@ collections:
             label_singular: "Tag"
             widget: list
             fields:
-              - label: "Slug"
+              - label: "Slug / URL"
                 name: "slug"
                 widget: "string"
                 hint: "The part of a URL identifies the tag"
@@ -637,7 +656,7 @@ collections:
             widget: list
             file: "meta/menu_fr.yml"
             fields:
-              - label: "Slug"
+              - label: "Slug / URL"
                 name: "slug"
                 i18n: true
                 widget: "string"
@@ -663,7 +682,7 @@ collections:
                 widget: list
                 file: "meta/menu_en.yml"
                 fields:
-                  - label: "Slug"
+                  - label: "Slug / URL"
                     name: "slug"
                     i18n: true
                     widget: "string"
