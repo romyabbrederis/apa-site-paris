@@ -174,7 +174,6 @@ collections:
     label: "Programme"
     folder: "src/content/programme"
     extension: "mdx"
-    format: "frontmatter"
     create: true
     slug: "{{slug}}"
     identifier_field: slug
@@ -210,7 +209,7 @@ collections:
         hint: "Ex: 2021"
       - label: "Start Date"
         name: "start"
-        widget: "date"
+        widget: "datetime"
         i18n: duplicate
         hint: "Choose the start date of event. This serves only internally to arrange the events."
       - label: "Description"
@@ -256,7 +255,7 @@ collections:
             i18n: true
           - label: "Start Date"
             name: "start"
-            widget: "date"
+            widget: "datetime"
             i18n: duplicate
           - label: "Artist"
             name: "artist"
@@ -328,7 +327,7 @@ collections:
         hint: "Ex: 06.05.2021 - 11.11.2021"
       - label: "order"
         name: "order"
-        widget: "date"
+        widget: "datetime"
         i18n: true
         hint: "Ex: Selectionnez la date pour donner une ordre aux articles"
       - label: "Image"
