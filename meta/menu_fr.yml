@@ -1,0 +1,11 @@
+items:
+  - slug: /programme
+    name: Programme
+  - slug: /calendrier
+    name: Calendrier
+  - slug: /actualites
+    name: Actualites
+  - slug: /a-propos
+    name: A Propos
+  - slug: /contact
+    name: Contact

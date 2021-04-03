@@ -5,13 +5,13 @@ export type MenuContent = {
   readonly name: string;
 };
 
-let menu: MenuContent[]
+let menu: MenuContent[];
 
 export function getMenu(language: string): MenuContent[] {
   if (language === "en") {
-    menu = menu_fr.items
+    menu = menu_fr.items;
   } else {
-    menu = menu_fr.items
+    menu = menu_fr.items;
   }
-  return menu
-} 
+  return menu || [];
+}
