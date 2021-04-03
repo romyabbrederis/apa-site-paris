@@ -273,11 +273,6 @@ collections:
             media_library:
               config:
                 max_file_size: 200000
-          - label: "Article Link"
-            name: "article"
-            widget: "string"
-            required: false
-            hint: "Lien pour un article si cela exist i.e. www.example.com/article/nom-de-larticle"
           - label: "Article"
             name: "articleRelation"
             widget: "relation"
