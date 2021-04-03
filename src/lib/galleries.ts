@@ -12,7 +12,7 @@ export type GalleryContent = {
   readonly map: string;
 };
 
-export function getGalleryInfos(gals: string[]): GalleryContent[] {
+export function getGalleryInfos(gals: any): GalleryContent[] {
   if (gals && gals.length && galleries) {
     const galleryInfo = gals.map((el) => {
       const findGallery = galleries.galleries.find(

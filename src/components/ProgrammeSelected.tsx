@@ -8,7 +8,6 @@ type Props = {
 export default function ProgrammeSelected({ programme }: Props): any {
   console.log("programme", programme);
 
-  const sorting = (a, b) => a - b;
   return programme ? (
     <div className={"programme-selected-container"}>
       <p>{programme.description}</p>

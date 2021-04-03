@@ -22,7 +22,7 @@ export type ProgrammeContent = {
   readonly description: string;
   readonly type: string;
   readonly file: string;
-  readonly galleries: string[];
+  readonly galleries: any;
 };
 
 export type CalendarContent = {
