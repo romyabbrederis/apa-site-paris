@@ -169,31 +169,6 @@ collections:
                 widget: "string"
                 hint: "Add embed link from Google Location ex. <iframe src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10500.457278848771!2d2.3671463!3d48.8560304!3m2!1i1024!2i768!4f13.1!3m3!1m2' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy'></iframe>"
 
-  - name: "programmeList"
-    label: "Programme List"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: "listing"
-        label: "Listing"
-        file: "meta/listing.yml"
-        description: "Listing"
-        fields:
-          - name: "programmes"
-            label: "Programmes"
-            widget: list
-            fields:
-              - label: "Slug / URL"
-                name: "slug"
-                widget: "string"
-                hint: "ex: galerie-charreadeau => The part of a URL identifies the gallery"
-                pattern:
-                  [
-                    "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-                    "A slug can have no spaces or special characters",
-                  ]
-
   - name: "programme"
     i18n: true
     label: "Programme"
@@ -207,12 +182,13 @@ collections:
     fields:
       - label: "Slug / URL"
         name: "slug"
-        widget: "relation"
-        collection: "programmeList"
-        file: "listing"
-        search_fields: ["programmes.*.slug"]
-        value_field: "programmes.*.slug"
-        display_fields: ["programmes.*.slug"]
+        widget: "string"
+        hint: "ex: galerie-charreadeau => The part of a URL identifies the gallery"
+        pattern:
+          [
+            "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "A slug can have no spaces or special characters",
+          ]
         i18n: duplicate
       - label: "Title"
         name: "title"
@@ -307,9 +283,9 @@ collections:
             widget: "relation"
             collection: "article"
             required: false
-            search_fields: ["article.*.name"]
-            value_field: "article.*.name"
-            display_fields: ["article.*.name"]
+            search_fields: ["slug"]
+            value_field: "slug"
+            display_fields: ["slug"]
 
   - name: "article"
     i18n: true
@@ -396,14 +372,6 @@ collections:
             display_fields: ["galleries.*.name", "galleries.*.slug"]
       - label: "Programme"
         name: "programme"
-        widget: "relation"
-        collection: "programmeList"
-        file: "listing"
-        search_fields: ["programmes.*.slug"]
-        value_field: "programmes.*.slug"
-        display_fields: ["programmes.*.slug"]
-      - label: "Programme Test"
-        name: "programmeTest"
         widget: "relation"
         collection: "programme"
         search_fields: ["slug"]
