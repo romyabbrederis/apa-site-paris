@@ -213,6 +213,7 @@ collections:
         search_fields: ["listing.*.slug"]
         value_field: "listing.*.slug"
         display_fields: ["listing.*.slug"]
+        i18n: duplicate
       - label: "Title"
         name: "title"
         widget: "string"
@@ -277,7 +278,6 @@ collections:
           - label: "Date"
             name: "date"
             widget: "string"
-            i18n: true
           - label: "Start Date"
             name: "start"
             widget: "datetime"
@@ -285,25 +285,21 @@ collections:
           - label: "Artist"
             name: "artist"
             widget: "string"
-            i18n: true
             required: false
           - label: "Intro Text"
             name: "text"
-            i18n: true
             required: false
           - label: "Image"
             name: "image"
             widget: "image"
             hint: "Artist image"
             required: false
-            i18n: duplicate
             media_library:
               config:
                 max_file_size: 200000
           - label: "Article Link"
             name: "article"
             widget: "string"
-            i18n: true
             required: false
             hint: "Lien pour un article si cela exist i.e. www.example.com/article/nom-de-larticle"
           - label: "Article"

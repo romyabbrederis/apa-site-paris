@@ -12,7 +12,9 @@ export type GalleryContent = {
   readonly map: string;
 };
 
-export function getGalleryInfos(gals: any): GalleryContent[] {
+export function getGalleryInfos(gals: any): any {
+  console.log("gals", gals);
+  console.log("galleries", galleries);
   if (gals && gals.length && galleries) {
     const galleryInfo = gals.map((el) => {
       const findGallery = galleries.galleries.find(
@@ -21,7 +23,7 @@ export function getGalleryInfos(gals: any): GalleryContent[] {
       return findGallery;
     });
     console.log("galleryInfo", galleryInfo);
-    return galleryInfo;
+    return galleryInfo || [];
   } else {
     return [];
   }
