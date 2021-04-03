@@ -5,7 +5,11 @@ import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import CalendarList from "../components/CalendarList";
 import config from "../lib/config";
-import { CalendarContent, fetchProgrammeContent, findCalendarContent } from "../lib/programmes";
+import {
+  CalendarContent,
+  fetchProgrammeContent,
+  findCalendarContent,
+} from "../lib/programmes";
 
 type Props = {
   events: CalendarContent[];
@@ -16,9 +20,9 @@ export default function Index({ events, language }: Props) {
   const url = "/calendrier";
   const title = "Calendrier";
 
-  console.log("events", events, language)
+  console.log("events", events, language);
   return (
-    <div>        
+    <div>
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
@@ -29,13 +33,13 @@ export default function Index({ events, language }: Props) {
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const programmes = fetchProgrammeContent('fr')
-  const events = findCalendarContent(programmes)
+  const programmes = fetchProgrammeContent("fr") || [];
+  const events = findCalendarContent(programmes) || [];
   const language = locale || null;
   return {
     props: {
       events,
-      language
+      language,
     },
   };
 };

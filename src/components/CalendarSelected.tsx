@@ -11,7 +11,7 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
   const [galMap, setGalMap] = useState({ map: "", name: "" });
 
   useEffect(() => {
-    if (galleries.length) {
+    if (event && galleries.length) {
       extractLink(galleries[0].map, galleries[0].slug);
     }
   }, [galleries]);
@@ -33,7 +33,7 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
     }
   };
 
-  return (
+  return event ? (
     <div className={"calendar-container"}>
       <img
         className={"close-icon"}
@@ -166,7 +166,7 @@ const CalendarSelected = ({ event, setSelect }: Props): any => {
         }
       `}</style>
     </div>
-  );
+  ) : null;
 };
 
 export default CalendarSelected;

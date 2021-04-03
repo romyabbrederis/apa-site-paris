@@ -7,11 +7,21 @@ type Props = {
 
 export default function ProgrammeSelected({ programme }: Props): any {
   console.log("programme", programme);
+
+  const sorting = (a, b) => a - b;
   return programme ? (
     <div className={"programme-selected-container"}>
       <p>{programme.description}</p>
       {programme.galleries
-        ? programme.galleries.map((item, index) => <h5 key={index}>{item}</h5>)
+        ? programme.galleries
+            .sort((a, b) => a.start - b.start)
+            .map((item, index) => (
+              <>
+                <h5 key={index}>
+                  {item.date} | {item.galleries}
+                </h5>
+              </>
+            ))
         : null}
       <div className={"download-section"}>
         <a href={programme.file} download>
