@@ -399,9 +399,16 @@ collections:
         widget: "relation"
         collection: "programmeList"
         file: "listing"
-        search_fields: ["listing.*.slug"]
-        value_field: "listing.*.slug"
-        display_fields: ["listing.*.slug"]
+        search_fields: ["programmes.*.slug"]
+        value_field: "programmes.*.slug"
+        display_fields: ["programmes.*.slug"]
+      - label: "Programme Test"
+        name: "programmeTest"
+        widget: "relation"
+        collection: "programme"
+        search_fields: ["slug"]
+        value_field: "slug"
+        display_fields: ["slug"]
 
   - name: "about"
     label: "A propos"
