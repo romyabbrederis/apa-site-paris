@@ -1,7 +1,7 @@
 backend:
-  name: test-repo
-  # name: git-gateway
-  # branch: master
+  # name: test-repo
+  name: git-gateway
+  branch: master
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
@@ -192,6 +192,12 @@ collections:
         name: "title"
         widget: "string"
         i18n: true
+      - label: "Intro Text"
+        name: "intro"
+        widget: "text"
+        i18n: true
+        pattern: ["^.{0, 45}$", "Must have more less than 45 characters"]
+        hint: "Text introduction sur a liste des programmes"
       - label: "Month"
         name: "month"
         widget: "string"
@@ -242,11 +248,42 @@ collections:
           - label: "Date"
             name: "date"
             widget: "string"
-            i18n: duplicate
+            i18n: true
           - label: "Start Date"
             name: "start"
             widget: "date"
             i18n: duplicate
+          - label: "Artist"
+            name: "artist"
+            widget: "string"
+            i18n: true
+            required: false
+          - label: "Intro Text"
+            name: "text"
+            i18n: true
+            required: false
+          - label: "Image"
+            name: "image"
+            widget: "image"
+            hint: "Artist image"
+            required: false
+            i18n: duplicate
+            media_library:
+              config:
+                max_file_size: 200000
+          - label: "Article Link"
+            name: "article"
+            widget: "string"
+            i18n: true
+            required: false
+            hint: "Lien pour un article si cela exist i.e. www.example.com/article/nom-de-larticle"
+          - label: "Article"
+            name: "articleRelation"
+            widget: "relation"
+            collection: "article"
+            search_fields: ["article.*.name"]
+            value_field: "article.*.name"
+            display_fields: ["article.*.name"]
 
   - name: "article"
     i18n: true
@@ -273,6 +310,12 @@ collections:
         name: "title"
         widget: "string"
         i18n: true
+      - label: "Intro Text"
+        name: "intro"
+        widget: "text"
+        i18n: true
+        pattern: ["^.{0, 45}$", "Must have more less than 45 characters"]
+        hint: "Text visible sur la list des articles"
       - label: "date"
         name: "date"
         widget: "string"
