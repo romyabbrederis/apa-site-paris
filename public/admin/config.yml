@@ -197,7 +197,7 @@ collections:
         name: "intro"
         widget: "text"
         i18n: true
-        pattern: ["^.{0, 100}$", "Must have  less than 100 characters"]
+        pattern: ["^[0-9A-Za-z]{0,100}$", "Must be less than 100 Characters"]
         hint: "Text introduction sur a liste des programmes"
       - label: "Month"
         name: "month"
@@ -320,7 +320,7 @@ collections:
         name: "intro"
         widget: "text"
         i18n: true
-        pattern: ["^.{0, 100}$", "Must have  less than 100 characters"]
+        pattern: ["^[0-9A-Za-z]{0,100}$", "Must be less than 100 Characters"]
         hint: "Text visible sur la list des articles"
       - label: "date"
         name: "date"
