@@ -3,7 +3,10 @@ import galleries from "../../meta/galleries.yml";
 export type GalleryContent = {
   readonly slug: string;
   readonly name: string;
-  readonly address: string;
+  readonly addressAdd: string;
+  readonly street: string;
+  readonly city: string;
+  readonly country: string;
   readonly phone: string;
   readonly email: string;
   readonly map: string;
