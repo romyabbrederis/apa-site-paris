@@ -24,7 +24,7 @@ export type ImgContent = {
 
 let articleCache: ArticleContent[];
 
-export function fetchArticlesContent(locale: string): ArticleContent[] {
+export function fetchArticlesContent(locale: string): any {
   console.log("locale", locale);
   if (articleCache) {
     return articleCache;
@@ -81,10 +81,7 @@ export function fetchArticlesContent(locale: string): ArticleContent[] {
   }
 }
 
-export function fetchArticleContent(
-  slug: string,
-  locale: string
-): ArticleContent {
+export function fetchArticleContent(slug: string, locale: string): any {
   console.log("slug", slug, locale);
 
   let directory;
@@ -123,5 +120,7 @@ export function fetchArticleContent(
         }
       });
     return findArticle[0];
+  } else {
+    return {};
   }
 }
