@@ -287,6 +287,7 @@ collections:
             name: "articleRelation"
             widget: "relation"
             collection: "article"
+            required: false
             search_fields: ["article.*.name"]
             value_field: "article.*.name"
             display_fields: ["article.*.name"]
