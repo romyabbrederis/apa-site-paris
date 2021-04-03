@@ -142,6 +142,7 @@ collections:
                 name: "addressAdd"
                 widget: "string"
                 hint: "Gallery Address Detail / Addition / Etage"
+                required: false
               - label: "Street"
                 name: "street"
                 widget: "string"
