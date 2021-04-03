@@ -5,7 +5,6 @@ export type GalleryContent = {
   readonly name: string;
   readonly address: string;
   readonly phone: string;
-  readonly location: string;
   readonly email: string;
   readonly map: string;
 };

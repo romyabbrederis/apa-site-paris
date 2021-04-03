@@ -1,7 +1,7 @@
 backend:
-  # name: test-repo
-  name: git-gateway
-  branch: master
+  name: test-repo
+  # name: git-gateway
+  # branch: master
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
@@ -10,489 +10,6 @@ i18n:
   locales: [fr, en]
   default_locale: fr
 collections:
-  - name: "config"
-    label: "Config"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: "general"
-        label: "Site Config"
-        file: "config.json"
-        description: "General site settings"
-        fields:
-          - label: "URL"
-            name: "base_url"
-            widget: "string"
-            hint: "Do not enter the trailing slash of the URL"
-          - label: "Site title"
-            name: "site_title"
-            widget: "string"
-          - label: "Site description"
-            name: "site_description"
-            widget: "string"
-          - label: "Site keywords"
-            name: "site_keywords"
-            widget: "list"
-            summary: "{{fields.keyword.keyword}}"
-            field:
-              label: Keyword
-              name: keyword
-              widget: "string"
-          - label: "Twitter account"
-            name: "twitter_account"
-            widget: "string"
-          - label: "GitHub account"
-            name: "github_account"
-            widget: "string"
-
-  - name: "meta"
-    label: "Meta"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: "authors"
-        label: "Authors"
-        file: "meta/authors.yml"
-        description: "Author descriptions"
-        fields:
-          - name: authors
-            label: Authors
-            label_singular: "Author"
-            widget: list
-            fields:
-              - label: "Slug"
-                name: "slug"
-                widget: "string"
-                hint: "The part of a URL identifies the author"
-              - label: "Name"
-                name: "name"
-                widget: "string"
-                hint: "First and Last"
-              - label: "Introduction"
-                name: "introduction"
-                widget: "text"
-      - name: "tags"
-        label: "Tags"
-        file: "meta/tags.yml"
-        description: "List of tags"
-        fields:
-          - name: tags
-            label: Tags
-            label_singular: "Tag"
-            widget: list
-            fields:
-              - label: "Slug"
-                name: "slug"
-                widget: "string"
-                hint: "The part of a URL identifies the tag"
-              - label: "Display Name"
-                name: "name"
-                widget: "string"
-                hint: "Tag name for displaying on the site"
-
-  - name: "general"
-    label: "General"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: "galleries"
-        label: "Galleries"
-        file: "meta/galleries.yml"
-        description: "Galleries"
-        fields:
-          - name: galleries
-            label: Galleries
-            widget: list
-            fields:
-              - label: "Slug"
-                name: "slug"
-                widget: "string"
-                hint: "The part of a URL identifies the gallery"
-              - label: "Name"
-                name: "name"
-                widget: "string"
-                hint: "Gallery name"
-              - label: "Address"
-                name: "address"
-                widget: "markdown"
-                hint: "Gallery complete address"
-              - label: "Phone"
-                name: "phone"
-                widget: "string"
-                hint: "Gallery Phone with country code (+33)"
-              - label: "Email"
-                name: "email"
-                widget: "string"
-                hint: "Gallery Email"
-              - label: "Location"
-                name: "location"
-                widget: "map"
-                hint: "Place the pin at the exact location of the Gallery"
-              - label: "Google Maps"
-                name: "maps"
-                widget: "string"
-                hint: "Add embed link from Google Location ex. <iframe src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10500.457278848771!2d2.3671463!3d48.8560304!3m2!1i1024!2i768!4f13.1!3m3!1m2' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy'></iframe>"
-
-  - name: "menu"
-    label: "Menu"
-    editor:
-      preview: false
-    files:
-      - name: "menuFR"
-        label: "Menu FR"
-        file: "meta/menu_fr.yml"
-        description: "Menu en francais"
-        fields:
-          - name: items
-            label: Menu Items
-            widget: list
-            file: "meta/menu_fr.yml"
-            fields:
-              - label: "Slug"
-                name: "slug"
-                i18n: true
-                widget: "string"
-                hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/fr"
-              - label: "Name"
-                name: "name"
-                i18n: true
-                widget: "string"
-                hint: "Menu name ex. A propos"
-      - name: "menuEN"
-        label: "Menu EN"
-        file: "meta/menu_en.yml"
-        description: "Menu in englisch"
-        fields:
-          - name: items
-            label: Menu Items
-            widget: list
-            file: "meta/menu_en.yml"
-            fields:
-              - label: "Slug"
-                name: "slug"
-                i18n: true
-                widget: "string"
-                hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/en"
-              - label: "Name"
-                name: "name"
-                i18n: true
-                widget: "string"
-                hint: "Menu name ex. About"
-
-  - name: "programme"
-    i18n: true
-    label: "Programme"
-    folder: "src/content/programme"
-    extension: "mdx"
-    format: "frontmatter"
-    create: true
-    slug: "{{slug}}"
-    identifier_field: slug
-    summary: "{{title}}"
-    fields:
-      - label: "Slug"
-        name: "slug"
-        widget: "string"
-        i18n: true
-      - label: "Title"
-        name: "title"
-        widget: "string"
-        i18n: true
-      - label: "Month"
-        name: "month"
-        widget: "string"
-        i18n: true
-        hint: "Ex: 6-16 Mai"
-      - label: "Year"
-        name: "year"
-        widget: "string"
-        i18n: duplicate
-        hint: "Ex: 2021"
-      - label: "Start Date"
-        name: "start"
-        widget: "date"
-        i18n: duplicate
-        hint: "Choose the start date of event. This serves only internally to arrange the events."
-      - label: "Description"
-        name: "description"
-        widget: "text"
-        i18n: true
-      - label: "Type"
-        name: "type"
-        widget: "select"
-        i18n: duplicate
-        options: ["now", "upcoming", "past"]
-      - label: "Programme PDF"
-        name: "file"
-        widget: "file"
-        default: "/uploads/programme_pdf.pdf"
-        i18n: true
-        media_library:
-          config:
-            multiple: true
-            max_file_size: 500000
-      - label: "Galleries"
-        name: "galleries"
-        widget: list
-        i18n: true
-        summary: "{{fields.galleries}}"
-        field:
-          label: "Galleries"
-          name: "galleries"
-          widget: "relation"
-          collection: "general"
-          file: "galleries"
-          search_fields: ["galleries.*.name"]
-          value_field: "galleries.*.name"
-          display_fields: ["galleries.*.name"]
-
-  - name: "about"
-    label: "A propos"
-    delete: false
-    files:
-      - name: "aboutFR"
-        label: "About FR"
-        file: "src/content/about/about_fr.json"
-        description: "A propos"
-        fields:
-          - label: "Slug"
-            name: "slug"
-            widget: "string"
-          - label: "Title"
-            name: "title"
-            widget: "string"
-          - label: "Logo"
-            name: "logo"
-            widget: "image"
-            media_library:
-              config:
-                max_file_size: 400000
-          - label: "Text"
-            name: "text"
-            widget: "markdown"
-          - name: partners
-            label: Partners
-            widget: list
-            fields:
-              - label: "Name"
-                name: "name"
-                widget: "string"
-                hint: "Partenaire nom"
-              - label: "Link"
-                name: "link"
-                widget: "string"
-                hint: "Partenaire lien site officielle ex. https://www.iledefrance.fr/"
-              - label: "partner"
-                name: "partner"
-                widget: "image"
-                media_library:
-                config:
-                  max_file_size: 100000
-                hint: "Logos du partenaire ex. Ile de France"
-      - name: "aboutEN"
-        label: "About EN"
-        file: "src/content/about/about_en.json"
-        description: "A propos"
-        fields:
-          - label: "Slug"
-            name: "slug"
-            widget: "string"
-          - label: "Title"
-            name: "title"
-            widget: "string"
-          - label: "Logo"
-            name: "logo"
-            widget: "image"
-            media_library:
-              config:
-                max_file_size: 100000
-          - label: "Text"
-            name: "text"
-            widget: "markdown"
-          - name: partners
-            label: Partners
-            widget: list
-            fields:
-              - label: "Name"
-                name: "name"
-                widget: "string"
-                hint: "Partenaire nom"
-              - label: "Link"
-                name: "link"
-                widget: "string"
-                hint: "Partner link of official site ex. https://www.iledefrance.fr/"
-              - label: "partner"
-                name: "partner"
-                widget: "image"
-                media_library:
-                config:
-                  max_file_size: 100000
-                hint: "Logo of partner ex. Ile de France"
-
-  - name: "contact"
-    label: "Contact"
-    delete: false
-    files:
-      - name: "contactFR"
-        label: "Contact FR"
-        file: "src/content/contact/contact_fr.json"
-        description: "Page Contact en francais"
-        fields:
-          - label: "Slug"
-            name: "slug"
-            widget: "string"
-          - label: "Title"
-            name: "title"
-            widget: "string"
-          - label: "Photo"
-            name: "photo"
-            widget: "image"
-            media_library:
-              config:
-                max_file_size: 200000
-            hint: "Photo d'equipe"
-          - name: emails
-            label: Emails
-            widget: list
-            fields:
-              - label: "Name"
-                name: "name"
-                widget: "string"
-                hint: "Email Name ex. General Email or Grigori Michel"
-              - label: "email"
-                name: "email"
-                widget: "string"
-                hint: "Email ex. info@pourlartpourafrique.com"
-          - label: "subtitle"
-            name: "subtitle"
-            widget: "string"
-            hint: "Ex. Presse ou Telechargements"
-          - name: files
-            label: Files
-            widget: list
-            fields:
-              - label: "Name"
-                name: "name"
-                widget: "string"
-                hint: "Ex. Telechargements des visuelles"
-              - label: "file"
-                name: "file"
-                widget: "file"
-                media_library:
-                  config:
-                    max_file_size: 500000
-      - name: "contactEN"
-        label: "Contact EN"
-        file: "src/content/contact/contact_en.json"
-        description: "Contact Page in English"
-        fields:
-          - label: "Slug"
-            name: "slug"
-            widget: "string"
-          - label: "Title"
-            name: "title"
-            widget: "string"
-          - label: "Photo"
-            name: "photo"
-            widget: "image"
-            hint: "Team photo"
-            media_library:
-              config:
-                max_file_size: 200000
-          - name: emails
-            label: Emails
-            widget: list
-            fields:
-              - label: "Name"
-                name: "name"
-                widget: "string"
-                hint: "Email Name ex. General Email or Grigori Michel"
-              - label: "email"
-                name: "email"
-                widget: "string"
-                hint: "Email ex. info@pourlartpourafrique.com"
-          - label: "subtitle"
-            name: "subtitle"
-            widget: "string"
-            hint: "Ex. Presse ou Telechargements"
-          - name: files
-            label: Files
-            widget: list
-            fields:
-              - label: "Name"
-                name: "name"
-                widget: "string"
-                hint: "Ex. Download visuals"
-              - label: "file"
-                name: "file"
-                widget: "file"
-                media_library:
-                  config:
-                    max_file_size: 500000
-
-  - name: "article"
-    i18n: true
-    label: "Actualites"
-    folder: "src/content/article"
-    extension: "mdx"
-    format: "frontmatter"
-    create: true
-    slug: "{{slug}}"
-    identifier_field: slug
-    summary: "{{title}}"
-    fields:
-      - label: "Slug"
-        name: "slug"
-        widget: "string"
-        i18n: true
-        hint: "No '/' au debut! | Ex: qui-est-romuald en anglais le meme ou who-is-romuald"
-      - label: "Title"
-        name: "title"
-        widget: "string"
-        i18n: true
-      - label: "date"
-        name: "date"
-        widget: "string"
-        i18n: true
-        hint: "Ex: 06.05.2021 - 11.11.2021"
-      - label: "order"
-        name: "order"
-        widget: "date"
-        i18n: true
-        hint: "Ex: Selectionnez la date pour donner une ordre aux articles"
-      - label: "Image"
-        name: "image"
-        widget: "image"
-        i18n: duplicate
-        hint: "Image principale / titre de l'article"
-        media_library:
-          config:
-            multiple: true
-            max_file_size: 400000
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        i18n: true
-      - name: "Images"
-        label: "images"
-        widget: "list"
-        i18n: true
-        fields:
-          - label: "Article Images"
-            name: "articleImg"
-            widget: "image"
-            i18n: duplicate
-            media_library:
-              config:
-                max_file_size: 200000
-          - label: "Image Credit Name"
-            name: "credit"
-            widget: "string"
-            i18n: duplicate
-
   - name: "home"
     label: "Home"
     delete: false
@@ -592,3 +109,511 @@ collections:
               config:
                 multiple: true
                 max_file_size: 400000
+
+  - name: "galleries"
+    label: "Galleries"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "galleries"
+        label: "Galleries"
+        file: "meta/galleries.yml"
+        description: "Galleries"
+        fields:
+          - name: galleries
+            label: Galleries
+            widget: list
+            fields:
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "ex: galerie-charreadeau => The part of a URL identifies the gallery"
+                pattern:
+                  [
+                    "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "A slug can have no spaces or special characters",
+                  ]
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Gallery name"
+              - label: "Address"
+                name: "address"
+                widget: "markdown"
+                hint: "Gallery complete address"
+              - label: "Phone"
+                name: "phone"
+                widget: "string"
+                hint: "Gallery Phone with country code (+33)"
+              - label: "Email"
+                name: "email"
+                widget: "string"
+                hint: "Gallery Email"
+              - label: "Google Maps"
+                name: "maps"
+                widget: "string"
+                hint: "Add embed link from Google Location ex. <iframe src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10500.457278848771!2d2.3671463!3d48.8560304!3m2!1i1024!2i768!4f13.1!3m3!1m2' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy'></iframe>"
+
+  - name: "programme"
+    i18n: true
+    label: "Programme"
+    folder: "src/content/programme"
+    extension: "mdx"
+    format: "frontmatter"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    fields:
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        i18n: true
+        pattern:
+          [
+            "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "A slug can have no spaces or special characters",
+          ]
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+      - label: "Month"
+        name: "month"
+        widget: "string"
+        i18n: true
+        hint: "Ex: 6-16 Mai"
+      - label: "Year"
+        name: "year"
+        widget: "string"
+        i18n: duplicate
+        hint: "Ex: 2021"
+      - label: "Start Date"
+        name: "start"
+        widget: "date"
+        i18n: duplicate
+        hint: "Choose the start date of event. This serves only internally to arrange the events."
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        i18n: true
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        i18n: duplicate
+        options: ["now", "upcoming", "past"]
+      - label: "Programme PDF"
+        name: "file"
+        widget: "file"
+        default: "/uploads/programme_pdf.pdf"
+        i18n: true
+        media_library:
+          config:
+            multiple: true
+            max_file_size: 500000
+      - label: "Galleries"
+        name: "galleries"
+        widget: list
+        i18n: true
+        summary: "{{fields.galleries}}"
+        fields:
+          - label: "Galleries"
+            name: "galleries"
+            widget: "relation"
+            collection: "general"
+            file: "galleries"
+            search_fields: ["galleries.*.name"]
+            value_field: "galleries.*.name"
+            display_fields: ["galleries.*.name"]
+          - label: "Date"
+            name: "date"
+            widget: "string"
+            i18n: duplicate
+          - label: "Start Date"
+            name: "start"
+            widget: "date"
+            i18n: duplicate
+
+  - name: "article"
+    i18n: true
+    label: "Actualites"
+    folder: "src/content/article"
+    extension: "mdx"
+    format: "frontmatter"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    fields:
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        i18n: true
+        pattern:
+          [
+            "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "A slug can have no spaces or special characters",
+          ]
+        hint: "No '/' au debut! | Ex: qui-est-romuald en anglais le meme ou who-is-romuald"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+      - label: "date"
+        name: "date"
+        widget: "string"
+        i18n: true
+        hint: "Ex: 06.05.2021 - 11.11.2021"
+      - label: "order"
+        name: "order"
+        widget: "date"
+        i18n: true
+        hint: "Ex: Selectionnez la date pour donner une ordre aux articles"
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        i18n: duplicate
+        hint: "Image principale / titre de l'article"
+        media_library:
+          config:
+            multiple: true
+            max_file_size: 400000
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        i18n: true
+      - name: "Images"
+        label: "images"
+        widget: "list"
+        i18n: true
+        fields:
+          - label: "Article Images"
+            name: "articleImg"
+            widget: "image"
+            i18n: duplicate
+            media_library:
+              config:
+                max_file_size: 200000
+          - label: "Image Credit Name"
+            name: "credit"
+            widget: "string"
+            i18n: duplicate
+      - label: "Galleries"
+        name: "galleries"
+        widget: list
+        i18n: true
+        summary: "{{fields.galleries}}"
+        fields:
+          - label: "Galleries"
+            name: "galleries"
+            widget: "relation"
+            collection: "general"
+            file: "galleries"
+            search_fields: ["galleries.*.name"]
+            value_field: "galleries.*.name"
+            display_fields: ["galleries.*.name", "galleries.*.slug"]
+      - label: "Programme"
+        name: "programme"
+        widget: list
+        i18n: true
+        summary: "{{fields.programme}}"
+        field:
+          label: "Pogramme"
+          name: "programme"
+          widget: "relation"
+          collection: "programme"
+          search_fields: ["programme.*.name"]
+          value_field: "programme.*.name"
+          display_fields: ["programme.*.name", "programme.*.slug"]
+
+  - name: "about"
+    label: "A propos"
+    delete: false
+    files:
+      - name: "aboutFR"
+        label: "About FR"
+        file: "src/content/about/about_fr.json"
+        description: "A propos"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Logo"
+            name: "logo"
+            widget: "image"
+            media_library:
+              config:
+                max_file_size: 400000
+          - label: "Text"
+            name: "text"
+            widget: "markdown"
+          - name: partners
+            label: Partners
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Partenaire nom"
+              - label: "Link"
+                name: "link"
+                widget: "string"
+                hint: "Partenaire lien site officielle ex. https://www.iledefrance.fr/"
+              - label: "partner"
+                name: "partner"
+                widget: "image"
+                media_library:
+                config:
+                  max_file_size: 100000
+                hint: "Logos du partenaire ex. Ile de France"
+      - name: "aboutEN"
+        label: "About EN"
+        file: "src/content/about/about_en.json"
+        description: "A propos"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Logo"
+            name: "logo"
+            widget: "image"
+            media_library:
+              config:
+                max_file_size: 100000
+          - label: "Text"
+            name: "text"
+            widget: "markdown"
+          - name: partners
+            label: Partners
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Partenaire nom"
+              - label: "Link"
+                name: "link"
+                widget: "string"
+                hint: "Partner link of official site ex. https://www.iledefrance.fr/"
+              - label: "partner"
+                name: "partner"
+                widget: "image"
+                media_library:
+                config:
+                  max_file_size: 100000
+                hint: "Logo of partner ex. Ile de France"
+
+  - name: "contact"
+    label: "Contact"
+    delete: false
+    files:
+      - name: "contactFR"
+        label: "Contact FR"
+        file: "src/content/contact/contact_fr.json"
+        description: "Page Contact en francais"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Photo"
+            name: "photo"
+            widget: "image"
+            media_library:
+              config:
+                max_file_size: 200000
+            hint: "Photo d'equipe"
+          - name: emails
+            label: Emails
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Email Name ex. General Email or Grigori Michel"
+              - label: "email"
+                name: "email"
+                widget: "string"
+                hint: "Email ex. info@pourlartpourafrique.com"
+          - label: "subtitle"
+            name: "subtitle"
+            widget: "string"
+            hint: "Ex. Presse ou Telechargements"
+          - name: files
+            label: Files
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Ex. Telechargements des visuelles"
+              - label: "file"
+                name: "file"
+                widget: "file"
+                media_library:
+                  config:
+                    max_file_size: 500000
+      - name: "contactEN"
+        label: "Contact EN"
+        file: "src/content/contact/contact_en.json"
+        description: "Contact Page in English"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Photo"
+            name: "photo"
+            widget: "image"
+            hint: "Team photo"
+            media_library:
+              config:
+                max_file_size: 200000
+          - name: emails
+            label: Emails
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Email Name ex. General Email or Grigori Michel"
+              - label: "email"
+                name: "email"
+                widget: "string"
+                hint: "Email ex. info@pourlartpourafrique.com"
+          - label: "subtitle"
+            name: "subtitle"
+            widget: "string"
+            hint: "Ex. Presse ou Telechargements"
+          - name: files
+            label: Files
+            widget: list
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Ex. Download visuals"
+              - label: "file"
+                name: "file"
+                widget: "file"
+                media_library:
+                  config:
+                    max_file_size: 500000
+
+  - name: "config"
+    label: "Config"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "Site Config"
+        file: "config.json"
+        description: "General site settings"
+        fields:
+          - label: "URL"
+            name: "base_url"
+            widget: "string"
+            hint: "Do not enter the trailing slash of the URL"
+          - label: "Site title"
+            name: "site_title"
+            widget: "string"
+          - label: "Site description"
+            name: "site_description"
+            widget: "string"
+          - label: "Site keywords"
+            name: "site_keywords"
+            widget: "list"
+            summary: "{{fields.keyword.keyword}}"
+            field:
+              label: Keyword
+              name: keyword
+              widget: "string"
+          - label: "Twitter account"
+            name: "twitter_account"
+            widget: "string"
+          - label: "GitHub account"
+            name: "github_account"
+            widget: "string"
+
+  - name: "meta"
+    label: "Meta"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "tags"
+        label: "Tags"
+        file: "meta/tags.yml"
+        description: "List of tags"
+        fields:
+          - name: tags
+            label: Tags
+            label_singular: "Tag"
+            widget: list
+            fields:
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "The part of a URL identifies the tag"
+              - label: "Display Name"
+                name: "name"
+                widget: "string"
+                hint: "Tag name for displaying on the site"
+
+  - name: "menu"
+    label: "Menu"
+    delte: false
+    editor:
+      preview: false
+    files:
+      - name: "menuFR"
+        label: "Menu FR"
+        file: "meta/menu_fr.yml"
+        description: "Menu en francais"
+        fields:
+          - name: items
+            label: Menu Items
+            widget: list
+            file: "meta/menu_fr.yml"
+            fields:
+              - label: "Slug"
+                name: "slug"
+                i18n: true
+                widget: "string"
+                pattern:
+                  [
+                    "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "A slug can have no spaces or special characters",
+                  ]
+                hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/fr"
+              - label: "Name"
+                name: "name"
+                i18n: true
+                widget: "string"
+                hint: "Menu name ex. A propos"
+
+          - name: "menuEN"
+            label: "Menu EN"
+            file: "meta/menu_en.yml"
+            description: "Menu in englisch"
+            fields:
+              - name: items
+                label: Menu Items
+                widget: list
+                file: "meta/menu_en.yml"
+                fields:
+                  - label: "Slug"
+                    name: "slug"
+                    i18n: true
+                    widget: "string"
+                    pattern:
+                      [
+                        "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                        "A slug can have no spaces or special characters",
+                      ]
+                    hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/en"
+                  - label: "Name"
+                    name: "name"
+                    i18n: true
+                    widget: "string"
+                    hint: "Menu name ex. About"
