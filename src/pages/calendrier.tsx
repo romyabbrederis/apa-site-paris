@@ -7,7 +7,7 @@ import CalendarList from "../components/CalendarList";
 import config from "../lib/config";
 import {
   CalendarContent,
-  fetchProgrammeContent,
+  fetchProgrammesContent,
   findCalendarContent,
 } from "../lib/programmes";
 
@@ -33,7 +33,7 @@ export default function Index({ events, language }: Props) {
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const programmes = fetchProgrammeContent("fr") || [];
+  const programmes = fetchProgrammesContent("fr") || [];
   const events = findCalendarContent(programmes) || [];
   const language = locale || null;
   return {

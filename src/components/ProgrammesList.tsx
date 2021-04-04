@@ -3,6 +3,8 @@ import { ProgrammeContent } from "../lib/programmes";
 import ProgrammeSelected from "./ProgrammeSelected";
 import TimeButton from "./TimeButton";
 import { renderProgrammes } from "../utils/renderProgrammes";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 type Props = {
   programmes: ProgrammeContent[];
@@ -10,12 +12,16 @@ type Props = {
 
 export default function ProgrammesList({ programmes }: Props): any {
   console.log("programmes", programmes);
+  const router = useRouter();
+  const { pathname } = router;
+
   const [type, setType] = useState("now");
   const [data, setData] = useState([]);
-  const [select, setSelect] = useState("");
   const [mobileDevice, setMobilDevice] = useState<boolean>();
 
-  console.log("data", data, select);
+  const localeURL = pathname.split("/")[1];
+  const link_en = "/en/programme/";
+  const link_fr = "/programme/";
 
   useEffect(() => {
     const newData = renderProgrammes(programmes, type);
@@ -28,10 +34,6 @@ export default function ProgrammesList({ programmes }: Props): any {
   }, []);
 
   useEffect(() => {
-    console.log(select);
-  }, [select]);
-
-  useEffect(() => {
     const windowSize = window.matchMedia("(max-width: 769px)");
     setMobilDevice(windowSize.matches);
     window.addEventListener("resize", function () {
@@ -40,7 +42,6 @@ export default function ProgrammesList({ programmes }: Props): any {
   }, []);
 
   const changeType = (value: string) => {
-    setSelect(undefined);
     setType(value);
   };
 
@@ -54,49 +55,50 @@ export default function ProgrammesList({ programmes }: Props): any {
           {data && data.length ? (
             <div className={"programmes-list"}>
               {data.map((item, i) => (
-                <div
-                  key={i}
-                  className={
-                    select === item.slug
-                      ? "programme-box-selected"
-                      : "programme-box"
-                  }
-                >
+                <div key={i} className={"programme-box"}>
                   {mobileDevice ? (
-                    <div
-                      className={"programme-title-container"}
-                      onClick={() => setSelect(item.slug)}
+                    <Link
+                      href={
+                        localeURL === "en"
+                          ? link_en + item.slug
+                          : link_fr + item.slug
+                      }
                     >
-                      <h4>
-                        {item.month} {item.year}
-                      </h4>
-                      <h4>{item.title}</h4>
-                    </div>
-                  ) : (
-                    <div
-                      className={"programme-title-container"}
-                      onClick={() => setSelect(item.slug)}
-                    >
-                      <div className={"month-date"}>
-                        <h3>{item.month}</h3>
-                        <h3>{item.year}</h3>
+                      <div className={"programme-title-container"}>
+                        <h4>
+                          {item.month} {item.year}
+                        </h4>
+                        <h4>{item.title}</h4>
+                        <p>{item.intro}</p>
+                        <img
+                          src="../../icons/down.png"
+                          className={"down-icon"}
+                        />
                       </div>
-                      <h3>{item.title}</h3>
-                    </div>
+                    </Link>
+                  ) : (
+                    <Link
+                      href={
+                        localeURL === "en"
+                          ? link_en + item.slug
+                          : link_fr + item.slug
+                      }
+                    >
+                      <div className={"programme-title-container"}>
+                        <div className={"month-date"}>
+                          <h3 className={"date-space"}>
+                            {item.month} {item.year}
+                          </h3>
+                          <h3>{item.title}</h3>
+                        </div>
+                        <p>{item.intro}</p>
+                        <img
+                          src="../../icons/down.png"
+                          className={"down-icon"}
+                        />
+                      </div>
+                    </Link>
                   )}
-
-                  <img src="../../icons/down.png" className={"down-icon"} />
-
-                  {select === item.slug ? (
-                    <img
-                      className={"close-icon"}
-                      src="../../icons/close.png"
-                      onClick={() => setSelect("hi")}
-                    />
-                  ) : null}
-                  {select === item.slug ? (
-                    <ProgrammeSelected programme={item} />
-                  ) : null}
                 </div>
               ))}
             </div>
@@ -110,7 +112,6 @@ export default function ProgrammesList({ programmes }: Props): any {
 
           @media (max-width: 769px) {
             .programme-title-container {
-              width: 90%;
               position: relative;
               height: 100%;
             }
@@ -134,7 +135,8 @@ export default function ProgrammesList({ programmes }: Props): any {
               color: white;
               border: 1px solid black;
               height: 100%;
-              padding: 0 10px;
+              padding: 10px 10px;
+              margin: 10px 0;
             }
 
             .programme-box-selected {
@@ -143,6 +145,7 @@ export default function ProgrammesList({ programmes }: Props): any {
               color: black;
               height: 100%;
               padding: 0 10px;
+              margin: 10px 0;
             }
 
             .programmes-list {
@@ -153,16 +156,13 @@ export default function ProgrammesList({ programmes }: Props): any {
             .down-icon {
               position: absolute;
               right: 10px;
-              top: 10px;
+              top: 0;
               width: 30px;
             }
           }
 
           @media (min-width: 769px) {
             .programme-title-container {
-              display: flex;
-              justify-content: space-between;
-              max-width: 60%;
               position: relative;
             }
 
@@ -175,36 +175,43 @@ export default function ProgrammesList({ programmes }: Props): any {
             }
 
             .month-date {
-              text-align: right;
+              text-align: left;
+              margin-right: 5px;
+              display: flex;
+            }
+
+            .date-space {
+              margin-right: 10%;
             }
 
             .programme-box {
               cursor: pointer;
-              padding: 0 10px;
               background: black;
               color: white;
+              border: 1px solid black;
               height: 100%;
+              padding: 10px 10px;
+              margin: 10px 0;
             }
 
             .programme-box-selected {
-              padding: 0 10px;
               background: white;
+              border: 1px solid black;
               color: black;
               height: 100%;
+              padding: 0 10px;
+              margin: 10px 0;
             }
 
             .programmes-list {
               flex: 0 0 auto;
-              background: white;
-              margin-right: 20px;
-              border: 1px solid black;
               position: relative;
             }
 
             .down-icon {
               position: absolute;
-              right: 45%;
-              bottom: 1px;
+              right: 10px;
+              top: 0;
               width: 30px;
             }
           }

@@ -6,7 +6,7 @@ import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import Home from "../components/Home";
 import config from "../lib/config";
 import { HomeContent, getHomePage } from "../lib/homes";
-import { ProgrammeContent, fetchProgrammeContent } from "../lib/programmes";
+import { ProgrammeContent, fetchProgrammesContent } from "../lib/programmes";
 import { useEffect } from "react";
 
 type Props = {
@@ -58,7 +58,7 @@ export default function Index({ data, programme, language }: Props) {
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const programme = fetchProgrammeContent("fr")[0] || {};
+  const programme = fetchProgrammesContent("fr")[0] || {};
   const data = getHomePage("fr") || null;
   const language = locale || null;
   return {

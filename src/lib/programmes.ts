@@ -36,8 +36,8 @@ export type CalendarContent = {
 
 let programmeCache: ProgrammeContent[];
 
-export function fetchProgrammeContent(locale: string): ProgrammeContent[] {
-  console.log("locale", locale);
+export function fetchProgrammesContent(locale: string): ProgrammeContent[] {
+  console.log("fetchProgrammesContent locale", locale);
   if (programmeCache) {
     return programmeCache;
   }
@@ -115,5 +115,53 @@ export function findCalendarContent(
     return calendarCache;
   } else {
     return [];
+  }
+}
+
+export function fetchProgrammeContent(slug: string, locale: string): any {
+  console.log("fetchProgrammeContent slug", slug, locale);
+
+  let directory;
+
+  if (locale === "en") {
+    directory = programmesDirectoryEN;
+  } else {
+    directory = programmesDirectoryFR;
+  }
+
+  const fileNames = fs.readdirSync(directory);
+  if (fileNames && fileNames.length && slug) {
+    const findArticle = fileNames
+      .filter((it) => it.endsWith(".mdx"))
+      .map((fileName) => {
+        const fullPath = path.join(directory, fileName);
+        const fileContents = fs.readFileSync(fullPath, "utf8");
+
+        const matterResult = matter(fileContents, {
+          engines: {
+            yaml: (s) =>
+              yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
+          },
+        });
+        const matterData = {
+          slug: matterResult.data.slug,
+          title: matterResult.data.title,
+          intro: matterResult.data.intro,
+          month: matterResult.data.month,
+          year: matterResult.data.year,
+          start: matterResult.data.start,
+          description: matterResult.data.description,
+          type: matterResult.data.type,
+          category: matterResult.data.category,
+          file: matterResult.data.file,
+          galleries: matterResult.data.galleries,
+        };
+        if (matterData.slug === slug) {
+          return matterData;
+        }
+      });
+    return findArticle[0];
+  } else {
+    return {};
   }
 }

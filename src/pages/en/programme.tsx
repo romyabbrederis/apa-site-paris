@@ -5,7 +5,7 @@ import OpenGraphMeta from "../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../components/meta/TwitterCardMeta";
 import ProgrammesList from "../../components/ProgrammesList";
 import config from "../../lib/config";
-import { ProgrammeContent, fetchProgrammeContent } from "../../lib/programmes";
+import { ProgrammeContent, fetchProgrammesContent } from "../../lib/programmes";
 
 type Props = {
   programmes: ProgrammeContent[];
@@ -16,7 +16,7 @@ export default function Index({ programmes, language }: Props) {
   const url = "/programme";
   const title = "Programme";
 
-  console.log("programmes", programmes, language)
+  console.log("programmes", programmes, language);
   return (
     <div>
       <BasicMeta url={url} title={title} />
@@ -30,12 +30,12 @@ export default function Index({ programmes, language }: Props) {
 export const getStaticProps = async (context) => {
   const { locale } = context;
 
-  const programmes = fetchProgrammeContent('en')
+  const programmes = fetchProgrammesContent("en");
   const language = locale || null;
   return {
     props: {
       programmes,
-      language
+      language,
     },
   };
 };
