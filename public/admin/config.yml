@@ -164,6 +164,10 @@ collections:
                 widget: "string"
                 required: false
                 hint: "Gallery Email"
+              - label: "Website"
+                name: "website"
+                widget: "string"
+                hint: "website URL"
               - label: "Google Maps"
                 name: "maps"
                 widget: "string"

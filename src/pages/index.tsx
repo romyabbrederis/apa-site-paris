@@ -11,11 +11,11 @@ import { useEffect } from "react";
 
 type Props = {
   data: HomeContent;
-  programme: ProgrammeContent;
+  programmes: any;
   language: any;
 };
 
-export default function Index({ data, programme, language }: Props) {
+export default function Index({ data, programmes, language }: Props) {
   const url = "/";
   const title = "Home";
 
@@ -45,26 +45,26 @@ export default function Index({ data, programme, language }: Props) {
     minimumWaitingTime();
   }, []);
 
-  console.log("data", data, programme, language);
+  console.log("data", data, programmes, language);
   return (
     <div>
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      <Home data={data} programme={programme} />
+      <Home data={data} programmes={programmes} />
     </div>
   );
 }
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const programme = fetchProgrammesContent("fr")[0] || {};
+  const programmes = fetchProgrammesContent("fr").slice(0, 3) || {};
   const data = getHomePage("fr") || null;
   const language = locale || null;
   return {
     props: {
       data,
-      programme,
+      programmes,
       language,
     },
   };

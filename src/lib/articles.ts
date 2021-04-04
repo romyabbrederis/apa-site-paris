@@ -10,11 +10,14 @@ const articlesDirectoryFR = path.join(process.cwd(), "src/content/article/fr");
 export type ArticleContent = {
   readonly slug: string;
   readonly title: string;
+  readonly intro: string;
   readonly date: string;
   readonly order: string;
   readonly image: string;
   readonly content: string;
   readonly Images: any;
+  readonly galleries: any;
+  readonly programme: string;
 };
 
 export type ImgContent = {
@@ -22,7 +25,7 @@ export type ImgContent = {
   readonly credit: string;
 };
 
-let articleCache: ArticleContent[];
+let articleCache: any;
 
 export function fetchArticlesContent(locale: string): any {
   console.log("locale", locale);
@@ -55,15 +58,7 @@ export function fetchArticlesContent(locale: string): any {
           },
         });
 
-        const matterData = {
-          slug: matterResult.data.slug,
-          title: matterResult.data.title,
-          date: matterResult.data.date,
-          order: matterResult.data.order,
-          image: matterResult.data.image,
-          content: matterResult.content,
-          Images: matterResult.data.Images,
-        };
+        const matterData = matterResult.data;
         console.log("matterData", matterData);
         return matterData;
       });
@@ -109,12 +104,16 @@ export function fetchArticleContent(slug: string, locale: string): any {
         const matterData = {
           slug: matterResult.data.slug,
           title: matterResult.data.title,
+          intro: matterResult.data.intro,
           date: matterResult.data.date,
           order: matterResult.data.order,
           image: matterResult.data.image,
           content: matterResult.content,
           Images: matterResult.data.Images,
+          galleries: matterResult.data.galleries,
+          programme: matterResult.data.programme,
         };
+
         if (matterData.slug === slug) {
           return matterData;
         }

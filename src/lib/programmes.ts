@@ -16,6 +16,7 @@ const programmesDirectoryFR = path.join(
 export type ProgrammeContent = {
   readonly slug: string;
   readonly title: string;
+  readonly intro: string;
   readonly month: string;
   readonly year: string;
   readonly start: string;
@@ -26,17 +27,22 @@ export type ProgrammeContent = {
 };
 
 export type CalendarContent = {
+  readonly slug: string;
   readonly title: string;
+  readonly intro: string;
   readonly month: string;
   readonly year: string;
   readonly start: string;
+  readonly description: string;
   readonly type: string;
+  readonly category: string;
+  readonly file: string;
   readonly galleries: any;
 };
 
-let programmeCache: ProgrammeContent[];
+let programmeCache: any;
 
-export function fetchProgrammesContent(locale: string): ProgrammeContent[] {
+export function fetchProgrammesContent(locale: string): any {
   console.log("fetchProgrammesContent locale", locale);
   if (programmeCache) {
     return programmeCache;
@@ -95,19 +101,22 @@ export function fetchProgrammesContent(locale: string): ProgrammeContent[] {
 
 let calendarCache: CalendarContent[];
 
-export function findCalendarContent(
-  programmes: ProgrammeContent[]
-): CalendarContent[] {
+export function findCalendarContent(programmes: any): any {
   console.log("findCalendarContent", programmes);
 
   if (programmeCache) {
     calendarCache = programmeCache.map((item) => {
       const result = {
+        slug: item.slug,
         title: item.title,
+        intro: item.intro,
         month: item.month,
         year: item.year,
         start: item.start,
+        description: item.description,
         type: item.type,
+        category: item.category,
+        file: item.file,
         galleries: getGalleryInfos(item.galleries),
       };
       return result;
@@ -143,19 +152,7 @@ export function fetchProgrammeContent(slug: string, locale: string): any {
               yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
           },
         });
-        const matterData = {
-          slug: matterResult.data.slug,
-          title: matterResult.data.title,
-          intro: matterResult.data.intro,
-          month: matterResult.data.month,
-          year: matterResult.data.year,
-          start: matterResult.data.start,
-          description: matterResult.data.description,
-          type: matterResult.data.type,
-          category: matterResult.data.category,
-          file: matterResult.data.file,
-          galleries: matterResult.data.galleries,
-        };
+        const matterData = matterResult.data;
         console.log("matterdata", matterData);
         if (matterData.slug === slug) {
           return matterData;

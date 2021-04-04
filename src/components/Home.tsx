@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { COLOR_YELLOW } from "../../public/styles/general";
 
-const Home = ({ data, programme }) => {
+const Home = ({ data, programmes }) => {
   const {
     bllink,
     bltext,
@@ -15,7 +15,6 @@ const Home = ({ data, programme }) => {
     tllink,
     tltitle,
   } = data;
-  const { title, month, year, description, galleries } = programme;
   const router = useRouter();
   const { pathname } = router;
   const [mobileDevice, setMobilDevice] = useState<boolean>();
@@ -45,16 +44,20 @@ const Home = ({ data, programme }) => {
       </Link>
 
       <div className={"right-top"}>
-        <div className={"programme-container"}>
-          <div className={"programme-top"}>
-            <div>
-              <p className={"headline"}>{month}</p>
-              <p className={"headline"}>{year}</p>
-            </div>
-            <p className={"headline"}>{title}</p>
-          </div>
-          {mobileDevice ? null : <p>{description}</p>}
-        </div>
+        {programmes
+          ? programmes.map((item) => (
+              <div className={"programme-container"}>
+                <div className={"programme-top"}>
+                  <div>
+                    <h4>
+                      {item.month} {item.year}
+                    </h4>
+                  </div>
+                  <h3>{item.title}</h3>
+                </div>
+              </div>
+            ))
+          : null}
 
         <Link href={localeURL === "en" ? link_en : link_fr}>
           <div className={"button"}>Voir les programmes</div>
@@ -306,16 +309,21 @@ const Home = ({ data, programme }) => {
           }
 
           .programme-container {
-            background: white;
+            background: black;
+            color: wihte;
             border: 1px solid black;
             padding: 10px;
-            min-height: 10vh;
           }
 
           .programme-top {
             display: flex;
-            text-align: right;
+            text-align: left;
             justify-content: space-evenly;
+            color: white;
+          }
+
+          .programme-top h4 {
+            color: white;
           }
 
           .button {
@@ -502,16 +510,21 @@ const Home = ({ data, programme }) => {
           }
 
           .programme-container {
-            background: white;
+            background: black;
             border: 1px solid black;
             margin-right: 60px;
-            padding: 10px;
+            padding: 5px;
           }
 
           .programme-top {
-            display: flex;
-            text-align: right;
-            justify-content: space-evenly;
+          }
+
+          .programme-top h4 {
+            color: white;
+          }
+
+          .programme-top h3 {
+            color: white;
           }
 
           .button {

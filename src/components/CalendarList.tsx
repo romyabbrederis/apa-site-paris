@@ -4,18 +4,25 @@ import { COLOR_YELLOW } from "../../public/styles/general";
 import TimeButton from "./TimeButton";
 import { renderProgrammes } from "../utils/renderProgrammes";
 import CalendarSelected from "./CalendarSelected";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Props = {
-  events: CalendarContent[];
+  events: any;
 };
 
 export default function CalendarsList({ events }: Props): any {
+  const router = useRouter();
+  const { pathname } = router;
+
   const [type, setType] = useState("now");
   const [data, setData] = useState([]);
-  const [select, setSelect] = useState(undefined);
+
+  const localeURL = pathname.split("/")[1];
+  const link_en = "/en/calendar/";
+  const link_fr = "/calendrier/";
 
   const changeType = (value: string) => {
-    setSelect(undefined);
     setType(value);
   };
 
@@ -34,20 +41,25 @@ export default function CalendarsList({ events }: Props): any {
     <div className={"layout-container"} style={{ backgroundColor: "#E5E5E5" }}>
       <div className={"inner-container"}>
         <TimeButton changeType={changeType} type={type} />
-        {select ? (
-          <CalendarSelected event={select} setSelect={setSelect} />
-        ) : null}
         <div className={"events"}>
           {data.map((item, i) => (
-            <div className={"events-list"} onClick={() => setSelect(item)}>
-              <h3 key={i}>{item.month}</h3>
-              <h3 key={i}>{item.year}</h3>
-              <h3 key={i} className={"title"}>
-                {item.title}
-              </h3>
+            <Link
+              href={
+                localeURL === "en" ? link_en + item.slug : link_fr + item.slug
+              }
+            >
+              <div className={"events-list"}>
+                <p>{item.category}</p>
+                <h3 key={i}>
+                  {item.month} {item.year}
+                </h3>
+                <h3 key={i} className={"title"}>
+                  {item.title}
+                </h3>
 
-              <img src="../../icons/down-arrow.png" className={"down-icon"} />
-            </div>
+                <img src="../../icons/add.png" className={"down-icon"} />
+              </div>
+            </Link>
           ))}
         </div>
         <style jsx>{`
@@ -73,13 +85,17 @@ export default function CalendarsList({ events }: Props): any {
           cursor: pointer;
           width: 200px;
           height: 200px;
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          text-align: left;
           line-height: 0.8em;
           position: relative;
+          padding: 5px;
         }
+
+        .events-list p{
+          font-style: italic;
+          margin: 0;
+        }
+
         .title {
           color: ${COLOR_YELLOW};
         }
@@ -92,9 +108,9 @@ export default function CalendarsList({ events }: Props): any {
 
         .down-icon {
           width: 30px;
-          margin-top: -5px;
           position: absolute;
-          bottom: 0;
+          bottom: 5px;
+          right: 5px;
         }
         }
       `}</style>

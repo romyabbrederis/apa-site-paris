@@ -4,62 +4,53 @@ import Head from "next/head";
 import BasicMeta from "../../components/meta/BasicMeta";
 import OpenGraphMeta from "../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../components/meta/TwitterCardMeta";
-import Article from "../../components/Article";
 import config from "../../lib/config";
 import {
-  ArticleContent,
-  fetchArticlesContent,
-  fetchArticleContent,
-} from "../../lib/articles";
+  ProgrammeContent,
+  fetchProgrammesContent,
+  fetchProgrammeContent,
+} from "../../lib/programmes";
+import { getGallery } from "../../lib/galleries";
+import { findEventDetails } from "../../lib/galleries";
 import { useEffect } from "react";
-import renderToString from "next-mdx-remote/render-to-string";
-import hydrate from "next-mdx-remote/hydrate";
+import CalendarSelected from "../../components/CalendarSelected";
+import galleries from "../../../meta/galleries.yml";
 
 type Props = {
-  article: any;
-  mdxSource: any;
+  galerie: any;
   language: any;
   params: any;
 };
 
-const components = { Article };
-
-export default function Index({ article, mdxSource, language, params }: Props) {
+export default function Index({ galerie, language, params }: Props) {
   const router = useRouter();
   const { path } = router.query;
-  const url = "/actualites/" + path;
-  const title = article.title;
+  const url = "/galerie/" + path;
+  const title = galerie.title;
 
-  const content = hydrate(mdxSource, { components });
-
-  console.log("article", article, language, params, title);
+  console.log("galerie", galerie, galleries, language, params, title);
   return (
     <div>
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      {article ? <Article article={article} content={content} /> : null}
     </div>
   );
 }
 
 export async function getStaticPaths() {
-  const articles = fetchArticlesContent("fr");
-  const paths = articles.map((item) => ({
+  const paths = galleries.galleries.map((item) => ({
     params: { path: item.slug },
   }));
   return { paths, fallback: false };
 }
 
 export const getStaticProps = async ({ params, locale }) => {
-  const article = fetchArticleContent(params.path, "fr");
-  const mdxSource = await renderToString(article.content, { components });
-
+  const galerie = getGallery(params.path);
   const language = locale || null;
   return {
     props: {
-      article,
-      mdxSource,
+      galerie,
       language,
       params,
     },

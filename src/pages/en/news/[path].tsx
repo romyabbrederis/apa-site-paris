@@ -16,7 +16,7 @@ import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 
 type Props = {
-  article: ArticleContent;
+  article: any;
   mdxSource: any;
   language: any;
   params: any;

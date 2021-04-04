@@ -3,9 +3,10 @@ import { ArticleContent } from "../lib/articles";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { COLOR_GREY } from "../../public/styles/general";
+import ActionButton from "./ActionButton";
 
 type Props = {
-  article: ArticleContent;
+  article: any;
   content: any;
 };
 
@@ -20,7 +21,20 @@ export default function Article({ article, content }: Props): any {
           <div className={"article-text-container"}>
             <div className={"article-text-inner "}>
               <h2>{article.title}</h2>
+              {article.galleries
+                ? article.galleries.map((item) => (
+                    <p>Galerie: {item.galleries}</p>
+                  ))
+                : null}
+
               <p>{content}</p>
+              {/* {article.programme ? (
+                <ActionButton
+                  title={"voir le program"}
+                  url={`/calendrier/${article.programme}`}
+                  type="link"
+                />
+              ) : null} */}
               {article.Images
                 ? article.Images.map((item) => (
                     <div className={"article-image"}>

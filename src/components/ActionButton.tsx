@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ActionButton = ({ title, url, type }: any) => {
   const [returnStatement, setReturnStatement] = useState();
-
+  debugger;
   const PDFComponent = (
     <a href={url} download>
       {title} <img src={"../../icons/download.png"} className={"icon-button"} />
@@ -32,14 +32,29 @@ const ActionButton = ({ title, url, type }: any) => {
     </Link>
   );
 
+  const ExternalComponent = (
+    <a href={url}>
+      {title}
+      <img src={"../../icons/external-link.png"} className={"icon-button"} />
+      <style jsx>{`
+        .icon-button {
+          width: 20px;
+          margin: 0 5px;
+        }
+      `}</style>
+    </a>
+  );
+
   const checkType = (type) => {
     switch (type) {
       case "pdf":
-        console.log("pdf case");
         return PDFComponent;
         break;
       case "link":
         return LinkComponent;
+        break;
+      case "external":
+        return ExternalComponent;
         break;
       default:
         return PDFComponent;
