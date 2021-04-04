@@ -131,7 +131,7 @@ export function fetchProgrammeContent(slug: string, locale: string): any {
 
   const fileNames = fs.readdirSync(directory);
   if (fileNames && fileNames.length && slug) {
-    const findArticle = fileNames
+    const findProgramme = fileNames
       .filter((it) => it.endsWith(".mdx"))
       .map((fileName) => {
         const fullPath = path.join(directory, fileName);
@@ -156,11 +156,12 @@ export function fetchProgrammeContent(slug: string, locale: string): any {
           file: matterResult.data.file,
           galleries: matterResult.data.galleries,
         };
+        console.log("matterdata", matterData);
         if (matterData.slug === slug) {
           return matterData;
         }
       });
-    return findArticle[0];
+    return findProgramme[0];
   } else {
     return {};
   }

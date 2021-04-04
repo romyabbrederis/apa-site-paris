@@ -116,14 +116,6 @@ export default function ProgrammesList({ programmes }: Props): any {
               height: 100%;
             }
 
-            .close-icon {
-              position: absolute;
-              top: 10px;
-              right: 10px;
-              width: 30px;
-              cursor: pointer;
-            }
-
             .month-date {
               text-align: left;
               margin-right: 5px;
@@ -164,14 +156,6 @@ export default function ProgrammesList({ programmes }: Props): any {
           @media (min-width: 769px) {
             .programme-title-container {
               position: relative;
-            }
-
-            .close-icon {
-              position: absolute;
-              top: 10px;
-              right: 10px;
-              width: 30px;
-              cursor: pointer;
             }
 
             .month-date {

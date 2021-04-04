@@ -46,10 +46,6 @@ const ActionButton = ({ title, url, type }: any) => {
     }
   };
 
-  useEffect(() => {
-    checkType();
-  }, [title, url, type]);
-
   return (
     <div>
       <div className={"button-container"}>{checkType(type)}</div>
