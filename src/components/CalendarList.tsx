@@ -12,12 +12,21 @@ type Props = {
 };
 
 export default function CalendarsList({ events }: Props): any {
-  const [type, setType] = useState("now");
+  const [type, setType] = useState("");
   const [data, setData] = useState([]);
 
   const changeType = (value: string) => {
     setType(value);
   };
+
+  useEffect(() => {
+    const newData = renderProgrammes(events, "en cours");
+    if (newData.length) {
+      setType("en cours");
+    } else {
+      setType("prochainement");
+    }
+  }, []);
 
   useEffect(() => {
     const newData = renderProgrammes(events, type);
@@ -35,7 +44,7 @@ export default function CalendarsList({ events }: Props): any {
       <div className={"inner-container"}>
         <TimeButton changeType={changeType} type={type} />
         <div className={"events"}>
-          {data.map((item, i) => (
+          {events.map((item, i) => (
             <Link href={getLocale() + item.slug}>
               <div className={"events-list"}>
                 <p>{item.category}</p>

@@ -226,7 +226,7 @@ collections:
         name: "type"
         widget: "select"
         i18n: duplicate
-        options: ["now", "upcoming", "past"]
+        options: ["en cours", "prochainement", "passée"]
       - label: "Event Category"
         name: "category"
         widget: "select"

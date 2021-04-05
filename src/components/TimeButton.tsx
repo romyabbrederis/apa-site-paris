@@ -6,7 +6,7 @@ type Props = {
 };
 
 const TimeButton = ({ changeType, type }: Props): any => {
-  const button = ["now", "upcoming", "past"];
+  const button = ["en cours", "prochainement", "passée"];
 
   return (
     <div className={"button-container"}>

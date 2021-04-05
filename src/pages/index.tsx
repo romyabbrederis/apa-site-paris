@@ -8,6 +8,7 @@ import config from "../lib/config";
 import { HomeContent, getHomePage } from "../lib/homes";
 import { ProgrammeContent, fetchProgrammesContent } from "../lib/programmes";
 import { useEffect } from "react";
+import Newsletter from "../components/Newsletter";
 
 type Props = {
   data: HomeContent;
@@ -52,6 +53,7 @@ export default function Index({ data, programmes, language }: Props) {
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
       <Home data={data} programmes={programmes} />
+      <Newsletter />
     </div>
   );
 }

@@ -10,16 +10,16 @@ export function renderProgrammes(programmes, type) {
   let newData;
   const renderFX = () => {
     switch (type) {
-      case "now":
-        newData = programmes.filter((item) => item.type === "now");
+      case "en cours":
+        newData = programmes.filter((item) => item.type === "en cours");
         return newData;
         break;
-      case "past":
-        newData = programmes.filter((item) => item.type === "past");
+      case "prochainement":
+        newData = programmes.filter((item) => item.type === "prochainement");
         return newData;
         break;
-      case "upcoming":
-        newData = programmes.filter((item) => item.type === "upcoming");
+      case "passée":
+        newData = programmes.filter((item) => item.type === "passée");
         return newData;
         break;
       default:

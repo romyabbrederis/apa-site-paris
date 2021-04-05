@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function ProgrammesList({ programmes }: Props): any {
-  const [type, setType] = useState("now");
+  const [type, setType] = useState("en cours");
   const [data, setData] = useState([]);
   const [mobileDevice, setMobilDevice] = useState<boolean>();
 
@@ -20,6 +20,15 @@ export default function ProgrammesList({ programmes }: Props): any {
     const newData = renderProgrammes(programmes, type);
     setData(newData);
   }, [type]);
+
+  useEffect(() => {
+    const newData = renderProgrammes(programmes, "en cours");
+    if (newData.length) {
+      setType("en cours");
+    } else {
+      setType("prochainement");
+    }
+  }, []);
 
   useEffect(() => {
     const newData = renderProgrammes(programmes, type);
