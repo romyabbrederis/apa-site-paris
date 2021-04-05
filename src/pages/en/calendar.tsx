@@ -34,8 +34,8 @@ export default function Index({ events, language }: Props) {
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const programmes = fetchProgrammesContent("en");
-  const events = findCalendarContent(programmes);
+  const programmes = fetchProgrammesContent("en") || [];
+  const events = findCalendarContent(programmes) || [];
   const language = locale || null;
   return {
     props: {
