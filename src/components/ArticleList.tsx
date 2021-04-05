@@ -3,22 +3,13 @@ import { ArticleContent } from "../lib/articles";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { COLOR_YELLOW } from "../../public/styles/general";
+import { getLocale } from "../utils/localeChecker";
 
 type Props = {
   articles: ArticleContent[];
 };
 
 export default function ArticlesList({ articles }: Props): any {
-  const router = useRouter();
-  const { pathname } = router;
-
-  console.log("articles", articles);
-
-  //  ** work-around
-  const localeURL = pathname.split("/")[1];
-  const link_en = "/en/news/";
-  const link_fr = "/actualites/";
-
   return articles.length ? (
     <div
       className={"layout-container"}
@@ -28,11 +19,7 @@ export default function ArticlesList({ articles }: Props): any {
         <div className={"articles-list"}>
           <div />
           {articles.map((item, i) => (
-            <Link
-              href={
-                localeURL === "en" ? link_en + item.slug : link_fr + item.slug
-              }
-            >
+            <Link href={getLocale() + item.slug}>
               <div key={i} className={"article"}>
                 <img
                   src={item.image}

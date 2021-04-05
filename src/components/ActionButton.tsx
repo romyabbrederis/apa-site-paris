@@ -4,7 +4,6 @@ import Link from "next/link";
 
 const ActionButton = ({ title, url, type }: any) => {
   const [returnStatement, setReturnStatement] = useState();
-  debugger;
   const PDFComponent = (
     <a href={url} download>
       {title} <img src={"../../icons/download.png"} className={"icon-button"} />

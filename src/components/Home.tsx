@@ -18,11 +18,14 @@ const Home = ({ data, programmes }) => {
   const router = useRouter();
   const { pathname } = router;
   const [mobileDevice, setMobilDevice] = useState<boolean>();
-
   //  ** work-around
   const localeURL = pathname.split("/")[1];
   const link_en = "/en/programme/";
   const link_fr = "/programme/";
+
+  // const localeURL = pathname.split("/")[1];
+  // const link_en = "/en/gallery/";
+  // const link_fr = "/galerie/";
 
   useEffect(() => {
     const windowSize = window.matchMedia("(max-width: 640px)");
@@ -310,7 +313,7 @@ const Home = ({ data, programmes }) => {
 
           .programme-container {
             background: black;
-            color: wihte;
+            color: white;
             border: 1px solid black;
             padding: 10px;
           }
@@ -512,7 +515,7 @@ const Home = ({ data, programmes }) => {
           .programme-container {
             background: black;
             border: 1px solid black;
-            margin-right: 60px;
+            margin-right: 40px;
             padding: 5px;
           }
 

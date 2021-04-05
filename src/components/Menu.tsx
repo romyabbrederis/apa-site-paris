@@ -110,7 +110,7 @@ export default function Menu() {
           right: 0;
           bottom: 0;
           z-index: 11;
-          height: 100vh;
+          min-height: 100vh;
           width: 100%;
           display: flex;
           flex-direction: column;
@@ -243,6 +243,7 @@ export default function Menu() {
           }
 
           .non-current-menu {
+            border-bottom: 3px solid white;
             text-transform: uppercase;
             color: black;
             letter-spacing: 2px;
@@ -279,6 +280,7 @@ export default function Menu() {
           }
 
           .non-current-menu {
+            border-bottom: 3px solid white;
             text-transform: uppercase;
             color: black;
             letter-spacing: 2px;

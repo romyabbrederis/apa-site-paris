@@ -20,7 +20,7 @@ export default function Index({ events, language }: Props) {
   const url = "/calendrier";
   const title = "Calendrier";
 
-  console.log("events", events, language);
+  console.log("events", events, "language", language);
   return (
     <div>
       <BasicMeta url={url} title={title} />

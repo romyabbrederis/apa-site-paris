@@ -5,23 +5,16 @@ import TimeButton from "./TimeButton";
 import { renderProgrammes } from "../utils/renderProgrammes";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { getLocale } from "../utils/localeChecker";
 
 type Props = {
   programmes: ProgrammeContent[];
 };
 
 export default function ProgrammesList({ programmes }: Props): any {
-  console.log("programmes", programmes);
-  const router = useRouter();
-  const { pathname } = router;
-
   const [type, setType] = useState("now");
   const [data, setData] = useState([]);
   const [mobileDevice, setMobilDevice] = useState<boolean>();
-
-  const localeURL = pathname.split("/")[1];
-  const link_en = "/en/programme/";
-  const link_fr = "/programme/";
 
   useEffect(() => {
     const newData = renderProgrammes(programmes, type);
@@ -57,13 +50,7 @@ export default function ProgrammesList({ programmes }: Props): any {
               {data.map((item, i) => (
                 <div key={i} className={"programme-box"}>
                   {mobileDevice ? (
-                    <Link
-                      href={
-                        localeURL === "en"
-                          ? link_en + item.slug
-                          : link_fr + item.slug
-                      }
-                    >
+                    <Link href={getLocale() + item.slug}>
                       <div className={"programme-title-container"}>
                         <h4>
                           {item.month} {item.year}
@@ -77,13 +64,7 @@ export default function ProgrammesList({ programmes }: Props): any {
                       </div>
                     </Link>
                   ) : (
-                    <Link
-                      href={
-                        localeURL === "en"
-                          ? link_en + item.slug
-                          : link_fr + item.slug
-                      }
-                    >
+                    <Link href={getLocale() + item.slug}>
                       <div className={"programme-title-container"}>
                         <div className={"month-date"}>
                           <h3 className={"date-space"}>

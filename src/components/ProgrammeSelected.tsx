@@ -32,6 +32,9 @@ export default function ProgrammeSelected({ programme }: Props): any {
             className={"close-icon"}
           />
           <p>{programme.description}</p>
+          {/* {programme.category ? (
+            <p>Type d'evenement? {programme.category}</p>
+          ) : null} */}
           {programme.galleries
             ? programme.galleries
                 .sort((a, b) => a.start - b.start)

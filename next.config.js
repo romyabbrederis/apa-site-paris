@@ -1,14 +1,14 @@
 const withMdxEnhanced = require("next-mdx-enhanced");
 const rehypePrism = require("@mapbox/rehype-prism");
+const { i18n } = require("./next-i18next.config");
 
 module.exports = withMdxEnhanced({
   layoutPath: "src/layouts",
-  locales: ["en", "fr"],
-  defaultLocale: "fr",
   defaultLayout: true,
   rehypePlugins: [rehypePrism],
 })({
   pageExtensions: ["mdx", "tsx"],
+  i18n,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.module.rules.push(
       ...[

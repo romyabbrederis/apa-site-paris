@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { CalendarContent } from "../lib/programmes";
-import { findMap, getSlug } from "../lib/galleries";
+import { findMap, getSlug, extractLink } from "../lib/galleries";
 import ActionButton from "./ActionButton";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { getLocale } from "../utils/localeChecker";
 
 type Props = {
   event: any;
@@ -20,14 +21,10 @@ const CalendarSelected = ({ event }: Props): any => {
     type,
     galleries,
   } = event;
-  // const [galMap, setGalMap] = useState({ map: "", name: "" });
+  const [galMap, setGalMap] = useState("");
   const router = useRouter();
   const { pathname } = router;
-  const [showMore, setShowMore] = useState(galleries[0].galleries);
-
-  const localeURL = pathname.split("/")[1];
-  const link_en = "/en/gallery/";
-  const link_fr = "/galerie/";
+  const [showMore, setShowMore] = useState(undefined);
 
   // useEffect(() => {
   //   if (event && galleries.length) {
@@ -35,6 +32,13 @@ const CalendarSelected = ({ event }: Props): any => {
   //   }
   // }, [galleries]);
 
+  useEffect(() => {
+    if (showMore) {
+      const result = findMap(showMore);
+      const map = extractLink(result.maps);
+      setGalMap(map);
+    }
+  }, [showMore]);
   console.log("showmore", showMore);
 
   return event ? (
@@ -100,35 +104,32 @@ const CalendarSelected = ({ event }: Props): any => {
                       <a href={`tel:${getSlug(item.galleries).email}`}>
                         <p>{getSlug(item.galleries).email} </p>
                       </a>
+
                       <ActionButton
                         title={"SITE WEB"}
-                        url={
-                          localeURL === "en"
-                            ? link_en + getSlug(item.galleries).slug
-                            : link_fr + getSlug(item.galleries).slug
-                        }
+                        url={getLocale() + getSlug(item.galleries).slug}
                         type={"external"}
                       />
                       {item.article ? (
                         <ActionButton
                           title={"article"}
-                          url={
-                            localeURL === "en"
-                              ? link_en + item.article
-                              : link_fr + item.article
-                          }
+                          url={getLocale() + item.article}
                           type={"link"}
                         />
                       ) : null}
+
+                      <iframe
+                        src={galMap}
+                        width="100%"
+                        height="300"
+                        style={{
+                          border: "none",
+                          filter: "greyscale(100%)",
+                          marginTop: "30px",
+                        }}
+                      ></iframe>
                     </div>
                   ) : null}
-
-                  {/* <iframe
-                    src={findMap(item.galleries)}
-                    width="100%"
-                    height="450"
-                    style={{ border: "none", filter: "greyscale(100%)" }}
-                  ></iframe> */}
                 </div>
               ))
             : null}

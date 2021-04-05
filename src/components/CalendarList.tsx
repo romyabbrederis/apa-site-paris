@@ -5,22 +5,15 @@ import TimeButton from "./TimeButton";
 import { renderProgrammes } from "../utils/renderProgrammes";
 import CalendarSelected from "./CalendarSelected";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { getLocale } from "../utils/localeChecker";
 
 type Props = {
   events: any;
 };
 
 export default function CalendarsList({ events }: Props): any {
-  const router = useRouter();
-  const { pathname } = router;
-
   const [type, setType] = useState("now");
   const [data, setData] = useState([]);
-
-  const localeURL = pathname.split("/")[1];
-  const link_en = "/en/calendar/";
-  const link_fr = "/calendrier/";
 
   const changeType = (value: string) => {
     setType(value);
@@ -43,11 +36,7 @@ export default function CalendarsList({ events }: Props): any {
         <TimeButton changeType={changeType} type={type} />
         <div className={"events"}>
           {data.map((item, i) => (
-            <Link
-              href={
-                localeURL === "en" ? link_en + item.slug : link_fr + item.slug
-              }
-            >
+            <Link href={getLocale() + item.slug}>
               <div className={"events-list"}>
                 <p>{item.category}</p>
                 <h3 key={i}>
@@ -69,7 +58,7 @@ export default function CalendarsList({ events }: Props): any {
           max-width: 1200px;
           width: 100%;
           padding: 0 1.5rem;
-          height: 100vh;
+          min-height: 100vh;
           overflow: scroll;
         }
         

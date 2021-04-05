@@ -94,7 +94,7 @@ export default function Article({ article, content }: Props): any {
             grid-template-columns: auto 40% minmax(400px, 600px) auto;
             grid-gap: 10px;
             overflow: hidden;
-            height: 100vh;
+            min-height: 100vh;
             position: fixed;
             top: 100px;
           }

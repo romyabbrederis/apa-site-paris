@@ -46,22 +46,25 @@ export function findEventDetails(gals: any): any {
   }
 }
 
-const extractLink = (map) => {
+export const extractLink = (map) => {
   console.log("map", map);
+  let mapLink = "";
   if (map) {
     const firstSplit = map.split('src="');
     const secondSplit = firstSplit[1].split('" width');
-    return secondSplit[0];
+    console.log("secondSplit", secondSplit[0]);
+    mapLink = secondSplit[0];
   } else {
-    return "";
+    mapLink = "";
   }
+  return mapLink;
 };
 
 export function findMap(gallery: any): any {
-  const preMap = galleries.galleries.find((item) => item.name === gallery).maps;
+  const preMap = galleries.galleries.find((item) => item.name === gallery);
   console.log("preMap", preMap);
-  const map = extractLink(preMap);
-  return map;
+  // const map = extractLink(preMap);
+  return preMap;
 }
 
 export function getSlug(gallery: any): any {

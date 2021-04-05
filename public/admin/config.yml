@@ -231,7 +231,7 @@ collections:
         name: "category"
         widget: "select"
         i18n: duplicate
-        options: ["Multiple Galleries", "Single Event", "Online", "Else"]
+        options: ["Parcours galeries", "Événement", "En ligne", "Autre"]
       - label: "Programme PDF"
         name: "file"
         widget: "file"

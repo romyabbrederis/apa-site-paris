@@ -176,7 +176,7 @@ code {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin-top: 70px;
     animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
     -webkit--webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1)
