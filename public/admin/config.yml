@@ -235,7 +235,6 @@ collections:
       - label: "Programme PDF"
         name: "file"
         widget: "file"
-        default: "/uploads/programme_pdf.pdf"
         i18n: true
         required: false
         media_library:
