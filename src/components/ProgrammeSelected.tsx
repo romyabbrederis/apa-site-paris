@@ -19,13 +19,15 @@ export default function ProgrammeSelected({ programme }: Props): any {
           <h2>
             {programme.month} {programme.year}
           </h2>
-          <div className={"download-section"}>
-            <ActionButton
-              title={"Telechargement du Flyer"}
-              url={programme.file}
-              type="pdf"
-            />
-          </div>
+          {programme.file ? (
+            <div className={"download-section"}>
+              <ActionButton
+                title={"Telechargement du Flyer"}
+                url={programme.file}
+                type="pdf"
+              />
+            </div>
+          ) : null}
           <img
             onClick={() => router.back()}
             src="../../icons/close.png"
