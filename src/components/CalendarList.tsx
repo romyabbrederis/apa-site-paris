@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function CalendarsList({ events }: Props): any {
-  const [type, setType] = useState("");
+  const [type, setType] = useState("en cours");
   const [data, setData] = useState([]);
 
   const changeType = (value: string) => {
@@ -31,6 +31,7 @@ export default function CalendarsList({ events }: Props): any {
   useEffect(() => {
     const newData = renderProgrammes(events, type);
     setData(newData);
+    console.log("type", type);
   }, [type]);
 
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function CalendarsList({ events }: Props): any {
       <div className={"inner-container"}>
         <TimeButton changeType={changeType} type={type} />
         <div className={"events"}>
-          {events.map((item, i) => (
+          {data.map((item, i) => (
             <Link href={getLocale() + item.slug}>
               <div className={"events-list"}>
                 <p>{item.category}</p>
@@ -70,23 +71,50 @@ export default function CalendarsList({ events }: Props): any {
           min-height: 100vh;
           overflow: scroll;
         }
-        
-        .events {
-          display: flex;
-          justify-content: center;
-          margin-bottom: 50px;
-        }
 
-        .events-list {
-          border: 1px solid black;
-          background: white;
-          cursor: pointer;
-          width: 200px;
-          height: 200px;
-          text-align: left;
-          line-height: 0.8em;
-          position: relative;
-          padding: 5px;
+        @media (max-width: 769px) {
+          .events {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+          }
+
+          .events-list {
+            border: 1px solid black;
+            background: white;
+            cursor: pointer;
+            width: 200px;
+            height: 200px;
+            text-align: left;
+            line-height: 0.8em;
+            position: relative;
+            padding: 5px;
+            margin: 20px 0;
+          }
+        }
+       
+
+        @media (min-width: 769px) {
+          .events {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 50px;
+          }
+
+          .events-list {
+            border: 1px solid black;
+            background: white;
+            cursor: pointer;
+            width: 200px;
+            height: 200px;
+            text-align: left;
+            line-height: 0.8em;
+            position: relative;
+            padding: 5px;
+            margin:  50px 20px 10px 0;
+          }
         }
 
         .events-list p{

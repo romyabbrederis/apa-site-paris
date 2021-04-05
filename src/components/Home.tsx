@@ -1,5 +1,5 @@
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { COLOR_YELLOW } from "../../public/styles/general";
 
@@ -47,7 +47,7 @@ const Home = ({ data, programmes }) => {
       </Link>
 
       <div className={"right-top"}>
-        {programmes
+        {programmes && !mobileDevice
           ? programmes.map((item) => (
               <div className={"programme-container"}>
                 <div className={"programme-top"}>
@@ -71,6 +71,11 @@ const Home = ({ data, programmes }) => {
         <div className={"left-bottom"}>
           <div className={"lb-name"}>
             <h1> {bltitle}</h1>
+            <p>
+              {mobileDevice
+                ? bltext.replace(/(([^\s]+\s+){10}).+/, "$1...")
+                : bltext.replace(/(([^\s]+\s+){30}).+/, "$1...")}
+            </p>
           </div>
         </div>
       </Link>
@@ -233,7 +238,7 @@ const Home = ({ data, programmes }) => {
             padding: 10px;
             background-color: #f2f2f2;
             border: 1px solid black;
-            min-height: 20vh;
+            min-height: max-content;
             -webkit-animation: slide-in-right 0.7s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
             animation: slide-in-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -248,10 +253,16 @@ const Home = ({ data, programmes }) => {
             background-color: #ffd506;
             min-height: 30vh;
             text-overflow: ellipsis;
+            overflow: hidden;
             -webkit-animation: slide-in-left 0.7s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
             animation: slide-in-left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
               0.4s both;
+          }
+
+          .left-bottom p {
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
 
           .lb-name {
@@ -259,8 +270,7 @@ const Home = ({ data, programmes }) => {
             color: black;
             left: 10px;
             top: 0;
-            text-align: center;
-            text-align: center;
+            text-align: left;
           }
 
           .lb-name:hover {
@@ -332,13 +342,15 @@ const Home = ({ data, programmes }) => {
           .button {
             background: white;
             border: 1px solid black;
-            padding: 5px 10px;
+            padding: 10px 20px;
             width: 200px;
             position: absolute;
             left: 10px;
             bottom: 10px;
             text-align: center;
             cursor: pointer;
+            text-transform: lowercase;
+            font-weight: 500;
           }
 
           .button :hover {
@@ -350,6 +362,10 @@ const Home = ({ data, programmes }) => {
             font-size: 14px;
             font-weight: 700;
             line-height: 0em;
+          }
+
+          h1 {
+            font-size: 16px;
           }
         }
 
@@ -400,9 +416,7 @@ const Home = ({ data, programmes }) => {
           .right-top {
             grid-column: 4 / 6;
             position: relative;
-            padding: 10px;
             background-color: #f2f2f2;
-            padding: 10px;
             width: 100%;
             -webkit-animation: slide-in-right 0.7s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
@@ -486,13 +500,16 @@ const Home = ({ data, programmes }) => {
             color: black;
             left: 20px;
             top: 10px;
-            text-align: center;
             font-size: 24px;
-            text-align: center;
           }
 
           .lb-name:hover {
             color: white;
+          }
+
+          .lb-name p {
+            font-size: 18px;
+            padding-right: 5px;
           }
 
           .title {
@@ -517,6 +534,7 @@ const Home = ({ data, programmes }) => {
             border: 1px solid black;
             margin-right: 40px;
             padding: 5px;
+            margin-bottom: 5px;
           }
 
           .programme-top {
@@ -533,13 +551,15 @@ const Home = ({ data, programmes }) => {
           .button {
             background: white;
             border: 1px solid black;
-            padding: 5px 10px;
-            width: 100px;
+            padding: 10px 50px;
+            width: max-content;
             position: absolute;
             left: 10px;
             bottom: 10px;
             text-align: center;
             cursor: pointer;
+            text-transform: lowercase;
+            font-weight: 500;
           }
 
           .button :hover {

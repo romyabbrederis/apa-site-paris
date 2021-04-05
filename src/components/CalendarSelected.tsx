@@ -68,21 +68,26 @@ const CalendarSelected = ({ event }: Props): any => {
                   className={
                     item.galleries === showMore ? "frame-selected" : "frame"
                   }
-                  onClick={() =>
-                    setShowMore(
-                      item.galleries !== showMore ? item.galleries : ""
-                    )
-                  }
                 >
                   {item.galleries === showMore ? (
                     <img
                       className={"down-arrow-open"}
                       src={`../../icons/down-arrow.png`}
+                      onClick={() =>
+                        setShowMore(
+                          item.galleries !== showMore ? item.galleries : ""
+                        )
+                      }
                     />
                   ) : (
                     <img
                       className={"down-arrow-close"}
                       src={`../../icons/down-arrow-white.png`}
+                      onClick={() =>
+                        setShowMore(
+                          item.galleries !== showMore ? item.galleries : ""
+                        )
+                      }
                     />
                   )}
 
@@ -107,7 +112,7 @@ const CalendarSelected = ({ event }: Props): any => {
 
                       <ActionButton
                         title={"SITE WEB"}
-                        url={getLocale() + getSlug(item.galleries).slug}
+                        url={getSlug(item.galleries).website}
                         type={"external"}
                       />
                       {item.article ? (

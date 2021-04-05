@@ -29,7 +29,9 @@ export default function ArticlesList({ articles }: Props): any {
                 <div>
                   <h3>{item.title}</h3>
                   <p>{item.date}</p>
-                  {/* <p className={"text"}>{item.content}</p> */}
+                  <p className={"text"}>
+                    {item.intro.replace(/(([^\s]+\s+){20}).+/, "$1...")}
+                  </p>
                 </div>
               </div>
             </Link>
@@ -48,19 +50,18 @@ export default function ArticlesList({ articles }: Props): any {
           .article {
             background: white;
             border: 1px solid black;
-            display: grid;
-            grid-template-columns: 50% 50%;
             grid-gap: 5px;
             padding: 10px;
-            height: 250px;
+            height: 300px;
             cursor: pointer;
             line-height: 1em;
+            overflow: hidden;
           }
 
           .article-image {
             width: 100%;
             object-fit: cover;
-            height: 250px;
+            height: 100px;
           }
 
           .text {
@@ -94,7 +95,6 @@ export default function ArticlesList({ articles }: Props): any {
           }
 
           .text {
-            text-overflow: ellipsis;
             width: 100%;
           }
         }

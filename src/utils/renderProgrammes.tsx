@@ -24,6 +24,8 @@ export function renderProgrammes(programmes, type) {
         break;
       default:
     }
+
+    return newData;
   };
 
   return renderFX();

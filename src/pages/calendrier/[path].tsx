@@ -16,7 +16,6 @@ import CalendarSelected from "../../components/CalendarSelected";
 
 type Props = {
   event: any;
-  galleries: any;
   language: any;
   params: any;
 };
@@ -48,12 +47,10 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async ({ params, locale }) => {
   const event = fetchProgrammeContent(params.path, "fr");
-  const galleries = findEventDetails(event) || {};
   const language = locale || null;
   return {
     props: {
       event,
-      galleries,
       language,
       params,
     },

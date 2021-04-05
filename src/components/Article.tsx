@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ArticleContent } from "../lib/articles";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { COLOR_GREY } from "../../public/styles/general";
 import ActionButton from "./ActionButton";
+import { getSlug } from "../lib/galleries";
+import { fetchProgrammeContent } from "../lib/programmes";
 
 type Props = {
   article: any;
@@ -11,30 +13,49 @@ type Props = {
 };
 
 export default function Article({ article, content }: Props): any {
-  console.log("article", article);
+  console.log("article", article.programme.toString());
+  const [mobileDevice, setMobilDevice] = useState<boolean>();
+
+  useEffect(() => {
+    const windowSize = window.matchMedia("(max-width: 640px)");
+    setMobilDevice(windowSize.matches);
+    window.addEventListener("resize", function () {
+      setMobilDevice(windowSize.matches);
+    });
+  }, []);
+
+  const ArticleInfo = (
+    <>
+      <hr />
+      <h2>Galeries</h2>
+      {article.galleries
+        ? article.galleries.map((item) => (
+            <a href={getSlug(item.galleries).website} target="_blank">
+              <p>{item.galleries}</p>
+            </a>
+          ))
+        : null}
+      <hr />
+      <h2>Program associe</h2>
+      {article.programme}
+      {/* <Link href="/">soon</Link> */}
+      <hr />
+    </>
+  );
+
   return article && article.title ? (
-    <div className={"layout-container"} style={{ backgroundColor: COLOR_GREY }}>
+    <div className={"layout-container"}>
       <div className={"inner-container"}>
         <div className={"article"}>
           <div />
-          <img src={article.image} className={"article-title-image"} />
+          <div>
+            <img src={article.image} className={"article-title-image"} />
+            {mobileDevice ? null : ArticleInfo}
+          </div>
           <div className={"article-text-container"}>
             <div className={"article-text-inner "}>
-              <h2>{article.title}</h2>
-              {article.galleries
-                ? article.galleries.map((item) => (
-                    <p>Galerie: {item.galleries}</p>
-                  ))
-                : null}
-
+              <h1>{article.title}</h1>
               <p>{content}</p>
-              {/* {article.programme ? (
-                <ActionButton
-                  title={"voir le program"}
-                  url={`/calendrier/${article.programme}`}
-                  type="link"
-                />
-              ) : null} */}
               {article.Images
                 ? article.Images.map((item) => (
                     <div className={"article-image"}>
@@ -43,6 +64,7 @@ export default function Article({ article, content }: Props): any {
                     </div>
                   ))
                 : null}
+              {mobileDevice ? ArticleInfo : null}
             </div>
           </div>
           <div />
@@ -51,6 +73,7 @@ export default function Article({ article, content }: Props): any {
       <style jsx>{`
         @media (max-width: 769px) {
           .article {
+            margin-bottom: 50px;
           }
 
           .article-title-image {
@@ -60,7 +83,6 @@ export default function Article({ article, content }: Props): any {
 
           .article-text-container {
             background: white;
-            border: 1px solid black;
             padding: 10px 10px 100px 10px;
             overflow: hidden;
           }
@@ -91,33 +113,16 @@ export default function Article({ article, content }: Props): any {
         @media (min-width: 769px) {
           .article {
             display: grid;
-            grid-template-columns: auto 40% minmax(400px, 600px) auto;
-            grid-gap: 10px;
-            overflow: hidden;
-            min-height: 100vh;
-            position: fixed;
+            grid-template-columns: auto minmax(40%, 400px) minmax(400px, 600px) auto;
+            grid-gap: 30px;
             top: 100px;
+            margin-bottom: 50px;
           }
 
           .article-title-image {
             overflow: hidden;
-            height: 90vh;
             width: 100%;
             object-fit: contain;
-          }
-
-          .article-text-container {
-            overflow: hidden;
-            height: 80vh;
-            background: white;
-            overflow: scroll;
-            border: 1px solid black;
-            padding: 10px;
-          }
-
-          .article-text-inner {
-            overflow: scroll;
-            background: white;
           }
 
           .article-image {
