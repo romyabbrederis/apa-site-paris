@@ -47,3 +47,15 @@ galleries:
       loading="lazy"></iframe>
     website: https://www.perrotin.com/
     email: PARIS@PERROTIN.COM
+  - street: 138 Rue du Temple
+    city: " 75003 Paris"
+    name: Eric Dupont Gallery
+    slug: eric-dupont-gallery
+    phone: "+33144540414"
+    country: France
+    maps: <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10499.571174604742!2d2.350966191482792!3d48.86025466860117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8d1e076ccab1258b!2sEric%20Dupont%20Gallery!5e0!3m2!1sen!2sli!4v1617641703891!5m2!1sen!2sli"
+      width="600" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
+    website: http://www.eric-dupont.com/
+    email: "-"
