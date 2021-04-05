@@ -10,9 +10,10 @@ const Newsletter = (): any => {
 
   useEffect(() => {
     setTimeout(() => {
-      setOpenNewsletter(true);
+      setOpenNewsletter(false);
     }, 2000);
   }, []);
+
   return openNewsletter ? (
     <div className={"newsletter-container"}>
       <Head>
@@ -31,7 +32,7 @@ const Newsletter = (): any => {
           onClick={() => setOpenNewsletter(false)}
         />
         <form
-          action="https://residence.us20.list-manage.com/subscribe/post?u=0af91a880015cdd82808d3d5a&amp;id=e5f67db741"
+          action={process.env.mailchimp}
           method="post"
           id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form"

@@ -667,3 +667,33 @@ collections:
                     i18n: true
                     widget: "string"
                     hint: "Menu name ex. About"
+
+  - name: "legals"
+    i18n: true
+    label: "Mention Legales"
+    folder: "src/content/legales"
+    extension: "mdx"
+    format: "frontmatter"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    fields:
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+
+  - name: "privacy"
+    i18n: true
+    label: "Politique de Confidentialité"
+    folder: "src/content/privacy"
+    extension: "mdx"
+    format: "frontmatter"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    fields:
+      - label: "Body"
+        name: "body"
+        widget: "markdown"

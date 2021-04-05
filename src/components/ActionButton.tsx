@@ -32,7 +32,7 @@ const ActionButton = ({ title, url, type }: any) => {
   );
 
   const ExternalComponent = (
-    <a href={url}>
+    <a href={url} target="_blank">
       {title}
       <img src={"../../icons/external-link.png"} className={"icon-button"} />
       <style jsx>{`
