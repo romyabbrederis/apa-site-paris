@@ -7,10 +7,10 @@ module.exports = withMdxEnhanced({
   rehypePlugins: [rehypePrism],
 })({
   pageExtensions: ["mdx", "tsx"],
-  i18n: {
-    defaultLocale: "fr",
-    locales: ["fr"],
-  },
+  // i18n: {
+  //   defaultLocale: "fr",
+  //   locales: ["fr"],
+  // },
   env: {
     mailchimp:
       "https://residence.us20.list-manage.com/subscribe/post?u=0af91a880015cdd82808d3d5a&amp;id=e5f67db741",
