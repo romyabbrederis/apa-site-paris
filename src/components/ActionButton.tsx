@@ -73,6 +73,7 @@ const ActionButton = ({ title, url, type }: any) => {
             border-bottom: 3px solid ${COLOR_YELLOW};
             padding-bottom: 3px;
             padding: 0 5px;
+            width: max-content;
           }
 
           .icon-button {
@@ -88,6 +89,7 @@ const ActionButton = ({ title, url, type }: any) => {
             border-bottom: 3px solid ${COLOR_YELLOW};
             padding-bottom: 3px;
             padding: 0 10px;
+            width: max-content;
           }
 
           .icon-button {

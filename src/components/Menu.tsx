@@ -51,6 +51,28 @@ export default function Menu() {
           </a>
         </Link>
       ))}
+      <div className="social-media">
+        <a
+          href="https://www.instagram.com/residence.vaduz/?hl=en"
+          target="_blank"
+        >
+          <img
+            src="../../icons/facebook.png"
+            alt="facebook"
+            className="icons"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/residence.vaduz/?hl=en"
+          target="_blank"
+        >
+          <img
+            src="../../icons/instagram.png"
+            alt="instagram"
+            className="icons"
+          />
+        </a>
+      </div>
       <style jsx>{`
         @-webkit-keyframes slide-in-right {
           0% {
@@ -101,6 +123,16 @@ export default function Menu() {
             opacity: 1;
           }
         }
+        .icons {
+          width: 20px;
+          margin: 5px;
+        }
+
+        .social-media {
+          margin: 10px 0;
+          display: flex;
+          justify-content: center;
+        }
 
         .mobile-container {
           background: #ffd506;
@@ -115,7 +147,7 @@ export default function Menu() {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          padding-top: 10px;
+          padding-top: 30px;
           -webkit-animation: slide-in-right 0.5s
             cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -183,22 +215,48 @@ export default function Menu() {
             onClick={() => setMenuOpen(true)}
           />
         ) : (
-          menus.map((item, i) => (
-            <Link key={item.slug} href={item.slug} className={"menu"}>
-              <a
-                className={
-                  page === item.name.replace(/\s+/g, "-").toLowerCase()
-                    ? "current-menu"
-                    : "non-current-menu"
-                }
-              >
-                {item.name}
-              </a>
-            </Link>
-          ))
+          <>
+            {menus.map((item, i) => (
+              <Link key={item.slug} href={item.slug} className={"menu"}>
+                <a
+                  className={
+                    page === item.name.replace(/\s+/g, "-").toLowerCase()
+                      ? "current-menu"
+                      : "non-current-menu"
+                  }
+                >
+                  {item.name}
+                </a>
+              </Link>
+            ))}
+
+            <a
+              href="https://www.instagram.com/residence.vaduz/?hl=en"
+              target="_blank"
+            >
+              <img
+                src="../../icons/facebook.png"
+                alt="facebook"
+                className="icons"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/residence.vaduz/?hl=en"
+              target="_blank"
+            >
+              <img
+                src="../../icons/instagram.png"
+                alt="instagram"
+                className="icons"
+              />
+            </a>
+          </>
         )}
       </div>
       <style jsx>{`
+        .icons {
+          width: 20px;
+        }
         @media (max-width: 769px) {
           .burger {
             position: fixed;

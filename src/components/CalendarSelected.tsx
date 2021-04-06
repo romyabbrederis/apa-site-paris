@@ -112,22 +112,35 @@ const CalendarSelected = ({ event }: Props): any => {
                     >
                       {item.galleries}
                     </h4>
+                    <h4
+                      className={"gallery-name"}
+                      onClick={() =>
+                        setShowMore(
+                          item.galleries !== showMore ? item.galleries : ""
+                        )
+                      }
+                    >
+                      {item.artist && item.artist}
+                    </h4>
                   </div>
                   {item.galleries === showMore ? (
                     <div>
-                      <p>Artist: {item.artist}</p>
-                      <p>{item.text}</p>
-                      <p>{getSlug(item.galleries).street}</p>
-                      <p>{getSlug(item.galleries).city}</p>
-                      <p>{getSlug(item.galleries).country}</p>
-                      <a href={`tel:${getSlug(item.galleries).phone}`}>
-                        <p>{getSlug(item.galleries).phone}</p>
-                      </a>
-                      <p></p>
-                      <a href={`tel:${getSlug(item.galleries).email}`}>
-                        <p>{getSlug(item.galleries).email} </p>
-                      </a>
-
+                      <hr />
+                      <h4>Artist: {item.artist}</h4>
+                      <p>Description: {item.text}</p>
+                      <hr />
+                      <div className={"gallery-info"}>
+                        <p>{getSlug(item.galleries).street}</p>
+                        <p>{getSlug(item.galleries).city}</p>
+                        <p>{getSlug(item.galleries).country}</p>
+                        <a href={`tel:${getSlug(item.galleries).phone}`}>
+                          <p>{getSlug(item.galleries).phone}</p>
+                        </a>
+                        <p></p>
+                        <a href={`tel:${getSlug(item.galleries).email}`}>
+                          <p>{getSlug(item.galleries).email} </p>
+                        </a>
+                      </div>
                       <ActionButton
                         title={"SITE WEB"}
                         url={getSlug(item.galleries).website}
@@ -161,6 +174,13 @@ const CalendarSelected = ({ event }: Props): any => {
         <style jsx>{`
           p {
             margin: 15px 0;
+          }
+
+          .gallery-info {
+            font-size: 14px;
+            line-height: 1em;
+            font-style: italic;
+            width: max-content;
           }
 
           @media (max-width: 769px) {
