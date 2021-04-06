@@ -355,6 +355,7 @@ collections:
         name: "articleImgOne"
         widget: "image"
         i18n: duplicate
+        required: false
         media_library:
           config:
             max_file_size: 200000
@@ -362,10 +363,12 @@ collections:
         name: "creditOne"
         widget: "string"
         i18n: duplicate
+        required: false
       - label: "Article Image 2"
         name: "articleImgTwo"
         widget: "image"
         i18n: duplicate
+        required: false
         media_library:
           config:
             max_file_size: 200000
@@ -373,6 +376,7 @@ collections:
         name: "creditTwo"
         widget: "string"
         i18n: duplicate
+        required: false
       - label: "Galleries"
         name: "galleries"
         widget: list
@@ -387,20 +391,14 @@ collections:
             search_fields: ["galleries.*.name"]
             value_field: "galleries.*.name"
             display_fields: ["galleries.*.name", "galleries.*.slug"]
-
       - label: "Programme"
         name: "programme"
-        widget: "list"
-        i18n: true
-        max: 1
-        field:
-          label: "Programme"
-          name: "programme"
-          widget: "relation"
-          collection: "programme"
-          search_fields: ["slug"]
-          value_field: "slug"
-          display_fields: ["slug"]
+        widget: "relation"
+        collection: "programme"
+        required: false
+        search_fields: ["slug"]
+        value_field: "slug"
+        display_fields: ["slug"]
 
   - name: "about"
     label: "A propos"
