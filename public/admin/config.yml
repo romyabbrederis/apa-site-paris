@@ -327,16 +327,17 @@ collections:
       - label: "date"
         name: "date"
         widget: "string"
-        i18n: true
+        required: false
         hint: "Ex: 06.05.2021 - 11.11.2021"
       - label: "order"
         name: "order"
         widget: "datetime"
         i18n: true
         default: ""
-        date_format: "DD.MM.YYYY" # e.g. 24.12.2021
-        time_format: "HH:mm" # e.g. 21:07
+        date_format: "DD.MM.YYYY" 
+        time_format: "HH:mm"
         format: "LLL"
+        i18n: duplicate
         hint: "Ex: Selectionnez la date pour donner une ordre aux articles"
       - label: "Image"
         name: "image"
@@ -381,6 +382,7 @@ collections:
         name: "galleries"
         widget: list
         i18n: true
+        required: false
         summary: "{{fields.galleries}}"
         fields:
           - label: "Galleries"
