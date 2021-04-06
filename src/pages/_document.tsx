@@ -26,7 +26,7 @@ export default class CustomDocument extends Document {
             <>
               <script
                 async
-                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+                src={`https://www.googletagmanager.com/gtag/js?id=G-HHXE2TT0PF`}
               />
               <script
                 dangerouslySetInnerHTML={{
@@ -34,7 +34,7 @@ export default class CustomDocument extends Document {
         window.dataLayer = window.dataLayer || [];
         function gtag(){window.dataLayer.push(arguments)}
         gtag("js", new Date());
-        gtag("config", "${GA_TRACKING_ID}");
+        gtag("config", "G-HHXE2TT0PF");
     `,
                 }}
               />
