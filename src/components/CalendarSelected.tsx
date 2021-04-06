@@ -39,9 +39,11 @@ const CalendarSelected = ({ event }: Props): any => {
     <div className={"layout-container"} style={{ backgroundColor: "#F2F2F2" }}>
       <div className={"inner-container"}>
         <div className={"calendar-container"}>
-          <div className={"close-icon"}>
-            <img src="/icons/close.png" onClick={() => router.back()} />
-          </div>
+          <img
+            className={"close-icon"}
+            src="/icons/close.png"
+            onClick={() => router.back()}
+          />
           <div className={"modal-container"}>
             <h3 className={"text"}>{month}</h3>
           </div>

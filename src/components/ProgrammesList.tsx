@@ -60,7 +60,7 @@ export default function ProgrammesList({ programmes }: Props): any {
               {data.map((item, i) => (
                 <div key={item.slug} className={"programme-box"}>
                   {mobileDevice ? (
-                    <Link href={getLocale() + item.slug}>
+                    <Link href={"/programme/" + item.slug}>
                       <div className={"programme-title-container"}>
                         <h4>
                           {item.month} {item.year}
@@ -75,7 +75,7 @@ export default function ProgrammesList({ programmes }: Props): any {
                       </div>
                     </Link>
                   ) : (
-                    <Link href={getLocale() + item.slug}>
+                    <Link href={"/programme/" + item.slug}>
                       <div className={"programme-title-container"}>
                         <div className={"month-date"}>
                           <h3 className={"date-space"}>

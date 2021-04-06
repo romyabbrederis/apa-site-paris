@@ -47,7 +47,7 @@ export default function CalendarsList({ events }: Props): any {
         <TimeButton changeType={changeType} type={type} />
         <div className={"events"}>
           {data.map((item, i) => (
-            <Link key={item.slug} href={getLocale() + item.slug}>
+            <Link key={item.slug} href={"/calendrier/" + item.slug}>
               <div className={"events-list"}>
                 <p>{item.category}</p>
                 <h3 key={i}>

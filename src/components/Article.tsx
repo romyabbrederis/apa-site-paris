@@ -37,7 +37,10 @@ export default function Article({ article, content }: Props): any {
               target="_blank"
             >
               <p>
-                <img src={"/icons/external-link.png"} />
+                <img
+                  src={"/icons/external-link.png"}
+                  className={"icon-image"}
+                />
                 {item.galleries}{" "}
               </p>
             </a>
@@ -47,12 +50,18 @@ export default function Article({ article, content }: Props): any {
       <Link href={"/programme/" + article.programme}>
         <a>
           <p>
-            <img src={"/icons/external-link.png"} />
+            <img src={"/icons/external-link.png"} className={"icon-image"} />
             Program associe
           </p>
         </a>
       </Link>
       <hr />
+      <style jsx>{`
+        .icon-image {
+          width: 25px;
+          margin-right: 10px;
+        }
+      `}</style>
     </>
   );
 
@@ -122,6 +131,11 @@ export default function Article({ article, content }: Props): any {
             width: 90%;
             object-fit: contain;
           }
+
+          .icon {
+            width: 25px;
+            margin-right: 10px;
+          }
         }
 
         @media (min-width: 769px) {
@@ -154,6 +168,11 @@ export default function Article({ article, content }: Props): any {
           .article-image img {
             object-fit: contain;
             width: 80%;
+          }
+
+          .icon {
+            width: 25px;
+            margin-right: 10px;
           }
         }
       `}</style>

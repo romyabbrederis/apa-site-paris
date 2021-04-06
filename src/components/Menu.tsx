@@ -233,21 +233,13 @@ export default function Menu() {
               href="https://www.instagram.com/residence.vaduz/?hl=en"
               target="_blank"
             >
-              <img
-                width={25}
-                height={25}
-                src="/icons/facebook.png"
-                alt="facebook"
-                className="icons"
-              />
+              <img src="/icons/facebook.png" alt="facebook" className="icons" />
             </a>
             <a
               href="https://www.instagram.com/residence.vaduz/?hl=en"
               target="_blank"
             >
               <img
-                width={25}
-                height={25}
                 src="/icons/instagram.png"
                 alt="instagram"
                 className="icons"

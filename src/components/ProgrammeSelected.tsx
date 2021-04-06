@@ -31,9 +31,11 @@ export default function ProgrammeSelected({ programme }: Props): any {
               />
             </div>
           ) : null}
-          <div className={"close-icon"}>
-            <img onClick={() => router.back()} src="/icons/close.png" />
-          </div>
+          <img
+            className={"close-icon"}
+            onClick={() => router.back()}
+            src="/icons/close.png"
+          />
           <p>{programme.description}</p>
           {/* {programme && programme.category ? (
             <p>Type: {programme.category}</p>
@@ -57,7 +59,10 @@ export default function ProgrammeSelected({ programme }: Props): any {
                       >
                         <h5>
                           {item.galleries}{" "}
-                          <img src={"/icons/external-link.png"} />{" "}
+                          <img
+                            className={"link-icon"}
+                            src={"/icons/external-link.png"}
+                          />{" "}
                         </h5>
                       </Link>
                       {item.artist && !item.articleRelation ? (
@@ -71,7 +76,10 @@ export default function ProgrammeSelected({ programme }: Props): any {
                           <a className={"artist-exists"}>
                             <p>
                               Artist: {item.artist}{" "}
-                              <img src={"/icons/external-link.png"} />{" "}
+                              <img
+                                src={"/icons/external-link.png"}
+                                className={"link-icon"}
+                              />{" "}
                             </p>
                           </a>
                         </Link>
