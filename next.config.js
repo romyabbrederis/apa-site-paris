@@ -1,5 +1,6 @@
 const withMdxEnhanced = require("next-mdx-enhanced");
 const rehypePrism = require("@mapbox/rehype-prism");
+const withImages = require("next-images");
 
 module.exports = withMdxEnhanced({
   layoutPath: "src/layouts",
