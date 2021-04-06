@@ -1,6 +1,5 @@
 const withMdxEnhanced = require("next-mdx-enhanced");
 const rehypePrism = require("@mapbox/rehype-prism");
-const { i18n } = require("./next-i18next.config");
 
 module.exports = withMdxEnhanced({
   layoutPath: "src/layouts",
