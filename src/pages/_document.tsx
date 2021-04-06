@@ -16,13 +16,11 @@ export default class CustomDocument extends Document {
   }
 
   render() {
-    const { isProduction } = this.props;
-
     return (
       <Html>
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          {isProduction && (
+          {process.env.NODE_ENV === "production" && (
             <>
               <script
                 async
