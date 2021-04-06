@@ -49,7 +49,7 @@ const Home = ({ data, programmes }) => {
       <div className={"right-top"}>
         {programmes && !mobileDevice
           ? programmes.map((item) => (
-              <div className={"programme-container"}>
+              <div key={item.title} className={"programme-container"}>
                 <div className={"programme-top"}>
                   <div>
                     <h4>

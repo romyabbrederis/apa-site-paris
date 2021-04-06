@@ -20,7 +20,7 @@ type Props = {
   params: any;
 };
 
-export default function Index({ event }: Props) {
+export default function Index({ event, gal, artist }: any) {
   const router = useRouter();
   const { path } = router.query;
   const url = "/actualites/" + path;
@@ -29,9 +29,40 @@ export default function Index({ event }: Props) {
   console.log("event", event, title);
   return (
     <div>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
+      <BasicMeta
+        url={url}
+        title={title}
+        description={
+          event.intro +
+          " | Galeries: " +
+          gal.join(", ") +
+          " | Artists:" +
+          artist.join(", ")
+        }
+        keywords={[...gal, ...artist]}
+      />
+      <OpenGraphMeta
+        url={url}
+        title={title}
+        description={
+          event.intro +
+          " | Galeries: " +
+          gal.join(", ") +
+          " | Artists:" +
+          artist.join(", ")
+        }
+      />
+      <TwitterCardMeta
+        url={url}
+        title={title}
+        description={
+          event.intro +
+          " | Galeries: " +
+          gal.join(", ") +
+          " | Artists:" +
+          artist.join(", ")
+        }
+      />
       {event ? <CalendarSelected event={event} /> : null}
     </div>
   );
@@ -47,10 +78,18 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async ({ params, locale }) => {
   const event = fetchProgrammeContent(params.path, "fr");
+  const gal = [];
+  const artist = [];
+  const galleries = event.galleries.map((item) => {
+    item.galleries ? gal.push(item.galleries) : "Galeries Paris";
+    item.artist ? artist.push(item.artist) : "Artists Paris";
+  });
   const language = locale || null;
   return {
     props: {
       event,
+      gal,
+      artist,
       language,
       params,
     },

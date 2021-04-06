@@ -184,7 +184,7 @@ export default function Menu() {
           />
         ) : (
           menus.map((item, i) => (
-            <Link href={item.slug} key={i} className={"menu"}>
+            <Link key={item.slug} href={item.slug} className={"menu"}>
               <a
                 className={
                   page === item.name.replace(/\s+/g, "-").toLowerCase()

@@ -20,32 +20,6 @@ export default function Index({ data, programmes, language }: Props) {
   const url = "/";
   const title = "Home";
 
-  function minimumWaitingTime() {
-    const queries = [2, 1, 1, 1];
-
-    queries.sort((a, b) => a - b);
-
-    let totalTime = queries[0];
-    let adding = queries[0];
-
-    const newArray = queries.slice(1, queries.length);
-
-    newArray.map((item, index) => {
-      if (index === newArray.length - 1) {
-        totalTime += item;
-      } else {
-        let newTime = item + queries[0];
-        totalTime += newTime;
-      }
-    });
-    console.log(totalTime);
-    return totalTime;
-  }
-
-  useEffect(() => {
-    minimumWaitingTime();
-  }, []);
-
   console.log("data", data, programmes, language);
   return (
     <div>

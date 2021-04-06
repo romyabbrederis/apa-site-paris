@@ -32,7 +32,7 @@ const Newsletter = (): any => {
           onClick={() => setOpenNewsletter(false)}
         />
         <form
-          action={process.env.mailchimp}
+          action={process.env.REACT_APP_MAILCHIMP}
           method="post"
           id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form"

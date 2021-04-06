@@ -65,6 +65,7 @@ const CalendarSelected = ({ event }: Props): any => {
           {galleries
             ? galleries.map((item, i) => (
                 <div
+                  key={item.galleries}
                   className={
                     item.galleries === showMore ? "frame-selected" : "frame"
                   }
@@ -92,8 +93,25 @@ const CalendarSelected = ({ event }: Props): any => {
                   )}
 
                   <div className={"date-name-container"}>
-                    <h4>{item.date}</h4>
-                    <h4 className={"gallery-name"}>{item.galleries}</h4>
+                    <h4
+                      onClick={() =>
+                        setShowMore(
+                          item.galleries !== showMore ? item.galleries : ""
+                        )
+                      }
+                    >
+                      {item.date}
+                    </h4>
+                    <h4
+                      className={"gallery-name"}
+                      onClick={() =>
+                        setShowMore(
+                          item.galleries !== showMore ? item.galleries : ""
+                        )
+                      }
+                    >
+                      {item.galleries}
+                    </h4>
                   </div>
                   {item.galleries === showMore ? (
                     <div>
@@ -176,6 +194,7 @@ const CalendarSelected = ({ event }: Props): any => {
               padding: 0 10px 10px 10px;
               cursor: pointer;
               margin: 20px 0;
+              position: relative;
             }
 
             .frame-selected {
@@ -184,6 +203,7 @@ const CalendarSelected = ({ event }: Props): any => {
               background: white;
               color: black;
               margin: 20px 0;
+              position: relative;
             }
 
             .date-name-container {
@@ -197,7 +217,7 @@ const CalendarSelected = ({ event }: Props): any => {
               transform: rotate(0deg);
               position: absolute;
               right: 10px;
-              top: 25px;
+              top: 10px;
               width: 30px;
             }
 
@@ -205,7 +225,7 @@ const CalendarSelected = ({ event }: Props): any => {
               transform: rotate(180deg);
               position: absolute;
               right: 10px;
-              top: 25px;
+              top: 10px;
               width: 30px;
             }
 
@@ -254,6 +274,7 @@ const CalendarSelected = ({ event }: Props): any => {
               padding: 0 10px 10px 10px;
               cursor: pointer;
               margin: 20px 0;
+              position: relative;
             }
 
             .frame-selected {
@@ -263,6 +284,7 @@ const CalendarSelected = ({ event }: Props): any => {
               padding: 0 10px 10px 10px;
               cursor: pointer;
               margin: 20px 0;
+              position: relative;
             }
 
             .date-name-container {
@@ -277,7 +299,7 @@ const CalendarSelected = ({ event }: Props): any => {
               transform: rotate(0deg);
               position: absolute;
               right: 10px;
-              top: 25px;
+              top: 10px;
               width: 30px;
             }
 
@@ -285,7 +307,7 @@ const CalendarSelected = ({ event }: Props): any => {
               transform: rotate(180deg);
               position: absolute;
               right: 10px;
-              top: 25px;
+              top: 10px;
               width: 30px;
             }
 

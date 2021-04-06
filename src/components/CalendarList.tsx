@@ -46,7 +46,7 @@ export default function CalendarsList({ events }: Props): any {
         <TimeButton changeType={changeType} type={type} />
         <div className={"events"}>
           {data.map((item, i) => (
-            <Link href={getLocale() + item.slug}>
+            <Link key={item.slug} href={getLocale() + item.slug}>
               <div className={"events-list"}>
                 <p>{item.category}</p>
                 <h3 key={i}>
@@ -93,6 +93,13 @@ export default function CalendarsList({ events }: Props): any {
             padding: 5px;
             margin: 20px 0;
           }
+
+          .down-icon {
+            width: 30px;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+          }
         }
        
 
@@ -115,6 +122,13 @@ export default function CalendarsList({ events }: Props): any {
             padding: 5px;
             margin:  50px 20px 10px 0;
           }
+
+          .down-icon {
+            width: 30px;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+          }
         }
 
         .events-list p{
@@ -132,12 +146,7 @@ export default function CalendarsList({ events }: Props): any {
           position: relative;
         }
 
-        .down-icon {
-          width: 30px;
-          position: absolute;
-          bottom: 5px;
-          right: 5px;
-        }
+        
         }
       `}</style>
       </div>

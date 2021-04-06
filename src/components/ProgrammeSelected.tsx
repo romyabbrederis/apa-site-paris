@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { ProgrammeContent } from "../lib/programmes";
 import ActionButton from "./ActionButton";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import { COLOR_YELLOW } from "../../public/styles/general";
 
 type Props = {
   programme: ProgrammeContent;
@@ -34,20 +36,37 @@ export default function ProgrammeSelected({ programme }: Props): any {
             className={"close-icon"}
           />
           <p>{programme.description}</p>
-          {/* {programme.category ? (
-            <p>Type d'evenement? {programme.category}</p>
+          {/* {programme && programme.category ? (
+            <p>Type: {programme.category}</p>
           ) : null} */}
+          <hr />
           {programme.galleries
             ? programme.galleries
                 .sort((a, b) => a.start - b.start)
                 .map((item, index) => (
-                  <div className={"gallery-dates"}>
-                    <h5 key={index}>{item.date}</h5>
-                    <div key={index}>
-                      <h5>{item.galleries}</h5>
-                      {item.artist ? <p>Artist: {item.artist}</p> : null}
+                  <Link key={item.slug} href={"/calendrier/" + programme.slug}>
+                    <div className={"gallery-dates"}>
+                      <h5 key={index}>{item.date}</h5>
+                      <div key={index}>
+                        <h5>{item.galleries}</h5>
+                        {item.artist && !item.articleRelation ? (
+                          <p>Artist: {item.artist}</p>
+                        ) : null}
+
+                        {item.artist && item.articleRelation ? (
+                          <Link href={"/actualites/" + item.articleRelation}>
+                            <a className={"artist-exists"}>
+                              <p>
+                                Artist: {item.artist}{" "}
+                                <img src={"../../icons/external-link.png"} />{" "}
+                              </p>
+                            </a>
+                          </Link>
+                        ) : null}
+                      </div>
+                      <hr />
                     </div>
-                  </div>
+                  </Link>
                 ))
             : null}
 
@@ -64,7 +83,6 @@ export default function ProgrammeSelected({ programme }: Props): any {
               }
 
               .gallery-dates {
-                display: flex;
               }
 
               .close-icon {
@@ -72,6 +90,10 @@ export default function ProgrammeSelected({ programme }: Props): any {
                 top: 0px;
                 right: 0;
                 width: 30px;
+              }
+
+              .artist-exists img {
+                width: 20px;
               }
             }
 
@@ -82,10 +104,17 @@ export default function ProgrammeSelected({ programme }: Props): any {
                 top: 100px;
               }
 
-              .gallery-dates {
-                display: flex;
-                justify-content: space-between;
-                width: 50%;
+              .gallery-dates:hover h5 {
+                color: ${COLOR_YELLOW};
+                cursor: pointer;
+              }
+
+              .artist-exists:hover {
+                color: grey;
+              }
+
+              .artist-exists img {
+                width: 20px;
               }
 
               .close-icon {

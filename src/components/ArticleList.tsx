@@ -19,7 +19,7 @@ export default function ArticlesList({ articles }: Props): any {
         <div className={"articles-list"}>
           <div />
           {articles.map((item, i) => (
-            <Link href={getLocale() + item.slug}>
+            <Link key={item.slug} href={getLocale() + item.slug}>
               <div key={i} className={"article"}>
                 <img
                   src={item.image}

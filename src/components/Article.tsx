@@ -30,7 +30,11 @@ export default function Article({ article, content }: Props): any {
       <h2>Galeries</h2>
       {article.galleries
         ? article.galleries.map((item) => (
-            <a href={getSlug(item.galleries).website} target="_blank">
+            <a
+              key={item.galleries}
+              href={getSlug(item.galleries).website}
+              target="_blank"
+            >
               <p>{item.galleries}</p>
             </a>
           ))
@@ -58,7 +62,7 @@ export default function Article({ article, content }: Props): any {
               <p>{content}</p>
               {article.Images
                 ? article.Images.map((item) => (
-                    <div className={"article-image"}>
+                    <div key={item.credit} className={"article-image"}>
                       <img src={item.articleImg} alt={item.credit} />
                       <p>{item.credit}</p>
                     </div>
@@ -123,6 +127,7 @@ export default function Article({ article, content }: Props): any {
             overflow: hidden;
             width: 100%;
             object-fit: contain;
+            margin-top: 30px;
           }
 
           .article-image {

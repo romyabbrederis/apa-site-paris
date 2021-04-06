@@ -87,7 +87,7 @@ export function fetchProgrammesContent(locale: string): any {
       });
 
     programmeCache = allProgData.sort((a, b) => {
-      if (a.start < b.start) {
+      if (a.start > b.start) {
         return 1;
       } else {
         return -1;

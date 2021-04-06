@@ -24,7 +24,13 @@ type Props = {
 
 const components = { Article };
 
-export default function Index({ article, mdxSource, language, params }: Props) {
+export default function Index({
+  article,
+  gal,
+  mdxSource,
+  language,
+  params,
+}: any) {
   const router = useRouter();
   const { path } = router.query;
   const url = "/en/news/" + path;
@@ -35,9 +41,21 @@ export default function Index({ article, mdxSource, language, params }: Props) {
   console.log("article", article, language, params, title);
   return (
     <div>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
+      <BasicMeta
+        url={url}
+        title={title}
+        description={article.intro + " | Galeries: " + gal.join(", ")}
+      />
+      <OpenGraphMeta
+        url={url}
+        title={title}
+        description={article.intro + " | Galeries: " + gal.join(", ")}
+      />
+      <TwitterCardMeta
+        url={url}
+        title={title}
+        description={article.intro + " | Galeries: " + gal.join(", ")}
+      />
       {article ? <Article article={article} content={content} /> : null}
     </div>
   );
@@ -54,11 +72,16 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ params, locale }) => {
   const article = fetchArticleContent(params.path, "en");
   const mdxSource = await renderToString(article.content, { components });
+  const gal = [];
+  const galleries = article.galleries.map((item) =>
+    item.galleries ? gal.push(item.galleries) : "Galeries Paris"
+  );
 
   const language = locale || null;
   return {
     props: {
       article,
+      gal,
       mdxSource,
       language,
       params,

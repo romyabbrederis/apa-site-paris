@@ -89,6 +89,7 @@ export function fetchArticleContent(slug: string, locale: string): any {
 
   const fileNames = fs.readdirSync(directory);
   if (fileNames && fileNames.length && slug) {
+    let data = {};
     const findArticle = fileNames
       .filter((it) => it.endsWith(".mdx"))
       .map((fileName) => {
@@ -101,6 +102,8 @@ export function fetchArticleContent(slug: string, locale: string): any {
               yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
           },
         });
+        console.log("matterResult", matterResult.content);
+
         const matterData = {
           slug: matterResult.data.slug,
           title: matterResult.data.title,
@@ -115,10 +118,11 @@ export function fetchArticleContent(slug: string, locale: string): any {
         };
 
         if (matterData.slug === slug) {
-          return matterData;
+          data = matterData;
         }
       });
-    return findArticle[0];
+    console.log(findArticle);
+    return data;
   } else {
     return {};
   }

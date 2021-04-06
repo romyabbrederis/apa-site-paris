@@ -28,9 +28,9 @@ export default function Index({ programme, language, params }: Props) {
   console.log("programme", programme, language, params, title);
   return (
     <div>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
+      <BasicMeta url={url} title={title} description={programme.intro} />
+      <OpenGraphMeta url={url} title={title} description={programme.intro} />
+      <TwitterCardMeta url={url} title={title} description={programme.intro} />
       {programme ? <ProgrammeSelected programme={programme} /> : null}
     </div>
   );

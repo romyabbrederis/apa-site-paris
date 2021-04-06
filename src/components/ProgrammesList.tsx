@@ -57,7 +57,7 @@ export default function ProgrammesList({ programmes }: Props): any {
           {data && data.length ? (
             <div className={"programmes-list"}>
               {data.map((item, i) => (
-                <div key={i} className={"programme-box"}>
+                <div key={item.slug} className={"programme-box"}>
                   {mobileDevice ? (
                     <Link href={getLocale() + item.slug}>
                       <div className={"programme-title-container"}>
@@ -137,7 +137,7 @@ export default function ProgrammesList({ programmes }: Props): any {
 
             .down-icon {
               position: absolute;
-              right: 10px;
+              right: 0;
               top: 0;
               width: 30px;
             }
