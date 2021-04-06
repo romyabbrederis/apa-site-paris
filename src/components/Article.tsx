@@ -14,7 +14,7 @@ type Props = {
 };
 
 export default function Article({ article, content }: Props): any {
-  console.log("article", article.programme.toString());
+  console.log("article", article);
   const [mobileDevice, setMobilDevice] = useState<boolean>();
 
   useEffect(() => {
@@ -36,14 +36,32 @@ export default function Article({ article, content }: Props): any {
               href={getSlug(item.galleries).website}
               target="_blank"
             >
-              <p>{item.galleries}</p>
+              <p>
+                <Image
+                  src={"/icons/external-link.png"}
+                  width={50}
+                  height={20}
+                  objectFit="contain"
+                />
+                {item.galleries}{" "}
+              </p>
             </a>
           ))
         : null}
       <hr />
-      <h2>Program associe</h2>
-      {article.programme}
-      {/* <Link href="/">soon</Link> */}
+      <Link href={"/programme/" + article.programme}>
+        <a>
+          <p>
+            <Image
+              src={"/icons/external-link.png"}
+              width={50}
+              height={20}
+              objectFit="contain"
+            />
+            Program associe
+          </p>
+        </a>
+      </Link>
       <hr />
     </>
   );

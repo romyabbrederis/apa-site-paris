@@ -32,7 +32,6 @@ export default function CalendarsList({ events }: Props): any {
   useEffect(() => {
     const newData = renderProgrammes(events, type);
     setData(newData);
-    console.log("type", type);
   }, [type]);
 
   useEffect(() => {
@@ -41,6 +40,7 @@ export default function CalendarsList({ events }: Props): any {
   }, []);
 
   console.log("events", events);
+
   return events.length ? (
     <div className={"layout-container"} style={{ backgroundColor: "#E5E5E5" }}>
       <div className={"inner-container"}>

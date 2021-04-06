@@ -18,14 +18,6 @@ const Home = ({ data, programmes }) => {
   const router = useRouter();
   const { pathname } = router;
   const [mobileDevice, setMobilDevice] = useState<boolean>();
-  //  ** work-around
-  const localeURL = pathname.split("/")[1];
-  const link_en = "/en/programme/";
-  const link_fr = "/programme/";
-
-  // const localeURL = pathname.split("/")[1];
-  // const link_en = "/en/gallery/";
-  // const link_fr = "/galerie/";
 
   useEffect(() => {
     const windowSize = window.matchMedia("(max-width: 900px)");
@@ -36,6 +28,7 @@ const Home = ({ data, programmes }) => {
   }, []);
 
   console.log("data");
+
   return (
     <div className={"container"}>
       <Link href={tllink}>
@@ -62,7 +55,7 @@ const Home = ({ data, programmes }) => {
             ))
           : null}
 
-        <Link href={localeURL === "en" ? link_en : link_fr}>
+        <Link href={"/programme"}>
           <div className={"button"}>Voir les programmes</div>
         </Link>
       </div>

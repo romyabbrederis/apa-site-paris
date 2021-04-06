@@ -39,7 +39,7 @@ export default function Index({
 
   const content = hydrate(mdxSource, { components });
 
-  console.log("article", article, language, params, title);
+  console.log("article", article);
   return (
     <div>
       <BasicMeta

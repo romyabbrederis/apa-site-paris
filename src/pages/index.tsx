@@ -9,6 +9,7 @@ import { HomeContent, getHomePage } from "../lib/homes";
 import { ProgrammeContent, fetchProgrammesContent } from "../lib/programmes";
 import { useEffect } from "react";
 import Newsletter from "../components/Newsletter";
+import meta from "../../config.json";
 
 type Props = {
   data: HomeContent;
@@ -26,12 +27,27 @@ export default function Index({
   const url = "/";
   const title = "Home";
 
-  console.log("data", data, programmes, language);
+  const description =
+    "L’association Pour l’art pour l’Afrique vous propose de découvrir l’art contemporain d’Afrique à Paris et en Île-de-France du 6 au 29 mai 2021.";
+
+  console.log("data", data, programmes);
   return (
     <div>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
+      <BasicMeta
+        url={url}
+        title={title}
+        description={meta.home_description_fr}
+      />
+      <OpenGraphMeta
+        url={url}
+        title={title}
+        description={meta.home_description_fr}
+      />
+      <TwitterCardMeta
+        url={url}
+        title={title}
+        description={meta.home_description_fr}
+      />
       <Home data={data} programmes={programmes} />
       <Newsletter mailchimp={mailchimp} />
     </div>

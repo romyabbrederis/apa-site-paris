@@ -13,8 +13,6 @@ export type GalleryContent = {
 };
 
 export function getGalleryInfos(gals: any): any {
-  console.log("gals", gals);
-  console.log("galleries", galleries);
   if (gals && gals.length && galleries) {
     const galleryInfo = gals.map((el) => {
       const findGallery = galleries.galleries.find(
@@ -30,8 +28,6 @@ export function getGalleryInfos(gals: any): any {
 }
 
 export function findEventDetails(gals: any): any {
-  console.log("gals", gals);
-  console.log("galleries", galleries);
   if (gals && gals.length && galleries) {
     const galleryInfo = gals.galleries.map((el) => {
       const findGallery = galleries.galleries.find(
@@ -47,12 +43,10 @@ export function findEventDetails(gals: any): any {
 }
 
 export const extractLink = (map) => {
-  console.log("map", map);
   let mapLink = "";
   if (map) {
     const firstSplit = map.split('src="');
     const secondSplit = firstSplit[1].split('" width');
-    console.log("secondSplit", secondSplit[0]);
     mapLink = secondSplit[0];
   } else {
     mapLink = "";
@@ -62,8 +56,6 @@ export const extractLink = (map) => {
 
 export function findMap(gallery: any): any {
   const preMap = galleries.galleries.find((item) => item.name === gallery);
-  console.log("preMap", preMap);
-  // const map = extractLink(preMap);
   return preMap;
 }
 

@@ -26,7 +26,7 @@ export default function Index({ event, gal, artist }: any) {
   const url = "/actualites/" + path;
   const title = event.title;
 
-  console.log("event", event, title);
+  console.log("event", event);
   return (
     <div>
       <BasicMeta

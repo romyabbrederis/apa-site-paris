@@ -22,7 +22,7 @@ export default function Index({ data, mdxSource, language }: Props) {
 
   const content = hydrate(mdxSource, { components });
 
-  console.log("data", data, language);
+  console.log("data", data);
   return (
     <div>
       <BasicMeta url={url} title={title} />

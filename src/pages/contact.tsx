@@ -5,6 +5,7 @@ import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import { ContactContent, getContactPage } from "../lib/contacts";
 import Contact from "../components/pages/Contact";
+import meta from "../../config.json";
 
 type Props = {
   data: ContactContent;
@@ -15,12 +16,24 @@ export default function Index({ data, language }: Props) {
   const url = "/contact";
   const title = data.title;
 
-  console.log("data", data, language);
+  console.log("data", data);
   return (
     <div>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
+      <BasicMeta
+        url={url}
+        title={title}
+        description={meta.contact_description_fr}
+      />
+      <OpenGraphMeta
+        url={url}
+        title={title}
+        description={meta.contact_description_fr}
+      />
+      <TwitterCardMeta
+        url={url}
+        title={title}
+        description={meta.contact_description_fr}
+      />
       <Contact data={data} />
     </div>
   );

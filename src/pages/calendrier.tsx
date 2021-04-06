@@ -5,6 +5,7 @@ import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import CalendarList from "../components/CalendarList";
 import config from "../lib/config";
+import meta from "../../config.json";
 import {
   CalendarContent,
   fetchProgrammesContent,
@@ -20,12 +21,24 @@ export default function Index({ events, language }: any) {
   const url = "/calendrier";
   const title = "Calendrier";
 
-  console.log("events", events, "language", language);
+  console.log("events", events);
   return (
     <div>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
+      <BasicMeta
+        url={url}
+        title={title}
+        description={meta.calendrier_description_fr}
+      />
+      <OpenGraphMeta
+        url={url}
+        title={title}
+        description={meta.calendrier_description_fr}
+      />
+      <TwitterCardMeta
+        url={url}
+        title={title}
+        description={meta.calendrier_description_fr}
+      />
       <CalendarList events={events} />
     </div>
   );

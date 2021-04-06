@@ -43,7 +43,6 @@ export type CalendarContent = {
 let programmeCache: any;
 
 export function fetchProgrammesContent(locale: string): any {
-  console.log("fetchProgrammesContent locale", locale);
   if (programmeCache) {
     return programmeCache;
   }
@@ -57,8 +56,6 @@ export function fetchProgrammesContent(locale: string): any {
   }
 
   const fileNames = fs.readdirSync(directory);
-  console.log("filenames", fileNames);
-
   if (fileNames && fileNames.length) {
     const allProgData = fileNames
       .filter((it) => it.endsWith(".mdx"))
@@ -102,8 +99,6 @@ export function fetchProgrammesContent(locale: string): any {
 let calendarCache: CalendarContent[];
 
 export function findCalendarContent(programmes: any): any {
-  console.log("findCalendarContent", programmes);
-
   if (programmeCache) {
     calendarCache = programmeCache.map((item) => {
       const result = {
@@ -128,8 +123,6 @@ export function findCalendarContent(programmes: any): any {
 }
 
 export function fetchProgrammeContent(slug: string, locale: string): any {
-  console.log("fetchProgrammeContent slug", slug, locale);
-
   let directory;
 
   if (locale === "en") {
@@ -154,9 +147,7 @@ export function fetchProgrammeContent(slug: string, locale: string): any {
           },
         });
         const matterData = matterResult.data;
-        console.log("matterdata", matterData);
         if (matterData.slug === slug) {
-          console.log("matterdata", matterData);
           data = matterData;
         }
       });

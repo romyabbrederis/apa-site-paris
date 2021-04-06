@@ -26,8 +26,6 @@ export default function Menu() {
     });
   }, []);
 
-  console.log("mobile", mobileDevice);
-
   const mobileMenu = (
     <div className={"mobile-container"}>
       <div className={"top-part"}>
@@ -232,18 +230,24 @@ export default function Menu() {
           </a>
         </Link>
         {mobileDevice ? (
-          <img
-            className={"burger"}
-            src="/icons/menu.png"
-            onClick={() => setMenuOpen(true)}
-          />
+          <>
+            <h4 className={"menu-title"}>
+              {pathname.split("/")[1].toUpperCase()}
+            </h4>
+            <img
+              className={"burger"}
+              src="/icons/menu.png"
+              onClick={() => setMenuOpen(true)}
+            />
+          </>
         ) : (
           <>
             {menus.map((item, i) => (
               <Link key={item.slug} href={item.slug}>
                 <a
                   className={
-                    page === item.name.replace(/\s+/g, "-").toLowerCase()
+                    pathname.split("/")[1] ===
+                    item.name.replace(/\s+/g, "-").toLowerCase()
                       ? "current-menu"
                       : "non-current-menu"
                   }
@@ -285,6 +289,13 @@ export default function Menu() {
           width: 20px;
         }
         @media (max-width: 800px) {
+          .menu-title {
+            position: fixed;
+            top: -5px;
+            right: 80px;
+            color: #ffd506;
+          }
+
           .burger {
             position: fixed;
             right: 10px;
@@ -297,7 +308,7 @@ export default function Menu() {
             width: 120px;
             position: fixed;
             left: 0;
-            top: 0;
+            top: -3px;
             cursor: pointer;
           }
 

@@ -28,7 +28,6 @@ export type ImgContent = {
 let articleCache: any;
 
 export function fetchArticlesContent(locale: string): any {
-  console.log("locale", locale);
   if (articleCache) {
     return articleCache;
   }
@@ -50,7 +49,6 @@ export function fetchArticlesContent(locale: string): any {
       .map((fileName) => {
         const fullPath = path.join(directory, fileName);
         const fileContents = fs.readFileSync(fullPath, "utf8");
-        console.log("filecontents", fileContents);
         const matterResult = matter(fileContents, {
           engines: {
             yaml: (s) =>
@@ -77,8 +75,6 @@ export function fetchArticlesContent(locale: string): any {
 }
 
 export function fetchArticleContent(slug: string, locale: string): any {
-  console.log("slug", slug, locale);
-
   let directory;
 
   if (locale === "en") {

@@ -6,6 +6,7 @@ import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import ArticleList from "../components/ArticleList";
 import config from "../lib/config";
 import { ArticleContent, fetchArticlesContent } from "../lib/articles";
+import meta from "../../config.json";
 
 type Props = {
   articles: ArticleContent[];
@@ -16,12 +17,24 @@ export default function Index({ articles, language }: Props) {
   const url = "/actualites";
   const title = "Actualités";
 
-  console.log("articles", articles, language);
+  console.log("articles", articles);
   return (
     <div>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
+      <BasicMeta
+        url={url}
+        title={title}
+        description={meta.calendrier_description_fr}
+      />
+      <OpenGraphMeta
+        url={url}
+        title={title}
+        description={meta.calendrier_description_fr}
+      />
+      <TwitterCardMeta
+        url={url}
+        title={title}
+        description={meta.calendrier_description_fr}
+      />
       <ArticleList articles={articles} />
     </div>
   );

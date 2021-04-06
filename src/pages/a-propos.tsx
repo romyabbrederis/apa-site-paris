@@ -7,6 +7,7 @@ import { AboutContent, getAboutPage } from "../lib/abouts";
 import About from "../components/pages/About";
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
+import meta from "../../config.json";
 
 type Props = {
   data: AboutContent;
@@ -20,15 +21,27 @@ export default function Index({ data, mdxSource, language }: Props) {
   const url = "/a-propos";
   const title = data.title;
 
-  console.log("data", data, mdxSource, language);
+  console.log("data", data);
 
   const content = hydrate(mdxSource, { components });
 
   return (
     <div>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
+      <BasicMeta
+        url={url}
+        title={title}
+        description={meta.apropos_description_fr}
+      />
+      <OpenGraphMeta
+        url={url}
+        title={title}
+        description={meta.apropos_description_fr}
+      />
+      <TwitterCardMeta
+        url={url}
+        title={title}
+        description={meta.apropos_description_fr}
+      />
       <About data={data} content={content} />
     </div>
   );

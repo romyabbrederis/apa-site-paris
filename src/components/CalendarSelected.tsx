@@ -27,12 +27,6 @@ const CalendarSelected = ({ event }: Props): any => {
   const { pathname } = router;
   const [showMore, setShowMore] = useState(undefined);
 
-  // useEffect(() => {
-  //   if (event && galleries.length) {
-  //     extractLink(galleries[0].map, galleries[0].slug);
-  //   }
-  // }, [galleries]);
-
   useEffect(() => {
     if (showMore) {
       const result = findMap(showMore);
@@ -40,7 +34,6 @@ const CalendarSelected = ({ event }: Props): any => {
       setGalMap(map);
     }
   }, [showMore]);
-  console.log("showmore", showMore);
 
   return event ? (
     <div className={"layout-container"} style={{ backgroundColor: "#F2F2F2" }}>
