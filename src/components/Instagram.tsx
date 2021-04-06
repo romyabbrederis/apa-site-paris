@@ -1,6 +1,7 @@
 import React from "react";
 import Instagram from "instagram-web-api";
 import ActionButton from "./ActionButton";
+import Image from "next/image";
 
 export default function InstagramFeed({ instagramPosts }: any): any {
   return instagramPosts ? (
@@ -23,12 +24,9 @@ export default function InstagramFeed({ instagramPosts }: any): any {
               <img
                 className={"insta-images"}
                 src={node.thumbnail_src}
-                alt={
-                  // the caption with hashtags removed
-                  node.edge_media_to_caption.edges[0].node.text
-                    .replace(/(#\w+)+/g, "")
-                    .trim()
-                }
+                alt={node.edge_media_to_caption.edges[0].node.text
+                  .replace(/(#\w+)+/g, "")
+                  .trim()}
               />
             </a>
           ))}

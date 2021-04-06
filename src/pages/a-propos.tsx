@@ -36,7 +36,7 @@ export default function Index({ data, mdxSource, language }: Props) {
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const data = getAboutPage("en");
+  const data = getAboutPage(locale);
   const mdxSource = await renderToString(data.text, { components });
   const language = locale || null;
   return {

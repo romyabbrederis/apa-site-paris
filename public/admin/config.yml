@@ -308,7 +308,7 @@ collections:
       - label: "Slug / URL"
         name: "slug"
         widget: "string"
-        i18n: true
+        i18n: duplicate
         pattern:
           [
             "^[a-z0-9]+(?:-[a-z0-9]+)*$",
@@ -396,6 +396,7 @@ collections:
         widget: "relation"
         collection: "programme"
         required: false
+        i18n: duplicate
         search_fields: ["slug"]
         value_field: "slug"
         display_fields: ["slug"]
@@ -698,9 +699,9 @@ collections:
     extension: "mdx"
     format: "frontmatter"
     create: true
-    slug: "{{slug}}"
-    identifier_field: slug
-    summary: "{{title}}"
+    slug: "{{body}}"
+    identifier_field: body
+    summary: "{{body}}"
     fields:
       - label: "Body"
         name: "body"
@@ -713,9 +714,9 @@ collections:
     extension: "mdx"
     format: "frontmatter"
     create: true
-    slug: "{{slug}}"
-    identifier_field: slug
-    summary: "{{title}}"
+    slug: "{{body}}"
+    identifier_field: body
+    summary: "{{body}}"
     fields:
       - label: "Body"
         name: "body"

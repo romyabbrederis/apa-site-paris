@@ -30,7 +30,7 @@ export default function Index({ articles, language }: Props) {
 export const getStaticProps = async (context) => {
   const { locale } = context;
 
-  const articles = fetchArticlesContent("fr");
+  const articles = fetchArticlesContent(locale);
   const language = locale || null;
   return {
     props: {

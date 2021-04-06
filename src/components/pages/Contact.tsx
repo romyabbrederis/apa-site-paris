@@ -1,6 +1,7 @@
 import { ContactContent } from "../../lib/contacts";
 import { COLOR_GREY } from "../../../public/styles/general";
 import Link from "next/link";
+import Image from "next/image";
 
 type Props = {
   data: ContactContent;
@@ -33,7 +34,14 @@ export default function Contact({ data }: Props) {
               ))}
             </div>
           </div>
-          <img className={"photo"} src={photo} />
+          <Image
+            className={"photo"}
+            src={photo}
+            width={500}
+            height={200}
+            objectFit="contain"
+            layout="intrinsic"
+          />
         </div>
         <div className={"legales"}>
           <Link href={"/protection-donnees-personnelles"}>

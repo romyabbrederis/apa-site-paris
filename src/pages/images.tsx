@@ -14,15 +14,15 @@ export default function Images({ instagramPosts }: any): any {
       <BasicMeta url={url} title={title} />
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
-      {/* <InstagramFeed instagramPosts={instagramPosts} /> */}
+      <InstagramFeed instagramPosts={instagramPosts} />
     </div>
   );
 }
 
 export async function getStaticProps(context) {
   const client = new Instagram({
-    username: "hi",
-    password: "you",
+    username: process.env.IG_USERNAME,
+    password: process.env.IG_PASSWORD,
   });
 
   let posts = [];
@@ -30,7 +30,7 @@ export async function getStaticProps(context) {
     await client.login();
     // request photos for a specific instagram user
     const instagram = await client.getPhotosByUsername({
-      username: "hi",
+      username: process.env.IG_USERNAME,
     });
 
     if (instagram["user"]["edge_owner_to_timeline_media"]["count"] > 0) {

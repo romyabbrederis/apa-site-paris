@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { COLOR_YELLOW } from "../../public/styles/general";
+import Image from "next/image";
 
 export default function Menu() {
   const menus = getMenu("fr");
@@ -18,7 +19,7 @@ export default function Menu() {
   }, [pathname]);
 
   useEffect(() => {
-    const windowSize = window.matchMedia("(max-width: 769px)");
+    const windowSize = window.matchMedia("(max-width: 800px)");
     setMobilDevice(windowSize.matches);
     window.addEventListener("resize", function () {
       setMobilDevice(windowSize.matches);
@@ -31,17 +32,26 @@ export default function Menu() {
     <div className={"mobile-container"}>
       <div className={"top-part"}>
         <Link href={"/"}>
-          <img
-            src={"../../logo.png"}
-            className={"mobile-logo-menu"}
+          <a className={"mobile-logo-menu"}>
+            <Image
+              src={"/logo.png"}
+              layout="intrinsic"
+              width={200}
+              height={80}
+              objectFit="contain"
+              onClick={() => setMenuOpen(false)}
+            />
+          </a>
+        </Link>
+        <div className={"close-icon"}>
+          <Image
+            src="/icons/close.png"
+            width={30}
+            height={30}
+            objectFit="contain"
             onClick={() => setMenuOpen(false)}
           />
-        </Link>
-        <img
-          src="../../icons/close.png"
-          className={"close-icon"}
-          onClick={() => setMenuOpen(false)}
-        />
+        </div>
       </div>
 
       {menus.map((item, i) => (
@@ -56,20 +66,26 @@ export default function Menu() {
           href="https://www.instagram.com/residence.vaduz/?hl=en"
           target="_blank"
         >
-          <img
-            src="../../icons/facebook.png"
+          <Image
+            src="/icons/facebook.png"
             alt="facebook"
             className="icons"
+            width={40}
+            height={20}
+            objectFit="contain"
           />
         </a>
         <a
           href="https://www.instagram.com/residence.vaduz/?hl=en"
           target="_blank"
         >
-          <img
-            src="../../icons/instagram.png"
+          <Image
+            src="/icons/instagram.png"
             alt="instagram"
             className="icons"
+            width={40}
+            height={20}
+            objectFit="contain"
           />
         </a>
       </div>
@@ -167,7 +183,7 @@ export default function Menu() {
           text-transform: uppercase;
           color: black;
           letter-spacing: 2px;
-          font-weight: 700;
+          font-weight: 600;
         }
 
         .close-icon {
@@ -204,20 +220,27 @@ export default function Menu() {
       {menuOpen ? mobileMenu : null}
       <div className={"container"}>
         <Link href="/">
-          <a>
-            <img src={"../../logo.png"} className={"logo"} />
+          <a className={"logo"}>
+            <Image
+              src={"/logo.png"}
+              layout="intrinsic"
+              width={200}
+              height={80}
+              objectFit="contain"
+              alt="logo"
+            />
           </a>
         </Link>
         {mobileDevice ? (
           <img
             className={"burger"}
-            src="../../icons/menu.png"
+            src="/icons/menu.png"
             onClick={() => setMenuOpen(true)}
           />
         ) : (
           <>
             {menus.map((item, i) => (
-              <Link key={item.slug} href={item.slug} className={"menu"}>
+              <Link key={item.slug} href={item.slug}>
                 <a
                   className={
                     page === item.name.replace(/\s+/g, "-").toLowerCase()
@@ -234,8 +257,10 @@ export default function Menu() {
               href="https://www.instagram.com/residence.vaduz/?hl=en"
               target="_blank"
             >
-              <img
-                src="../../icons/facebook.png"
+              <Image
+                width={25}
+                height={25}
+                src="/icons/facebook.png"
                 alt="facebook"
                 className="icons"
               />
@@ -244,8 +269,10 @@ export default function Menu() {
               href="https://www.instagram.com/residence.vaduz/?hl=en"
               target="_blank"
             >
-              <img
-                src="../../icons/instagram.png"
+              <Image
+                width={25}
+                height={25}
+                src="/icons/instagram.png"
                 alt="instagram"
                 className="icons"
               />
@@ -257,7 +284,7 @@ export default function Menu() {
         .icons {
           width: 20px;
         }
-        @media (max-width: 769px) {
+        @media (max-width: 800px) {
           .burger {
             position: fixed;
             right: 10px;
@@ -342,7 +369,7 @@ export default function Menu() {
             text-transform: uppercase;
             color: black;
             letter-spacing: 2px;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 14px;
           }
 

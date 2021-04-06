@@ -1,5 +1,6 @@
 import { AboutContent } from "../../lib/abouts";
 import { COLOR_YELLOW } from "../../../public/styles/general";
+import Image from "next/image";
 
 type Props = {
   data: AboutContent;
@@ -17,7 +18,14 @@ export default function About({ data, content }: Props) {
       <div className={"inner-container"}>
         <div className={"headline-container"}>
           <h1 className={"extreme-title"}>{title}</h1>
-          <img src={logo} className={"logo"} />
+          <Image
+            src={logo}
+            className={"logo"}
+            width={30}
+            height={30}
+            objectFit="contain"
+            layout="intrinsic"
+          />
         </div>
         <p>{content}</p>
 
@@ -25,9 +33,13 @@ export default function About({ data, content }: Props) {
         <div className={"partners-container"}>
           {partners.map((item, i) => (
             <a key={item.link} href={item.link} target="_blank">
-              <img
-                src={"../../.." + item.partner}
+              <Image
+                src={item.partner}
                 className={"partner-image"}
+                width={200}
+                height={200}
+                objectFit="contain"
+                layout="intrinsic"
               />
               <p>{item.name}</p>
             </a>

@@ -6,6 +6,7 @@ import { renderProgrammes } from "../utils/renderProgrammes";
 import CalendarSelected from "./CalendarSelected";
 import Link from "next/link";
 import { getLocale } from "../utils/localeChecker";
+import Image from "next/image";
 
 type Props = {
   events: any;
@@ -55,8 +56,15 @@ export default function CalendarsList({ events }: Props): any {
                 <h3 key={i} className={"title"}>
                   {item.title}
                 </h3>
-
-                <img src="../../icons/add.png" className={"down-icon"} />
+                <div className={"down-icon"}>
+                  <Image
+                    src="/icons/add.png"
+                    width={30}
+                    height={30}
+                    layout="intrinsic"
+                    alt="icon"
+                  />
+                </div>
               </div>
             </Link>
           ))}

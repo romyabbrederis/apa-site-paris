@@ -16,7 +16,7 @@ type Props = {
   language: any;
 };
 
-export default function Index({ events, language }: Props) {
+export default function Index({ events, language }: any) {
   const url = "/calendrier";
   const title = "Calendrier";
 
@@ -33,7 +33,7 @@ export default function Index({ events, language }: Props) {
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const programmes = fetchProgrammesContent("fr") || [];
+  const programmes = fetchProgrammesContent(locale) || [];
   const events = findCalendarContent(programmes) || [];
   const language = locale || null;
   return {

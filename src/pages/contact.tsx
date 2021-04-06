@@ -28,7 +28,7 @@ export default function Index({ data, language }: Props) {
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const data = getContactPage("fr");
+  const data = getContactPage(locale);
   const language = locale || null;
   return {
     props: {

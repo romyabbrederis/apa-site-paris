@@ -4,6 +4,7 @@ import ActionButton from "./ActionButton";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { COLOR_YELLOW } from "../../public/styles/general";
+import Image from "next/image";
 
 type Props = {
   programme: ProgrammeContent;
@@ -30,11 +31,15 @@ export default function ProgrammeSelected({ programme }: Props): any {
               />
             </div>
           ) : null}
-          <img
-            onClick={() => router.back()}
-            src="../../icons/close.png"
-            className={"close-icon"}
-          />
+          <div className={"close-icon"}>
+            <Image
+              onClick={() => router.back()}
+              src="/icons/close.png"
+              width={30}
+              height={30}
+              objectFit="contain"
+            />
+          </div>
           <p>{programme.description}</p>
           {/* {programme && programme.category ? (
             <p>Type: {programme.category}</p>
@@ -44,35 +49,63 @@ export default function ProgrammeSelected({ programme }: Props): any {
             ? programme.galleries
                 .sort((a, b) => a.start - b.start)
                 .map((item, index) => (
-                  <Link key={item.slug} href={"/calendrier/" + programme.slug}>
-                    <div className={"gallery-dates"}>
+                  <div className={"gallery-dates"}>
+                    <Link
+                      key={item.slug}
+                      href={"/calendrier/" + programme.slug}
+                    >
                       <h5 key={index}>{item.date}</h5>
-                      <div key={index}>
-                        <h5>{item.galleries}</h5>
-                        {item.artist && !item.articleRelation ? (
+                    </Link>
+                    <div key={index}>
+                      <Link
+                        key={item.slug}
+                        href={"/calendrier/" + programme.slug}
+                      >
+                        <h5>
+                          {item.galleries}{" "}
+                          <Image
+                            src={"/icons/external-link.png"}
+                            width={50}
+                            height={20}
+                            objectFit="contain"
+                          />{" "}
+                        </h5>
+                      </Link>
+                      {item.artist && !item.articleRelation ? (
+                        <a>
                           <p>Artist: {item.artist}</p>
-                        ) : null}
+                        </a>
+                      ) : null}
 
-                        {item.artist && item.articleRelation ? (
-                          <Link href={"/actualites/" + item.articleRelation}>
-                            <a className={"artist-exists"}>
-                              <p>
-                                Artist: {item.artist}{" "}
-                                <img src={"../../icons/external-link.png"} />{" "}
-                              </p>
-                            </a>
-                          </Link>
-                        ) : null}
-                      </div>
-                      <hr />
+                      {item.artist && item.articleRelation ? (
+                        <Link href={"/actualites/" + item.articleRelation}>
+                          <a className={"artist-exists"}>
+                            <p>
+                              Artist: {item.artist}{" "}
+                              <Image
+                                src={"/icons/external-link.png"}
+                                width={50}
+                                height={20}
+                                objectFit="contain"
+                              />{" "}
+                            </p>
+                          </a>
+                        </Link>
+                      ) : null}
                     </div>
-                  </Link>
+                    <hr />
+                  </div>
                 ))
             : null}
 
           <style jsx>{`
             .programme-selected-container {
               position: relative;
+            }
+
+            .link-icon {
+              width: 20px;
+              margin-left: 10px;
             }
 
             @media (max-width: 769px) {
@@ -115,6 +148,7 @@ export default function ProgrammeSelected({ programme }: Props): any {
 
               .artist-exists img {
                 width: 20px;
+                margin-left: 10px;
               }
 
               .close-icon {

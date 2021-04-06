@@ -14,9 +14,15 @@ type Props = {
   data: HomeContent;
   programmes: any;
   language: any;
+  mailchimp: string;
 };
 
-export default function Index({ data, programmes, language }: Props) {
+export default function Index({
+  data,
+  programmes,
+  language,
+  mailchimp,
+}: Props) {
   const url = "/";
   const title = "Home";
 
@@ -27,21 +33,23 @@ export default function Index({ data, programmes, language }: Props) {
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
       <Home data={data} programmes={programmes} />
-      <Newsletter />
+      <Newsletter mailchimp={mailchimp} />
     </div>
   );
 }
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const programmes = fetchProgrammesContent("fr").slice(0, 3) || {};
-  const data = getHomePage("fr") || null;
+  const programmes = fetchProgrammesContent(locale).slice(0, 3) || {};
+  const data = getHomePage(locale) || null;
   const language = locale || null;
+  const mailchimp = process.env.MAILCHIMP;
   return {
     props: {
       data,
       programmes,
       language,
+      mailchimp,
     },
   };
 };

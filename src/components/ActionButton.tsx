@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { COLOR_YELLOW } from "../../public/styles/general";
 import Link from "next/link";
+import Image from "next/image";
 
 const ActionButton = ({ title, url, type }: any) => {
   const [returnStatement, setReturnStatement] = useState();
   const PDFComponent = (
     <a href={url} download>
-      {title} <img src={"../../icons/download.png"} className={"icon-button"} />
+      {title}{" "}
+      <Image
+        src={"/icons/download.png"}
+        className={"icon-button"}
+        alt="icon"
+        width={20}
+        height={20}
+      />
       <style jsx>{`
         .icon-button {
           width: 20px;
@@ -20,7 +28,13 @@ const ActionButton = ({ title, url, type }: any) => {
     <Link href={url}>
       <a>
         {title}
-        <img src={"../../icons/external-link.png"} className={"icon-button"} />
+        <Image
+          src={"/icons/external-link.png"}
+          className={"icon-button"}
+          alt="icon"
+          width={20}
+          height={20}
+        />
         <style jsx>{`
           .icon-button {
             width: 20px;
@@ -34,7 +48,13 @@ const ActionButton = ({ title, url, type }: any) => {
   const ExternalComponent = (
     <a href={url} target="_blank">
       {title}
-      <img src={"../../icons/external-link.png"} className={"icon-button"} />
+      <Image
+        src={"/icons/external-link.png"}
+        className={"icon-button"}
+        alt="icon"
+        width={20}
+        height={20}
+      />
       <style jsx>{`
         .icon-button {
           width: 20px;

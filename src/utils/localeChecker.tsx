@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 export const getLocale = () => {
   const router = useRouter();
-  const { pathname } = router;
+  const { pathname, locale } = router;
   console.log("pathname", pathname);
-  return pathname + "/";
+  return locale + pathname + "/";
 };

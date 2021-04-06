@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { COLOR_YELLOW } from "../../public/styles/general";
 import { getLocale } from "../utils/localeChecker";
+import Image from "next/image";
 
 type Props = {
   articles: ArticleContent[];
@@ -21,10 +22,14 @@ export default function ArticlesList({ articles }: Props): any {
           {articles.map((item, i) => (
             <Link key={item.slug} href={getLocale() + item.slug}>
               <div key={i} className={"article"}>
-                <img
+                <Image
                   src={item.image}
                   alt={item.title}
                   className={"article-image"}
+                  width={250}
+                  height={250}
+                  layout="intrinsic"
+                  objectFit="cover"
                 />
                 <div>
                   <h3>{item.title}</h3>

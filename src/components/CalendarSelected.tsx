@@ -5,6 +5,7 @@ import ActionButton from "./ActionButton";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { getLocale } from "../utils/localeChecker";
+import Image from "next/image";
 
 type Props = {
   event: any;
@@ -45,11 +46,16 @@ const CalendarSelected = ({ event }: Props): any => {
     <div className={"layout-container"} style={{ backgroundColor: "#F2F2F2" }}>
       <div className={"inner-container"}>
         <div className={"calendar-container"}>
-          <img
-            className={"close-icon"}
-            src="../../icons/close.png"
-            onClick={() => router.back()}
-          />
+          <div className={"close-icon"}>
+            <Image
+              src="/icons/close.png"
+              width={30}
+              height={30}
+              objectFit="contain"
+              layout="intrinsic"
+              onClick={() => router.back()}
+            />
+          </div>
           <div className={"modal-container"}>
             <h3 className={"text"}>{month}</h3>
           </div>
@@ -71,25 +77,35 @@ const CalendarSelected = ({ event }: Props): any => {
                   }
                 >
                   {item.galleries === showMore ? (
-                    <img
-                      className={"down-arrow-open"}
-                      src={`../../icons/down-arrow.png`}
-                      onClick={() =>
-                        setShowMore(
-                          item.galleries !== showMore ? item.galleries : ""
-                        )
-                      }
-                    />
+                    <div className={"down-arrow-open"}>
+                      <Image
+                        src={`/icons/down-arrow.png`}
+                        width={30}
+                        height={30}
+                        objectFit="contain"
+                        layout="intrinsic"
+                        onClick={() =>
+                          setShowMore(
+                            item.galleries !== showMore ? item.galleries : ""
+                          )
+                        }
+                      />
+                    </div>
                   ) : (
-                    <img
-                      className={"down-arrow-close"}
-                      src={`../../icons/down-arrow-white.png`}
-                      onClick={() =>
-                        setShowMore(
-                          item.galleries !== showMore ? item.galleries : ""
-                        )
-                      }
-                    />
+                    <div className={"down-arrow-close"}>
+                      <Image
+                        src={`/icons/down-arrow-white.png`}
+                        width={30}
+                        height={30}
+                        objectFit="contain"
+                        layout="intrinsic"
+                        onClick={() =>
+                          setShowMore(
+                            item.galleries !== showMore ? item.galleries : ""
+                          )
+                        }
+                      />
+                    </div>
                   )}
 
                   <div className={"date-name-container"}>
@@ -146,6 +162,7 @@ const CalendarSelected = ({ event }: Props): any => {
                         url={getSlug(item.galleries).website}
                         type={"external"}
                       />
+
                       {item.article ? (
                         <ActionButton
                           title={"article"}

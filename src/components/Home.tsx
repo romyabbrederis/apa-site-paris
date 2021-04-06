@@ -28,7 +28,7 @@ const Home = ({ data, programmes }) => {
   // const link_fr = "/galerie/";
 
   useEffect(() => {
-    const windowSize = window.matchMedia("(max-width: 640px)");
+    const windowSize = window.matchMedia("(max-width: 900px)");
     setMobilDevice(windowSize.matches);
     window.addEventListener("resize", function () {
       setMobilDevice(windowSize.matches);
@@ -85,7 +85,6 @@ const Home = ({ data, programmes }) => {
           <div className={"title"}>
             <h1> {brtitle}</h1>
           </div>
-          {/* <img className={"image"} /> */}
         </div>
       </Link>
 
@@ -198,7 +197,7 @@ const Home = ({ data, programmes }) => {
           }
         }
 
-        @media (max-width: 769px) {
+        @media (max-width: 900px) {
           .container {
             display: grid;
             grid-template-columns: 50% 50%;
@@ -369,7 +368,7 @@ const Home = ({ data, programmes }) => {
           }
         }
 
-        @media (min-width: 769px) {
+        @media (min-width: 900px) {
           .container {
             display: grid;
             grid-template-columns: 20% 20% 20% 20% 20%;

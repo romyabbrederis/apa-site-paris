@@ -3,8 +3,9 @@ import MailchimpSubscribe from "react-mailchimp-subscribe";
 import Head from "next/head";
 import { COLOR_YELLOW } from "../../public/styles/general";
 import { NONAME } from "dns";
+import Image from "next/image";
 
-const Newsletter = (): any => {
+const Newsletter = ({ mailchimp }): any => {
   const [email, setEmail] = useState("");
   const [openNewsletter, setOpenNewsletter] = useState(false);
 
@@ -25,12 +26,17 @@ const Newsletter = (): any => {
       </Head>
 
       <div id="mc_embed_signup">
-        <img
-          src={"../../icons/close.png"}
-          alt="close icon"
-          className="close-icon"
-          onClick={() => setOpenNewsletter(false)}
-        />
+        <div className="close-icon">
+          <Image
+            src={"/icons/close.png"}
+            alt="close icon"
+            onClick={() => setOpenNewsletter(false)}
+            width={30}
+            height={30}
+            layout="intrinsic"
+            objectFit="contain"
+          />
+        </div>
         <form
           action={process.env.mailchimp}
           method="post"

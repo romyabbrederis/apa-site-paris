@@ -6,6 +6,7 @@ import { COLOR_GREY } from "../../public/styles/general";
 import ActionButton from "./ActionButton";
 import { getSlug } from "../lib/galleries";
 import { fetchProgrammeContent } from "../lib/programmes";
+import Image from "next/image";
 
 type Props = {
   article: any;
@@ -53,7 +54,15 @@ export default function Article({ article, content }: Props): any {
         <div className={"article"}>
           <div />
           <div>
-            <img src={article.image} className={"article-title-image"} />
+            <div className={"article-title-image"}>
+              <Image
+                src={article.image}
+                layout="intrinsic"
+                width={600}
+                height={800}
+                objectFit="contain"
+              />
+            </div>
             {mobileDevice ? null : ArticleInfo}
           </div>
           <div className={"article-text-container"}>
@@ -63,7 +72,14 @@ export default function Article({ article, content }: Props): any {
               {article.Images
                 ? article.Images.map((item) => (
                     <div key={item.credit} className={"article-image"}>
-                      <img src={item.articleImg} alt={item.credit} />
+                      <Image
+                        src={item.articleImg}
+                        alt={item.credit}
+                        layout="intrinsic"
+                        width={500}
+                        height={300}
+                        objectFit="contain"
+                      />
                       <p>{item.credit}</p>
                     </div>
                   ))
@@ -82,7 +98,6 @@ export default function Article({ article, content }: Props): any {
 
           .article-title-image {
             width: 100%;
-            object-fit: contain;
           }
 
           .article-text-container {
@@ -124,9 +139,7 @@ export default function Article({ article, content }: Props): any {
           }
 
           .article-title-image {
-            overflow: hidden;
             width: 100%;
-            object-fit: contain;
             margin-top: 30px;
           }
 

@@ -36,8 +36,8 @@ export default function Index({ programme, language, params }: Props) {
   );
 }
 
-export async function getStaticPaths() {
-  const programmes = fetchProgrammesContent("fr");
+export async function getStaticPaths({ locale }) {
+  const programmes = fetchProgrammesContent(locale);
   const paths = programmes.map((item) => ({
     params: { path: item.slug },
   }));
@@ -45,7 +45,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async ({ params, locale }) => {
-  const programme = fetchProgrammeContent(params.path, "fr");
+  const programme = fetchProgrammeContent(params.path, locale);
   const language = locale || null;
   return {
     props: {
