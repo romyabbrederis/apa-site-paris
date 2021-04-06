@@ -25,7 +25,10 @@ export default function About({ data, content }: Props) {
         <div className={"partners-container"}>
           {partners.map((item, i) => (
             <a key={item.link} href={item.link} target="_blank">
-              <img src={item.partner} className={"partner-image"} />
+              <img
+                src={"../../.." + item.partner}
+                className={"partner-image"}
+              />
               <p>{item.name}</p>
             </a>
           ))}
