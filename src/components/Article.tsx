@@ -37,12 +37,7 @@ export default function Article({ article, content }: Props): any {
               target="_blank"
             >
               <p>
-                <Image
-                  src={"/icons/external-link.png"}
-                  width={50}
-                  height={20}
-                  objectFit="contain"
-                />
+                <img src={"/icons/external-link.png"} />
                 {item.galleries}{" "}
               </p>
             </a>
@@ -52,12 +47,7 @@ export default function Article({ article, content }: Props): any {
       <Link href={"/programme/" + article.programme}>
         <a>
           <p>
-            <Image
-              src={"/icons/external-link.png"}
-              width={50}
-              height={20}
-              objectFit="contain"
-            />
+            <img src={"/icons/external-link.png"} />
             Program associe
           </p>
         </a>
@@ -73,13 +63,7 @@ export default function Article({ article, content }: Props): any {
           <div />
           <div>
             <div className={"article-title-image"}>
-              <Image
-                src={article.image}
-                layout="intrinsic"
-                width={600}
-                height={800}
-                objectFit="contain"
-              />
+              <img src={article.image} className={"article-title-image"} />
             </div>
             {mobileDevice ? null : ArticleInfo}
           </div>
@@ -90,14 +74,7 @@ export default function Article({ article, content }: Props): any {
               {article.Images
                 ? article.Images.map((item) => (
                     <div key={item.credit} className={"article-image"}>
-                      <Image
-                        src={item.articleImg}
-                        alt={item.credit}
-                        layout="intrinsic"
-                        width={500}
-                        height={300}
-                        objectFit="contain"
-                      />
+                      <img src={item.articleImg} alt={item.credit} />
                       <p>{item.credit}</p>
                     </div>
                   ))

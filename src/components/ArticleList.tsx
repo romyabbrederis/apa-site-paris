@@ -22,14 +22,10 @@ export default function ArticlesList({ articles }: Props): any {
           {articles.map((item, i) => (
             <Link key={item.slug} href={getLocale() + item.slug}>
               <div key={i} className={"article"}>
-                <Image
+                <img
                   src={item.image}
                   alt={item.title}
                   className={"article-image"}
-                  width={250}
-                  height={250}
-                  layout="intrinsic"
-                  objectFit="cover"
                 />
                 <div>
                   <h3>{item.title}</h3>

@@ -8,7 +8,7 @@ const ActionButton = ({ title, url, type }: any) => {
   const PDFComponent = (
     <a href={url} download>
       {title}{" "}
-      <Image
+      <img
         src={"/icons/download.png"}
         className={"icon-button"}
         alt="icon"
@@ -28,7 +28,7 @@ const ActionButton = ({ title, url, type }: any) => {
     <Link href={url}>
       <a>
         {title}
-        <Image
+        <img
           src={"/icons/external-link.png"}
           className={"icon-button"}
           alt="icon"
@@ -48,7 +48,7 @@ const ActionButton = ({ title, url, type }: any) => {
   const ExternalComponent = (
     <a href={url} target="_blank">
       {title}
-      <Image
+      <img
         src={"/icons/external-link.png"}
         className={"icon-button"}
         alt="icon"

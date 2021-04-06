@@ -56,15 +56,7 @@ export default function CalendarsList({ events }: Props): any {
                 <h3 key={i} className={"title"}>
                   {item.title}
                 </h3>
-                <div className={"down-icon"}>
-                  <Image
-                    src="/icons/add.png"
-                    width={30}
-                    height={30}
-                    layout="intrinsic"
-                    alt="icon"
-                  />
-                </div>
+                <img src="/icons/add.png" alt="icon" className={"down-icon"} />
               </div>
             </Link>
           ))}

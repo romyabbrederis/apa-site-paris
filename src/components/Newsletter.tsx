@@ -27,14 +27,10 @@ const Newsletter = ({ mailchimp }): any => {
 
       <div id="mc_embed_signup">
         <div className="close-icon">
-          <Image
+          <img
             src={"/icons/close.png"}
             alt="close icon"
             onClick={() => setOpenNewsletter(false)}
-            width={30}
-            height={30}
-            layout="intrinsic"
-            objectFit="contain"
           />
         </div>
         <form

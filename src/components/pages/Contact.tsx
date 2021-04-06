@@ -34,14 +34,7 @@ export default function Contact({ data }: Props) {
               ))}
             </div>
           </div>
-          <Image
-            className={"photo"}
-            src={photo}
-            width={500}
-            height={200}
-            objectFit="contain"
-            layout="intrinsic"
-          />
+          <img className={"photo"} src={photo} />
         </div>
         <div className={"legales"}>
           <Link href={"/protection-donnees-personnelles"}>

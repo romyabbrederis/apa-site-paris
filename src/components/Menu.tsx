@@ -30,26 +30,19 @@ export default function Menu() {
     <div className={"mobile-container"}>
       <div className={"top-part"}>
         <Link href={"/"}>
-          <a className={"mobile-logo-menu"}>
-            <Image
+          <a>
+            <img
+              className={"mobile-logo-menu"}
               src={"/logo.png"}
-              layout="intrinsic"
-              width={200}
-              height={80}
-              objectFit="contain"
               onClick={() => setMenuOpen(false)}
             />
           </a>
         </Link>
-        <div className={"close-icon"}>
-          <Image
-            src="/icons/close.png"
-            width={30}
-            height={30}
-            objectFit="contain"
-            onClick={() => setMenuOpen(false)}
-          />
-        </div>
+        <img
+          className={"close-icon"}
+          src="/icons/close.png"
+          onClick={() => setMenuOpen(false)}
+        />
       </div>
 
       {menus.map((item, i) => (
@@ -64,27 +57,13 @@ export default function Menu() {
           href="https://www.instagram.com/residence.vaduz/?hl=en"
           target="_blank"
         >
-          <Image
-            src="/icons/facebook.png"
-            alt="facebook"
-            className="icons"
-            width={40}
-            height={20}
-            objectFit="contain"
-          />
+          <img src="/icons/facebook.png" alt="facebook" className="icons" />
         </a>
         <a
           href="https://www.instagram.com/residence.vaduz/?hl=en"
           target="_blank"
         >
-          <Image
-            src="/icons/instagram.png"
-            alt="instagram"
-            className="icons"
-            width={40}
-            height={20}
-            objectFit="contain"
-          />
+          <img src="/icons/instagram.png" alt="instagram" className="icons" />
         </a>
       </div>
       <style jsx>{`
@@ -218,15 +197,8 @@ export default function Menu() {
       {menuOpen ? mobileMenu : null}
       <div className={"container"}>
         <Link href="/">
-          <a className={"logo"}>
-            <Image
-              src={"/logo.png"}
-              layout="intrinsic"
-              width={200}
-              height={80}
-              objectFit="contain"
-              alt="logo"
-            />
+          <a>
+            <img className={"logo"} src={"/logo.png"} alt="logo" />
           </a>
         </Link>
         {mobileDevice ? (
@@ -261,7 +233,7 @@ export default function Menu() {
               href="https://www.instagram.com/residence.vaduz/?hl=en"
               target="_blank"
             >
-              <Image
+              <img
                 width={25}
                 height={25}
                 src="/icons/facebook.png"
@@ -273,7 +245,7 @@ export default function Menu() {
               href="https://www.instagram.com/residence.vaduz/?hl=en"
               target="_blank"
             >
-              <Image
+              <img
                 width={25}
                 height={25}
                 src="/icons/instagram.png"

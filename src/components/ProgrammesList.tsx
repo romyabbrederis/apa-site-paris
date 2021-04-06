@@ -67,15 +67,11 @@ export default function ProgrammesList({ programmes }: Props): any {
                         </h4>
                         <h4>{item.title}</h4>
                         <p>{item.intro}</p>
-                        <div className={"down-icon"}>
-                          <Image
-                            width={30}
-                            height={30}
-                            objectFit="contain"
-                            layout="intrinsic"
-                            src="/icons/down.png"
-                          />
-                        </div>
+                        <img
+                          className={"down-icon"}
+                          alt="icon"
+                          src="/icons/down.png"
+                        />
                       </div>
                     </Link>
                   ) : (
@@ -88,15 +84,7 @@ export default function ProgrammesList({ programmes }: Props): any {
                           <h3>{item.title}</h3>
                         </div>
                         <p>{item.intro}</p>
-                        <div className={"down-icon"}>
-                          <Image
-                            src="/icons/down.png"
-                            width={30}
-                            height={30}
-                            objectFit="contain"
-                            layout="intrinsic"
-                          />
-                        </div>
+                        <img src="/icons/down.png" className={"down-icon"} />
                       </div>
                     </Link>
                   )}
