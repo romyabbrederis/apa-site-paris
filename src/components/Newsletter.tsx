@@ -26,13 +26,12 @@ const Newsletter = ({ mailchimp }): any => {
       </Head>
 
       <div id="mc_embed_signup">
-        <div className="close-icon">
-          <img
-            src={"/icons/close.png"}
-            alt="close icon"
-            onClick={() => setOpenNewsletter(false)}
-          />
-        </div>
+        <img
+          className="close-icon"
+          src={"/icons/close.png"}
+          alt="close icon"
+          onClick={() => setOpenNewsletter(false)}
+        />
         <form
           action={process.env.mailchimp}
           method="post"
