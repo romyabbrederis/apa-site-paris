@@ -24,14 +24,15 @@ export default function Contact({ data }: Props) {
             ))}
             <div className={"press-section"}>
               <h3>{subtitle}</h3>
-              {files.map((item) => (
-                <div key={item.name}>
-                  <p>{item.name}</p>
-                  <a href={item.file} download>
-                    Telechargez
-                  </a>
-                </div>
-              ))}
+              {files &&
+                filesfiles.map((item) => (
+                  <div key={item.name}>
+                    <p>{item.name}</p>
+                    <a href={item.file} download>
+                      Telechargez
+                    </a>
+                  </div>
+                ))}
             </div>
           </div>
           <img className={"photo"} src={photo} />

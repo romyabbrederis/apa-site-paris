@@ -69,17 +69,7 @@ export function fetchProgrammesContent(locale: string): any {
               yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
           },
         });
-        const matterData = matterResult.data as {
-          slug: string;
-          title: string;
-          month: string;
-          year: string;
-          start: string;
-          description: string;
-          type: string;
-          file: string;
-          galleries: string[];
-        };
+        const matterData = matterResult.data;
         return matterData;
       });
 
@@ -109,10 +99,10 @@ export function findCalendarContent(programmes: any): any {
         year: item.year,
         start: item.start,
         description: item.description,
-        type: item.type,
-        category: item.category,
-        file: item.file,
-        galleries: getGalleryInfos(item.galleries),
+        type: item.type && item.type,
+        category: item.category && item.category,
+        file: item.file && item.file,
+        galleries: item.galleries && getGalleryInfos(item.galleries),
       };
       return result;
     });
