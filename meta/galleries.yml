@@ -59,3 +59,41 @@ galleries:
       loading="lazy"></iframe>
     website: http://www.eric-dupont.com/
     email: "-"
+  - street: 18, rue du Moulin Joly
+    city: Paris
+    name: Galerie Anne de Villepoix
+    slug: galerie-anne-de-villepoix
+    addressAdd: ""
+    phone: (+33) 1 42 78 32 24
+    country: France
+    maps: <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10497.290276147161!2d2.3787314!3d48.871127!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x805624d83e60b904!2sAnne%20De%20Villepoix!5e0!3m2!1sfr!2sfr!4v1617787117934!5m2!1sfr!2sfr"
+      width="600" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
+    website: http://www.annedevillepoix.com/
+    email: info@annedevillepoix.com
+  - street: 4, rue Martel
+    city: Paris
+    name: Enseigne des Oudin
+    slug: enseigne-des-oudin
+    addressAdd: Cours 3, sous-sol
+    phone: (+33) 1 42 71 83 65
+    country: France
+    maps: <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10496.778799986136!2d2.3529744!3d48.8735648!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x43199b6035a7ec4a!2sEnseigne%20des%20Oudin!5e0!3m2!1sfr!2sfr!4v1617787275458!5m2!1sfr!2sfr"
+      width="600" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
+    website: https://enseignedesoudin.com/
+    email: contact@enseignedesoudin.com
+  - street: 45, rue Chapon
+    city: Paris
+    name: Galerie Anne-Sarah Bénichou
+    slug: galerie-anne-sarah-benichou
+    phone: (+33) 1 44 93 91 48
+    country: France
+    maps: <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10498.770529353165!2d2.353453!3d48.8640713!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbae7729eab40b813!2sGalerie%20Anne-Sarah%20B%C3%A9nichou!5e0!3m2!1sfr!2sfr!4v1617787424050!5m2!1sfr!2sfr"
+      width="600" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
+    website: https://annesarahbenichou.com/
+    email: galerie@annesarahbenichou.com
