@@ -256,36 +256,35 @@ collections:
       - label: "Galleries"
         name: "galleries"
         widget: list
-        # i18n: true
+        i18n: true
         required: false
         summary: "{{fields.galleries}}"
         fields:
           - label: "Galleries"
             name: "galleries"
-            widget: "relation"
-            collection: "galleries"
-            file: "galleries"
-            search_fields: ["galleries.*.name"]
-            value_field: "galleries.*.name"
-            display_fields: ["galleries.*.name"]
+            widget: "string"
+            i18n: duplicate
           - label: "Date"
             name: "date"
             widget: "string"
+            i18n: duplicate
           - label: "Start Date"
             name: "start"
             widget: "datetime"
-            i18n: duplicate
             default: ""
             date_format: "DD.MM.YYYY" # e.g. 24.12.2021
             time_format: "HH:mm" # e.g. 21:07
             format: "LLL"
+            i18n: duplicate
           - label: "Artist"
             name: "artist"
             widget: "string"
             required: false
+            i18n: duplicate
           - label: "Intro Text"
             name: "text"
             required: false
+            i18n: duplicate
           - label: "Image"
             name: "image"
             widget: "image"
@@ -294,14 +293,17 @@ collections:
             media_library:
               config:
                 max_file_size: 200000
-          - label: "Article"
+            i18n: duplicate
+          - label: "Article Slug"
             name: "articleRelation"
-            widget: "relation"
-            collection: "article"
+            widget: "string"
             required: false
-            search_fields: ["slug"]
-            value_field: "slug"
-            display_fields: ["slug"]
+            i18n: duplicate
+            pattern:
+              [
+                "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "A slug can have no spaces or special characters",
+              ]
 
   - name: "article"
     i18n: true
@@ -396,28 +398,25 @@ collections:
       - label: "Galleries"
         name: "galleries"
         widget: list
-        # i18n: true
+        i18n: true
         required: false
         summary: "{{fields.galleries}}"
         fields:
           - label: "Galleries"
             name: "galleries"
-            widget: "relation"
-            collection: "galleries"
-            file: "galleries"
-            search_fields: ["galleries.*.name"]
-            value_field: "galleries.*.name"
-            display_fields: ["galleries.*.name", "galleries.*.slug"]
+            widget: "string"
+            i18n: duplicate
 
-      - label: "Programme"
+      - label: "Programme Slug"
         name: "programme"
-        widget: "relation"
-        collection: "programme"
+        widget: "string"
         required: false
-        # i18n: duplicate
-        search_fields: ["slug"]
-        value_field: "slug"
-        display_fields: ["slug"]
+        i18n: duplicate
+        pattern:
+          [
+            "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "A slug can have no spaces or special characters",
+          ]
 
   - name: "about"
     label: "A propos"
