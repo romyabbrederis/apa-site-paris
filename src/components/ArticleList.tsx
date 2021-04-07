@@ -18,7 +18,6 @@ export default function ArticlesList({ articles }: Props): any {
     >
       <div className={"inner-container"}>
         <div className={"articles-list"}>
-          <div />
           {articles.map((item, i) => (
             <Link key={item.slug} href={"/actualites/" + item.slug}>
               <div key={i} className={"article"}>
@@ -37,7 +36,6 @@ export default function ArticlesList({ articles }: Props): any {
               </div>
             </Link>
           ))}
-          <div />
         </div>
       </div>
       <style jsx>{`
@@ -74,7 +72,7 @@ export default function ArticlesList({ articles }: Props): any {
         @media (min-width: 769px) {
           .articles-list {
             display: grid;
-            grid-template-columns: auto 500px 500px auto;
+            grid-template-columns: 500px 500px;
             grid-gap: 10px;
           }
 
