@@ -1,7 +1,7 @@
 backend:
-  name: test-repo
-  # name: git-gateway
-  # branch: master
+  # name: test-repo
+  name: git-gateway
+  branch: master
 media_folder: public/images
 public_folder: /images
 publish_mode: editorial_workflow
@@ -29,11 +29,11 @@ collections:
           - label: "Haut Gauche image"
             name: "tlimage"
             widget: "image"
-            hint: "Haut Gauche image de fond"
+            hint: "Max 300KB | Haut Gauche image de fond"
             media_library:
               config:
                 multiple: true
-                max_file_size: 400000
+                max_file_size: 300000
           - label: "Bas Gauche titre"
             name: "bltitle"
             widget: "string"
@@ -56,7 +56,7 @@ collections:
           - label: "Bas Droite image"
             name: "brimage"
             widget: "image"
-            hint: "Bas Droite image de fond"
+            hint: "Max 400KB | Bas Droite image de fond"
             media_library:
               config:
                 multiple: true
@@ -77,7 +77,7 @@ collections:
           - label: "Top Left Image"
             name: "tlimage"
             widget: "image"
-            hint: "Top Left background image"
+            hint: "Max 400KB | Top Left background image"
             media_library:
               config:
                 multiple: true
@@ -104,7 +104,7 @@ collections:
           - label: "Bottom Right Image"
             name: "brimage"
             widget: "image"
-            hint: "Bottom Right background image"
+            hint: "Max 400KB | Bottom Right background image"
             media_library:
               config:
                 multiple: true
@@ -197,16 +197,16 @@ collections:
       - label: "Title"
         name: "title"
         widget: "string"
-        i18n: true
+        i18n: duplicate
       - label: "Intro Text"
         name: "intro"
         widget: "text"
-        i18n: true
+        i18n: duplicate
         hint: "Text introduction sur a liste des programmes"
       - label: "Month"
         name: "month"
         widget: "string"
-        i18n: true
+        i18n: duplicate
         hint: "Ex: 6-16 Mai"
       - label: "Year"
         name: "year"
@@ -225,7 +225,7 @@ collections:
       - label: "Description"
         name: "description"
         widget: "text"
-        i18n: true
+        i18n: duplicate
       - label: "Type"
         name: "type"
         widget: "select"
@@ -239,7 +239,7 @@ collections:
       - label: "Programme PDF"
         name: "file"
         widget: "file"
-        i18n: true
+        i18n: duplicate
         required: false
         media_library:
           config:
@@ -249,6 +249,7 @@ collections:
         name: "galleries"
         widget: list
         i18n: true
+        required: false
         summary: "{{fields.galleries}}"
         fields:
           - label: "Galleries"
@@ -280,7 +281,7 @@ collections:
           - label: "Image"
             name: "image"
             widget: "image"
-            hint: "Artist image"
+            hint: "Max 200KB | Artist image"
             required: false
             media_library:
               config:
@@ -318,23 +319,27 @@ collections:
       - label: "Title"
         name: "title"
         widget: "string"
-        i18n: true
+        i18n: duplicate
       - label: "Intro Text"
         name: "intro"
         widget: "text"
-        i18n: true
+        i18n: duplicate
         hint: "Text visible sur la list des articles"
-      - label: "date"
+      - label: "Date"
         name: "date"
         widget: "string"
-        required: false
+        i18n: duplicate
         hint: "Ex: 06.05.2021 - 11.11.2021"
-      - label: "order"
+      - label: "Year"
+        name: "year"
+        widget: "string"
+        i18n: duplicate
+        hint: "Ex: 2021"
+      - label: "Order Date"
         name: "order"
         widget: "datetime"
-        i18n: true
         default: ""
-        date_format: "DD.MM.YYYY" 
+        date_format: "DD.MM.YYYY"
         time_format: "HH:mm"
         format: "LLL"
         i18n: duplicate
@@ -343,7 +348,7 @@ collections:
         name: "image"
         widget: "image"
         i18n: duplicate
-        hint: "Image principale / titre de l'article"
+        hint: "Max. 400KB | Image principale / titre de l'article"
         media_library:
           config:
             multiple: true
@@ -351,12 +356,13 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
-        i18n: true
+        i18n: duplicate
       - label: "Article Image 1"
         name: "articleImgOne"
         widget: "image"
         i18n: duplicate
         required: false
+        hint: "Max. 200KB"
         media_library:
           config:
             max_file_size: 200000
@@ -370,6 +376,7 @@ collections:
         widget: "image"
         i18n: duplicate
         required: false
+        hint: "Max. 200KB"
         media_library:
           config:
             max_file_size: 200000
@@ -421,6 +428,7 @@ collections:
             media_library:
               config:
                 max_file_size: 400000
+            hint: "Max. 400KB"
           - label: "Text"
             name: "text"
             widget: "markdown"
@@ -442,7 +450,7 @@ collections:
                 media_library:
                 config:
                   max_file_size: 100000
-                hint: "Logos du partenaire ex. Ile de France"
+                hint: "Max 100KB | Logos du partenaire ex. Ile de France"
       - name: "aboutEN"
         label: "About EN"
         file: "src/content/about/about_en.json"
@@ -454,6 +462,7 @@ collections:
           - label: "Logo"
             name: "logo"
             widget: "image"
+            hint: "Max 100KB"
             media_library:
               config:
                 max_file_size: 100000
@@ -478,7 +487,7 @@ collections:
                 media_library:
                 config:
                   max_file_size: 100000
-                hint: "Logo of partner ex. Ile de France"
+                hint: "Max 100KB | Logo of partner ex. Ile de France"
 
   - name: "contact"
     label: "Contact"
@@ -498,7 +507,7 @@ collections:
             media_library:
               config:
                 max_file_size: 200000
-            hint: "Photo d'equipe"
+            hint: "Max 200KB | Photo d'equipe"
           - name: emails
             label: Emails
             widget: list
@@ -526,6 +535,7 @@ collections:
               - label: "file"
                 name: "file"
                 widget: "file"
+                hint: "Max 500KB"
                 media_library:
                   config:
                     max_file_size: 500000
@@ -540,7 +550,7 @@ collections:
           - label: "Photo"
             name: "photo"
             widget: "image"
-            hint: "Team photo"
+            hint: "Max 200KB | Team photo"
             media_library:
               config:
                 max_file_size: 200000
@@ -575,70 +585,9 @@ collections:
                   config:
                     max_file_size: 500000
 
-  - name: "config"
-    label: "Config"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: "general"
-        label: "Site Config"
-        file: "config.json"
-        description: "General site settings"
-        fields:
-          - label: "URL"
-            name: "base_url"
-            widget: "string"
-            hint: "Do not enter the trailing slash of the URL"
-          - label: "Site title"
-            name: "site_title"
-            widget: "string"
-          - label: "Site description"
-            name: "site_description"
-            widget: "string"
-          - label: "Site keywords"
-            name: "site_keywords"
-            widget: "list"
-            summary: "{{fields.keyword.keyword}}"
-            field:
-              label: Keyword
-              name: keyword
-              widget: "string"
-          - label: "Twitter account"
-            name: "twitter_account"
-            widget: "string"
-          - label: "GitHub account"
-            name: "github_account"
-            widget: "string"
-
-  - name: "meta"
-    label: "Meta"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: "tags"
-        label: "Tags"
-        file: "meta/tags.yml"
-        description: "List of tags"
-        fields:
-          - name: tags
-            label: Tags
-            label_singular: "Tag"
-            widget: list
-            fields:
-              - label: "Slug / URL"
-                name: "slug"
-                widget: "string"
-                hint: "The part of a URL identifies the tag"
-              - label: "Display Name"
-                name: "name"
-                widget: "string"
-                hint: "Tag name for displaying on the site"
-
   - name: "menu"
     label: "Menu"
-    delte: false
+    delete: false
     editor:
       preview: false
     files:
@@ -654,7 +603,6 @@ collections:
             fields:
               - label: "Slug / URL"
                 name: "slug"
-                i18n: true
                 widget: "string"
                 pattern:
                   [
@@ -664,35 +612,32 @@ collections:
                 hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/fr"
               - label: "Name"
                 name: "name"
-                i18n: true
                 widget: "string"
                 hint: "Menu name ex. A propos"
 
-          - name: "menuEN"
-            label: "Menu EN"
+      - name: "menuEN"
+        label: "Menu EN"
+        file: "meta/menu_en.yml"
+        description: "Menu in englisch"
+        fields:
+          - name: items
+            label: Menu Items
+            widget: list
             file: "meta/menu_en.yml"
-            description: "Menu in englisch"
             fields:
-              - name: items
-                label: Menu Items
-                widget: list
-                file: "meta/menu_en.yml"
-                fields:
-                  - label: "Slug / URL"
-                    name: "slug"
-                    i18n: true
-                    widget: "string"
-                    pattern:
-                      [
-                        "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-                        "A slug can have no spaces or special characters",
-                      ]
-                    hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/en"
-                  - label: "Name"
-                    name: "name"
-                    i18n: true
-                    widget: "string"
-                    hint: "Menu name ex. About"
+              - label: "Slug / URL"
+                name: "slug"
+                widget: "string"
+                pattern:
+                  [
+                    "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                    "A slug can have no spaces or special characters",
+                  ]
+                hint: "No '/' au debut! | The part of a URL identifies the menu ex. programme or programme/en"
+              - label: "Name"
+                name: "name"
+                widget: "string"
+                hint: "Menu name ex. About"
 
   - name: "legals"
     i18n: true
