@@ -413,7 +413,7 @@ collections:
         widget: "relation"
         collection: "programme"
         required: false
-        i18n: duplicate
+        # i18n: duplicate
         search_fields: ["slug"]
         value_field: "slug"
         display_fields: ["slug"]
