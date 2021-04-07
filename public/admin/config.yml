@@ -409,23 +409,6 @@ collections:
             value_field: "galleries.*.name"
             display_fields: ["galleries.*.name", "galleries.*.slug"]
 
-      - label: "Programme 2"
-        name: "prog"
-        widget: list
-        # i18n: true
-        required: false
-        summary: "{{fields.galleries}}"
-        field:
-          label: "Programme"
-          name: "programme"
-          widget: "relation"
-          collection: "programme"
-          required: false
-          # i18n: duplicate
-          search_fields: ["slug"]
-          value_field: "slug"
-          display_fields: ["slug"]
-
       - label: "Programme"
         name: "programme"
         widget: "relation"
