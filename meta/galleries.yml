@@ -1,8 +1,8 @@
 galleries:
   - street: 138 Rue du Temple
     city: " 75003 Paris"
-    name: Eric Dupont Gallery
-    slug: eric-dupont-gallery
+    name: Galerie Eric Dupont
+    slug: galerie-eric-dupont
     phone: "+33144540414"
     country: France
     maps: <iframe
@@ -10,9 +10,9 @@ galleries:
       width="600" height="450" style="border:0;" allowfullscreen=""
       loading="lazy"></iframe>
     website: http://www.eric-dupont.com/
-    email: "-"
+    email: info@eric-dupont.com
   - street: 18, rue du Moulin Joly
-    city: Paris
+    city: 75011 Paris
     name: Galerie Anne de Villepoix
     slug: galerie-anne-de-villepoix
     addressAdd: ""
@@ -25,7 +25,7 @@ galleries:
     website: http://www.annedevillepoix.com/
     email: info@annedevillepoix.com
   - street: 4, rue Martel
-    city: Paris
+    city: 75010 Paris
     name: Enseigne des Oudin
     slug: enseigne-des-oudin
     addressAdd: Cours 3, sous-sol
@@ -42,10 +42,35 @@ galleries:
     name: Galerie Anne-Sarah Bénichou
     slug: galerie-anne-sarah-benichou
     phone: (+33) 1 44 93 91 48
-    country: France
+    country: 75003 France
     maps: <iframe
       src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10498.770529353165!2d2.353453!3d48.8640713!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbae7729eab40b813!2sGalerie%20Anne-Sarah%20B%C3%A9nichou!5e0!3m2!1sfr!2sfr!4v1617787424050!5m2!1sfr!2sfr"
       width="600" height="450" style="border:0;" allowfullscreen=""
       loading="lazy"></iframe>
     website: https://annesarahbenichou.com/
     email: galerie@annesarahbenichou.com
+  - street: 3, rue du Cloître Saint-Merri
+    city: Paris
+    name: Galerie Nathalie Obadia
+    slug: galerie-nathalie-obadia
+    phone: (+33) 1 42 74 67 68
+    country: 75004 France
+    maps: <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10499.869397472854!2d2.351674!3d48.858833!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe6838e27ad8df9e2!2sGalerie%20Nathalie%20Obadia!5e0!3m2!1sfr!2sfr!4v1617787942265!5m2!1sfr!2sfr"
+      width="600" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
+    website: https://www.nathalieobadia.com
+    email: "-"
+  - street: 129bis, rue de la Pompe
+    city: 75016 Paris
+    name: L'Appart Renoma
+    slug: appart-renoma
+    addressAdd: ""
+    phone: (+33) 1 44 05 38 18
+    country: France
+    maps: <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.569341105689!2d2.277694715674666!3d48.866422079288306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66ff838e5dfab%3A0xb25e110698b9a08c!2s129%20Rue%20de%20la%20Pompe%2C%2075116%20Paris!5e0!3m2!1sfr!2sfr!4v1617788215484!5m2!1sfr!2sfr"
+      width="600" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
+    website: https://www.renoma-paris.com/lappart/
+    email: presse@renoma-paris.com
