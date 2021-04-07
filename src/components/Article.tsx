@@ -80,14 +80,20 @@ export default function Article({ article, content }: Props): any {
             <div className={"article-text-inner "}>
               <h1>{article.title}</h1>
               <p>{content}</p>
-              {article.Images
-                ? article.Images.map((item) => (
-                    <div key={item.credit} className={"article-image"}>
-                      <img src={item.articleImg} alt={item.credit} />
-                      <p>{item.credit}</p>
-                    </div>
-                  ))
-                : null}
+              <div key={article.creditOne} className={"article-image"}>
+                {article.articleImgOne && (
+                  <img src={article.articleImgOne} alt={article.creditOne} />
+                )}
+                {article.creditOne && <p>{article.creditOne}</p>}
+              </div>
+
+              <div key={article.creditOne} className={"article-image"}>
+                {article.articleImgTwo && (
+                  <img src={article.articleImgTwo} alt={article.creditTwo} />
+                )}
+                {article.creditTwo && <p>{article.creditTwo}</p>}
+              </div>
+
               {mobileDevice ? ArticleInfo : null}
             </div>
           </div>

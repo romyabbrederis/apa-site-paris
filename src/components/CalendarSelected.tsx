@@ -120,8 +120,8 @@ const CalendarSelected = ({ event }: Props): any => {
                   {item.galleries === showMore ? (
                     <div>
                       <hr />
-                      <h4>Artist: {item.artist}</h4>
-                      <p>Description: {item.text}</p>
+                      {item.artist && <h4>Artist: {item.artist}</h4>}
+                      {item.text && <p>Description: {item.text}</p>}
                       <hr />
                       <div className={"gallery-info"}>
                         <p>{getSlug(item.galleries).street}</p>
@@ -131,9 +131,11 @@ const CalendarSelected = ({ event }: Props): any => {
                           <p>{getSlug(item.galleries).phone}</p>
                         </a>
                         <p></p>
-                        <a href={`tel:${getSlug(item.galleries).email}`}>
-                          <p>{getSlug(item.galleries).email} </p>
-                        </a>
+                        {getSlug(item.galleries).email && (
+                          <a href={`tel:${getSlug(item.galleries).email}`}>
+                            <p>{getSlug(item.galleries).email} </p>
+                          </a>
+                        )}
                       </div>
                       <ActionButton
                         title={"SITE WEB"}

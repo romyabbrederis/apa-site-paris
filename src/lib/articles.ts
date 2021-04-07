@@ -108,7 +108,18 @@ export function fetchArticleContent(slug: string, locale: string): any {
           order: matterResult.data.order,
           image: matterResult.data.image,
           content: matterResult.content,
-          Images: matterResult.data.Images,
+          articleImgOne: matterResult.data.articleImgOne
+            ? matterResult.data.articleImgOne
+            : "",
+          creditOne: matterResult.data.creditOne
+            ? matterResult.data.creditOne
+            : "",
+          articleImgTwo: matterResult.data.articleImgTwo
+            ? matterResult.data.articleImgTwo
+            : "",
+          creditTwo: matterResult.data.creditTwo
+            ? matterResult.data.creditTwo
+            : "",
           galleries: matterResult.data.galleries,
           programme: matterResult.data.programme,
         };
