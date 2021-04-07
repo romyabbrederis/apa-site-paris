@@ -73,9 +73,11 @@ export const getStaticProps = async ({ params, locale }) => {
   const article = fetchArticleContent(params.path, "en");
   const mdxSource = await renderToString(article.content, { components });
   const gal = [];
-  const galleries = article.galleries.map((item) =>
-    item.galleries ? gal.push(item.galleries) : "Galeries Paris"
-  );
+  const galleries = article.galleries
+    ? article.galleries.map((item) =>
+        item.galleries ? gal.push(item.galleries) : "Galeries Paris"
+      )
+    : "";
 
   const language = locale || null;
   return {

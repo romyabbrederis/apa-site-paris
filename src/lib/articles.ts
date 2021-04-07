@@ -120,8 +120,12 @@ export function fetchArticleContent(slug: string, locale: string): any {
           creditTwo: matterResult.data.creditTwo
             ? matterResult.data.creditTwo
             : "",
-          galleries: matterResult.data.galleries,
-          programme: matterResult.data.programme,
+          galleries: matterResult.data.galleries
+            ? matterResult.data.galleries
+            : [],
+          programme: matterResult.data.programme
+            ? matterResult.data.programme
+            : "",
         };
 
         if (matterData.slug === slug) {

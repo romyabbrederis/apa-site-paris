@@ -102,7 +102,7 @@ export function findCalendarContent(programmes: any): any {
         type: item.type ? item.type : "passée",
         category: item.category ? item.category : "Autre",
         file: item.file ? item.file : "",
-        galleries: item.galleries && getGalleryInfos(item.galleries),
+        galleries: item.galleries ? getGalleryInfos(item.galleries) : [],
       };
       return result;
     });
