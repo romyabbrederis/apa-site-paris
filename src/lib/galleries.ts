@@ -18,7 +18,10 @@ export function getGalleryInfos(gals: any): any {
       const findGallery = galleries.galleries.find(
         (item) => item.name === el.galleries
       );
-      return findGallery;
+      if (findGallery) {
+        return findGallery;
+      }
+      return "";
     });
     console.log("galleryInfo", galleryInfo);
     return galleryInfo || [];
@@ -33,7 +36,10 @@ export function findEventDetails(gals: any): any {
       const findGallery = galleries.galleries.find(
         (item) => item.name === el.galleries
       );
-      return findGallery;
+      if (findGallery) {
+        return findGallery;
+      }
+      return "";
     });
     console.log("galleryInfo", galleryInfo);
     return galleryInfo || [];

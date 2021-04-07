@@ -124,24 +124,38 @@ const CalendarSelected = ({ event }: Props): any => {
                       {item.text && <p>Description: {item.text}</p>}
                       <hr />
                       <div className={"gallery-info"}>
-                        <p>{getSlug(item.galleries).street}</p>
-                        <p>{getSlug(item.galleries).city}</p>
-                        <p>{getSlug(item.galleries).country}</p>
-                        <a href={`tel:${getSlug(item.galleries).phone}`}>
-                          <p>{getSlug(item.galleries).phone}</p>
-                        </a>
-                        <p></p>
-                        {getSlug(item.galleries).email && (
-                          <a href={`tel:${getSlug(item.galleries).email}`}>
-                            <p>{getSlug(item.galleries).email} </p>
+                        <p>
+                          {getSlug(item.galleries).street &&
+                            getSlug(item.galleries).street}
+                        </p>
+                        <p>
+                          {getSlug(item.galleries).city &&
+                            getSlug(item.galleries).city}
+                        </p>
+                        <p>
+                          {getSlug(item.galleries).country &&
+                            getSlug(item.galleries).country}
+                        </p>
+                        {getSlug(item.galleries).phone && (
+                          <a href={`tel:${getSlug(item.galleries).phone}`}>
+                            <p>{getSlug(item.galleries).phone}</p>
                           </a>
                         )}
+                        <p></p>
+                        {getSlug(item.galleries) &&
+                          getSlug(item.galleries).email && (
+                            <a href={`tel:${getSlug(item.galleries).email}`}>
+                              <p>{getSlug(item.galleries).email} </p>
+                            </a>
+                          )}
                       </div>
-                      <ActionButton
-                        title={"SITE WEB"}
-                        url={getSlug(item.galleries).website}
-                        type={"external"}
-                      />
+                      {getSlug(item.galleries).website && (
+                        <ActionButton
+                          title={"SITE WEB"}
+                          url={getSlug(item.galleries).website}
+                          type={"external"}
+                        />
+                      )}
 
                       {item.article ? (
                         <ActionButton

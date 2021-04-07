@@ -54,13 +54,13 @@ export default function Menu() {
       ))}
       <div className="social-media">
         <a
-          href="https://www.instagram.com/residence.vaduz/?hl=en"
+          href="https://www.instagram.com/pourlartpourlafrique/"
           target="_blank"
         >
           <img src="/icons/facebook.png" alt="facebook" className="icons" />
         </a>
         <a
-          href="https://www.instagram.com/residence.vaduz/?hl=en"
+          href="https://www.instagram.com/pourlartpourlafrique/"
           target="_blank"
         >
           <img src="/icons/instagram.png" alt="instagram" className="icons" />
@@ -230,13 +230,13 @@ export default function Menu() {
             ))}
 
             <a
-              href="https://www.instagram.com/residence.vaduz/?hl=en"
+              href="https://www.instagram.com/pourlartpourlafrique/"
               target="_blank"
             >
               <img src="/icons/facebook.png" alt="facebook" className="icons" />
             </a>
             <a
-              href="https://www.instagram.com/residence.vaduz/?hl=en"
+              href="https://www.instagram.com/pourlartpourlafrique/"
               target="_blank"
             >
               <img
@@ -252,6 +252,7 @@ export default function Menu() {
         .icons {
           width: 20px;
         }
+
         @media (max-width: 800px) {
           .menu-title {
             position: fixed;

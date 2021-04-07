@@ -33,7 +33,7 @@ export default function Article({ article, content }: Props): any {
         ? article.galleries.map((item) => (
             <a
               key={item.galleries}
-              href={getSlug(item.galleries).website}
+              href={getSlug(item.galleries) && getSlug(item.galleries).website}
               target="_blank"
             >
               <p>
