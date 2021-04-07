@@ -264,6 +264,15 @@ collections:
             name: "galleries"
             widget: "string"
             i18n: duplicate
+          - label: "Galery Slug"
+            name: "galerySlug"
+            widget: "string"
+            i18n: duplicate
+            pattern:
+              [
+                "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                "A slug can have no spaces or special characters",
+              ]
           - label: "Date"
             name: "date"
             widget: "string"
