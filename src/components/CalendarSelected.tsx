@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CalendarContent } from "../lib/programmes";
-import { findMap, getSlug, extractLink } from "../lib/galleries";
+import { findMap, getGallery, extractLink } from "../lib/galleries";
 import ActionButton from "./ActionButton";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -29,7 +29,10 @@ const CalendarSelected = ({ event }: Props): any => {
 
   useEffect(() => {
     if (showMore) {
+      console.log("show", showMore);
       const result = findMap(showMore);
+      console.log("result", result);
+
       const map = extractLink(result.maps);
       setGalMap(map);
     }
@@ -59,18 +62,18 @@ const CalendarSelected = ({ event }: Props): any => {
           {galleries
             ? galleries.map((item, i) => (
                 <div
-                  key={item.galleries}
+                  key={item.galerySlug}
                   className={
-                    item.galleries === showMore ? "frame-selected" : "frame"
+                    item.galerySlug === showMore ? "frame-selected" : "frame"
                   }
                 >
-                  {item.galleries === showMore ? (
+                  {item.galerySlug === showMore ? (
                     <img
                       src={`/icons/down-arrow.png`}
                       className={"down-arrow-open"}
                       onClick={() =>
                         setShowMore(
-                          item.galleries !== showMore ? item.galleries : ""
+                          item.galerySlug !== showMore ? item.galerySlug : ""
                         )
                       }
                     />
@@ -80,7 +83,7 @@ const CalendarSelected = ({ event }: Props): any => {
                       src={`/icons/down-arrow-white.png`}
                       onClick={() =>
                         setShowMore(
-                          item.galleries !== showMore ? item.galleries : ""
+                          item.galerySlug !== showMore ? item.galerySlug : ""
                         )
                       }
                     />
@@ -90,7 +93,7 @@ const CalendarSelected = ({ event }: Props): any => {
                     <h4
                       onClick={() =>
                         setShowMore(
-                          item.galleries !== showMore ? item.galleries : ""
+                          item.galerySlug !== showMore ? item.galerySlug : ""
                         )
                       }
                     >
@@ -100,7 +103,7 @@ const CalendarSelected = ({ event }: Props): any => {
                       className={"gallery-name"}
                       onClick={() =>
                         setShowMore(
-                          item.galleries !== showMore ? item.galleries : ""
+                          item.galerySlug !== showMore ? item.galerySlug : ""
                         )
                       }
                     >
@@ -110,14 +113,14 @@ const CalendarSelected = ({ event }: Props): any => {
                       className={"gallery-name"}
                       onClick={() =>
                         setShowMore(
-                          item.galleries !== showMore ? item.galleries : ""
+                          item.galerySlug !== showMore ? item.galerySlug : ""
                         )
                       }
                     >
                       {item.artist && item.artist}
                     </h4>
                   </div>
-                  {item.galleries === showMore ? (
+                  {item.galerySlug === showMore ? (
                     <div>
                       <hr />
                       {item.artist && <h4>Artist: {item.artist}</h4>}
@@ -125,34 +128,36 @@ const CalendarSelected = ({ event }: Props): any => {
                       <hr />
                       <div className={"gallery-info"}>
                         <p>
-                          {getSlug(item.galleries).street &&
-                            getSlug(item.galleries).street}
+                          {getGallery(item.galerySlug).street &&
+                            getGallery(item.galerySlug).street}
                         </p>
                         <p>
-                          {getSlug(item.galleries).city &&
-                            getSlug(item.galleries).city}
+                          {getGallery(item.galerySlug).city &&
+                            getGallery(item.galerySlug).city}
                         </p>
                         <p>
-                          {getSlug(item.galleries).country &&
-                            getSlug(item.galleries).country}
+                          {getGallery(item.galerySlug).country &&
+                            getGallery(item.galerySlug).country}
                         </p>
-                        {getSlug(item.galleries).phone && (
-                          <a href={`tel:${getSlug(item.galleries).phone}`}>
-                            <p>{getSlug(item.galleries).phone}</p>
+                        {getGallery(item.galerySlug).phone && (
+                          <a href={`tel:${getGallery(item.galerySlug).phone}`}>
+                            <p>{getGallery(item.galerySlug).phone}</p>
                           </a>
                         )}
                         <p></p>
-                        {getSlug(item.galleries) &&
-                          getSlug(item.galleries).email && (
-                            <a href={`tel:${getSlug(item.galleries).email}`}>
-                              <p>{getSlug(item.galleries).email} </p>
+                        {getGallery(item.galerySlug) &&
+                          getGallery(item.galerySlug).email && (
+                            <a
+                              href={`tel:${getGallery(item.galerySlug).email}`}
+                            >
+                              <p>{getGallery(item.galerySlug).email} </p>
                             </a>
                           )}
                       </div>
-                      {getSlug(item.galleries).website && (
+                      {getGallery(item.galerySlug).website && (
                         <ActionButton
                           title={"SITE WEB"}
-                          url={getSlug(item.galleries).website}
+                          url={getGallery(item.galerySlug).website}
                           type={"external"}
                         />
                       )}
@@ -165,16 +170,18 @@ const CalendarSelected = ({ event }: Props): any => {
                         />
                       ) : null}
 
-                      <iframe
-                        src={galMap}
-                        width="100%"
-                        height="300"
-                        style={{
-                          border: "none",
-                          filter: "greyscale(100%)",
-                          marginTop: "30px",
-                        }}
-                      ></iframe>
+                      {galMap ? (
+                        <iframe
+                          src={galMap}
+                          width="100%"
+                          height="300"
+                          style={{
+                            border: "none",
+                            filter: "greyscale(100%)",
+                            marginTop: "30px",
+                          }}
+                        ></iframe>
+                      ) : null}
                     </div>
                   ) : null}
                 </div>

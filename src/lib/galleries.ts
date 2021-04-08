@@ -61,7 +61,7 @@ export const extractLink = (map) => {
 };
 
 export function findMap(gallery: any): any {
-  const preMap = galleries.galleries.find((item) => item.name === gallery);
+  const preMap = galleries.galleries.find((item) => item.slug === gallery);
   return preMap;
 }
 
@@ -72,5 +72,6 @@ export function getSlug(gallery: any): any {
 
 export function getGallery(gallery: any): any {
   const gal = galleries.galleries.find((item) => item.slug === gallery);
+  console.log("getGallery", gallery, gal);
   return gal;
 }
