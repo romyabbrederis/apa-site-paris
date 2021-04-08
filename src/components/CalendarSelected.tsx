@@ -120,7 +120,8 @@ const CalendarSelected = ({ event }: Props): any => {
                       {item.artist && item.artist}
                     </h4>
                   </div>
-                  {item.galerySlug === showMore ? (
+                  {item.galerySlug === showMore &&
+                  getGallery(item.galerySlug) ? (
                     <div>
                       <hr />
                       {item.artist && <h4>Artist: {item.artist}</h4>}
