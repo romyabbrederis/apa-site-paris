@@ -19,6 +19,7 @@ export default function ProgrammeSelected({ programme }: Props): any {
       <div className={"inner-container"}>
         <div className={"programme-selected-container"}>
           <h1>{programme.title}</h1>
+          <p className={"category"}>Type: {programme.category}</p>
           <h2>
             {programme.month} {programme.year}
           </h2>
@@ -91,6 +92,10 @@ export default function ProgrammeSelected({ programme }: Props): any {
             : null}
 
           <style jsx>{`
+            .category {
+              font-style: italic;
+            }
+
             .programme-selected-container {
               position: relative;
             }

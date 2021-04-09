@@ -21,6 +21,7 @@ const CalendarSelected = ({ event }: Props): any => {
     start,
     type,
     galleries,
+    category,
   } = event;
   const [galMap, setGalMap] = useState("");
   const router = useRouter();
@@ -48,13 +49,17 @@ const CalendarSelected = ({ event }: Props): any => {
             onClick={() => router.back()}
           />
           <div className={"modal-container"}>
-            <h3 className={"text"}>{month}</h3>
+            <div>
+              <h3 className={"text"}>{month}</h3>
+            </div>
           </div>
 
           <div className={"modal-container"}>
             <h3>{title}</h3>
           </div>
         </div>
+
+        <p className={"category"}>Type: {category}</p>
 
         <p>{intro}</p>
 
@@ -191,6 +196,11 @@ const CalendarSelected = ({ event }: Props): any => {
         </div>
 
         <style jsx>{`
+          .category {
+            font-style: italic;
+            text-align: left;
+          }
+
           p {
             margin: 15px 0;
           }

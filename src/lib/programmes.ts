@@ -20,6 +20,7 @@ export type ProgrammeContent = {
   readonly month: string;
   readonly year: string;
   readonly start: string;
+  readonly category: string;
   readonly description: string;
   readonly type: string;
   readonly file: string;

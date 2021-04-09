@@ -62,10 +62,12 @@ export default function ProgrammesList({ programmes }: Props): any {
                   {mobileDevice ? (
                     <Link href={"/programme/" + item.slug}>
                       <div className={"programme-title-container"}>
+                        <p className={"category"}>{item.category}</p>
                         <h4>
                           {item.month} {item.year}
                         </h4>
                         <h4>{item.title}</h4>
+
                         <p>{item.intro}</p>
                         <img
                           className={"down-icon"}
@@ -80,8 +82,11 @@ export default function ProgrammesList({ programmes }: Props): any {
                         <div className={"month-date"}>
                           <h3 className={"date-space"}>
                             {item.month} {item.year}
+                            <p className={"category"}>{item.category}</p>
                           </h3>
-                          <h3>{item.title}</h3>
+                          <div>
+                            <h3>{item.title}</h3>
+                          </div>
                         </div>
                         <p>{item.intro}</p>
                         <img src="/icons/down.png" className={"down-icon"} />
@@ -94,6 +99,11 @@ export default function ProgrammesList({ programmes }: Props): any {
           ) : null}
         </div>
         <style jsx>{`
+          .category {
+            font-style: italic;
+            margin: 0;
+            font-size: 14px;
+          }
           .container {
             background: #e5e5e5;
             overflow: scroll;

@@ -63,6 +63,11 @@ export default function Article({ article, content }: Props): any {
           <div>
             <div className={"article-title-image"}>
               <img src={article.image} className={"article-title-image"} />
+              {article.imageCredit ? (
+                <p className={"image-credit"}>{article.imageCredit}</p>
+              ) : (
+                ""
+              )}
             </div>
             {mobileDevice ? null : ArticleInfo}
           </div>
@@ -91,6 +96,11 @@ export default function Article({ article, content }: Props): any {
         </div>
       </div>
       <style jsx>{`
+        .image-credit {
+          font-style: italic;
+          text-align: center;
+        }
+
         @media (max-width: 769px) {
           .article {
             margin-bottom: 50px;
