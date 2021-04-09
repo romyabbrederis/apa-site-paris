@@ -14,8 +14,9 @@ export type ArticleContent = {
   readonly date: string;
   readonly order: string;
   readonly image: string;
+  readonly imageCredit: StaticRange;
   readonly content: string;
-  readonly Images: any;
+  // readonly Images: any;
   readonly galleries: any;
   readonly programme: string;
 };
@@ -107,6 +108,7 @@ export function fetchArticleContent(slug: string, locale: string): any {
           date: matterResult.data.date,
           order: matterResult.data.order,
           image: matterResult.data.image,
+          imageCredit: matterResult.data.image ? matterResult.data.image : "",
           content: matterResult.content,
           articleImgOne: matterResult.data.articleImgOne
             ? matterResult.data.articleImgOne

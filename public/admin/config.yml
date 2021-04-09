@@ -372,6 +372,12 @@ collections:
           config:
             multiple: true
             max_file_size: 400000
+      - label: "Image Credit"
+        name: "imageCredit"
+        widget: "string"
+        i18n: duplicate
+        required: false
+        hint: "Image principale credit"
       - label: "Body"
         name: "body"
         widget: "markdown"

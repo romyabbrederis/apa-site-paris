@@ -31,18 +31,8 @@ export default function Article({ article, content }: Props): any {
       <h2>Galeries</h2>
       {article.galleries
         ? article.galleries.map((item) => (
-            <a
-              key={item.galleries}
-              // href={getSlug(item.galleries) && getSlug(item.galleries).website}
-              target="_blank"
-            >
-              <p>
-                <img
-                  src={"/icons/external-link.png"}
-                  className={"icon-image"}
-                />
-                {item.galleries}{" "}
-              </p>
+            <a key={item.galleries} target="_blank">
+              <p>{item.galleries} </p>
             </a>
           ))
         : null}
@@ -50,8 +40,8 @@ export default function Article({ article, content }: Props): any {
       <Link href={"/programme/" + article.programme}>
         <a>
           <p>
-            <img src={"/icons/external-link.png"} className={"icon-image"} />
             Program associe
+            <img src={"/icons/external-link.png"} className={"icon-image"} />
           </p>
         </a>
       </Link>
@@ -59,7 +49,7 @@ export default function Article({ article, content }: Props): any {
       <style jsx>{`
         .icon-image {
           width: 25px;
-          margin-right: 10px;
+          margin-left: 10px;
         }
       `}</style>
     </>
