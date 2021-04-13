@@ -4,14 +4,18 @@
   "photo": "/images/logo_symbole.png",
   "emails": [
     {
-      "name": "General Email",
-      "email": "info@pourlartpourafrique.com"
+      "name": "Contact mail",
+      "email": "contact@pourlartpourafrique.com"
     }
   ],
   "subtitle": "Presse",
   "files": [
     {
-      "name": "Visuelles",
+      "name": "Visuels",
+      "file": "/images/central-residence-google.pdf"
+    },
+    {
+      "name": "Communiqué de Presse",
       "file": "/images/central-residence-google.pdf"
     }
   ]
