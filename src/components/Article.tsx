@@ -76,13 +76,15 @@ export default function Article({ article, content }: Props): any {
               <h1>{article.title}</h1>
               <p>{content}</p>
               {article.artistLink ? (
-                <ActionButton
-                  title={
-                    article.artistLinkName ? article.artistLinkName : "Lien"
-                  }
-                  url={article.artistLink}
-                  type="external"
-                />
+                <div className={"link-artist"}>
+                  <ActionButton
+                    title={
+                      article.artistLinkName ? article.artistLinkName : "Lien"
+                    }
+                    url={article.artistLink}
+                    type="external"
+                  />
+                </div>
               ) : null}
 
               <div key={article.creditOne} className={"article-image"}>
@@ -106,6 +108,9 @@ export default function Article({ article, content }: Props): any {
         </div>
       </div>
       <style jsx>{`
+        .link-artist {
+          margin: 30px 0;
+        }
         .image-credit {
           font-style: italic;
           text-align: center;
