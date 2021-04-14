@@ -3,8 +3,8 @@ items:
     name: Programme
   - slug: /calendrier
     name: Calendrier
-  - slug: /actualites
-    name: Actualites
+  - slug: /artistes
+    name: Artistes
   - slug: /a-propos
     name: A Propos
   - slug: /contact

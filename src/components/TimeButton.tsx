@@ -6,7 +6,7 @@ type Props = {
 };
 
 const TimeButton = ({ changeType, type }: Props): any => {
-  const button = ["en cours", "prochainement", "passée"];
+  const button = ["en cours", "prochainement", "passé"];
 
   return (
     <div className={"button-container"}>
@@ -58,6 +58,12 @@ const TimeButton = ({ changeType, type }: Props): any => {
             background: white;
             border: 1px solid black;
             cursor: pointer;
+          }
+
+          .button:hover {
+            background: black;
+            color: white;
+            transition-duration: 0.5s;
           }
 
           .button-selected {

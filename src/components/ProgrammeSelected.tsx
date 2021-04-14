@@ -68,15 +68,15 @@ export default function ProgrammeSelected({ programme }: Props): any {
                       </Link>
                       {item.artist && !item.articleRelation ? (
                         <a>
-                          <p>Artist: {item.artist}</p>
+                          <p>{item.artist}</p>
                         </a>
                       ) : null}
 
                       {item.artist && item.articleRelation ? (
-                        <Link href={"/actualites/" + item.articleRelation}>
+                        <Link href={"/artistes/" + item.articleRelation}>
                           <a className={"artist-exists"}>
                             <p>
-                              Artist: {item.artist}{" "}
+                              {item.artist}{" "}
                               <img
                                 src={"/icons/external-link.png"}
                                 className={"link-icon"}
@@ -137,10 +137,12 @@ export default function ProgrammeSelected({ programme }: Props): any {
               .gallery-dates:hover h5 {
                 color: ${COLOR_YELLOW};
                 cursor: pointer;
+                transition-duration: 0.3s;
               }
 
               .artist-exists:hover {
                 color: grey;
+                transition-duration: 0.3s;
               }
 
               .artist-exists img {

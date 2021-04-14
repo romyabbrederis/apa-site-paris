@@ -34,7 +34,7 @@ export default function Index({
 }: any) {
   const router = useRouter();
   const { path } = router.query;
-  const url = "/actualites/" + path;
+  const url = "/artistes/" + path;
   const title = article.title;
 
   const content = hydrate(mdxSource, { components });

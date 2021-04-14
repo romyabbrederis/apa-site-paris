@@ -66,7 +66,7 @@ export default function Article({ article, content }: Props): any {
               {article.imageCredit ? (
                 <p className={"image-credit"}>{article.imageCredit}</p>
               ) : (
-                ""
+                "hi"
               )}
             </div>
             {mobileDevice ? null : ArticleInfo}
@@ -75,6 +75,16 @@ export default function Article({ article, content }: Props): any {
             <div className={"article-text-inner "}>
               <h1>{article.title}</h1>
               <p>{content}</p>
+              {article.artistLink ? (
+                <ActionButton
+                  title={
+                    article.artistLinkName ? article.artistLinkName : "Lien"
+                  }
+                  url={article.artistLink}
+                  type="external"
+                />
+              ) : null}
+
               <div key={article.creditOne} className={"article-image"}>
                 {article.articleImgOne && (
                   <img src={article.articleImgOne} alt={article.creditOne} />

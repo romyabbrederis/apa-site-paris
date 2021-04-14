@@ -14,8 +14,8 @@ type Props = {
 };
 
 export default function Index({ articles, language }: Props) {
-  const url = "/actualites";
-  const title = "Actualités";
+  const url = "/artistes";
+  const title = "Artistes";
 
   console.log("articles", articles);
   return (

@@ -18,7 +18,7 @@ export function renderProgrammes(programmes, type) {
         newData = programmes.filter((item) => item.type === "prochainement");
         return newData;
         break;
-      case "passée":
+      case "passé":
         newData = programmes.filter((item) => item.type === "passée");
         return newData;
         break;

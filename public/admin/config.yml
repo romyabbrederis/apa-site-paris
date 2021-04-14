@@ -348,6 +348,7 @@ collections:
         name: "date"
         widget: "string"
         i18n: duplicate
+        required: false
         hint: "Ex: 06.05.2021 - 11.11.2021"
       - label: "Year"
         name: "year"
@@ -410,6 +411,18 @@ collections:
         widget: "string"
         i18n: duplicate
         required: false
+      - label: "URL: Article or external Link"
+        name: "artistLink"
+        widget: "string"
+        i18n: duplicate
+        required: false
+        hint: "Ex: https://www.centrepompidou.fr/en/collections/visual-arts"
+      - label: "Name of the URL: Article or external Link"
+        name: "artistLinkName"
+        widget: "string"
+        i18n: duplicate
+        required: false
+        hint: "Ex: Article dans le Monde"
       - label: "Galleries"
         name: "galleries"
         widget: list

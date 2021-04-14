@@ -60,7 +60,7 @@ export default function ProgrammesList({ programmes }: Props): any {
               {data.map((item, i) => (
                 <div key={item.slug} className={"programme-box"}>
                   {mobileDevice ? (
-                    <Link href={"/programme/" + item.slug}>
+                    <Link href={"/calendrier/" + item.slug}>
                       <div className={"programme-title-container"}>
                         <p className={"category"}>{item.category}</p>
                         <h4>
@@ -77,7 +77,7 @@ export default function ProgrammesList({ programmes }: Props): any {
                       </div>
                     </Link>
                   ) : (
-                    <Link href={"/programme/" + item.slug}>
+                    <Link href={"/calendrier/" + item.slug}>
                       <div className={"programme-title-container"}>
                         <div className={"month-date"}>
                           <h3 className={"date-space"}>
@@ -175,6 +175,11 @@ export default function ProgrammesList({ programmes }: Props): any {
               height: 100%;
               padding: 10px 10px;
               margin: 10px 0;
+            }
+
+            .programme-box:hover {
+              transform: skewX(-11deg);
+              transition-duration: 1s;
             }
 
             .programme-box-selected {

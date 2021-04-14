@@ -47,7 +47,7 @@ export default function CalendarsList({ events }: Props): any {
         <TimeButton changeType={changeType} type={type} />
         <div className={"events"}>
           {data.map((item, i) => (
-            <Link key={i + item.slug} href={"/calendrier/" + item.slug}>
+            <Link key={i + item.slug} href={"/programme/" + item.slug}>
               <div className={"events-list"}>
                 <p>{item.category}</p>
                 <h3 key={i}>
@@ -121,6 +121,12 @@ export default function CalendarsList({ events }: Props): any {
             position: relative;
             padding: 5px;
             margin:  50px 20px 10px 0;
+          }
+
+
+          .events-list:hover {
+            transform: scale(1.1);
+            transition-duration: 1s;
           }
 
           .down-icon {

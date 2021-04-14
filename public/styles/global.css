@@ -30,6 +30,7 @@ a:active,
 a:hover {
   color: grey;
   font-family: "Montserrat", sans-serif;
+  transition-duration: 0.3s;
 }
 
 h2,

@@ -54,7 +54,7 @@ export default function Menu() {
       ))}
       <div className="social-media">
         <a
-          href="https://www.instagram.com/pourlartpourlafrique/"
+          href="https://www.facebook.com/Pour-lart-pour-lAfrique-112508294214218"
           target="_blank"
         >
           <img src="/icons/facebook.png" alt="facebook" className="icons" />
@@ -230,7 +230,7 @@ export default function Menu() {
             ))}
 
             <a
-              href="https://www.instagram.com/pourlartpourlafrique/"
+              href="https://www.facebook.com/Pour-lart-pour-lAfrique-112508294214218"
               target="_blank"
             >
               <img src="/icons/facebook.png" alt="facebook" className="icons" />

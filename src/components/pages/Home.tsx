@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { COLOR_YELLOW } from "../../public/styles/general";
+import { COLOR_YELLOW } from "../../../public/styles/general";
 
 const Home = ({ data, programmes }) => {
   const {
@@ -38,8 +38,24 @@ const Home = ({ data, programmes }) => {
           </div>
         </div>
       </Link>
+      <Link href={bllink}>
+        <div className={"right-top"}>
+          <div className={"rt-name"}>
+            <h1> {bltitle}</h1>
+            <p>
+              {mobileDevice
+                ? bltext.length > 200
+                  ? bltext.substring(0, 200) + " ..."
+                  : bltext
+                : bltext.length > 500
+                ? bltext.substring(0, 500) + " ..."
+                : bltext}
+            </p>
+          </div>
+        </div>
+      </Link>
 
-      <div className={"right-top"}>
+      <div className={"left-bottom"}>
         {programmes && !mobileDevice
           ? programmes.map((item) => (
               <div key={item.title} className={"programme-container"}>
@@ -59,19 +75,6 @@ const Home = ({ data, programmes }) => {
           <div className={"button"}>Voir les programmes</div>
         </Link>
       </div>
-
-      <Link href={bllink}>
-        <div className={"left-bottom"}>
-          <div className={"lb-name"}>
-            <h1> {bltitle}</h1>
-            <p>
-              {mobileDevice
-                ? bltext.replace(/(([^\s]+\s+){10}).+/, "$1...")
-                : bltext.replace(/(([^\s]+\s+){30}).+/, "$1...")}
-            </p>
-          </div>
-        </div>
-      </Link>
 
       <Link href={brlink}>
         <div className={"right-bottom"}>
@@ -196,7 +199,7 @@ const Home = ({ data, programmes }) => {
             grid-template-columns: 50% 50%;
             grid-gap: 5px;
             wdith: 100%;
-            height: 96vh;
+            height: 94vh;
             margin-top: 35px;
           }
 
@@ -228,36 +231,41 @@ const Home = ({ data, programmes }) => {
             grid-column: 1 / 3;
             position: relative;
             padding: 10px;
-            background-color: #f2f2f2;
-            border: 1px solid black;
-            min-height: max-content;
-            -webkit-animation: slide-in-right 0.7s
-              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
-            animation: slide-in-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-              0.3s both;
-          }
-
-          .left-bottom {
-            grid-column: 1 / 2;
-            position: relative;
-            padding: 10px;
             cursor: pointer;
             background-color: #ffd506;
             min-height: 30vh;
             text-overflow: ellipsis;
             overflow: hidden;
+            -webkit-animation: slide-in-right 0.7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+            animation: slide-in-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              0.3s both;
+            width: 90%;
+          }
+
+          .right-top p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .left-bottom {
+            grid-column: 1 / 2;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid black;
+            min-height: max-content;
+
             -webkit-animation: slide-in-left 0.7s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
             animation: slide-in-left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
               0.4s both;
           }
 
-          .left-bottom p {
-            overflow: hidden;
-            text-overflow: ellipsis;
+          .left-bottom button {
+            width: 100%;
           }
 
-          .lb-name {
+          .rt-name {
             position: absolute;
             color: black;
             left: 10px;
@@ -265,8 +273,14 @@ const Home = ({ data, programmes }) => {
             text-align: left;
           }
 
-          .lb-name:hover {
+          .rt-name p {
+            padding-right: 5px;
+            line-height: 1.6em;
+          }
+
+          .rt-name:hover {
             color: white;
+            transition-duration: 0.3s;
           }
 
           .right-bottom {
@@ -311,6 +325,7 @@ const Home = ({ data, programmes }) => {
 
           .title:hover {
             background: white;
+            transition-duration: 0.3s;
           }
 
           .programme-container {
@@ -332,22 +347,28 @@ const Home = ({ data, programmes }) => {
           }
 
           .button {
-            background: white;
+            background: black;
+            color: white;
             border: 1px solid black;
             padding: 10px 20px;
-            width: 200px;
             position: absolute;
             left: 10px;
+            top: 10px;
+            right: 10px;
             bottom: 10px;
             text-align: center;
             cursor: pointer;
             text-transform: lowercase;
             font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
 
           .button :hover {
             background: black;
             color: white;
+            transition-duration: 0.3s;
           }
 
           .headline {
@@ -403,21 +424,11 @@ const Home = ({ data, programmes }) => {
               ),
               url(${tlimage});
             background-size: repeat;
+            transition-duration: 0.3s;
           }
 
           .right-top {
             grid-column: 4 / 6;
-            position: relative;
-            background-color: #f2f2f2;
-            width: 100%;
-            -webkit-animation: slide-in-right 0.7s
-              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
-            animation: slide-in-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-              0.3s both;
-          }
-
-          .left-bottom {
-            grid-column: 1 / 3;
             position: relative;
             padding: 10px;
             cursor: pointer;
@@ -425,15 +436,28 @@ const Home = ({ data, programmes }) => {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
+            width: 90%;
+            -webkit-animation: slide-in-right 0.7s
+              cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+            animation: slide-in-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+              0.3s both;
+          }
+
+          .right-top:hover {
+            background: grey;
+            transition-duration: 0.3s;
+          }
+
+          .left-bottom {
+            grid-column: 1 / 3;
+            position: relative;
+            background-color: #f2f2f2;
+            width: 100%;
+
             -webkit-animation: slide-in-left 0.7s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
             animation: slide-in-left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
               0.4s both;
-          }
-
-          .left-bottom:hover {
-            background: grey;
           }
 
           .left-top:hover {
@@ -446,6 +470,7 @@ const Home = ({ data, programmes }) => {
               ),
               url(${tlimage});
             background-size: repeat;
+            transition-duration: 0.3s;
           }
 
           .right-bottom {
@@ -479,6 +504,7 @@ const Home = ({ data, programmes }) => {
               ),
               url(${brimage});
             background-size: repeat;
+            transition-duration: 0.3s;
           }
 
           .image {
@@ -487,21 +513,24 @@ const Home = ({ data, programmes }) => {
             object-fit: cover;
           }
 
-          .lb-name {
+          .rt-name {
             position: absolute;
             color: black;
             left: 20px;
             top: 10px;
             font-size: 24px;
+            line-height: 1.3em;
           }
 
-          .lb-name:hover {
+          .rt-name:hover {
             color: white;
+            transition-duration: 0.3s;
           }
 
-          .lb-name p {
+          .rt-name p {
             font-size: 18px;
             padding-right: 5px;
+            line-height: 1.6em;
           }
 
           .title {
@@ -515,16 +544,18 @@ const Home = ({ data, programmes }) => {
 
           .title:hover {
             color: ${COLOR_YELLOW};
+            transition-duration: 0.3s;
           }
 
           h1:hover {
             color: ${COLOR_YELLOW};
+            transition-duration: 0.3s;
           }
 
           .programme-container {
             background: black;
             border: 1px solid black;
-            margin-right: 40px;
+            margin-left: 10px;
             padding: 5px;
             margin-bottom: 5px;
           }
@@ -557,6 +588,7 @@ const Home = ({ data, programmes }) => {
           .button :hover {
             background: black;
             color: white;
+            transition-duration: 0.3s;
           }
 
           .headline {

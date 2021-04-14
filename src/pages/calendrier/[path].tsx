@@ -23,7 +23,7 @@ type Props = {
 export default function Index({ event, gal, artist }: any) {
   const router = useRouter();
   const { path } = router.query;
-  const url = "/actualites/" + path;
+  const url = "/artistes/" + path;
   const title = event.title;
 
   console.log("event", event);

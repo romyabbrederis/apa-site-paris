@@ -3,7 +3,7 @@ import Head from "next/head";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
-import Home from "../components/Home";
+import Home from "../components/pages/Home";
 import config from "../lib/config";
 import { HomeContent, getHomePage } from "../lib/homes";
 import { ProgrammeContent, fetchProgrammesContent } from "../lib/programmes";

@@ -19,7 +19,7 @@ export default function ArticlesList({ articles }: Props): any {
       <div className={"inner-container"}>
         <div className={"articles-list"}>
           {articles.map((item, i) => (
-            <Link key={item.slug} href={"/actualites/" + item.slug}>
+            <Link key={item.slug} href={"/artistes/" + item.slug}>
               <div key={i} className={"article"}>
                 <img
                   src={item.image}
@@ -28,7 +28,7 @@ export default function ArticlesList({ articles }: Props): any {
                 />
                 <div>
                   <h3>{item.title}</h3>
-                  <p>{item.date}</p>
+                  {/* <p>{item.date}</p> */}
                   <p className={"text"}>
                     {item.intro.replace(/(([^\s]+\s+){20}).+/, "$1...")}
                   </p>
@@ -72,7 +72,7 @@ export default function ArticlesList({ articles }: Props): any {
         @media (min-width: 769px) {
           .articles-list {
             display: grid;
-            grid-template-columns: 500px 500px;
+            grid-template-columns: 49% 49%;
             grid-gap: 10px;
           }
 

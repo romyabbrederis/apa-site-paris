@@ -3,55 +3,49 @@ import Head from "next/head";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
-import CalendarList from "../components/CalendarList";
+import ProgrammesList from "../components/ProgrammesList";
 import config from "../lib/config";
+import { ProgrammeContent, fetchProgrammesContent } from "../lib/programmes";
 import meta from "../../config.json";
-import {
-  CalendarContent,
-  fetchProgrammesContent,
-  findCalendarContent,
-} from "../lib/programmes";
 
 type Props = {
-  events: CalendarContent[];
+  programmes: ProgrammeContent[];
   language: any;
 };
 
-export default function Index({ events, language }: any) {
+export default function Index({ programmes, language }: Props) {
   const url = "/calendrier";
   const title = "Calendrier";
 
-  console.log("events", events);
   return (
     <div>
       <BasicMeta
         url={url}
         title={title}
-        description={meta.calendrier_description_fr}
+        description={meta.programme_description_fr}
       />
       <OpenGraphMeta
         url={url}
         title={title}
-        description={meta.calendrier_description_fr}
+        description={meta.programme_description_fr}
       />
       <TwitterCardMeta
         url={url}
         title={title}
-        description={meta.calendrier_description_fr}
+        description={meta.programme_description_fr}
       />
-      <CalendarList events={events} />
+      <ProgrammesList programmes={programmes} />
     </div>
   );
 }
 
 export const getStaticProps = async (context) => {
   const { locale } = context;
-  const programmes = fetchProgrammesContent("fr") || [];
-  const events = findCalendarContent(programmes) || [];
+  const programmes = fetchProgrammesContent(locale);
   const language = locale || null;
   return {
     props: {
-      events,
+      programmes,
       language,
     },
   };

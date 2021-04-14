@@ -39,11 +39,11 @@ export default function Contact({ data }: Props) {
         </div>
         <div className={"legales"}>
           <Link href={"/protection-donnees-personnelles"}>
-            <a>Protection des donnees personelles</a>
+            <p>Protection des donnees personelles</p>
           </Link>
 
           <Link href={"/legales"}>
-            <a>Mentiones legales</a>
+            <p>Mentiones legales</p>
           </Link>
         </div>
         <style jsx>{`
@@ -56,12 +56,7 @@ export default function Contact({ data }: Props) {
             display: flex;
             flex-direction: column;
             text-align: right;
-            font-size: 12px;
-          }
-
-          .legales a {
-            margin: 10px 0;
-            font-style: italic;
+            font-size: 14px;
           }
 
           @media (max-width: 769px) {

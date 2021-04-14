@@ -64,6 +64,18 @@ const CalendarSelected = ({ event }: Props): any => {
         <p>{intro}</p>
 
         <div className={"galleries-container"}>
+          <hr />
+          <div className={"date-name-container"}>
+            <div className={"date"}>
+              <p>Date</p>
+            </div>
+            <div className={"gallery-name"}>
+              <p>Galerie</p>
+            </div>
+            <div className={"artist"}>
+              <p>Artist</p>
+            </div>
+          </div>
           {galleries
             ? galleries.map((item, i) => (
                 <div
@@ -96,6 +108,7 @@ const CalendarSelected = ({ event }: Props): any => {
 
                   <div className={"date-name-container"}>
                     <h4
+                      className={"date"}
                       onClick={() =>
                         setShowMore(
                           item.galerySlug !== showMore ? item.galerySlug : ""
@@ -115,7 +128,7 @@ const CalendarSelected = ({ event }: Props): any => {
                       {item.galleries}
                     </h4>
                     <h4
-                      className={"gallery-name"}
+                      className={"artist"}
                       onClick={() =>
                         setShowMore(
                           item.galerySlug !== showMore ? item.galerySlug : ""
@@ -129,7 +142,7 @@ const CalendarSelected = ({ event }: Props): any => {
                   getGallery(item.galerySlug) ? (
                     <div>
                       <hr />
-                      {item.artist && <h4>Artist: {item.artist}</h4>}
+                      {item.artist && <h4>{item.artist}</h4>}
                       {item.text && <p>Description: {item.text}</p>}
                       <hr />
                       <div className={"gallery-info"}>
@@ -229,7 +242,6 @@ const CalendarSelected = ({ event }: Props): any => {
 
             .modal-container {
               flex-basis: 50%;
-              margin: 10px;
             }
 
             .text {
@@ -262,6 +274,11 @@ const CalendarSelected = ({ event }: Props): any => {
               margin-right: 10%;
             }
 
+            .artist {
+              flex-basis: 30%;
+              font-weight: 400;
+            }
+
             .down-arrow-close {
               transform: rotate(0deg);
               position: absolute;
@@ -287,7 +304,7 @@ const CalendarSelected = ({ event }: Props): any => {
             .calendar-container {
               margin: 0 0 10px 0;
               display: grid;
-              grid-template-columns: 50% 50%;
+              grid-template-columns: 30% 70%;
               grid-gap: 5px;
               position: relative;
             }
@@ -300,20 +317,8 @@ const CalendarSelected = ({ event }: Props): any => {
               cursor: pointer;
             }
 
-            .modal-container {
-              margin: 10px;
-            }
-
             .text {
-              text-align: right;
-            }
-
-            .gallery-name {
-              cursor: pointer;
-            }
-
-            .gallery-name :hover {
-              color: #ffd506;
+              text-align: left;
             }
 
             .frame {
@@ -340,8 +345,23 @@ const CalendarSelected = ({ event }: Props): any => {
               display: flex;
             }
 
-            .date-name-container h4 {
-              margin-right: 10%;
+            .date {
+              flex-basis: 20%;
+            }
+
+            .artist {
+              flex-basis: 30%;
+              font-weight: 400;
+            }
+
+            .gallery-name {
+              cursor: pointer;
+              flex-basis: 40%;
+            }
+
+            .gallery-name :hover {
+              color: #ffd506;
+              transition-duration: 0.3s;
             }
 
             .down-arrow-close {

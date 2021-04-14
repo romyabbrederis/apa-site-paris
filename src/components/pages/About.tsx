@@ -25,7 +25,7 @@ export default function About({ data, content }: Props) {
         <h3 className={"partner-title"}>Partenaires</h3>
         <div className={"partners-container"}>
           {partners.map((item, i) => (
-            <a key={item.link} href={item.link} target="_blank">
+            <a key={".../.../" + item.link} href={item.link} target="_blank">
               <img src={item.partner} className={"partner-image"} />
               <p>{item.name}</p>
             </a>
