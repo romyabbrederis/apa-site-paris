@@ -22,7 +22,7 @@ type Props = {
 export default function Index({ programme, language, params }: Props) {
   const router = useRouter();
   const { path } = router.query;
-  const url = "/actualites/" + path;
+  const url = "/artistes/" + path;
   const title = programme.title;
 
   console.log("programme", programme);

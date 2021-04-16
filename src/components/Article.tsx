@@ -66,7 +66,7 @@ export default function Article({ article, content }: Props): any {
               {article.imageCredit ? (
                 <p className={"image-credit"}>{article.imageCredit}</p>
               ) : (
-                "hi"
+                ""
               )}
             </div>
             {mobileDevice ? null : ArticleInfo}
