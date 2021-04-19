@@ -23,7 +23,6 @@ export function getGalleryInfos(gals: any): any {
       }
       return "";
     });
-    console.log("galleryInfo", galleryInfo);
     return galleryInfo || [];
   } else {
     return [];
@@ -41,7 +40,6 @@ export function findEventDetails(gals: any): any {
       }
       return "";
     });
-    console.log("galleryInfo", galleryInfo);
     return galleryInfo || [];
   } else {
     return [];
@@ -72,6 +70,5 @@ export function getSlug(gallery: any): any {
 
 export function getGallery(gallery: any): any {
   const gal = galleries.galleries.find((item) => item.slug === gallery);
-  console.log("getGallery", gallery, gal);
   return gal;
 }

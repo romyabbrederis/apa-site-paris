@@ -39,8 +39,6 @@ export default function CalendarsList({ events }: Props): any {
     setData(newData);
   }, []);
 
-  console.log("events", events);
-
   return events.length ? (
     <div className={"layout-container"} style={{ backgroundColor: "#E5E5E5" }}>
       <div className={"inner-container"}>

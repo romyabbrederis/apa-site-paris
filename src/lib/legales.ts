@@ -14,7 +14,6 @@ export function fetchLegales(): any {
   }
 
   const fileNames = fs.readdirSync(legalesDirectory);
-  console.log("filenames", fileNames);
 
   if (fileNames && fileNames.length) {
     const allProgData = fileNames
@@ -32,10 +31,8 @@ export function fetchLegales(): any {
         const matterData = {
           content: matterResult.content,
         };
-        console.log("matterData", matterData);
         return matterData;
       });
-    console.log(allProgData[0]);
     return allProgData[0];
   } else {
     return {};
@@ -49,7 +46,6 @@ export function fetchPrivacy(): any {
     return privacyCache;
   }
   const fileNames = fs.readdirSync(privacyDirectory);
-  console.log("filenames", fileNames);
   if (fileNames && fileNames.length) {
     const allProgData = fileNames
       .filter((it) => it.endsWith(".mdx"))
@@ -66,10 +62,8 @@ export function fetchPrivacy(): any {
         const matterData = {
           content: matterResult.content,
         };
-        console.log("matterData", matterData);
         return matterData;
       });
-    console.log(allProgData[0]);
     return allProgData[0];
   } else {
     return {};

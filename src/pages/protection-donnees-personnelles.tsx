@@ -16,7 +16,6 @@ export default function Index({ mdxSource }: any) {
   const title = "PROTECTION DES DONNÉES PERSONNELLES";
 
   const content = hydrate(mdxSource, { components });
-  console.log("content", content);
 
   return (
     <div>

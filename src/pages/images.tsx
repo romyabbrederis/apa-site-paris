@@ -40,10 +40,7 @@ export async function getStaticProps(context) {
       posts = instagram["user"]["edge_owner_to_timeline_media"]["edges"];
     }
   } catch (err) {
-    console.log(
-      "Something went wrong while fetching content from Instagram",
-      err
-    );
+    "Something went wrong while fetching content from Instagram", err;
   }
 
   return {

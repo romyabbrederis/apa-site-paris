@@ -11,7 +11,6 @@ type Props = {
 };
 
 export default function ProgrammeSelected({ programme }: Props): any {
-  console.log("programme", programme);
   const router = useRouter();
 
   return programme ? (

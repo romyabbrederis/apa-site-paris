@@ -16,7 +16,6 @@ export default function Index({ data, language }: Props) {
   const url = "/contact";
   const title = data.title;
 
-  console.log("data", data);
   return (
     <div>
       <BasicMeta

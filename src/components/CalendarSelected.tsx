@@ -30,10 +30,7 @@ const CalendarSelected = ({ event }: Props): any => {
 
   useEffect(() => {
     if (showMore) {
-      console.log("show", showMore);
       const result = findMap(showMore);
-      console.log("result", result);
-
       const map = extractLink(result.maps);
       setGalMap(map);
     }

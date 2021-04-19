@@ -44,7 +44,6 @@ export function fetchArticlesContent(locale: string): any {
   }
 
   const fileNames = fs.readdirSync(directory);
-  console.log("filenames", fileNames);
 
   if (fileNames && fileNames.length) {
     const allProgData = fileNames
@@ -60,7 +59,6 @@ export function fetchArticlesContent(locale: string): any {
         });
 
         const matterData = matterResult.data;
-        console.log("matterData", matterData);
         return matterData;
       });
 
@@ -101,7 +99,6 @@ export function fetchArticleContent(slug: string, locale: string): any {
               yaml.safeLoad(s, { schema: yaml.JSON_SCHEMA }) as object,
           },
         });
-        console.log("matterResult", matterResult.content);
 
         const matterData = {
           slug: matterResult.data.slug,
@@ -144,7 +141,6 @@ export function fetchArticleContent(slug: string, locale: string): any {
           data = matterData;
         }
       });
-    console.log(findArticle);
     return data;
   } else {
     return {};

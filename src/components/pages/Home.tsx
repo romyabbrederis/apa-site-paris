@@ -27,8 +27,6 @@ const Home = ({ data, programmes }) => {
     });
   }, []);
 
-  console.log("data");
-
   return (
     <div className={"container"}>
       <Link href={tllink}>

@@ -29,8 +29,6 @@ export default function Index({
 
   const description =
     "L’association Pour l’art pour l’Afrique vous propose de découvrir l’art contemporain d’Afrique à Paris et en Île-de-France du 6 au 29 mai 2021.";
-
-  console.log("data", data, programmes, language);
   return (
     <div>
       <BasicMeta

@@ -14,7 +14,6 @@ type Props = {
 };
 
 export default function Article({ article, content }: Props): any {
-  console.log("article", article);
   const [mobileDevice, setMobilDevice] = useState<boolean>();
 
   useEffect(() => {

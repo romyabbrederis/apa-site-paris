@@ -48,8 +48,6 @@ export default function ProgrammesList({ programmes }: Props): any {
     setType(value);
   };
 
-  console.log("data", data);
-
   return (
     <div className={"layout-container"} style={{ backgroundColor: "#E5E5E5" }}>
       <div className={"inner-container"}>

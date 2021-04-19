@@ -21,8 +21,6 @@ export default function Index({ data, mdxSource, language }: Props) {
   const url = "/a-propos";
   const title = data.title;
 
-  console.log("data", data);
-
   const content = hydrate(mdxSource, { components });
 
   return (

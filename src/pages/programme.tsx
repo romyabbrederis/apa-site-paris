@@ -21,7 +21,6 @@ export default function Index({ events, language }: any) {
   const url = "/programme";
   const title = "Programme";
 
-  console.log("events", events);
   return (
     <div>
       <BasicMeta

@@ -8,8 +8,6 @@ import { fetchProgrammesContent } from "../lib/programmes";
 
 export default function Index({ articles, programmes }: any) {
   const [copy, setCopy] = useState();
-
-  console.log("galleries", galleries.galleries, articles, programmes);
   return (
     <div className={"layout-container"}>
       <Head>

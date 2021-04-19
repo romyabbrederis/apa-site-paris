@@ -28,7 +28,6 @@ export default function Index({ galerie, language, params }: Props) {
   const url = "/galerie/" + path;
   const title = galerie.title;
 
-  console.log("galerie", galerie);
   return (
     <div>
       <BasicMeta url={url} title={title} />

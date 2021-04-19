@@ -25,7 +25,6 @@ export default function Index({ programme, language, params }: Props) {
   const url = "/artistes/" + path;
   const title = programme.title;
 
-  console.log("programme", programme);
   return (
     <div>
       <BasicMeta url={url} title={title} description={programme.intro} />

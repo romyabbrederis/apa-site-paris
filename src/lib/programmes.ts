@@ -142,7 +142,6 @@ export function fetchProgrammeContent(slug: string, locale: string): any {
           data = matterData;
         }
       });
-    console.log("data", data);
     return data;
   } else {
     return {};
