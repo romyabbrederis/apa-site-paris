@@ -483,10 +483,10 @@ collections:
               - label: "partner"
                 name: "partner"
                 widget: "image"
-                media_library:
-                config:
-                  max_file_size: 100000
                 hint: "Max 100KB | Logos du partenaire ex. Ile de France"
+                media_library:
+                  config:
+                    max_file_size: 100000
       - name: "aboutEN"
         label: "About EN"
         file: "src/content/about/about_en.json"
@@ -520,10 +520,10 @@ collections:
               - label: "partner"
                 name: "partner"
                 widget: "image"
-                media_library:
-                config:
-                  max_file_size: 100000
                 hint: "Max 100KB | Logo of partner ex. Ile de France"
+                media_library:
+                  config:
+                    max_file_size: 100000
 
   - name: "contact"
     label: "Contact"
