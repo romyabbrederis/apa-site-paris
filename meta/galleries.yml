@@ -137,8 +137,8 @@ galleries:
     email: polaris@galeriepolaris.fr
   - street: 44, rue Quincampoix
     city: 75004 Paris
-    name: Galerie Semiose
-    slug: galerie-semiose
+    name: Semiose
+    slug: semiose
     phone: (+33) 9 79 26 16 38
     country: France
     maps: <iframe
