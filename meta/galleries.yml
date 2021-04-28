@@ -147,3 +147,22 @@ galleries:
       loading="lazy"></iframe>
     website: https://semiose.com/home/
     email: info@semiose.com
+  - street: "22, rue Pierre et Marie Curie "
+    city: 94200 Ivry-sur-Seine
+    name: e/lAboRaTory aux Ateliers Babiole - Le Village
+    slug: e-laboratory-ateliers-babiole
+    addressAdd: ""
+    phone: +33 (0)6 15 02 15  68
+    country: France
+    maps: "-"
+    website: https://www.elaboratory.space/
+    email: elaboratory.laboratory@gmail.com
+  - street: 91, rue de l'université
+    city: 75007 Paris
+    name: Galerie Odile Texier
+    slug: galerie-odile-texier
+    phone: +33 (0)6 22 53 70 22
+    country: France
+    maps: "-"
+    website: http://www.odiletexier.com/
+    email: galerie@odiletexier.com
