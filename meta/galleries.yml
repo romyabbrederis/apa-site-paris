@@ -166,3 +166,15 @@ galleries:
     maps: "-"
     website: http://www.odiletexier.com/
     email: galerie@odiletexier.com
+  - street: 24, rue Béranger
+    city: 75003 Paris
+    name: 193 Gallery
+    slug: 193-gallery
+    phone: +33 (0)6 03 70 78 26
+    country: France
+    maps: <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10498.223128840105!2d2.3635391!3d48.8666806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x93feba667e42af5e!2s193%20Gallery!5e0!3m2!1sfr!2sfr!4v1620215397561!5m2!1sfr!2sfr"
+      width="600" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
+    website: https://www.193gallery.com/
+    email: office@193gallery.com
