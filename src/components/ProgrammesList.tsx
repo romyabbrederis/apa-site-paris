@@ -176,7 +176,8 @@ export default function ProgrammesList({ programmes }: Props): any {
             }
 
             .programme-box:hover {
-              transform: skewX(-11deg);
+              background: white;
+              color: black;
               transition-duration: 1s;
             }
 

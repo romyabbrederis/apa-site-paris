@@ -401,28 +401,9 @@ const Home = ({ data, programmes }) => {
             animation: slide-in-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
               0.2s both;
             background-image: url(${tlimage});
-            background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0) 25%,
-                rgba(0, 0, 0, 0.45702030812324934) 60%,
-                rgba(0, 0, 0, 0.7973564425770308) 100%
-              ),
-              url(${tlimage});
+
             background-size: cover;
             min-height: 30vh;
-          }
-
-          .left-top:hover {
-            background-image: url(${tlimage});
-            background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0) 25%,
-                rgba(0, 0, 0, 0.45702030812324934) 90%,
-                rgba(0, 0, 0, 0.7973564425770308) 100%
-              ),
-              url(${tlimage});
-            background-size: repeat;
-            transition-duration: 0.3s;
           }
 
           .right-top {
@@ -451,24 +432,10 @@ const Home = ({ data, programmes }) => {
             position: relative;
             background-color: #f2f2f2;
             width: 100%;
-
             -webkit-animation: slide-in-left 0.7s
               cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
             animation: slide-in-left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)
               0.4s both;
-          }
-
-          .left-top:hover {
-            background-image: url(${tlimage});
-            background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0) 25%,
-                rgba(0, 0, 0, 0.45702030812324934) 90%,
-                rgba(0, 0, 0, 0.7973564425770308) 100%
-              ),
-              url(${tlimage});
-            background-size: repeat;
-            transition-duration: 0.3s;
           }
 
           .right-bottom {
@@ -481,28 +448,8 @@ const Home = ({ data, programmes }) => {
               0.5s both;
             background: rgb(255, 255, 255);
             background-image: url(${brimage});
-            background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0) 25%,
-                rgba(0, 0, 0, 0.45702030812324934) 60%,
-                rgba(0, 0, 0, 0.7973564425770308) 100%
-              ),
-              url(${brimage});
             background-size: cover;
             min-height: 30vh;
-          }
-
-          .right-bottom:hover {
-            background-image: url(${brimage});
-            background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0) 25%,
-                rgba(0, 0, 0, 0.45702030812324934) 90%,
-                rgba(0, 0, 0, 0.7973564425770308) 100%
-              ),
-              url(${brimage});
-            background-size: repeat;
-            transition-duration: 0.3s;
           }
 
           .image {
