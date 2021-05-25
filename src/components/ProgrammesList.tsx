@@ -176,8 +176,7 @@ export default function ProgrammesList({ programmes }: Props): any {
             }
 
             .programme-box:hover {
-              background: white;
-              color: black;
+              color: #ffd506;
               transition-duration: 1s;
             }
 
