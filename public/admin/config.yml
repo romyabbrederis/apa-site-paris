@@ -243,6 +243,7 @@ collections:
             "Conférence",
             "Talk",
             "Autre",
+            "Musée",
           ]
       - label: "Programme PDF"
         name: "file"
