@@ -60,7 +60,8 @@ export const extractLink = (map) => {
 
 export function findMap(gallery: any): any {
   const preMap = galleries.galleries.find((item) => item.slug === gallery);
-  return preMap;
+  console.log(preMap);
+  return preMap ? preMap : undefined;
 }
 
 export function getSlug(gallery: any): any {
