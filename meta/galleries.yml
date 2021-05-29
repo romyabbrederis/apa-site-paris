@@ -193,3 +193,22 @@ galleries:
       width="600" height="450" style="border:0;" allowfullscreen=""
       loading="lazy"></iframe>
     website: https://www.mam.paris.fr/
+  - slug: musee-quai-branly-jacques-chirac
+    name: Musée du Quai Branly - Jacques Chirac
+    street: 37, Quai Branly
+    city: 75007 Paris
+    country: France
+    phone: 01 56 61 70 00
+    website: https://www.quaibranly.fr/fr/
+    maps: <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10499.438130046314!2d2.297894!3d48.8608889!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb7949d5df6b04424!2sMus%C3%A9e%20du%20quai%20Branly%20-%20Jacques%20Chirac!5e0!3m2!1sfr!2sfr!4v1622278453146!5m2!1sfr!2sfr"
+      width="600" height="450" style="border:0;" allowfullscreen=""
+      loading="lazy"></iframe>
+  - slug: musee-histoire-immigration-palais-porte-doree
+    name: Musée de l'histoire de l'immigration - Palais de la Porte Dorée
+    street: 293, avenue Daumesnil
+    city: 75012 Paris
+    country: France
+    phone: 01 53 59 58 60
+    website: https://www.histoire-immigration.fr/
+    maps: https://goo.gl/maps/SMKojkxiPbV2qwEP9
