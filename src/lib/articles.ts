@@ -15,7 +15,7 @@ export type ArticleContent = {
   readonly order: string;
   readonly image: string;
   readonly imageCredit: string;
-  readonly galleries: Array;
+  readonly galleries: any;
   readonly content: string;
   readonly programme: string;
 };
