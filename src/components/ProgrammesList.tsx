@@ -54,12 +54,12 @@ export default function ProgrammesList({ programmes }: Props): any {
         <TimeButton changeType={changeType} type={type} />
         <div className={"programmes"}>
           {data && data.length ? (
-            <div className={"programmes-list"}>
+            <ul className={"programmes-list"}>
               {data.map((item, i) => (
-                <div key={item.slug} className={"programme-box"}>
+                <li key={item.slug} className={"programme-box"}>
                   {mobileDevice ? (
                     <Link href={"/calendrier/" + item.slug}>
-                      <div className={"programme-title-container"}>
+                      <section className={"programme-title-container"}>
                         <p className={"category"}>{item.category}</p>
                         <h4>
                           {item.month} {item.year}
@@ -72,11 +72,11 @@ export default function ProgrammesList({ programmes }: Props): any {
                           alt="icon"
                           src="/icons/down.png"
                         />
-                      </div>
+                      </section>
                     </Link>
                   ) : (
                     <Link href={"/calendrier/" + item.slug}>
-                      <div className={"programme-title-container"}>
+                      <section className={"programme-title-container"}>
                         <div className={"month-date"}>
                           <h3 className={"date-space"}>
                             {item.month} {item.year}
@@ -88,15 +88,21 @@ export default function ProgrammesList({ programmes }: Props): any {
                         </div>
                         <p>{item.intro}</p>
                         <img src="/icons/down.png" className={"down-icon"} />
-                      </div>
+                      </section>
                     </Link>
                   )}
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           ) : null}
         </div>
         <style jsx>{`
+          ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+          }
+
           .category {
             font-style: italic;
             margin: 0;

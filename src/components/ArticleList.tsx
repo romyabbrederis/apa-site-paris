@@ -17,10 +17,10 @@ export default function ArticlesList({ articles }: Props): any {
       style={{ backgroundColor: COLOR_YELLOW }}
     >
       <div className={"inner-container"}>
-        <div className={"articles-list"}>
+        <ul className={"articles-list"}>
           {articles.map((item, i) => (
             <Link key={item.slug} href={"/artistes/" + item.slug}>
-              <div key={i} className={"article"}>
+              <li key={i} className={"article"}>
                 <img
                   src={item.image}
                   alt={item.title}
@@ -33,10 +33,10 @@ export default function ArticlesList({ articles }: Props): any {
                     {item.intro.replace(/(([^\s]+\s+){20}).+/, "$1...")}
                   </p>
                 </div>
-              </div>
+              </li>
             </Link>
           ))}
-        </div>
+        </ul>
       </div>
       <style jsx>{`
         @media (max-width: 769px) {

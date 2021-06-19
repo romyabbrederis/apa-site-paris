@@ -57,7 +57,7 @@ export default function Article({ article, content }: Props): any {
   return article && article.title ? (
     <div className={"layout-container"}>
       <div className={"inner-container"}>
-        <div className={"article"}>
+        <article className={"article"}>
           <div />
           <div>
             <div className={"article-title-image"}>
@@ -104,7 +104,7 @@ export default function Article({ article, content }: Props): any {
             </div>
           </div>
           <div />
-        </div>
+        </article>
       </div>
       <style jsx>{`
         .link-artist {

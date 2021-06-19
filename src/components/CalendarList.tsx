@@ -46,7 +46,7 @@ export default function CalendarsList({ events }: Props): any {
         <div className={"events"}>
           {data.map((item, i) => (
             <Link key={i + item.slug} href={"/programme/" + item.slug}>
-              <div className={"events-list"}>
+              <section className={"events-list"}>
                 <p>{item.category}</p>
                 <h3 key={i}>
                   {item.month} {item.year}
@@ -55,7 +55,7 @@ export default function CalendarsList({ events }: Props): any {
                   {item.title}
                 </h3>
                 <img src="/icons/add.png" alt="icon" className={"down-icon"} />
-              </div>
+              </section>
             </Link>
           ))}
         </div>

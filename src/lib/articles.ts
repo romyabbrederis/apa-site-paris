@@ -11,15 +11,12 @@ export type ArticleContent = {
   readonly slug: string;
   readonly title: string;
   readonly intro: string;
-  readonly date: string;
+  readonly year: string;
   readonly order: string;
   readonly image: string;
   readonly imageCredit: string;
+  readonly galleries: Array;
   readonly content: string;
-  // readonly Images: any;
-  readonly artistLink: string;
-  readonly artistLinkName: string;
-  readonly galleries: any;
   readonly programme: string;
 };
 

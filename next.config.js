@@ -30,6 +30,9 @@ module.exports = withMdxEnhanced({
         },
       ]
     );
+    if (isServer) {
+      require("./sitemap-generator");
+    }
     return config;
   },
 });

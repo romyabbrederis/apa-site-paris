@@ -31,23 +31,27 @@ export default function Index({
     "L’association Pour l’art pour l’Afrique vous propose de découvrir l’art contemporain d’Afrique à Paris et en Île-de-France du 6 au 29 mai 2021.";
   return (
     <div>
-      <BasicMeta
-        url={url}
-        title={title}
-        description={meta.home_description_fr}
-      />
-      <OpenGraphMeta
-        url={url}
-        title={title}
-        description={meta.home_description_fr}
-      />
-      <TwitterCardMeta
-        url={url}
-        title={title}
-        description={meta.home_description_fr}
-      />
-      <Home data={data} programmes={programmes} />
-      <Newsletter mailchimp={mailchimp} />
+      <header>
+        <BasicMeta
+          url={url}
+          title={title}
+          description={meta.home_description_fr}
+        />
+        <OpenGraphMeta
+          url={url}
+          title={title}
+          description={meta.home_description_fr}
+        />
+        <TwitterCardMeta
+          url={url}
+          title={title}
+          description={meta.home_description_fr}
+        />
+      </header>
+      <main>
+        <Home data={data} programmes={programmes} />
+        <Newsletter mailchimp={mailchimp} />
+      </main>
     </div>
   );
 }

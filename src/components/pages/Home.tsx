@@ -30,14 +30,15 @@ const Home = ({ data, programmes }) => {
   return (
     <div className={"container"}>
       <Link href={tllink}>
-        <div className={"left-top"}>
+        <section className={"left-top"}>
           <div className={"title"}>
             <h1>{tltitle}</h1>
           </div>
-        </div>
+        </section>
       </Link>
+
       <Link href={bllink}>
-        <div className={"right-top"}>
+        <section className={"right-top"}>
           <div className={"rt-name"}>
             <h1> {bltitle}</h1>
             <p>
@@ -50,39 +51,46 @@ const Home = ({ data, programmes }) => {
                 : bltext}
             </p>
           </div>
-        </div>
+        </section>
       </Link>
 
       <div className={"left-bottom"}>
-        {programmes && !mobileDevice
-          ? programmes.map((item) => (
-              <div key={item.title} className={"programme-container"}>
-                <div className={"programme-top"}>
-                  <div>
-                    <h4>
-                      {item.month} {item.year}
-                    </h4>
+        <ul>
+          {programmes && !mobileDevice
+            ? programmes.map((item) => (
+                <li key={item.title} className={"programme-container"}>
+                  <div className={"programme-top"}>
+                    <div>
+                      <h4>
+                        {item.month} {item.year}
+                      </h4>
+                    </div>
+                    <h3>{item.title}</h3>
                   </div>
-                  <h3>{item.title}</h3>
-                </div>
-              </div>
-            ))
-          : null}
-
+                </li>
+              ))
+            : null}
+        </ul>
         <Link href={"/programme"}>
           <div className={"button"}>Voir les programmes</div>
         </Link>
       </div>
 
       <Link href={brlink}>
-        <div className={"right-bottom"}>
+        <section className={"right-bottom"}>
           <div className={"title"}>
             <h1> {brtitle}</h1>
           </div>
-        </div>
+        </section>
       </Link>
 
       <style jsx>{`
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+
         @keyframes slide-in-top {
           0% {
             -webkit-transform: translateY(-1000px);

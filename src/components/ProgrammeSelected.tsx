@@ -41,54 +41,56 @@ export default function ProgrammeSelected({ programme }: Props): any {
             <p>Type: {programme.category}</p>
           ) : null} */}
           <hr />
-          {programme.galleries
-            ? programme.galleries
-                .sort((a, b) => a.start - b.start)
-                .map((item, index) => (
-                  <div className={"gallery-dates"}>
-                    <Link
-                      key={item.slug}
-                      href={"/calendrier/" + programme.slug}
-                    >
-                      <h5 key={index}>{item.date}</h5>
-                    </Link>
-                    <div key={index}>
+          <ul>
+            {programme.galleries
+              ? programme.galleries
+                  .sort((a, b) => a.start - b.start)
+                  .map((item, index) => (
+                    <li className={"gallery-dates"}>
                       <Link
                         key={item.slug}
                         href={"/calendrier/" + programme.slug}
                       >
-                        <h5>
-                          {item.galleries}{" "}
-                          <img
-                            className={"link-icon"}
-                            src={"/icons/external-link.png"}
-                          />{" "}
-                        </h5>
+                        <h5 key={index}>{item.date}</h5>
                       </Link>
-                      {item.artist && !item.articleRelation ? (
-                        <a>
-                          <p>{item.artist}</p>
-                        </a>
-                      ) : null}
-
-                      {item.artist && item.articleRelation ? (
-                        <Link href={"/artistes/" + item.articleRelation}>
-                          <a className={"artist-exists"}>
-                            <p>
-                              {item.artist}{" "}
-                              <img
-                                src={"/icons/external-link.png"}
-                                className={"link-icon"}
-                              />{" "}
-                            </p>
-                          </a>
+                      <div key={index}>
+                        <Link
+                          key={item.slug}
+                          href={"/calendrier/" + programme.slug}
+                        >
+                          <h5>
+                            {item.galleries}{" "}
+                            <img
+                              className={"link-icon"}
+                              src={"/icons/external-link.png"}
+                            />{" "}
+                          </h5>
                         </Link>
-                      ) : null}
-                    </div>
-                    <hr />
-                  </div>
-                ))
-            : null}
+                        {item.artist && !item.articleRelation ? (
+                          <a>
+                            <p>{item.artist}</p>
+                          </a>
+                        ) : null}
+
+                        {item.artist && item.articleRelation ? (
+                          <Link href={"/artistes/" + item.articleRelation}>
+                            <a className={"artist-exists"}>
+                              <p>
+                                {item.artist}{" "}
+                                <img
+                                  src={"/icons/external-link.png"}
+                                  className={"link-icon"}
+                                />{" "}
+                              </p>
+                            </a>
+                          </Link>
+                        ) : null}
+                      </div>
+                      <hr />
+                    </li>
+                  ))
+              : null}
+          </ul>
 
           <style jsx>{`
             .category {

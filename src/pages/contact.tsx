@@ -18,22 +18,26 @@ export default function Index({ data, language }: Props) {
 
   return (
     <div>
-      <BasicMeta
-        url={url}
-        title={title}
-        description={meta.contact_description_fr}
-      />
-      <OpenGraphMeta
-        url={url}
-        title={title}
-        description={meta.contact_description_fr}
-      />
-      <TwitterCardMeta
-        url={url}
-        title={title}
-        description={meta.contact_description_fr}
-      />
-      <Contact data={data} />
+      <header>
+        <BasicMeta
+          url={url}
+          title={title}
+          description={meta.contact_description_fr}
+        />
+        <OpenGraphMeta
+          url={url}
+          title={title}
+          description={meta.contact_description_fr}
+        />
+        <TwitterCardMeta
+          url={url}
+          title={title}
+          description={meta.contact_description_fr}
+        />
+      </header>
+      <main>
+        <Contact data={data} />
+      </main>
     </div>
   );
 }

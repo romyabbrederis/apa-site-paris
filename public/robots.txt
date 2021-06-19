@@ -1,2 +1,4 @@
-User-agent: *
-Disallow: /interne/
+User-agent : *
+Allow: /*
+Disallow: /404/
+Sitemap: https://pourlartpourlafrique.fr/sitemap.xml

@@ -73,139 +73,151 @@ const CalendarSelected = ({ event }: Props): any => {
               <p>Artist</p>
             </div>
           </div>
-          {galleries
-            ? galleries.map((item, i) => (
-                <div
-                  key={item.galerySlug}
-                  className={
-                    item.galerySlug === showMore ? "frame-selected" : "frame"
-                  }
-                >
-                  {item.galerySlug === showMore ? (
-                    <img
-                      src={`/icons/down-arrow.png`}
-                      className={"down-arrow-open"}
-                      onClick={() =>
-                        setShowMore(
-                          item.galerySlug !== showMore ? item.galerySlug : ""
-                        )
-                      }
-                    />
-                  ) : (
-                    <img
-                      className={"down-arrow-close"}
-                      src={`/icons/down-arrow-white.png`}
-                      onClick={() =>
-                        setShowMore(
-                          item.galerySlug !== showMore ? item.galerySlug : ""
-                        )
-                      }
-                    />
-                  )}
+          <ul>
+            {galleries
+              ? galleries.map((item, i) => (
+                  <li
+                    key={item.galerySlug}
+                    className={
+                      item.galerySlug === showMore ? "frame-selected" : "frame"
+                    }
+                  >
+                    {item.galerySlug === showMore ? (
+                      <img
+                        src={`/icons/down-arrow.png`}
+                        className={"down-arrow-open"}
+                        onClick={() =>
+                          setShowMore(
+                            item.galerySlug !== showMore ? item.galerySlug : ""
+                          )
+                        }
+                      />
+                    ) : (
+                      <img
+                        className={"down-arrow-close"}
+                        src={`/icons/down-arrow-white.png`}
+                        onClick={() =>
+                          setShowMore(
+                            item.galerySlug !== showMore ? item.galerySlug : ""
+                          )
+                        }
+                      />
+                    )}
 
-                  <div className={"date-name-container"}>
-                    <h4
-                      className={"date"}
-                      onClick={() =>
-                        setShowMore(
-                          item.galerySlug !== showMore ? item.galerySlug : ""
-                        )
-                      }
-                    >
-                      {item.date}
-                    </h4>
-                    <h4
-                      className={"gallery-name"}
-                      onClick={() =>
-                        setShowMore(
-                          item.galerySlug !== showMore ? item.galerySlug : ""
-                        )
-                      }
-                    >
-                      {item.galleries}
-                    </h4>
-                    <h4
-                      className={"artist"}
-                      onClick={() =>
-                        setShowMore(
-                          item.galerySlug !== showMore ? item.galerySlug : ""
-                        )
-                      }
-                    >
-                      {item.artist && item.artist}
-                    </h4>
-                  </div>
-                  {item.galerySlug === showMore &&
-                  getGallery(item.galerySlug) ? (
-                    <div>
-                      <hr />
-                      {item.artist && <h4>{item.artist}</h4>}
-                      {item.text && <p>Description: {item.text}</p>}
-                      <hr />
-                      <div className={"gallery-info"}>
-                        <p>
-                          {getGallery(item.galerySlug).street &&
-                            getGallery(item.galerySlug).street}
-                        </p>
-                        <p>
-                          {getGallery(item.galerySlug).city &&
-                            getGallery(item.galerySlug).city}
-                        </p>
-                        <p>
-                          {getGallery(item.galerySlug).country &&
-                            getGallery(item.galerySlug).country}
-                        </p>
-                        {getGallery(item.galerySlug).phone && (
-                          <a href={`tel:${getGallery(item.galerySlug).phone}`}>
-                            <p>{getGallery(item.galerySlug).phone}</p>
-                          </a>
-                        )}
-                        <p></p>
-                        {getGallery(item.galerySlug) &&
-                          getGallery(item.galerySlug).email && (
+                    <div className={"date-name-container"}>
+                      <h4
+                        className={"date"}
+                        onClick={() =>
+                          setShowMore(
+                            item.galerySlug !== showMore ? item.galerySlug : ""
+                          )
+                        }
+                      >
+                        {item.date}
+                      </h4>
+                      <h4
+                        className={"gallery-name"}
+                        onClick={() =>
+                          setShowMore(
+                            item.galerySlug !== showMore ? item.galerySlug : ""
+                          )
+                        }
+                      >
+                        {item.galleries}
+                      </h4>
+                      <h4
+                        className={"artist"}
+                        onClick={() =>
+                          setShowMore(
+                            item.galerySlug !== showMore ? item.galerySlug : ""
+                          )
+                        }
+                      >
+                        {item.artist && item.artist}
+                      </h4>
+                    </div>
+                    {item.galerySlug === showMore &&
+                    getGallery(item.galerySlug) ? (
+                      <div>
+                        <hr />
+                        {item.artist && <h4>{item.artist}</h4>}
+                        {item.text && <p>Description: {item.text}</p>}
+                        <hr />
+                        <div className={"gallery-info"}>
+                          <p>
+                            {getGallery(item.galerySlug).street &&
+                              getGallery(item.galerySlug).street}
+                          </p>
+                          <p>
+                            {getGallery(item.galerySlug).city &&
+                              getGallery(item.galerySlug).city}
+                          </p>
+                          <p>
+                            {getGallery(item.galerySlug).country &&
+                              getGallery(item.galerySlug).country}
+                          </p>
+                          {getGallery(item.galerySlug).phone && (
                             <a
-                              href={`tel:${getGallery(item.galerySlug).email}`}
+                              href={`tel:${getGallery(item.galerySlug).phone}`}
                             >
-                              <p>{getGallery(item.galerySlug).email} </p>
+                              <p>{getGallery(item.galerySlug).phone}</p>
                             </a>
                           )}
+                          <p></p>
+                          {getGallery(item.galerySlug) &&
+                            getGallery(item.galerySlug).email && (
+                              <a
+                                href={`tel:${
+                                  getGallery(item.galerySlug).email
+                                }`}
+                              >
+                                <p>{getGallery(item.galerySlug).email} </p>
+                              </a>
+                            )}
+                        </div>
+                        {getGallery(item.galerySlug).website && (
+                          <ActionButton
+                            title={"SITE WEB"}
+                            url={getGallery(item.galerySlug).website}
+                            type={"external"}
+                          />
+                        )}
+
+                        {item.article ? (
+                          <ActionButton
+                            title={"article"}
+                            url={getLocale() + item.article}
+                            type={"link"}
+                          />
+                        ) : null}
+
+                        {galMap ? (
+                          <iframe
+                            src={galMap}
+                            width="100%"
+                            height="300"
+                            style={{
+                              border: "none",
+                              filter: "greyscale(100%)",
+                              marginTop: "30px",
+                            }}
+                          ></iframe>
+                        ) : null}
                       </div>
-                      {getGallery(item.galerySlug).website && (
-                        <ActionButton
-                          title={"SITE WEB"}
-                          url={getGallery(item.galerySlug).website}
-                          type={"external"}
-                        />
-                      )}
-
-                      {item.article ? (
-                        <ActionButton
-                          title={"article"}
-                          url={getLocale() + item.article}
-                          type={"link"}
-                        />
-                      ) : null}
-
-                      {galMap ? (
-                        <iframe
-                          src={galMap}
-                          width="100%"
-                          height="300"
-                          style={{
-                            border: "none",
-                            filter: "greyscale(100%)",
-                            marginTop: "30px",
-                          }}
-                        ></iframe>
-                      ) : null}
-                    </div>
-                  ) : null}
-                </div>
-              ))
-            : null}
+                    ) : null}
+                  </li>
+                ))
+              : null}
+          </ul>
         </div>
 
         <style jsx>{`
+          ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+          }
+
           .category {
             font-style: italic;
             text-align: left;
