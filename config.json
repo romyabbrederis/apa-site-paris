@@ -1,16 +1,19 @@
 {
   "base_url": "https://pourlartpourlafrique.fr",
-  "site_title": "Pour l'Art pour l'Afrique",
-  "site_description": "Pour l'Art pour l'Afrique",
+  "site_title": "Pour l'Art pour l'Afrique | Art africain Paris",
+  "site_description": "Pour l'Art pour l'Afrique | Art africain Paris",
   "site_keywords": [
     {
-      "keyword": "Pour l'art pour l'Afrique, "
+      "keyword": "Pour l'art pour l'Afrique "
     },
     {
       "keyword": "Gallery Paris "
     },
     {
       "keyword": "Paris "
+    },
+    {
+      "keyword": "Art africain Paris "
     }
   ],
   "twitter_account": "",

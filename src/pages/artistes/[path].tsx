@@ -35,7 +35,10 @@ export default function Index({
   const router = useRouter();
   const { path } = router.query;
   const url = "/artistes/" + path;
-  const title = article.title;
+  const gallerie = article.galleries.length
+    ? " | " + article.galleries[0].galleries
+    : "";
+  const title = article.title + gallerie;
 
   const content = hydrate(mdxSource, { components });
 
